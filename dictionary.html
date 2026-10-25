@@ -51,13 +51,13 @@ a { color: #6a1b9a; }
 <p><a href="index.html">← Back to My first App / Kalkulyatorga qaytish</a></p>
 <p class="note" id="note"></p>
 <div class="practice">
-<b>🎤 AI Voice Practice — Speak, and the AI will talk back and correct you</b>
-<p style="margin:8px 0;">Help: <select id="helpMode"><option value="pronounce">Pronunciation help</option><option value="translate">Translation help</option><option value="chat">Conversation practice</option></select>
-Word to practise: <select id="practiceWord"></select></p>
-<button type="button" onclick="listenWord()">🔊 Listen to AI</button>
+<b>🎤 AI Conversation — Talk to the AI, it will talk back and correct you</b>
+<p style="margin:8px 0;">No word to pick — just have a regular conversation in English. The AI listens, replies out loud, and corrects mistakes while you talk.</p>
+<button type="button" onclick="startConversation()">▶ Start conversation with AI</button>
 <button type="button" onclick="startSpeaking()">🎤 Speak now</button>
-<p style="font-size:14px; color:#555;">Tap Speak, allow the microphone, and say the word in English. Works best in Chrome / Edge. The AI will listen, speak back, and correct mistakes while you talk.</p>
-<div id="transcript"></div>
+<p style="font-size:14px; color:#555;">Tap Speak, allow the microphone, and talk. If your browser does not support voice, type below and press Send — the AI will still reply out loud.</p>
+<div style="display:flex; gap:8px;"><input id="chatText" type="text" placeholder="Or type here in English..." style="flex:1;"><button type="button" onclick="sendText()">Send</button></div>
+<div id="chatLog" style="background:white; padding:12px; border-radius:10px; margin-top:10px; min-height:80px; text-align:left;"></div>
 <div id="aiFeedback">AI feedback will appear here.</div>
 </div>
 <input id="search" type="text" placeholder="Search: hello, salom, water, suv...">
@@ -91,8 +91,9 @@ function render() {
   list.innerHTML = filtered.map(w => `<div class="word"><div class="en">${w[0]} <button onclick="speakWord('${w[0].replace(/'/g, "\\'")}')" style="font-size:16px; padding:4px 8px;">🔊</button></div><div class="tr">${getTrans(w)}</div><div class="cat">${w[2]}</div></div>`).join('');
 }
 
+
 function speakWord(text) {
-  if (!('speechSynthesis' in window)) { alert('Speech is not supported in this browser.'); return; }
+  if (!('speechSynthesis' in window)) { document.getElementById('aiFeedback').textContent = 'Speech is not supported in this browser, but you can still read the AI reply below.'; return; }
   window.speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
   u.lang = 'en-US'; u.rate = 0.9;
@@ -110,50 +111,76 @@ function closestWord(text) {
   words.forEach(w=>{ const d=levenshtein(text.toLowerCase(), w[0].toLowerCase()); if(d<bestDist){bestDist=d; best=w;} });
   return {word:best, dist:bestDist};
 }
-function populatePractice() {
-  const sel=document.getElementById('practiceWord');
-  words.forEach(w=>{ const o=document.createElement('option'); o.value=w[0]; o.textContent=w[0]+' — '+w[1]; sel.appendChild(o); });
+function addChat(who, text) {
+  const log=document.getElementById('chatLog');
+  const div=document.createElement('div'); div.style.margin='6px 0'; div.textContent=who+': '+text; log.appendChild(div);
 }
-function listenWord() {
-  const sel=document.getElementById('practiceWord').value;
-  const w=words.find(x=>x[0]===sel);
-  const mode=document.getElementById('helpMode').value;
-  let msg=sel;
-  if (mode==='translate' && w) msg=sel+' means '+w[1];
-  if (mode==='chat') msg='Hello! Say '+sel+' after me. '+sel;
-  document.getElementById('aiFeedback').textContent='AI says: '+msg;
+function correctGrammar(text) {
+  let t=text;
+  const fixes=[
+    [/\\bi is\\b/i, 'I am'], [/\\bhe go\\b/i, 'he goes'], [/\\bshe go\\b/i, 'she goes'], [/\\bhe have\\b/i, 'he has'], [/\\bshe have\\b/i, 'she has'], [/\\bi has went\\b/i, 'I have gone'], [/\\bme is\\b/i, 'I am'], [/\\bthey is\\b/i, 'they are'], [/\\bwe is\\b/i, 'we are'], [/\\bi am go\\b/i, 'I am going'], [/\\bi like to go to school yesterday\\b/i, 'I went to school yesterday']
+  ];
+  let correction=null;
+  fixes.forEach(([re, rep])=>{ if(re.test(t)) { correction=t.replace(re, rep); } });
+  return correction;
+}
+function aiReply(heard) {
+  const low=heard.toLowerCase().trim();
+  const grammar=correctGrammar(heard);
+  if (grammar && grammar.toLowerCase()!==low) {
+    return 'Good try! A small correction: say "' + grammar + '" instead of "' + heard + '". Now say it after me: ' + grammar;
+  }
+  const single=low.replace(/[^a-z ]/g,'').trim();
+  if (single.split(' ').length===1) {
+    const exact=words.find(w=>w[0].toLowerCase()===single);
+    if (exact) return 'Great! ' + exact[0] + ' means ' + exact[1] + '. Say it again after me: ' + exact[0];
+    const close=closestWord(single);
+    if (close.word && close.dist<=2) return 'Almost! You said ' + heard + ', did you mean ' + close.word[0] + '? That means ' + close.word[1] + '. Say it after me: ' + close.word[0];
+  }
+  if (low.includes('hello') || low.includes('hi')) return 'Hello! Nice to meet you. How are you today?';
+  if (low.includes('how are you')) return "I am fine, thank you! And how are you? Tell me something about your day.";
+  if (low.includes('thank')) return "You are welcome! What else would you like to talk about?";
+  if (low.includes('goodbye') || low.includes('bye')) return 'Goodbye! Keep practising English every day. See you soon!';
+  if (low.includes('my name is')) return 'Nice to meet you! My name is Muse. What do you like to do?';
+  if (low.includes('i like')) return 'Nice! Tell me more. Why do you like that?';
+  if (low.includes('i am')) return 'Great sentence! Tell me more about yourself.';
+  return 'Interesting! You said: ' + heard + '. Can you tell me more about that in English? Try to use one new word from the dictionary.';
+}
+function handleHeard(heard) {
+  if (!heard || !heard.trim()) { const msg='Sorry, I did not hear you. Please speak again, a little louder and slower.'; document.getElementById('aiFeedback').textContent='AI: '+msg; addChat('AI', msg); speakAI(msg); return; }
+  addChat('You', heard);
+  const reply=aiReply(heard);
+  document.getElementById('aiFeedback').textContent='AI: '+reply;
+  addChat('AI', reply);
+  speakAI(reply);
+}
+function startConversation() {
+  const msg='Hello! I am your English practice partner. How are you today? Talk to me, and I will reply and correct your mistakes.';
+  addChat('AI', msg);
+  document.getElementById('aiFeedback').textContent='AI: '+msg;
   speakAI(msg);
+}
+function sendText() {
+  const el=document.getElementById('chatText');
+  const val=el.value.trim(); if(!val) return; el.value='';
+  handleHeard(val);
 }
 function startSpeaking() {
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  if (!SR) { document.getElementById('aiFeedback').textContent='Speech recognition is not supported in this browser. Please use Chrome or Edge.'; return; }
+  if (!SR) {
+    const msg='Voice recognition is not supported in this browser. Please type your message below and press Send — the AI will still reply out loud.';
+    document.getElementById('aiFeedback').textContent='AI: '+msg; addChat('AI', msg); speakAI(msg);
+    document.getElementById('chatText').focus(); return;
+  }
   const rec=new SR(); rec.lang='en-US'; rec.interimResults=false; rec.maxAlternatives=1;
-  document.getElementById('transcript').textContent='Listening... please speak now.';
-  rec.onresult=function(e){
-    const heard=e.results[0][0].transcript.trim();
-    document.getElementById('transcript').textContent='You said: '+heard;
-    const target=document.getElementById('practiceWord').value;
-    const w=words.find(x=>x[0]===target);
-    const mode=document.getElementById('helpMode').value;
-    let feedback='';
-    if (heard.toLowerCase()===target.toLowerCase()) {
-      feedback='Perfect! You said '+target+' correctly. '+(w? target+' means '+w[1]+'.' : '');
-    } else {
-      const close=closestWord(heard);
-      if (close.word && close.dist<=3) {
-        feedback='Almost! You said '+heard+', did you mean '+close.word[0]+'? The correct word is '+close.word[0]+', which means '+close.word[1]+'. Listen and try again: '+close.word[0];
-      } else {
-        feedback='I heard '+heard+'. Try the word '+target+'. Listen first, then say it: '+target;
-      }
-    }
-    if (mode==='chat' && heard.toLowerCase().includes('hello')) feedback='Hello! Nice to meet you. '+feedback;
-    document.getElementById('aiFeedback').textContent='AI: '+feedback;
-    speakAI(feedback);
-  };
-  rec.onerror=function(e){ document.getElementById('aiFeedback').textContent='Could not hear you clearly. Please try again. ('+e.error+')'; };
-  rec.start();
+  document.getElementById('aiFeedback').textContent='Listening... please speak now.';
+  rec.onresult=function(e){ const heard=e.results[0][0].transcript.trim(); handleHeard(heard); };
+  rec.onerror=function(e){ const msg='Sorry, I could not hear you clearly. Please try again, or type your message below.'; document.getElementById('aiFeedback').textContent='AI: '+msg; addChat('AI', msg); speakAI(msg); };
+  rec.onend=function(){ /* keep the last AI reply visible, do not go silent */ };
+  try { rec.start(); } catch(err) { const msg='Please try again, or type your message below.'; document.getElementById('aiFeedback').textContent='AI: '+msg; speakAI(msg); }
 }
-populatePractice();
+document.getElementById('chatText').addEventListener('keydown', function(e){ if(e.key==='Enter') sendText(); });
+
 document.getElementById('search').addEventListener('input', render);
 document.getElementById('lang').addEventListener('change', render);
 render();
