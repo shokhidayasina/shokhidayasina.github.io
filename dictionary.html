@@ -19,7 +19,7 @@ input, button { font-size: 18px; padding: 10px; box-sizing: border-box; }
 .en { font-size: 20px; font-weight: bold; color: #283593; }
 .tr { font-size: 18px; color: #00897b; }
 .cat { color: #666; font-size: 14px; }
-.note { color: #555; font-size: 14px; background: rgba(255,255,255,0.7); padding: 8px 12px; border-radius: 10px; }
+.practice { background: white; border-radius: 16px; padding: 16px; margin-bottom: 18px; box-shadow: 0 4px 14px rgba(0,0,0,0.08); border: 2px solid #7e57c2; } .practice select, .practice button { margin: 6px 4px 6px 0; border-radius: 10px; } .practice button { background: #5e35b1; color: white; border: none; cursor: pointer; } .practice button:hover { background: #4527a0; } #aiFeedback { background: #ede7f6; padding: 12px; border-radius: 10px; margin-top: 10px; min-height: 40px; } .note { color: #555; font-size: 14px; background: rgba(255,255,255,0.7); padding: 8px 12px; border-radius: 10px; }
 a { color: #6a1b9a; }
 .instructions { background: #fff9c4; border: 2px solid #fbc02d; border-radius: 14px; padding: 14px 16px; margin-bottom: 18px; box-shadow: 0 3px 10px rgba(0,0,0,0.06); } .instructions b { color: #4a148c; }
 </style>
@@ -50,6 +50,16 @@ a { color: #6a1b9a; }
 <p>For people who don't know English yet. Search in English or in your language.</p>
 <p><a href="index.html">← Back to My first App / Kalkulyatorga qaytish</a></p>
 <p class="note" id="note"></p>
+<div class="practice">
+<b>🎤 AI Voice Practice — Speak, and the AI will talk back and correct you</b>
+<p style="margin:8px 0;">Help: <select id="helpMode"><option value="pronounce">Pronunciation help</option><option value="translate">Translation help</option><option value="chat">Conversation practice</option></select>
+Word to practise: <select id="practiceWord"></select></p>
+<button type="button" onclick="listenWord()">🔊 Listen to AI</button>
+<button type="button" onclick="startSpeaking()">🎤 Speak now</button>
+<p style="font-size:14px; color:#555;">Tap Speak, allow the microphone, and say the word in English. Works best in Chrome / Edge. The AI will listen, speak back, and correct mistakes while you talk.</p>
+<div id="transcript"></div>
+<div id="aiFeedback">AI feedback will appear here.</div>
+</div>
 <input id="search" type="text" placeholder="Search: hello, salom, water, suv...">
 <div class="filters" id="filters"></div>
 <div id="list"></div>
@@ -78,8 +88,72 @@ function render() {
   }
   const filtered = visible.filter(w => (currentCat === "All" || w[2] === currentCat) && (w[0].toLowerCase().includes(q) || getTrans(w).toLowerCase().includes(q)));
   if (!filtered.length) { list.innerHTML = '<p>No word found.</p>'; return; }
-  list.innerHTML = filtered.map(w => `<div class="word"><div class="en">${w[0]}</div><div class="tr">${getTrans(w)}</div><div class="cat">${w[2]}</div></div>`).join('');
+  list.innerHTML = filtered.map(w => `<div class="word"><div class="en">${w[0]} <button onclick="speakWord('${w[0].replace(/'/g, "\\'")}')" style="font-size:16px; padding:4px 8px;">🔊</button></div><div class="tr">${getTrans(w)}</div><div class="cat">${w[2]}</div></div>`).join('');
 }
+
+function speakWord(text) {
+  if (!('speechSynthesis' in window)) { alert('Speech is not supported in this browser.'); return; }
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US'; u.rate = 0.9;
+  window.speechSynthesis.speak(u);
+}
+function speakAI(text) { speakWord(text); }
+function levenshtein(a,b) {
+  const m=a.length, n=b.length; const dp=Array.from({length:m+1},(_,i)=>[i]);
+  for(let j=1;j<=n;j++) dp[0][j]=j;
+  for(let i=1;i<=m;i++) for(let j=1;j<=n;j++) dp[i][j]=Math.min(dp[i-1][j]+1, dp[i][j-1]+1, dp[i-1][j-1]+(a[i-1]===b[j-1]?0:1));
+  return dp[m][n];
+}
+function closestWord(text) {
+  let best=null, bestDist=999;
+  words.forEach(w=>{ const d=levenshtein(text.toLowerCase(), w[0].toLowerCase()); if(d<bestDist){bestDist=d; best=w;} });
+  return {word:best, dist:bestDist};
+}
+function populatePractice() {
+  const sel=document.getElementById('practiceWord');
+  words.forEach(w=>{ const o=document.createElement('option'); o.value=w[0]; o.textContent=w[0]+' — '+w[1]; sel.appendChild(o); });
+}
+function listenWord() {
+  const sel=document.getElementById('practiceWord').value;
+  const w=words.find(x=>x[0]===sel);
+  const mode=document.getElementById('helpMode').value;
+  let msg=sel;
+  if (mode==='translate' && w) msg=sel+' means '+w[1];
+  if (mode==='chat') msg='Hello! Say '+sel+' after me. '+sel;
+  document.getElementById('aiFeedback').textContent='AI says: '+msg;
+  speakAI(msg);
+}
+function startSpeaking() {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) { document.getElementById('aiFeedback').textContent='Speech recognition is not supported in this browser. Please use Chrome or Edge.'; return; }
+  const rec=new SR(); rec.lang='en-US'; rec.interimResults=false; rec.maxAlternatives=1;
+  document.getElementById('transcript').textContent='Listening... please speak now.';
+  rec.onresult=function(e){
+    const heard=e.results[0][0].transcript.trim();
+    document.getElementById('transcript').textContent='You said: '+heard;
+    const target=document.getElementById('practiceWord').value;
+    const w=words.find(x=>x[0]===target);
+    const mode=document.getElementById('helpMode').value;
+    let feedback='';
+    if (heard.toLowerCase()===target.toLowerCase()) {
+      feedback='Perfect! You said '+target+' correctly. '+(w? target+' means '+w[1]+'.' : '');
+    } else {
+      const close=closestWord(heard);
+      if (close.word && close.dist<=3) {
+        feedback='Almost! You said '+heard+', did you mean '+close.word[0]+'? The correct word is '+close.word[0]+', which means '+close.word[1]+'. Listen and try again: '+close.word[0];
+      } else {
+        feedback='I heard '+heard+'. Try the word '+target+'. Listen first, then say it: '+target;
+      }
+    }
+    if (mode==='chat' && heard.toLowerCase().includes('hello')) feedback='Hello! Nice to meet you. '+feedback;
+    document.getElementById('aiFeedback').textContent='AI: '+feedback;
+    speakAI(feedback);
+  };
+  rec.onerror=function(e){ document.getElementById('aiFeedback').textContent='Could not hear you clearly. Please try again. ('+e.error+')'; };
+  rec.start();
+}
+populatePractice();
 document.getElementById('search').addEventListener('input', render);
 document.getElementById('lang').addEventListener('change', render);
 render();
