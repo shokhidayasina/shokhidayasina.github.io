@@ -8,7 +8,13 @@
 <style>
 :root{--cover-w:180px;--gold:#f5c542}
 *{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#0b1020;color:#fff;background-image:radial-gradient(800px 400px at 20% 0%,#3b2a6b 0,transparent 60%),radial-gradient(800px 400px at 90% 20%,#7a2e2e 0,transparent 55%)}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-size:var(--page-size,17px);line-height:1.65;background:#0b1020;color:#fff;background-image:radial-gradient(800px 400px at 20% 0%,#3b2a6b 0,transparent 60%),radial-gradient(800px 400px at 90% 20%,#7a2e2e 0,transparent 55%)}
+body.reading{background:#fdf8ee;background-image:none;color:#1c1c1c}
+body.reading .card{background:#fff;color:#1c1c1c;border-color:#ddd}
+body.reading .card p,body.reading .meta{color:#444}
+body.reading .hero p{color:#444}
+body.reading h1,body.reading h2{color:#111}
+body.reading a{color:#7b1fa2}
 a{color:var(--gold)}
 header{padding:18px 20px 0;max-width:1200px;margin:0 auto}
 .back{display:inline-block;background:#ffffff22;border:1px solid #ffffff44;color:#fff;text-decoration:none;padding:10px 14px;border-radius:999px}
@@ -45,7 +51,8 @@ h2{margin:8px 0}
 .viewer img{width:100%;max-width:none;display:block;margin:0 auto;transition:width .15s}
 .controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0}
 .controls button{background:#ffffff22;color:#fff;border:1px solid #ffffff44;border-radius:999px;padding:9px 13px;cursor:pointer}
-.desc{line-height:1.6;color:#e8e8f5}
+.desc{line-height:1.85;color:#e8e8f5;max-width:72ch}
+.card h3{font-size:17px}.card p{font-size:15px}
 .tag{display:inline-block;background:#ffffff1c;border:1px solid #ffffff33;border-radius:999px;padding:5px 10px;margin:3px;font-size:13px}
 #status{max-width:1200px;margin:10px auto;padding:0 20px;color:#ffe082}
 </style>
@@ -67,12 +74,14 @@ h2{margin:8px 0}
   <input id="zoom" type="range" min="64" max="364" step="4" value="180" aria-label="Cover zoom">
   <span id="zoomLabel">180px</span>
   <button id="shelfBtn" type="button">♥ My Shelf (<span id="shelfCount">0</span>)</button>
+  <span style="white-space:nowrap">Text <button id="textDown" type="button">A−</button> <button id="textUp" type="button">A+</button> <button id="readingBtn" type="button">📖 Reading mode</button></span>
 </div>
 
 <div class="search">
   <input id="q" type="search" placeholder="Search any book, author or subject… try: dune, Harry Potter, science">
   <select id="mode"><option value="q">Everything</option><option value="title">Title</option><option value="author">Author</option><option value="subject">Subject</option></select>
   <button class="primary" id="searchBtn" type="button">Search</button>
+  <label style="display:flex;align-items:center;gap:6px;color:#ffe082"><input id="fulltextOnly" type="checkbox"> 📖 Readable books only (free full text)</label>
 </div>
 
 <div class="chips" id="chips">
@@ -110,6 +119,12 @@ h2{margin:8px 0}
     <p class="desc" id="mDesc" style="font-size:17px"></p>
     <div id="mTags"></div>
     <p><a id="mLink" target="_blank" rel="noopener">Open on Open Library →</a></p>
+    <div id="readBox" style="background:#fff3cd;color:#333;border-radius:12px;padding:14px;margin-top:12px;line-height:1.6">
+      <b>📖 Read this book</b>
+      <p id="readStatus" style="margin:6px 0">Checking for a free readable edition…</p>
+      <p id="readLinks" style="margin:6px 0"></p>
+      <p style="margin:6px 0;font-size:14px">Note: not every book has free full text — many newer books are still under copyright, so Open Library may only offer borrowing or buying. Older / public-domain books usually read free.</p>
+    </div>
   </div>
 </div>
 
@@ -122,6 +137,11 @@ function shelfCount(){document.getElementById('shelfCount').textContent=shelf.le
 shelfCount();
 function setZoom(px){document.documentElement.style.setProperty('--cover-w',px+'px');zoomEl.value=px;zoomLabel.textContent=px+'px';document.querySelectorAll('[data-zoom]').forEach(b=>b.classList.toggle('active',+b.dataset.zoom===+px))}
 zoomEl.addEventListener('input',e=>setZoom(e.target.value));
+let pageSize=17;
+function setPageSize(n){pageSize=Math.max(14,Math.min(26,n));document.documentElement.style.setProperty('--page-size',pageSize+'px')}
+document.getElementById('textUp').addEventListener('click',()=>setPageSize(pageSize+2));
+document.getElementById('textDown').addEventListener('click',()=>setPageSize(pageSize-2));
+document.getElementById('readingBtn').addEventListener('click',e=>{document.body.classList.toggle('reading');e.target.textContent=document.body.classList.contains('reading')?'🌙 Dark mode':'📖 Reading mode'});
 document.querySelectorAll('[data-zoom]').forEach(b=>b.addEventListener('click',()=>setZoom(b.dataset.zoom)));
 function coverUrl(id,size){return id?`https://covers.openlibrary.org/b/id/${id}-${size}.jpg`:''}
 function esc(s){return String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
@@ -162,7 +182,7 @@ async function searchBooks(reset=true){
   if(reset){page=1;books=[];lastSearch=q}
   const mode=document.getElementById('mode').value;
   titleEl.textContent='Search: '+q;statusEl.textContent='Searching the world catalog…';
-  try{const r=await fetch(`https://openlibrary.org/search.json?${mode}=${encodeURIComponent(q)}&limit=24&page=${page}`);const j=await r.json();
+  try{const ft=document.getElementById('fulltextOnly').checked?'&has_fulltext=true':'';const r=await fetch(`https://openlibrary.org/search.json?${mode}=${encodeURIComponent(q)}&limit=24&page=${page}${ft}`);const j=await r.json();
     const found=(j.docs||[]).map(d=>({key:d.key,title:d.title,author_name:d.author_name,first_publish_year:d.first_publish_year,cover_id:d.cover_i}));
     books=reset?found:books.concat(found);
     statusEl.textContent=`Found ${Number(j.numFound||0).toLocaleString()} books for “${q}”.`;
@@ -193,6 +213,15 @@ function openBook(b){
     document.getElementById('mDesc').textContent=d||'No description available on Open Library for this edition yet.';
     document.getElementById('mTags').innerHTML=(w.subjects||[]).slice(0,20).map(s=>`<span class="tag">${esc(s)}</span>`).join('');
   }).catch(()=>{document.getElementById('mDesc').textContent='Description could not be loaded.'});
+  document.getElementById('readStatus').textContent='Checking for a free readable edition…';document.getElementById('readLinks').innerHTML='';
+  fetch('https://openlibrary.org'+b.key+'/editions.json?limit=50').then(r=>r.json()).then(e=>{
+    const eds=e.entries||[];
+    const withIa=eds.find(x=>x.ia_collection||x.ocaid);
+    const links=[];
+    if(withIa){const ia=withIa.ocaid;links.push(`<a href="https://archive.org/details/${ia}" target="_blank" rel="noopener">📖 Read free on Internet Archive →</a>`);links.push(`<a href="https://openlibrary.org/books/${withIa.key.split('/').pop()}" target="_blank" rel="noopener">Open that edition on Open Library →</a>`);document.getElementById('readStatus').textContent='Good news — a free readable edition was found:'}
+    else{document.getElementById('readStatus').textContent='No free full-text edition found for this work in Open Library.'}
+    document.getElementById('readLinks').innerHTML=links.join('<br>');
+  }).catch(()=>{document.getElementById('readStatus').textContent='Could not check readable editions right now.'});
 }
 function applyCoverZoom(){document.getElementById('mCover').style.width=coverZoom+'%';document.getElementById('coverZoomLabel').textContent=coverZoom+'%'}
 document.getElementById('zoomIn').addEventListener('click',()=>{coverZoom=Math.min(400,coverZoom+25);applyCoverZoom()});
