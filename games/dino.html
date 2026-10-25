@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dino Run</title><style>
+body{font-family:system-ui,sans-serif;text-align:center;background:#fffde7;margin:0;padding:12px}
+canvas{background:#fff;border:3px solid #555;border-radius:12px;max-width:100%;cursor:pointer}
+button{padding:10px 16px;border:none;border-radius:10px;background:#555;color:#fff;cursor:pointer}
+a{color:#555}
+</style></head><body>
+<h1>🦖 Dino Run</h1><p id="info">Score: 0 | Best: 0</p>
+<canvas id="c" width="600" height="200"></canvas>
+<p>Space, tap, or click to jump. Duck with ↓. Don't hit the cacti!</p>
+<p><button onclick="start()">▶ Restart</button> <a href="../games.html">← All games</a></p>
+<script>
+const cv=document.getElementById('c'),ctx=cv.getContext('2d');
+let y,vy,obs,score,best,over,raf,duck,speed;
+best=+(localStorage.getItem('dinoBest')||0);
+function start(){y=150;vy=0;obs=[];score=0;over=false;duck=false;speed=5;cancelAnimationFrame(raf);update();loop()}
+function update(){document.getElementById('info').textContent=`Score: ${score} | Best: ${best}`}
+function jump(){if(y>=150){vy=-13}}
+addEventListener('keydown',e=>{if(e.key===' ')jump();if(e.key==='ArrowDown')duck=true});
+addEventListener('keyup',e=>{if(e.key==='ArrowDown')duck=false});
+cv.addEventListener('pointerdown',jump);
+function loop(){if(over)return;score++;if(score%300===0)speed+=0.5;if(score>best){best=score;localStorage.setItem('dinoBest',best)}update();
+vy+=0.7;y+=vy;if(y>150){y=150;vy=0}
+if(Math.random()<0.02)obs.push({x:600,w:20+Math.random()*20});
+for(const o of obs)o.x-=speed;obs=obs.filter(o=>o.x>-40);
+const h=duck?20:40,top=y+(40-h);
+for(const o of obs){if(40<o.x+o.w&&70>o.x&&top<170&&top+h>130){over=true;alert('Game over! Score: '+score);return}}
+ctx.clearRect(0,0,600,200);ctx.strokeStyle='#555';ctx.beginPath();ctx.moveTo(0,170);ctx.lineTo(600,170);ctx.stroke();
+ctx.fillStyle='#555';ctx.fillRect(40,top,30,h);ctx.fillRect(62,top+5,12,8);
+ctx.fillStyle='#2e7d32';for(const o of obs)ctx.fillRect(o.x,130,o.w,40);
+ctx.fillStyle='#000';ctx.font='18px sans-serif';ctx.fillText('Score: '+score,480,25);
+raf=requestAnimationFrame(loop)}
+start();
+</script></body></html>

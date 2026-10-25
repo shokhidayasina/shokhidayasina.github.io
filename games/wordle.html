@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wordle</title><style>
+body{font-family:system-ui,sans-serif;text-align:center;background:#fff;margin:0;padding:12px}
+.grid{display:grid;grid-template-columns:repeat(5,52px);gap:6px;justify-content:center}
+.cell{width:52px;height:52px;line-height:52px;border:2px solid #ccc;font-size:26px;font-weight:700;text-transform:uppercase}
+.green{background:#538d4e;color:#fff;border-color:#538d4e}.yellow{background:#b59f3b;color:#fff;border-color:#b59f3b}.gray{background:#787c7e;color:#fff;border-color:#787c7e}
+input{font-size:20px;padding:10px;width:150px;text-transform:uppercase;text-align:center}
+button{padding:10px 16px;border:none;border-radius:10px;background:#538d4e;color:#fff;cursor:pointer}
+a{color:#538d4e}
+</style></head><body>
+<h1>🔤 Wordle</h1><p>Guess the 5-letter word in 6 tries. 🟩 right letter, right place · 🟨 right letter, wrong place · ⬜ not in word</p>
+<div class="grid" id="g"></div>
+<p><input id="in" maxlength="5" placeholder="Type a word"> <button onclick="guess()">Guess</button> <button onclick="start()">↻ New word</button></p>
+<p id="msg"></p><p><a href="../games.html">← All games</a></p>
+<script>
+const WORDS=['APPLE','BRAIN','CLOUD','DANCE','EAGLE','FLAME','GRAPE','HOUSE','LIGHT','MUSIC','OCEAN','PIANO','QUEEN','RIVER','SMILE','TIGER','WORLD','YOUTH','ZEBRA','STONE','HAPPY','BREAD','CHAIR','DREAM','EARTH'];
+let word,row,over;
+function start(){word=WORDS[Math.floor(Math.random()*WORDS.length)];row=0;over=false;document.getElementById('msg').textContent='';document.getElementById('g').innerHTML='';for(let i=0;i<30;i++){const d=document.createElement('div');d.className='cell';document.getElementById('g').appendChild(d)}document.getElementById('in').value='';document.getElementById('in').focus()}
+function guess(){if(over)return;const v=document.getElementById('in').value.trim().toUpperCase();if(v.length!==5){document.getElementById('msg').textContent='Enter exactly 5 letters.';return}
+const cells=document.querySelectorAll('.cell');for(let i=0;i<5;i++){const c=cells[row*5+i];c.textContent=v[i];if(v[i]===word[i])c.classList.add('green');else if(word.includes(v[i]))c.classList.add('yellow');else c.classList.add('gray')}
+row++;document.getElementById('in').value='';
+if(v===word){document.getElementById('msg').textContent='🎉 You got it!';over=true}
+else if(row===6){document.getElementById('msg').textContent='Game over — the word was '+word;over=true}}
+document.getElementById('in').addEventListener('keydown',e=>{if(e.key==='Enter')guess()});
+start();
+</script></body></html>

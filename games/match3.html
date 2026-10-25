@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Match-3 Candy</title><style>
+body{font-family:system-ui,sans-serif;text-align:center;background:#fce4ec;margin:0;padding:12px}
+.grid{display:grid;grid-template-columns:repeat(8,42px);gap:4px;justify-content:center}
+.cell{width:42px;height:42px;font-size:26px;border:none;border-radius:8px;background:#fff;cursor:pointer}
+.cell.sel{outline:3px solid #e91e63}
+button{padding:10px 16px;border:none;border-radius:10px;background:#e91e63;color:#fff;cursor:pointer}
+a{color:#e91e63}
+</style></head><body>
+<h1>🍬 Match-3 Candy</h1><p id="info">Score: 0 | Moves left: 20</p>
+<div class="grid" id="g"></div>
+<p>Tap two next-door candies to swap them. Make 3+ in a row to score!</p>
+<p><button onclick="start()">▶ New game</button> <a href="../games.html">← All games</a></p>
+<script>
+const EM=['🍎','🍇','🍋','🍊','🫐','🍓'];let b,sel,score,moves;const g=document.getElementById('g');
+function rand(){return Math.floor(Math.random()*EM.length)}
+function start(){b=Array.from({length:64},rand);sel=null;score=0;moves=20;draw();update();setTimeout(()=>{clearMatches(true);draw()},100)}
+function update(){document.getElementById('info').textContent=`Score: ${score} | Moves left: ${moves}`}
+function findMatches(){let m=new Set();for(let y=0;y<8;y++)for(let x=0;x<8;x++){if(x<6&&b[y*8+x]===b[y*8+x+1]&&b[y*8+x]===b[y*8+x+2]){m.add(y*8+x);m.add(y*8+x+1);m.add(y*8+x+2)}if(y<6&&b[y*8+x]===b[(y+1)*8+x]&&b[y*8+x]===b[(y+2)*8+x]){m.add(y*8+x);m.add((y+1)*8+x);m.add((y+2)*8+x)}}return m}
+function clearMatches(free){let m=findMatches();if(!m.size)return false;score+=m.size*10;for(const i of m)b[i]=-1;for(let x=0;x<8;x++){let col=[];for(let y=7;y>=0;y--)if(b[y*8+x]>=0)col.push(b[y*8+x]);while(col.length<8)col.push(rand());for(let y=7;y>=0;y--)b[y*8+x]=col[7-y]}if(!free)update();setTimeout(()=>{if(clearMatches())draw()},250);return true}
+function draw(){g.innerHTML='';b.forEach((v,i)=>{const btn=document.createElement('button');btn.className='cell'+(sel===i?' sel':'');btn.textContent=EM[v]||'';btn.onclick=()=>pick(i);g.appendChild(btn)})}
+function pick(i){if(sel===null){sel=i;draw();return}const d=Math.abs(sel-i);if(d===1||d===8){const t=b[sel];b[sel]=b[i];b[i]=t;const ok=findMatches().size>0;if(!ok){b[i]=b[sel];b[sel]=t}else{moves--;clearMatches();if(moves<=0)setTimeout(()=>alert('Game over! Score: '+score),400)}update()}sel=null;draw()}
+start();
+</script></body></html>

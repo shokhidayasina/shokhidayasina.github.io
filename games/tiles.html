@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Piano Tiles</title><style>
+body{font-family:system-ui,sans-serif;text-align:center;background:#fff;margin:0;padding:12px}
+.grid{display:grid;grid-template-columns:repeat(4,70px);gap:4px;justify-content:center}
+.tile{width:70px;height:70px;border:none;border-radius:6px;background:#eee;cursor:pointer}
+.tile.black{background:#111}
+button{padding:10px 16px;border:none;border-radius:10px;background:#111;color:#fff;cursor:pointer}
+a{color:#111}
+</style></head><body>
+<h1>🎹 Piano Tiles</h1><p id="info">Score: 0 | Time left: 30</p>
+<div class="grid" id="g"></div>
+<p>Tap ONLY the black tiles, as fast as you can! White tile = game over.</p>
+<p><button onclick="start()">▶ Start</button> <a href="../games.html">← All games</a></p>
+<script>
+let rows,score,time,timer,over;const g=document.getElementById('g');
+function newRow(){return Math.floor(Math.random()*4)}
+function start(){rows=[newRow(),newRow(),newRow(),newRow()];score=0;time=30;over=false;clearInterval(timer);timer=setInterval(()=>{time--;document.getElementById('info').textContent=`Score: ${score} | Time left: ${time}`;if(time<=0){clearInterval(timer);over=true;alert('Time up! Score: '+score)}},1000);draw()}
+function draw(){document.getElementById('info').textContent=`Score: ${score} | Time left: ${time}`;g.innerHTML='';for(let r=0;r<4;r++)for(let c=0;c<4;c++){const b=document.createElement('button');b.className='tile'+(rows[r]===c?' black':'');b.onclick=()=>{if(over)return;if(r!==3)return;if(rows[r]===c){score++;rows.pop();rows.unshift(newRow());draw()}else{over=true;clearInterval(timer);alert('Wrong tile! Score: '+score)}};g.appendChild(b)}}
+start();
+</script></body></html>

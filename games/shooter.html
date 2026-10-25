@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Space Shooter</title><style>
+body{font-family:system-ui,sans-serif;text-align:center;background:#0d1b2a;color:#fff;margin:0;padding:12px}
+canvas{background:#000;border:3px solid #00b4d8;border-radius:12px;max-width:100%;touch-action:none}
+button{padding:10px 16px;border:none;border-radius:10px;background:#00b4d8;color:#fff;cursor:pointer}
+a{color:#90e0ef}
+</style></head><body>
+<h1>🚀 Space Shooter</h1><p id="info">Score: 0 | Lives: 3</p>
+<canvas id="c" width="480" height="500"></canvas>
+<p>← → to move, Space to shoot. On phone: drag to move, it auto-shoots.</p>
+<p><button onclick="start()">▶ Restart</button> <a href="../games.html">← All games</a></p>
+<script>
+const cv=document.getElementById('c'),ctx=cv.getContext('2d');
+let px,bullets,aliens,score,lives,over,raf,frame;
+function start(){px=220;bullets=[];aliens=[];score=0;lives=3;over=false;frame=0;cancelAnimationFrame(raf);update();loop()}
+function update(){document.getElementById('info').textContent=`Score: ${score} | Lives: ${lives}`}
+addEventListener('keydown',e=>{if(e.key==='ArrowLeft')px=Math.max(0,px-20);if(e.key==='ArrowRight')px=Math.min(440,px+20);if(e.key===' '){e.preventDefault();bullets.push({x:px+20,y:440})}});
+cv.addEventListener('touchmove',e=>{e.preventDefault();const r=cv.getBoundingClientRect();px=(e.touches[0].clientX-r.left)*480/r.width-20},{passive:false});
+function loop(){if(over)return;frame++;if(frame%60===0)bullets.push({x:px+20,y:440});
+if(Math.random()<0.03)aliens.push({x:Math.random()*440,y:-30});
+for(const b of bullets)b.y-=8;bullets=bullets.filter(b=>b.y>0);
+for(const a of aliens)a.y+=2;aliens=aliens.filter(a=>a.y<520);
+for(const b of bullets)for(const a of aliens){if(Math.abs(b.x-a.x)<25&&Math.abs(b.y-a.y)<25){a.dead=true;b.dead=true;score+=10;update()}}
+bullets=bullets.filter(b=>!b.dead);aliens=aliens.filter(a=>!a.dead);
+for(const a of aliens){if(a.y>450){lives--;aliens.splice(aliens.indexOf(a),1);update();if(lives<=0){over=true;alert('Game over! Score: '+score);return}}}
+ctx.clearRect(0,0,480,500);ctx.fillStyle='#00b4d8';ctx.font='30px serif';ctx.fillText('🚀',px,470);
+ctx.fillStyle='#ffea00';for(const b of bullets)ctx.fillRect(b.x,b.y,4,14);
+ctx.font='26px serif';for(const a of aliens)ctx.fillText('👾',a.x,a.y);
+raf=requestAnimationFrame(loop)}
+start();
+</script></body></html>

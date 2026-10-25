@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Minesweeper</title><style>
+body{font-family:system-ui,sans-serif;text-align:center;background:#e8f5e9;margin:0;padding:12px}
+.grid{display:grid;grid-template-columns:repeat(9,36px);gap:2px;justify-content:center}
+.cell{width:36px;height:36px;font-weight:700;border:none;border-radius:4px;background:#a5d6a7;cursor:pointer}
+.cell.open{background:#fff}
+button.action{padding:10px 16px;border:none;border-radius:10px;background:#2e7d32;color:#fff;cursor:pointer}
+a{color:#2e7d32}
+</style></head><body>
+<h1>💣 Minesweeper</h1><p id="info">Mines: 10 | Tap to reveal, long-press / right-click to flag 🚩</p>
+<div class="grid" id="g"></div>
+<p><button class="action" onclick="start()">▶ New game</button> <a href="../games.html">← All games</a></p>
+<script>
+let mines,rev,flags,over;const g=document.getElementById('g');
+function start(){mines=new Set();while(mines.size<10)mines.add(Math.floor(Math.random()*81));rev=new Set();flags=new Set();over=false;draw()}
+function count(i){const x=i%9,y=Math.floor(i/9);let n=0;for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){const nx=x+dx,ny=y+dy;if(nx>=0&&nx<9&&ny>=0&&ny<9&&mines.has(ny*9+nx))n++}return n}
+function reveal(i){if(over||rev.has(i)||flags.has(i))return;rev.add(i);if(mines.has(i)){over=true;draw();setTimeout(()=>alert('Boom! Game over.'),100);return}
+if(count(i)===0){const x=i%9,y=Math.floor(i/9);for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){const nx=x+dx,ny=y+dy;if(nx>=0&&nx<9&&ny>=0&&ny<9)reveal(ny*9+nx)}}
+draw();if(rev.size===71){over=true;setTimeout(()=>alert('You win! 🎉'),100)}}
+function draw(){g.innerHTML='';for(let i=0;i<81;i++){const b=document.createElement('button');b.className='cell'+(rev.has(i)?' open':'');if(flags.has(i))b.textContent='🚩';else if(rev.has(i)){if(mines.has(i))b.textContent='💣';else{const n=count(i);b.textContent=n||''}}
+b.onclick=()=>reveal(i);b.oncontextmenu=e=>{e.preventDefault();if(!rev.has(i)){flags.has(i)?flags.delete(i):flags.add(i);draw()}};let t; b.addEventListener('touchstart',()=>{t=setTimeout(()=>{if(!rev.has(i)){flags.has(i)?flags.delete(i):flags.add(i);draw()}},500)});b.addEventListener('touchend',()=>clearTimeout(t));g.appendChild(b)}}
+start();
+</script></body></html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Breakout</title><style>
+body{font-family:system-ui,sans-serif;text-align:center;background:#e3f2fd;margin:0;padding:12px}
+canvas{background:#111;border:3px solid #1565c0;border-radius:12px;max-width:100%;touch-action:none}
+button{padding:10px 16px;border:none;border-radius:10px;background:#1565c0;color:#fff;cursor:pointer}
+a{color:#1565c0}
+</style></head><body>
+<h1>🧱 Breakout</h1><p id="info">Score: 0 | Lives: 3</p>
+<canvas id="c" width="480" height="400"></canvas>
+<p>Move with mouse, finger, or ← → arrows. Break all the bricks!</p>
+<p><button onclick="start()">▶ Restart</button> <a href="../games.html">← All games</a></p>
+<script>
+const cv=document.getElementById('c'),ctx=cv.getContext('2d');
+let px,bx,by,vx,vy,bricks,score,lives,raf,over;
+function start(){px=200;bx=240;by=300;vx=3;vy=-3;score=0;lives=3;over=false;bricks=[];for(let r=0;r<4;r++)for(let col=0;col<8;col++)bricks.push({x:col*60+2,y:r*28+30,w:56,h:22,alive:true});cancelAnimationFrame(raf);update();loop()}
+function update(){document.getElementById('info').textContent=`Score: ${score} | Lives: ${lives}`}
+cv.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();px=(e.clientX-r.left)*480/r.width-40});
+cv.addEventListener('touchmove',e=>{e.preventDefault();const r=cv.getBoundingClientRect();px=(e.touches[0].clientX-r.left)*480/r.width-40},{passive:false});
+addEventListener('keydown',e=>{if(e.key==='ArrowLeft')px-=20;if(e.key==='ArrowRight')px+=20});
+function loop(){if(over)return;bx+=vx;by+=vy;if(bx<10||bx>470)vx*=-1;if(by<10)vy*=-1;
+if(by>350&&by<365&&bx>px&&bx<px+80){vy=-Math.abs(vy);vx=3*((bx-(px+40))/40)}
+for(const b of bricks){if(b.alive&&bx>b.x&&bx<b.x+b.w&&by>b.y&&by<b.y+b.h){b.alive=false;vy*=-1;score+=10;update()}}
+if(by>400){lives--;update();if(lives<=0){over=true;alert('Game over! Score: '+score);return}bx=240;by=300;vx=3;vy=-3}
+if(bricks.every(b=>!b.alive)){over=true;alert('You broke them all! Score: '+score);return}
+ctx.clearRect(0,0,480,400);ctx.fillStyle='#ff5722';for(const b of bricks)if(b.alive)ctx.fillRect(b.x,b.y,b.w,b.h);
+ctx.fillStyle='#fff';ctx.fillRect(px,360,80,12);ctx.beginPath();ctx.arc(bx,by,10,0,7);ctx.fill();
+raf=requestAnimationFrame(loop)}
+start();
+</script></body></html>
