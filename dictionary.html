@@ -6,86 +6,113 @@
 <title>Mini Dictionary — English-Uzbek</title>
 <style>
 body { font-family: system-ui, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 20px; }
+.topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.topbar h1 { margin: 0; }
+.langbar { text-align: right; font-size: 16px; }
+.langbar select { font-size: 18px; padding: 8px; }
 input, button { font-size: 18px; padding: 10px; box-sizing: border-box; }
 #search { width: 100%; }
 .filters { margin: 16px 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .filters button { font-size: 15px; }
 .word { border-bottom: 1px solid #ddd; padding: 12px 0; }
 .en { font-size: 20px; font-weight: bold; }
-.uz { font-size: 18px; color: #0a6; }
+.tr { font-size: 18px; color: #0a6; }
 .cat { color: #666; font-size: 14px; }
 .example { color: #444; }
+.note { color: #666; font-size: 14px; }
 </style>
 </head>
 <body>
+<div class="topbar">
 <h1>Mini Dictionary</h1>
-<p>For people who don't know English yet. Search in English or Uzbek / Inglizcha yoki o'zbekcha qidiring.</p>
+<div class="langbar">
+<label for="lang">Language / Til: </label>
+<select id="lang">
+<option value="uz">Uzbek — O'zbekcha</option>
+<option value="ru">Russian — Русский</option>
+<option value="tr">Turkish — Türkçe</option>
+<option value="es">Spanish — Español</option>
+<option value="fr">French — Français</option>
+<option value="de">German — Deutsch</option>
+<option value="ar">Arabic — العربية</option>
+<option value="zh">Chinese — 中文</option>
+<option value="hi">Hindi — हिन्दी</option>
+<option value="kk">Kazakh — Қазақша</option>
+<option value="ky">Kyrgyz — Кыргызча</option>
+<option value="tg">Tajik — Тоҷикӣ</option>
+</select>
+</div>
+</div>
+<p>For people who don't know English yet. Search in English or in your language.</p>
 <p><a href="index.html">← Back to My first App / Kalkulyatorga qaytish</a></p>
+<p class="note" id="note"></p>
 <input id="search" type="text" placeholder="Search: hello, salom, water, suv...">
 <div class="filters" id="filters"></div>
 <div id="list"></div>
 <script>
+const langNames = {uz:"Uzbek",ru:"Russian",tr:"Turkish",es:"Spanish",fr:"French",de:"German",ar:"Arabic",zh:"Chinese",hi:"Hindi",kk:"Kazakh",ky:"Kyrgyz",tg:"Tajik"};
+function W(en, uz, cat, ex, trans) { return {en:en, uz:uz, cat:cat, ex:ex, trans:trans||{}}; }
 const words = [
-["hello","salom","Greetings","Hello! - Salom!"],
-["goodbye","xayr","Greetings","Goodbye! - Xayr!"],
-["please","iltimos","Greetings","Please help me. - Iltimos, menga yordam bering."],
-["thank you","rahmat","Greetings","Thank you! - Rahmat!"],
-["sorry","kechirasiz","Greetings","Sorry! - Kechirasiz!"],
-["yes","ha","Greetings","Yes. - Ha."],
-["no","yo'q","Greetings","No. - Yo'q."],
-["good morning","xayrli tong","Greetings","Good morning! - Xayrli tong!"],
-["good night","xayrli tun","Greetings","Good night! - Xayrli tun!"],
-["welcome","xush kelibsiz","Greetings","Welcome! - Xush kelibsiz!"],
-["mother","ona","Family","My mother. - Mening onam."],
-["father","ota","Family","My father. - Mening otam."],
-["brother","aka / uka","Family","My brother. - Mening akam / ukam."],
-["sister","opa / singil","Family","My sister. - Mening opam / singlim."],
-["friend","do'st","Family","My friend. - Mening do'stim."],
-["child","bola","Family","A child. - Bir bola."],
-["family","oila","Family","My family. - Mening oilam."],
-["water","suv","Food","Water, please. - Iltimos, suv."],
-["bread","non","Food","Bread. - Non."],
-["rice","guruch","Food","Rice. - Guruch."],
-["apple","olma","Food","An apple. - Bir olma."],
-["tea","choy","Food","Tea, please. - Iltimos, choy."],
-["milk","sut","Food","Milk. - Sut."],
-["food","ovqat","Food","Food. - Ovqat."],
-["meat","go'sht","Food","Meat. - Go'sht."],
-["house","uy","Travel","My house. - Mening uyim."],
-["school","maktab","Travel","School. - Maktab."],
-["book","kitob","Travel","A book. - Bir kitob."],
-["car","mashina","Travel","A car. - Bir mashina."],
-["road","yo'l","Travel","The road. - Yo'l."],
-["city","shahar","Travel","The city. - Shahar."],
-["country","mamlakat","Travel","My country. - Mening mamlakatim."],
-["money","pul","Travel","Money. - Pul."],
-["one","bir","Numbers","One. - Bir."],
-["two","ikki","Numbers","Two. - Ikki."],
-["three","uch","Numbers","Three. - Uch."],
-["four","to'rt","Numbers","Four. - To'rt."],
-["five","besh","Numbers","Five. - Besh."],
-["ten","o'n","Numbers","Ten. - O'n."],
-["red","qizil","Colors","Red. - Qizil."],
-["blue","ko'k","Colors","Blue. - Ko'k."],
-["green","yashil","Colors","Green. - Yashil."],
-["white","oq","Colors","White. - Oq."],
-["black","qora","Colors","Black. - Qora."],
-["yellow","sariq","Colors","Yellow. - Sariq."],
-["dog","it","Animals","A dog. - Bir it."],
-["cat","mushuk","Animals","A cat. - Bir mushuk."],
-["bird","qush","Animals","A bird. - Bir qush."],
-["fish","baliq","Animals","A fish. - Bir baliq."],
-["today","bugun","Daily","Today. - Bugun."],
-["tomorrow","ertaga","Daily","Tomorrow. - Ertaga."],
-["yesterday","kecha","Daily","Yesterday. - Kecha."],
-["time","vaqt","Daily","Time. - Vaqt."],
-["day","kun","Daily","A day. - Bir kun."],
-["night","tun","Daily","Night. - Tun."],
-["love","sevgi","Daily","Love. - Sevgi."],
-["happy","baxtli","Daily","I am happy. - Men baxtliman."]
+W("hello","salom","Greetings","Hello! - Salom!",{ru:"привет",tr:"merhaba",es:"hola",fr:"bonjour",de:"hallo",ar:"مرحبا",zh:"你好",hi:"नमस्ते",kk:"сәлем",ky:"саламатсызбы",tg:"салом"}),
+W("goodbye","xayr","Greetings","Goodbye! - Xayr!",{ru:"до свидания",tr:"hoşça kal",es:"adiós",fr:"au revoir",de:"auf Wiedersehen",ar:"وداعا",zh:"再见",hi:"अलविदा",kk:"сау бол",ky:"кош болуңуз",tg:"хайр"}),
+W("please","iltimos","Greetings","Please help me.",{ru:"пожалуйста",tr:"lütfen",es:"por favor",fr:"s'il vous plaît",de:"bitte",ar:"من فضلك",zh:"请",hi:"कृपया",kk:"өтінемін",ky:"сураныч",tg:"лутфан"}),
+W("thank you","rahmat","Greetings","Thank you!",{ru:"спасибо",tr:"teşekkür ederim",es:"gracias",fr:"merci",de:"danke",ar:"شكرا",zh:"谢谢",hi:"धन्यवाद",kk:"рахмет",ky:"рахмат",tg:"ташаккур"}),
+W("sorry","kechirasiz","Greetings","Sorry!",{ru:"извините",tr:"affedersiniz",es:"lo siento",fr:"désolé",de:"es tut mir leid",ar:"عذراً",zh:"对不起",hi:"क्षमा करें",kk:"кешіріңіз",ky:"кечириңиз",tg:"бубахшед"}),
+W("yes","ha","Greetings","Yes.",{ru:"да",tr:"evet",es:"sí",fr:"oui",de:"ja",ar:"نعم",zh:"是",hi:"हाँ",kk:"иә",ky:"ооба",tg:"ҳа"}),
+W("no","yo'q","Greetings","No.",{ru:"нет",tr:"hayır",es:"no",fr:"non",de:"nein",ar:"لا",zh:"不",hi:"नहीं",kk:"жоқ",ky:"жок",tg:"не"}),
+W("water","suv","Food","Water, please.",{ru:"вода",tr:"su",es:"agua",fr:"eau",de:"Wasser",ar:"ماء",zh:"水",hi:"पानी",kk:"су",ky:"суу",tg:"об"}),
+W("bread","non","Food","Bread.",{ru:"хлеб",tr:"ekmek",es:"pan",fr:"pain",de:"Brot",ar:"خبز",zh:"面包",hi:"रोटी",kk:"нан",ky:"нан",tg:"нон"}),
+W("mother","ona","Family","My mother.",{ru:"мама",tr:"anne",es:"madre",fr:"mère",de:"Mutter",ar:"أم",zh:"妈妈",hi:"माँ",kk:"ана",ky:"эне",tg:"модар"}),
+W("father","ota","Family","My father.",{ru:"папа",tr:"baba",es:"padre",fr:"père",de:"Vater",ar:"أب",zh:"爸爸",hi:"पिता",kk:"әке",ky:"ата",tg:"падар"}),
+W("friend","do'st","Family","My friend.",{ru:"друг",tr:"arkadaş",es:"amigo",fr:"ami",de:"Freund",ar:"صديق",zh:"朋友",hi:"दोस्त",kk:"дос",ky:"дос",tg:"дӯст"}),
+W("house","uy","Travel","My house.",{ru:"дом",tr:"ev",es:"casa",fr:"maison",de:"Haus",ar:"بيت",zh:"房子",hi:"घर",kk:"үй",ky:"үй",tg:"хона"}),
+W("book","kitob","Travel","A book.",{ru:"книга",tr:"kitap",es:"libro",fr:"livre",de:"Buch",ar:"كتاب",zh:"书",hi:"किताब",kk:"кітап",ky:"китеп",tg:"китоб"}),
+W("car","mashina","Travel","A car.",{ru:"машина",tr:"araba",es:"coche",fr:"voiture",de:"Auto",ar:"سيارة",zh:"汽车",hi:"गाड़ी",kk:"көлік",ky:"унаа",tg:"мошин"}),
+W("love","sevgi","Daily","Love.",{ru:"любовь",tr:"sevgi",es:"amor",fr:"amour",de:"Liebe",ar:"حب",zh:"爱",hi:"प्यार",kk:"махаббат",ky:"сүйүү",tg:"ишқ"}),
+W("happy","baxtli","Daily","I am happy.",{ru:"счастливый",tr:"mutlu",es:"feliz",fr:"heureux",de:"glücklich",ar:"سعيد",zh:"快乐",hi:"खुश",kk:"бақытты",ky:"бактылуу",tg:"хушбахт"}),
+W("day","kun","Daily","A day.",{ru:"день",tr:"gün",es:"día",fr:"jour",de:"Tag",ar:"يوم",zh:"天",hi:"दिन",kk:"күн",ky:"күн",tg:"рӯз"}),
+W("night","tun","Daily","Night.",{ru:"ночь",tr:"gece",es:"noche",fr:"nuit",de:"Nacht",ar:"ليل",zh:"夜晚",hi:"रात",kk:"түн",ky:"түн",tg:"шаб"}),
+W("today","bugun","Daily","Today.",{ru:"сегодня",tr:"bugün",es:"hoy",fr:"aujourd'hui",de:"heute",ar:"اليوم",zh:"今天",hi:"आज",kk:"бүгін",ky:"бүгүн",tg:"имрӯз"}),
+W("good morning","xayrli tong","Greetings","Good morning!"),
+W("good night","xayrli tun","Greetings","Good night!"),
+W("welcome","xush kelibsiz","Greetings","Welcome!"),
+W("brother","aka / uka","Family","My brother."),
+W("sister","opa / singil","Family","My sister."),
+W("child","bola","Family","A child."),
+W("family","oila","Family","My family."),
+W("rice","guruch","Food","Rice."),
+W("apple","olma","Food","An apple."),
+W("tea","choy","Food","Tea, please."),
+W("milk","sut","Food","Milk."),
+W("food","ovqat","Food","Food."),
+W("meat","go'sht","Food","Meat."),
+W("school","maktab","Travel","School."),
+W("road","yo'l","Travel","The road."),
+W("city","shahar","Travel","The city."),
+W("country","mamlakat","Travel","My country."),
+W("money","pul","Travel","Money."),
+W("one","bir","Numbers","One."),
+W("two","ikki","Numbers","Two."),
+W("three","uch","Numbers","Three."),
+W("four","to'rt","Numbers","Four."),
+W("five","besh","Numbers","Five."),
+W("ten","o'n","Numbers","Ten."),
+W("red","qizil","Colors","Red."),
+W("blue","ko'k","Colors","Blue."),
+W("green","yashil","Colors","Green."),
+W("white","oq","Colors","White."),
+W("black","qora","Colors","Black."),
+W("yellow","sariq","Colors","Yellow."),
+W("dog","it","Animals","A dog."),
+W("cat","mushuk","Animals","A cat."),
+W("bird","qush","Animals","A bird."),
+W("fish","baliq","Animals","A fish."),
+W("tomorrow","ertaga","Daily","Tomorrow."),
+W("yesterday","kecha","Daily","Yesterday."),
+W("time","vaqt","Daily","Time.")
 ];
-const cats = ["All", ...new Set(words.map(w => w[2]))];
 let currentCat = "All";
+const cats = ["All", ...new Set(words.map(w => w.cat))];
 const filtersEl = document.getElementById('filters');
 cats.forEach(c => {
   const b = document.createElement('button');
@@ -93,14 +120,28 @@ cats.forEach(c => {
   b.onclick = () => { currentCat = c; render(); };
   filtersEl.appendChild(b);
 });
+function getTrans(w) {
+  const lang = document.getElementById('lang').value;
+  if (lang === 'uz') return w.uz;
+  return w.trans[lang] || null;
+}
 function render() {
+  const lang = document.getElementById('lang').value;
   const q = document.getElementById('search').value.toLowerCase();
   const list = document.getElementById('list');
-  const filtered = words.filter(w => (currentCat === "All" || w[2] === currentCat) && (w[0].includes(q) || w[1].toLowerCase().includes(q) || w[3].toLowerCase().includes(q)));
-  if (!filtered.length) { list.innerHTML = '<p>No word found. / So‘z topilmadi.</p>'; return; }
-  list.innerHTML = filtered.map(w => `<div class="word"><div class="en">${w[0]}</div><div class="uz">${w[1]}</div><div class="cat">${w[2]}</div><div class="example">${w[3]}</div></div>`).join('');
+  const note = document.getElementById('note');
+  const visible = words.filter(w => getTrans(w) !== null);
+  if (lang === 'uz') {
+    note.textContent = 'Showing the full list in Uzbek (' + visible.length + ' words).';
+  } else {
+    note.textContent = 'Showing core words in ' + langNames[lang] + ' (' + visible.length + ' words). The full list is available in Uzbek.';
+  }
+  const filtered = visible.filter(w => (currentCat === "All" || w.cat === currentCat) && (w.en.includes(q) || getTrans(w).toLowerCase().includes(q)));
+  if (!filtered.length) { list.innerHTML = '<p>No word found.</p>'; return; }
+  list.innerHTML = filtered.map(w => `<div class="word"><div class="en">${w.en}</div><div class="tr">${getTrans(w)}</div><div class="cat">${w.cat}</div><div class="example">${w.ex}</div></div>`).join('');
 }
 document.getElementById('search').addEventListener('input', render);
+document.getElementById('lang').addEventListener('change', render);
 render();
 </script>
 </body>
