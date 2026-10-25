@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>World Library — Epic Zoomable Library</title>
+<meta name="description" content="Search books from all over the world, powered by Open Library. Zoom from a tiny shelf to giant EPIC covers.">
+<style>
+:root{--cover-w:180px;--gold:#f5c542}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#0b1020;color:#fff;background-image:radial-gradient(800px 400px at 20% 0%,#3b2a6b 0,transparent 60%),radial-gradient(800px 400px at 90% 20%,#7a2e2e 0,transparent 55%)}
+a{color:var(--gold)}
+header{padding:18px 20px 0;max-width:1200px;margin:0 auto}
+.back{display:inline-block;background:#ffffff22;border:1px solid #ffffff44;color:#fff;text-decoration:none;padding:10px 14px;border-radius:999px}
+.hero{max-width:1200px;margin:18px auto 0;padding:0 20px}
+.hero h1{font-size:clamp(38px,7vw,76px);line-height:.95;margin:10px 0}
+.hero h1 span{color:var(--gold)}
+.hero p{color:#d6d6e8;font-size:18px;max-width:760px}
+.zoombar{position:sticky;top:0;z-index:20;background:#111736ee;border-bottom:2px solid var(--gold);padding:12px 20px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.zoombar input[type=range]{flex:1;min-width:180px;accent-color:var(--gold)}
+.zoombar button,.chip,button.primary{background:#f5c542;color:#111;border:none;border-radius:999px;padding:10px 14px;font-weight:700;cursor:pointer}
+.zoombar button.active{background:#fff}
+.search{max-width:1200px;margin:20px auto;padding:0 20px;display:flex;gap:10px;flex-wrap:wrap}
+.search input{flex:1;min-width:220px;padding:14px;border-radius:12px;border:1px solid #ffffff44;background:#ffffff14;color:#fff;font-size:16px}
+.search select{padding:14px;border-radius:12px;background:#1c2347;color:#fff;border:1px solid #ffffff44}
+.chips{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:#ffffff1a;color:#fff;border:1px solid #ffffff33}
+.chip.active{background:var(--gold);color:#111}
+section{max-width:1200px;margin:24px auto;padding:0 20px}
+h2{margin:8px 0}
+.meta{color:#b9b9d0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--cover-w),1fr));gap:16px}
+.card{background:#ffffff10;border:1px solid #ffffff22;border-radius:16px;padding:12px;cursor:pointer;text-align:left;color:#fff}
+.card:hover{transform:translateY(-3px);border-color:var(--gold)}
+.cover{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:10px;background:#2a2f5a;display:block}
+.fallback{width:100%;aspect-ratio:2/3;border-radius:10px;background:linear-gradient(160deg,#7b1fa2,#e65100);display:flex;align-items:center;justify-content:center;padding:12px;text-align:center;font-weight:800}
+.card h3{font-size:16px;margin:10px 0 4px;line-height:1.25}
+.card p{margin:0;color:#c9c9de;font-size:14px}
+.heart{float:right;font-size:20px;background:none;border:none;cursor:pointer}
+.modal{position:fixed;inset:0;background:#000c;display:none;z-index:50;overflow:auto;padding:20px}
+.modal.open{display:block}
+.sheet{max-width:900px;margin:20px auto;background:#141a38;border:1px solid #ffffff33;border-radius:20px;padding:22px}
+.close{float:right;font-size:28px;background:none;border:none;color:#fff;cursor:pointer}
+.viewer{overflow:auto;border:1px solid #ffffff33;border-radius:14px;background:#000;padding:10px;max-height:60vh;cursor:grab}
+.viewer img{width:100%;max-width:none;display:block;margin:0 auto;transition:width .15s}
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0}
+.controls button{background:#ffffff22;color:#fff;border:1px solid #ffffff44;border-radius:999px;padding:9px 13px;cursor:pointer}
+.desc{line-height:1.6;color:#e8e8f5}
+.tag{display:inline-block;background:#ffffff1c;border:1px solid #ffffff33;border-radius:999px;padding:5px 10px;margin:3px;font-size:13px}
+#status{max-width:1200px;margin:10px auto;padding:0 20px;color:#ffe082}
+</style>
+</head>
+<body>
+<header><a class="back" href="index.html">← Back to My first App</a></header>
+<div class="hero">
+  <div style="font-size:40px">🌍 📚</div>
+  <h1>ALL THE BOOKS<br><span>IN THE WORLD.</span><br>ZOOMED EPIC.</h1>
+  <p>Search the worldwide catalog, powered live by Open Library. Drag the golden zoom slider from a tiny shelf to giant covers — then tap any book to step inside and zoom its cover up to 400%.</p>
+</div>
+
+<div class="zoombar">
+  <b>🔍 ZOOM</b>
+  <button data-zoom="64">Tiny Shelf</button>
+  <button data-zoom="140">Gallery</button>
+  <button data-zoom="240">Grand</button>
+  <button data-zoom="364" class="active">EPIC</button>
+  <input id="zoom" type="range" min="64" max="364" step="4" value="180" aria-label="Cover zoom">
+  <span id="zoomLabel">180px</span>
+  <button id="shelfBtn" type="button">♥ My Shelf (<span id="shelfCount">0</span>)</button>
+</div>
+
+<div class="search">
+  <input id="q" type="search" placeholder="Search any book, author or subject… try: dune, Harry Potter, science">
+  <select id="mode"><option value="q">Everything</option><option value="title">Title</option><option value="author">Author</option><option value="subject">Subject</option></select>
+  <button class="primary" id="searchBtn" type="button">Search</button>
+</div>
+
+<div class="chips" id="chips">
+  <button class="chip active" data-shelf="trending">🔥 Trending</button>
+  <button class="chip" data-shelf="fantasy">Fantasy</button>
+  <button class="chip" data-shelf="mystery">Mystery</button>
+  <button class="chip" data-shelf="science_fiction">Science Fiction</button>
+  <button class="chip" data-shelf="romance">Romance</button>
+  <button class="chip" data-shelf="history">History</button>
+  <button class="chip" data-shelf="children">Children's</button>
+</div>
+
+<div id="status"></div>
+<section>
+  <h2 id="sectionTitle">🔥 Trending today</h2>
+  <p class="meta" id="count"></p>
+  <div class="grid" id="grid"></div>
+  <div style="text-align:center;margin:20px 0"><button class="primary" id="moreBtn" type="button" style="display:none">Load more books</button></div>
+</section>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true">
+  <div class="sheet">
+    <button class="close" id="closeBtn" aria-label="Close">×</button>
+    <h2 id="mTitle"></h2>
+    <p class="meta" id="mMeta"></p>
+    <div class="controls">
+      <button id="zoomOut" type="button">− Zoom out</button>
+      <span id="coverZoomLabel">100%</span>
+      <button id="zoomIn" type="button">+ Zoom in</button>
+      <button id="resetZoom" type="button">Reset</button>
+      <label>Text size <input id="textSize" type="range" min="14" max="26" value="17"></label>
+      <button id="saveBtn" type="button">♥ Save to My Shelf</button>
+    </div>
+    <div class="viewer" id="viewer"><img id="mCover" alt="Book cover"></div>
+    <p class="desc" id="mDesc" style="font-size:17px"></p>
+    <div id="mTags"></div>
+    <p><a id="mLink" target="_blank" rel="noopener">Open on Open Library →</a></p>
+  </div>
+</div>
+
+<script>
+const grid=document.getElementById('grid'),statusEl=document.getElementById('status'),countEl=document.getElementById('count'),titleEl=document.getElementById('sectionTitle');
+const zoomEl=document.getElementById('zoom'),zoomLabel=document.getElementById('zoomLabel');
+let books=[],page=1,lastSearch=null,currentBook=null,coverZoom=100;
+let shelf=JSON.parse(localStorage.getItem('worldLibraryShelf')||'[]');
+function shelfCount(){document.getElementById('shelfCount').textContent=shelf.length}
+shelfCount();
+function setZoom(px){document.documentElement.style.setProperty('--cover-w',px+'px');zoomEl.value=px;zoomLabel.textContent=px+'px';document.querySelectorAll('[data-zoom]').forEach(b=>b.classList.toggle('active',+b.dataset.zoom===+px))}
+zoomEl.addEventListener('input',e=>setZoom(e.target.value));
+document.querySelectorAll('[data-zoom]').forEach(b=>b.addEventListener('click',()=>setZoom(b.dataset.zoom)));
+function coverUrl(id,size){return id?`https://covers.openlibrary.org/b/id/${id}-${size}.jpg`:''}
+function esc(s){return String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function render(){
+  grid.innerHTML=books.map((b,i)=>{
+    const saved=shelf.some(s=>s.key===b.key);
+    return `<article class="card" data-i="${i}">
+      <button class="heart" data-save="${i}" aria-label="Save">${saved?'♥':'♡'}</button>
+      ${b.cover_id?`<img class="cover" loading="lazy" src="${coverUrl(b.cover_id,'M')}" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"> <div class="fallback" style="display:none">${esc(b.title)}</div>`:`<div class="fallback">${esc(b.title)}</div>`}
+      <h3>${esc(b.title)}</h3><p>${esc((b.author_name||[]).join(', ')||'Unknown author')}${b.first_publish_year?' • '+b.first_publish_year:''}</p>
+    </article>`;
+  }).join('')||'<p>No books found. Try another search.</p>';
+  countEl.textContent=books.length?books.length+' books shown — drag the golden zoom slider to make them huge!':'';
+}
+grid.addEventListener('click',e=>{
+  const save=e.target.closest('[data-save]');
+  if(save){e.stopPropagation();toggleSave(books[+save.dataset.save]);render();return}
+  const card=e.target.closest('.card');if(card)openBook(books[+card.dataset.i]);
+});
+function toggleSave(b){const i=shelf.findIndex(s=>s.key===b.key);if(i>=0)shelf.splice(i,1);else shelf.push(b);localStorage.setItem('worldLibraryShelf',JSON.stringify(shelf));shelfCount();updateSaveBtn()}
+function updateSaveBtn(){if(!currentBook)return;document.getElementById('saveBtn').textContent=shelf.some(s=>s.key===currentBook.key)?'♥ On My Shelf':'♡ Save to My Shelf'}
+async function loadTrending(){
+  titleEl.textContent='🔥 Trending today';statusEl.textContent='Loading trending books…';
+  try{const r=await fetch('https://openlibrary.org/trending/daily.json?limit=24');const j=await r.json();
+    books=(j.works||[]).map(w=>({key:w.key,title:w.title,author_name:w.author_name,first_publish_year:w.first_publish_year,cover_id:w.cover_i}));
+    statusEl.textContent='';render();document.getElementById('moreBtn').style.display='none';
+  }catch{statusEl.textContent='Could not load trending books. Check your connection and try again.'}
+}
+async function loadSubject(subject,label){
+  titleEl.textContent=label;statusEl.textContent='Loading '+label+'…';
+  try{const r=await fetch(`https://openlibrary.org/subjects/${subject}.json?limit=24`);const j=await r.json();
+    books=(j.works||[]).map(w=>({key:w.key,title:w.title,author_name:(w.authors||[]).map(a=>a.name),first_publish_year:w.first_publish_year,cover_id:w.cover_id}));
+    statusEl.textContent='';render();document.getElementById('moreBtn').style.display='none';
+  }catch{statusEl.textContent='Could not load this shelf. Try again.'}
+}
+async function searchBooks(reset=true){
+  const q=document.getElementById('q').value.trim();if(!q){statusEl.textContent='Type a book, author or subject to search.';return}
+  if(reset){page=1;books=[];lastSearch=q}
+  const mode=document.getElementById('mode').value;
+  titleEl.textContent='Search: '+q;statusEl.textContent='Searching the world catalog…';
+  try{const r=await fetch(`https://openlibrary.org/search.json?${mode}=${encodeURIComponent(q)}&limit=24&page=${page}`);const j=await r.json();
+    const found=(j.docs||[]).map(d=>({key:d.key,title:d.title,author_name:d.author_name,first_publish_year:d.first_publish_year,cover_id:d.cover_i}));
+    books=reset?found:books.concat(found);
+    statusEl.textContent=`Found ${Number(j.numFound||0).toLocaleString()} books for “${q}”.`;
+    render();document.getElementById('moreBtn').style.display='block';
+  }catch{statusEl.textContent='Search failed. Check your connection and try again.'}
+}
+document.getElementById('searchBtn').addEventListener('click',()=>searchBooks(true));
+document.getElementById('q').addEventListener('keydown',e=>{if(e.key==='Enter')searchBooks(true)});
+document.getElementById('moreBtn').addEventListener('click',()=>{page++;searchBooks(false)});
+document.getElementById('chips').addEventListener('click',e=>{
+  const b=e.target.closest('[data-shelf]');if(!b)return;
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));b.classList.add('active');
+  const s=b.dataset.shelf;const labels={trending:'🔥 Trending today',fantasy:'🧙 Fantasy',mystery:'🕵️ Mystery',science_fiction:'🚀 Science Fiction',romance:'💖 Romance',history:'🏛️ History',children:"🧒 Children's"};
+  if(s==='trending')loadTrending();else loadSubject(s,labels[s]);
+});
+document.getElementById('shelfBtn').addEventListener('click',()=>{titleEl.textContent='♥ My Shelf';books=shelf.slice();statusEl.textContent=shelf.length?'Your saved books, on this device.':'No saved books yet — tap ♡ on any book.';render();document.getElementById('moreBtn').style.display='none'});
+function openBook(b){
+  currentBook=b;coverZoom=100;applyCoverZoom();
+  document.getElementById('mTitle').textContent=b.title;
+  document.getElementById('mMeta').textContent=[(b.author_name||[]).join(', '),b.first_publish_year?('First published '+b.first_publish_year):''].filter(Boolean).join(' • ');
+  const img=document.getElementById('mCover');
+  if(b.cover_id){img.src=coverUrl(b.cover_id,'L');img.style.display='block'}else{img.style.display='none'}
+  document.getElementById('mDesc').textContent='Loading description…';document.getElementById('mTags').innerHTML='';
+  document.getElementById('mLink').href='https://openlibrary.org'+b.key;updateSaveBtn();
+  document.getElementById('modal').classList.add('open');
+  fetch('https://openlibrary.org'+b.key+'.json').then(r=>r.json()).then(w=>{
+    let d=w.description;if(typeof d==='object')d=d.value;
+    document.getElementById('mDesc').textContent=d||'No description available on Open Library for this edition yet.';
+    document.getElementById('mTags').innerHTML=(w.subjects||[]).slice(0,20).map(s=>`<span class="tag">${esc(s)}</span>`).join('');
+  }).catch(()=>{document.getElementById('mDesc').textContent='Description could not be loaded.'});
+}
+function applyCoverZoom(){document.getElementById('mCover').style.width=coverZoom+'%';document.getElementById('coverZoomLabel').textContent=coverZoom+'%'}
+document.getElementById('zoomIn').addEventListener('click',()=>{coverZoom=Math.min(400,coverZoom+25);applyCoverZoom()});
+document.getElementById('zoomOut').addEventListener('click',()=>{coverZoom=Math.max(25,coverZoom-25);applyCoverZoom()});
+document.getElementById('resetZoom').addEventListener('click',()=>{coverZoom=100;applyCoverZoom()});
+document.getElementById('mCover').addEventListener('dblclick',()=>{coverZoom=coverZoom>=200?100:200;applyCoverZoom()});
+document.getElementById('textSize').addEventListener('input',e=>{document.getElementById('mDesc').style.fontSize=e.target.value+'px'});
+document.getElementById('saveBtn').addEventListener('click',()=>{if(currentBook){toggleSave(currentBook);render()}});
+document.getElementById('closeBtn').addEventListener('click',()=>document.getElementById('modal').classList.remove('open'));
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')e.target.classList.remove('open')});
+setZoom(180);loadTrending();
+</script>
+</body>
+</html>
