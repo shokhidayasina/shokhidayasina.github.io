@@ -5,16 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>My first App</title>
 <style>
-body { font-family: system-ui, sans-serif; max-width: 480px; margin: 40px auto; padding: 0 20px; text-align: center; }
-h1 { margin-bottom: 24px; }
+body { font-family: system-ui, sans-serif; max-width: 480px; margin: 0 auto; padding: 40px 20px; text-align: center; background: linear-gradient(135deg, #e8f5e9 0%, #e3f2fd 50%, #fce4ec 100%); min-height: 100vh; }
+h1 { margin-bottom: 8px; color: #4a148c; font-size: 36px; }
 .buttons { display: flex; flex-direction: column; gap: 12px; }
-.buttons a { display: block; font-size: 20px; padding: 16px; border: 1px solid #888; border-radius: 12px; text-decoration: none; color: #111; background: #f5f5f5; }
-.buttons a:hover { background: #e8e8e8; }
+.buttons a { display: block; font-size: 20px; padding: 18px; border: none; border-radius: 16px; text-decoration: none; color: white; background: linear-gradient(135deg, #7b1fa2, #512da8); box-shadow: 0 6px 16px rgba(0,0,0,0.15); transition: transform 0.15s; }
+.buttons a:hover { transform: translateY(-2px) scale(1.02); }
 .note { color: #666; font-size: 14px; margin-top: 24px; }
 </style>
 </head>
 <body>
+<div style="font-size:40px;">🌟</div>
 <h1>My first App</h1>
+<p style="color:#555;">Choose an app below</p>
 <div class="buttons" id="buttons">
 <a href="calculator.html">Calculator</a>
 <a href="dictionary.html">Dictionary</a>
