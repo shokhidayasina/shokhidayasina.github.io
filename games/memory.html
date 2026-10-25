@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Memory Match</title><style>
+body{font-family:system-ui,sans-serif;text-align:center;background:#e8f5e9;margin:0;padding:12px}
+.grid{display:grid;grid-template-columns:repeat(4,70px);gap:10px;justify-content:center}
+.card{width:70px;height:70px;font-size:32px;border:none;border-radius:12px;background:#7b1fa2;color:#fff;cursor:pointer}
+.card.open{background:#fff;color:#000}
+button{padding:10px 16px;border:none;border-radius:10px;background:#2e7d32;color:#fff;cursor:pointer}
+a{color:#2e7d32}
+</style></head><body>
+<h1>🃏 Memory Match</h1><p id="info">Moves: 0 | Pairs: 0 / 8</p>
+<div class="grid" id="g"></div>
+<p>Tap two cards to find matching pairs!</p>
+<p><button onclick="start()">▶ New game</button> <a href="../games.html">← All games</a></p>
+<script>
+let cards,first,lock,moves,pairs;const g=document.getElementById('g');
+function start(){const em=['🐶','🐱','🦁','🐸','🍎','🍓','🚀','⚽'];cards=[...em,...em].sort(()=>Math.random()-0.5);first=null;lock=false;moves=0;pairs=0;draw();update()}
+function update(){document.getElementById('info').textContent=`Moves: ${moves} | Pairs: ${pairs} / 8`}
+function draw(){g.innerHTML='';cards.forEach((e,i)=>{const b=document.createElement('button');b.className='card';b.dataset.i=i;b.textContent='?';b.onclick=()=>flip(i,b);g.appendChild(b)})}
+function flip(i,b){if(lock||b.classList.contains('open'))return;b.classList.add('open');b.textContent=cards[i];
+if(!first){first={i,b};return}moves++;
+if(cards[first.i]===cards[i]){pairs++;first=null;update();if(pairs===8)alert('You win in '+moves+' moves! 🎉')}
+else{lock=true;const f=first;first=null;update();setTimeout(()=>{f.b.classList.remove('open');f.b.textContent='?';b.classList.remove('open');b.textContent='?';lock=false},800)}}
+start();
+</script></body></html>

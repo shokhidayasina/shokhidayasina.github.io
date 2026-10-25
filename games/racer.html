@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Road Racer</title><style>
+body{font-family:system-ui,sans-serif;text-align:center;background:#eceff1;margin:0;padding:12px}
+canvas{background:#37474f;border:3px solid #111;border-radius:12px;max-width:100%;touch-action:none}
+button{padding:10px 16px;border:none;border-radius:10px;background:#d84315;color:#fff;cursor:pointer}
+a{color:#d84315}
+</style></head><body>
+<h1>🏎️ Road Racer</h1><p id="info">Score: 0 | Lives: 3</p>
+<canvas id="c" width="360" height="500"></canvas>
+<p>Arrows ← → or drag to change lanes. Dodge the other cars!</p>
+<p><button onclick="start()">▶ Restart</button> <a href="../games.html">← All games</a></p>
+<script>
+const cv=document.getElementById('c'),ctx=cv.getContext('2d');
+let x,obs,score,lives,over,raf,speed;
+const lanes=[60,150,240];
+function start(){x=1;obs=[];score=0;lives=3;over=false;speed=4;cancelAnimationFrame(raf);update();loop()}
+function update(){document.getElementById('info').textContent=`Score: ${score} | Lives: ${lives}`}
+addEventListener('keydown',e=>{if(e.key==='ArrowLeft'&&x>0)x--;if(e.key==='ArrowRight'&&x<2)x++});
+cv.addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();const px=(e.clientX-r.left)*360/r.width;x=px<120?0:px<240?1:2});
+function loop(){if(over)return;score++;if(score%500===0)speed+=0.5;if(Math.random()<0.02)obs.push({lane:Math.floor(Math.random()*3),y:-80});
+for(const o of obs)o.y+=speed;obs=obs.filter(o=>o.y<540);
+for(const o of obs){if(o.lane===x&&o.y>380&&o.y<470){lives--;obs.splice(obs.indexOf(o),1);update();if(lives<=0){over=true;alert('Game over! Score: '+score);return}}}
+ctx.clearRect(0,0,360,500);ctx.fillStyle='#37474f';ctx.fillRect(0,0,360,500);
+ctx.strokeStyle='#fff';ctx.setLineDash([20,20]);ctx.beginPath();ctx.moveTo(120,0);ctx.lineTo(120,500);ctx.moveTo(240,0);ctx.lineTo(240,500);ctx.stroke();ctx.setLineDash([]);
+ctx.fillStyle='#ff5722';for(const o of obs)ctx.fillRect(lanes[o.lane]-25,o.y,50,80);
+ctx.fillStyle='#29b6f6';ctx.fillRect(lanes[x]-25,400,50,80);
+ctx.fillStyle='#fff';ctx.font='18px sans-serif';ctx.fillText('Score: '+score,10,25);
+raf=requestAnimationFrame(loop)}
+start();
+</script></body></html>

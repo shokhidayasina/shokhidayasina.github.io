@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>Hole.io-style Game</title><style>
+body{font-family:system-ui,sans-serif;text-align:center;background:#a5d6a7;margin:0;padding:12px}
+canvas{background:#81c784;border:3px solid #2e7d32;border-radius:12px;max-width:100%;touch-action:none}
+button{padding:10px 18px;border:none;border-radius:10px;background:#2e7d32;color:#fff;font-size:16px;cursor:pointer}
+a{color:#2e7d32}
+</style></head><body>
+<h1>🕳️ Hole.io-style</h1>
+<p id="info">Score: 0 | Size: 15 | Time: 90</p>
+<canvas id="c" width="600" height="400"></canvas>
+<p>Move with mouse, finger, or arrow keys. Eat things smaller than your hole to grow!</p>
+<p><button onclick="start()">▶ Restart</button> <a href="../games.html">← All games</a></p>
+<script>
+const cv=document.getElementById('c'),ctx=cv.getContext('2d'),info=document.getElementById('info');
+let hole,objs,score,time,over,timer;
+const kinds=[['🌳',10],['🚗',16],['🏠',26],['🌲',8],['🪨',12],['🚲',14],['📦',9],['🏢',40],['🚌',22]];
+function randObj(){const k=kinds[Math.floor(Math.random()*kinds.length)];return{x:20+Math.random()*560,y:20+Math.random()*360,emoji:k[0],size:k[1]}}
+function start(){hole={x:300,y:200,r:15};objs=[];for(let i=0;i<38;i++)objs.push(randObj());score=0;time=90;over=false;clearInterval(timer);timer=setInterval(()=>{if(over)return;time--;if(time<=0){over=true;clearInterval(timer);alert('Time up! Final score: '+score)}update()},1000);update()}
+function update(){info.textContent=`Score: ${score} | Size: ${Math.round(hole.r)} | Time: ${time}`}
+// mouse / touch
+function moveTo(x,y){const r=cv.getBoundingClientRect();hole.x=(x-r.left)*cv.width/r.width;hole.y=(y-r.top)*cv.height/r.height}
+cv.addEventListener('mousemove',e=>moveTo(e.clientX,e.clientY));
+cv.addEventListener('touchmove',e=>{e.preventDefault();moveTo(e.touches[0].clientX,e.touches[0].clientY)},{passive:false});
+const keys={};addEventListener('keydown',e=>keys[e.key]=true);addEventListener('keyup',e=>keys[e.key]=false);
+function loop(){if(!over){if(keys.ArrowLeft)hole.x-=5;if(keys.ArrowRight)hole.x+=5;if(keys.ArrowUp)hole.y-=5;if(keys.ArrowDown)hole.y+=5;
+hole.x=Math.max(hole.r,Math.min(600-hole.r,hole.x));hole.y=Math.max(hole.r,Math.min(400-hole.r,hole.y));
+objs=objs.filter(o=>{const d=Math.hypot(o.x-hole.x,o.y-hole.y);if(d<hole.r && o.size<hole.r){score+=o.size;hole.r+=o.size*0.06;return false}return true});
+while(objs.length<38)objs.push(randObj());update();}
+ctx.clearRect(0,0,600,400);
+ctx.fillStyle='#81c784';ctx.fillRect(0,0,600,400);
+for(const o of objs){ctx.font=o.size*2+'px serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(o.emoji,o.x,o.y)}
+ctx.beginPath();ctx.arc(hole.x,hole.y,hole.r,0,7);ctx.fillStyle='#111';ctx.fill();ctx.fillStyle='#fff';ctx.font='12px sans-serif';ctx.fillText('HOLE',hole.x,hole.y);
+requestAnimationFrame(loop)}
+start();loop();
+</script></body></html>

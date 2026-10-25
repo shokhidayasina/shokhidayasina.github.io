@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flappy</title><style>
+body{font-family:system-ui,sans-serif;text-align:center;background:#e0f7fa;margin:0;padding:12px}
+canvas{background:#87ceeb;border:3px solid #01579b;border-radius:12px;max-width:100%;cursor:pointer}
+button{padding:10px 16px;border:none;border-radius:10px;background:#01579b;color:#fff;cursor:pointer}
+a{color:#01579b}
+</style></head><body>
+<h1>🐤 Flappy</h1><p id="info">Score: 0 | Best: 0</p>
+<canvas id="c" width="400" height="500"></canvas>
+<p>Tap, click, or press Space to flap. Don't hit the pipes!</p>
+<p><button onclick="start()">▶ Restart</button> <a href="../games.html">← All games</a></p>
+<script>
+const cv=document.getElementById('c'),ctx=cv.getContext('2d');
+let y,vy,pipes,score,best,over,raf;
+best=+(localStorage.getItem('flappyBest')||0);
+function start(){y=250;vy=0;pipes=[];score=0;over=false;cancelAnimationFrame(raf);update();loop()}
+function update(){document.getElementById('info').textContent=`Score: ${score} | Best: ${best}`}
+function flap(){if(over){start();return}vy=-8}
+addEventListener('keydown',e=>{if(e.key===' ')flap()});cv.addEventListener('pointerdown',flap);
+function loop(){if(over)return;vy+=0.5;y+=vy;
+if(pipes.length===0||pipes[pipes.length-1].x<220){const gap=130+Math.random()*60;pipes.push({x:400,gapY:80+Math.random()*220,gap,gone:false})}
+for(const p of pipes){p.x-=3;if(!p.gone&&p.x<60){p.gone=true;score++;if(score>best){best=score;localStorage.setItem('flappyBest',best)}update()}}
+pipes=pipes.filter(p=>p.x>-70);
+for(const p of pipes){if(60+24>p.x&&60<p.x+70&&(y< p.gapY||y+24>p.gapY+p.gap)){over=true;alert('Game over! Score: '+score);return}}
+if(y>476||y<0){over=true;alert('Game over! Score: '+score);return}
+ctx.clearRect(0,0,400,500);ctx.fillStyle='#87ceeb';ctx.fillRect(0,0,400,500);
+ctx.fillStyle='#2e7d32';for(const p of pipes){ctx.fillRect(p.x,0,70,p.gapY);ctx.fillRect(p.x,p.gapY+p.gap,70,500)}
+ctx.fillStyle='#ffeb3b';ctx.beginPath();ctx.arc(72,y+12,16,0,7);ctx.fill();ctx.fillStyle='#000';ctx.font='20px sans-serif';ctx.fillText(score,200,40);
+raf=requestAnimationFrame(loop)}
+start();
+</script></body></html>

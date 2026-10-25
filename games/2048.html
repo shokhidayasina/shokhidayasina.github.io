@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2048</title><style>
+body{font-family:system-ui,sans-serif;text-align:center;background:#fce4ec;margin:0;padding:12px}
+.grid{display:grid;grid-template-columns:repeat(4,70px);gap:8px;justify-content:center}
+.cell{width:70px;height:70px;line-height:70px;border-radius:10px;background:#eee;font-size:22px;font-weight:700}
+button{padding:10px 16px;border:none;border-radius:10px;background:#ad1457;color:#fff;cursor:pointer}
+a{color:#ad1457}
+</style></head><body>
+<h1>🔢 2048</h1><p id="info">Score: 0</p><div class="grid" id="g"></div>
+<p>Arrows / WASD or swipe to slide. Merge matching numbers to reach 2048!</p>
+<p><button onclick="start()">▶ New game</button> <a href="../games.html">← All games</a></p>
+<script>
+let b,score;const g=document.getElementById('g');
+function start(){b=Array.from({length:4},()=>Array(4).fill(0));score=0;add();add();draw()}
+function add(){const e=[];for(let y=0;y<4;y++)for(let x=0;x<4;x++)if(!b[y][x])e.push([x,y]);if(e.length){const [x,y]=e[Math.floor(Math.random()*e.length)];b[y][x]=Math.random()<0.9?2:4}}
+function slide(row){row=row.filter(v=>v);for(let i=0;i<row.length-1;i++)if(row[i]===row[i+1]){row[i]*=2;score+=row[i];row.splice(i+1,1)}while(row.length<4)row.push(0);return row}
+function move(dx,dy){let old=JSON.stringify(b);
+for(let i=0;i<4;i++){let line=[];for(let j=0;j<4;j++)line.push(dx?b[i][j]:b[j][i]);if(dx<0||dy<0)line=slide(line);else line=slide(line.reverse()).reverse();for(let j=0;j<4;j++){if(dx)b[i][j]=line[j];else b[j][i]=line[j]}}
+if(JSON.stringify(b)!==old){add();draw();if(b.flat().includes(2048))alert('You reached 2048! 🎉');else if(!b.flat().includes(0)&&!canMove())alert('Game over! Score: '+score)}}
+function canMove(){for(let y=0;y<4;y++)for(let x=0;x<4;x++){if(x<3&&b[y][x]===b[y][x+1])return true;if(y<3&&b[y][x]===b[y+1][x])return true}return false}
+function draw(){document.getElementById('info').textContent='Score: '+score;g.innerHTML='';const colors={0:'#eee',2:'#ffecb3',4:'#ffe082',8:'#ffb74d',16:'#ff8a65',32:'#f06292',64:'#e53935',128:'#ffee58',256:'#ffeb3b',512:'#cddc39',1024:'#8bc34a',2048:'#4caf50'};
+for(let y=0;y<4;y++)for(let x=0;x<4;x++){const d=document.createElement('div');d.className='cell';d.style.background=colors[b[y][x]]||'#4caf50';d.textContent=b[y][x]||'';g.appendChild(d)}}
+addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='a')move(-1,0);if(e.key==='ArrowRight'||e.key==='d')move(1,0);if(e.key==='ArrowUp'||e.key==='w')move(0,-1);if(e.key==='ArrowDown'||e.key==='s')move(0,1)});
+let sx,sy;addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY});
+addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>30||Math.abs(dy)>30){if(Math.abs(dx)>Math.abs(dy))move(dx>0?1:-1,0);else move(0,dy>0?1:-1)}});
+start();
+</script></body></html>
