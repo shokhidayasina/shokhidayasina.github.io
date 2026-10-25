@@ -5,23 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mini Dictionary — English-Uzbek</title>
 <style>
-body { font-family: system-ui, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 20px; }
-.topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
-.topbar h1 { margin: 0; }
+body { font-family: system-ui, sans-serif; max-width: 760px; margin: 0 auto; padding: 24px 20px 40px; background: linear-gradient(135deg, #e3f2fd 0%, #fce4ec 50%, #fff8e1 100%); min-height: 100vh; }
+.topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; background: white; padding: 18px 20px; border-radius: 18px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+.topbar h1 { margin: 0; color: #6a1b9a; }
 .langbar { text-align: right; font-size: 16px; }
-.langbar select { font-size: 18px; padding: 8px; }
+.langbar select { font-size: 18px; padding: 8px; border-radius: 10px; border: 2px solid #ce93d8; background: #f3e5f5; }
 input, button { font-size: 18px; padding: 10px; box-sizing: border-box; }
-#search { width: 100%; }
+#search { width: 100%; border-radius: 12px; border: 2px solid #90caf9; padding: 12px; background: white; }
 .filters { margin: 16px 0; display: flex; flex-wrap: wrap; gap: 8px; }
-.filters button { font-size: 15px; }
-.word { border-bottom: 1px solid #ddd; padding: 10px 0; }
-.en { font-size: 20px; font-weight: bold; }
-.tr { font-size: 18px; color: #0a6; }
+.filters button { font-size: 15px; border-radius: 20px; border: none; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer; }
+.filters button:hover { background: #e1bee7; transform: translateY(-1px); }
+.word { background: white; border-radius: 14px; padding: 14px 16px; margin-bottom: 10px; box-shadow: 0 3px 12px rgba(0,0,0,0.07); border-left: 5px solid #ab47bc; }
+.en { font-size: 20px; font-weight: bold; color: #283593; }
+.tr { font-size: 18px; color: #00897b; }
 .cat { color: #666; font-size: 14px; }
-.note { color: #666; font-size: 14px; }
+.note { color: #555; font-size: 14px; background: rgba(255,255,255,0.7); padding: 8px 12px; border-radius: 10px; }
+a { color: #6a1b9a; }
 </style>
 </head>
 <body>
+<div style="text-align:center; font-size:28px; letter-spacing:6px;">✦ 📖 ✦</div>
 <div class="topbar">
 <h1>Mini Dictionary</h1>
 <div class="langbar">
