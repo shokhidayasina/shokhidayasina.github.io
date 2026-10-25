@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mini Dictionary — English-Uzbek</title>
+<style>
+body { font-family: system-ui, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 20px; }
+input, button { font-size: 18px; padding: 10px; box-sizing: border-box; }
+#search { width: 100%; }
+.filters { margin: 16px 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.filters button { font-size: 15px; }
+.word { border-bottom: 1px solid #ddd; padding: 12px 0; }
+.en { font-size: 20px; font-weight: bold; }
+.uz { font-size: 18px; color: #0a6; }
+.cat { color: #666; font-size: 14px; }
+.example { color: #444; }
+</style>
+</head>
+<body>
+<h1>Mini Dictionary</h1>
+<p>For people who don't know English yet. Search in English or Uzbek / Inglizcha yoki o'zbekcha qidiring.</p>
+<p><a href="index.html">← Back to My first App / Kalkulyatorga qaytish</a></p>
+<input id="search" type="text" placeholder="Search: hello, salom, water, suv...">
+<div class="filters" id="filters"></div>
+<div id="list"></div>
+<script>
+const words = [
+["hello","salom","Greetings","Hello! - Salom!"],
+["goodbye","xayr","Greetings","Goodbye! - Xayr!"],
+["please","iltimos","Greetings","Please help me. - Iltimos, menga yordam bering."],
+["thank you","rahmat","Greetings","Thank you! - Rahmat!"],
+["sorry","kechirasiz","Greetings","Sorry! - Kechirasiz!"],
+["yes","ha","Greetings","Yes. - Ha."],
+["no","yo'q","Greetings","No. - Yo'q."],
+["good morning","xayrli tong","Greetings","Good morning! - Xayrli tong!"],
+["good night","xayrli tun","Greetings","Good night! - Xayrli tun!"],
+["welcome","xush kelibsiz","Greetings","Welcome! - Xush kelibsiz!"],
+["mother","ona","Family","My mother. - Mening onam."],
+["father","ota","Family","My father. - Mening otam."],
+["brother","aka / uka","Family","My brother. - Mening akam / ukam."],
+["sister","opa / singil","Family","My sister. - Mening opam / singlim."],
+["friend","do'st","Family","My friend. - Mening do'stim."],
+["child","bola","Family","A child. - Bir bola."],
+["family","oila","Family","My family. - Mening oilam."],
+["water","suv","Food","Water, please. - Iltimos, suv."],
+["bread","non","Food","Bread. - Non."],
+["rice","guruch","Food","Rice. - Guruch."],
+["apple","olma","Food","An apple. - Bir olma."],
+["tea","choy","Food","Tea, please. - Iltimos, choy."],
+["milk","sut","Food","Milk. - Sut."],
+["food","ovqat","Food","Food. - Ovqat."],
+["meat","go'sht","Food","Meat. - Go'sht."],
+["house","uy","Travel","My house. - Mening uyim."],
+["school","maktab","Travel","School. - Maktab."],
+["book","kitob","Travel","A book. - Bir kitob."],
+["car","mashina","Travel","A car. - Bir mashina."],
+["road","yo'l","Travel","The road. - Yo'l."],
+["city","shahar","Travel","The city. - Shahar."],
+["country","mamlakat","Travel","My country. - Mening mamlakatim."],
+["money","pul","Travel","Money. - Pul."],
+["one","bir","Numbers","One. - Bir."],
+["two","ikki","Numbers","Two. - Ikki."],
+["three","uch","Numbers","Three. - Uch."],
+["four","to'rt","Numbers","Four. - To'rt."],
+["five","besh","Numbers","Five. - Besh."],
+["ten","o'n","Numbers","Ten. - O'n."],
+["red","qizil","Colors","Red. - Qizil."],
+["blue","ko'k","Colors","Blue. - Ko'k."],
+["green","yashil","Colors","Green. - Yashil."],
+["white","oq","Colors","White. - Oq."],
+["black","qora","Colors","Black. - Qora."],
+["yellow","sariq","Colors","Yellow. - Sariq."],
+["dog","it","Animals","A dog. - Bir it."],
+["cat","mushuk","Animals","A cat. - Bir mushuk."],
+["bird","qush","Animals","A bird. - Bir qush."],
+["fish","baliq","Animals","A fish. - Bir baliq."],
+["today","bugun","Daily","Today. - Bugun."],
+["tomorrow","ertaga","Daily","Tomorrow. - Ertaga."],
+["yesterday","kecha","Daily","Yesterday. - Kecha."],
+["time","vaqt","Daily","Time. - Vaqt."],
+["day","kun","Daily","A day. - Bir kun."],
+["night","tun","Daily","Night. - Tun."],
+["love","sevgi","Daily","Love. - Sevgi."],
+["happy","baxtli","Daily","I am happy. - Men baxtliman."]
+];
+const cats = ["All", ...new Set(words.map(w => w[2]))];
+let currentCat = "All";
+const filtersEl = document.getElementById('filters');
+cats.forEach(c => {
+  const b = document.createElement('button');
+  b.textContent = c;
+  b.onclick = () => { currentCat = c; render(); };
+  filtersEl.appendChild(b);
+});
+function render() {
+  const q = document.getElementById('search').value.toLowerCase();
+  const list = document.getElementById('list');
+  const filtered = words.filter(w => (currentCat === "All" || w[2] === currentCat) && (w[0].includes(q) || w[1].toLowerCase().includes(q) || w[3].toLowerCase().includes(q)));
+  if (!filtered.length) { list.innerHTML = '<p>No word found. / So‘z topilmadi.</p>'; return; }
+  list.innerHTML = filtered.map(w => `<div class="word"><div class="en">${w[0]}</div><div class="uz">${w[1]}</div><div class="cat">${w[2]}</div><div class="example">${w[3]}</div></div>`).join('');
+}
+document.getElementById('search').addEventListener('input', render);
+render();
+</script>
+</body>
+</html>
