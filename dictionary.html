@@ -55,6 +55,9 @@ a { color: #6a1b9a; }
 <p style="margin:8px 0;">No word to pick — just have a regular conversation in English. The AI listens, replies out loud, and corrects mistakes while you talk.</p>
 <button type="button" onclick="startConversation()">▶ Start conversation with AI</button>
 <button type="button" onclick="startSpeaking()">🎤 Speak now</button>
+<button type="button" onclick="testMic()">🎙 Test microphone</button>
+<button type="button" onclick="document.getElementById('chatText').focus()">✍️ Can't talk? Use text instead</button>
+<div id="voiceStatus" style="font-size:14px; color:#333; background:#fff3e0; padding:8px; border-radius:8px; margin-top:8px;"></div>
 <p style="font-size:14px; color:#555;">Tap Speak, allow the microphone, and talk. If your browser does not support voice, type below and press Send — the AI will still reply out loud.</p>
 <div style="display:flex; gap:8px;"><input id="chatText" type="text" placeholder="Or type here in English..." style="flex:1;"><button type="button" onclick="sendText()">Send</button></div>
 <div id="chatLog" style="background:white; padding:12px; border-radius:10px; margin-top:10px; min-height:80px; text-align:left;"></div>
@@ -165,6 +168,25 @@ function sendText() {
   const val=el.value.trim(); if(!val) return; el.value='';
   handleHeard(val);
 }
+
+function updateVoiceStatus() {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const el = document.getElementById('voiceStatus');
+  if (!el) return;
+  if (SR) el.textContent = 'Voice check: speech recognition is supported in this browser. If Speak does nothing, tap Test microphone, then allow the microphone.';
+  else el.textContent = 'Voice check: speech recognition is NOT supported in this browser (common in Safari / in-app browsers). Please open this page in Chrome, or use the text box below — the AI will still reply out loud.';
+}
+async function testMic() {
+  const el = document.getElementById('voiceStatus');
+  try {
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) { el.textContent = 'This browser cannot access a microphone. Please open the page in Chrome and use the text box below.'; return; }
+    const stream = await navigator.mediaDevices.getUserMedia({audio:true});
+    stream.getTracks().forEach(tr=>tr.stop());
+    el.textContent = 'Microphone works! Now tap Speak now and talk.';
+  } catch(err) {
+    el.textContent = 'Microphone blocked (' + err.name + '). Tap the lock / site-settings icon next to the address, allow Microphone for this site, reload the page, then tap Speak again. Or use the text box below.';
+  }
+}
 function startSpeaking() {
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
   if (!SR) {
@@ -175,7 +197,7 @@ function startSpeaking() {
   const rec=new SR(); rec.lang='en-US'; rec.interimResults=false; rec.maxAlternatives=1;
   document.getElementById('aiFeedback').textContent='Listening... please speak now.';
   rec.onresult=function(e){ const heard=e.results[0][0].transcript.trim(); handleHeard(heard); };
-  rec.onerror=function(e){ const msg='Sorry, I could not hear you clearly. Please try again, or type your message below.'; document.getElementById('aiFeedback').textContent='AI: '+msg; addChat('AI', msg); speakAI(msg); };
+  rec.onerror=function(e){ let msg='Sorry, I could not hear you clearly. Please try again, or type your message below.'; if(e.error==='not-allowed' || e.error==='service-not-allowed') msg='Microphone permission was denied. Tap the lock icon next to the address, allow Microphone for this site, reload the page, then tap Speak again. Or type below.'; if(e.error==='no-speech') msg='I did not hear anything. Please speak louder and closer to the microphone, then try again.'; if(e.error==='audio-capture') msg='No microphone was found on this device. Please use the text box below.'; document.getElementById('aiFeedback').textContent='AI: '+msg; addChat('AI', msg); speakAI(msg); };
   rec.onend=function(){ /* keep the last AI reply visible, do not go silent */ };
   try { rec.start(); } catch(err) { const msg='Please try again, or type your message below.'; document.getElementById('aiFeedback').textContent='AI: '+msg; speakAI(msg); }
 }
@@ -184,6 +206,7 @@ document.getElementById('chatText').addEventListener('keydown', function(e){ if(
 document.getElementById('search').addEventListener('input', render);
 document.getElementById('lang').addEventListener('change', render);
 render();
+updateVoiceStatus();
 </script>
 </body>
 </html>
