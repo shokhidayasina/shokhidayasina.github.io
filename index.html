@@ -1,10 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>My first App</title>
+<style>
+body { font-family: system-ui, sans-serif; max-width: 480px; margin: 40px auto; padding: 0 20px; }
+label { display: block; margin: 12px 0 4px; }
+input, select, button { font-size: 18px; padding: 10px; width: 100%; box-sizing: border-box; }
+.ops { display: flex; gap: 8px; margin: 16px 0; }
+.ops button { flex: 1; }
+#result { font-size: 24px; font-weight: bold; margin-top: 20px; min-height: 32px; }
+</style>
 </head>
 <body>
 <h1>My first App</h1>
+<p>2 ta sonni kiriting, amalni tanlang va natijani ko'ring.</p>
+
+<label for="a">Birinchi son</label>
+<input id="a" type="number" step="any" placeholder="Masalan: 12">
+
+<label for="b">Ikkinchi son</label>
+<input id="b" type="number" step="any" placeholder="Masalan: 3">
+
+<label for="op">Amal</label>
+<select id="op">
+<option value="+">Qo'shish (+)</option>
+<option value="-">Ayirish (-)</option>
+<option value="*">Ko'paytirish (×)</option>
+<option value="/">Bo'lish (÷)</option>
+</select>
+
+<div class="ops">
+<button type="button" onclick="calculate()">Hisoblash</button>
+</div>
+
+<div id="result">Natija: —</div>
+
+<script>
+function calculate() {
+  const aEl = document.getElementById('a');
+  const bEl = document.getElementById('b');
+  const op = document.getElementById('op').value;
+  const resultEl = document.getElementById('result');
+  const a = parseFloat(aEl.value);
+  const b = parseFloat(bEl.value);
+  if (isNaN(a) || isNaN(b)) {
+    resultEl.textContent = 'Iltimos, ikkala sonni ham kiriting.';
+    return;
+  }
+  let result;
+  if (op === '+') result = a + b;
+  else if (op === '-') result = a - b;
+  else if (op === '*') result = a * b;
+  else if (op === '/') {
+    if (b === 0) {
+      resultEl.textContent = "0 ga bo'lib bo'lmaydi.";
+      return;
+    }
+    result = a / b;
+  }
+  resultEl.textContent = 'Natija: ' + a + ' ' + op + ' ' + b + ' = ' + result;
+}
+document.getElementById('a').addEventListener('keydown', function(e) { if (e.key === 'Enter') calculate(); });
+document.getElementById('b').addEventListener('keydown', function(e) { if (e.key === 'Enter') calculate(); });
+</script>
 </body>
 </html>
