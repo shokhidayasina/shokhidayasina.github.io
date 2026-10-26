@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Inspo — Daily Inspiration</title>
+<style>
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;background:linear-gradient(135deg,#fff7ed,#fce7f3,#e0e7ff);color:#1f2937}
+header{max-width:900px;margin:0 auto;padding:28px 16px 8px;text-align:center}
+h1{font-size:52px;margin:8px 0}
+.tag{font-size:18px;color:#4b5563}
+.card{background:#fff;border-radius:20px;padding:22px;margin:16px auto;max-width:900px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.quote{font-size:28px;line-height:1.4;font-weight:700}
+button{border:0;border-radius:999px;padding:10px 18px;margin:6px 6px 6px 0;cursor:pointer;background:#111827;color:#fff;font-size:16px}
+button.light{background:#f3f4f6;color:#111827}
+button:hover{opacity:.9}
+.chip{display:inline-block;border:1px solid #d1d5db;border-radius:999px;padding:6px 12px;margin:4px;cursor:pointer;background:#fff}
+.chip.on{background:#111827;color:#fff}
+input{padding:10px 14px;border-radius:999px;border:1px solid #d1d5db;font-size:16px;width:min(420px,80%)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:14px}
+.grid img{width:100%;height:180px;object-fit:cover;border-radius:14px}
+.small{font-size:13px;color:#6b7280}
+.idea{font-size:20px;line-height:1.5}
+a{color:#111827}
+</style>
+</head>
+<body>
+<header>
+<h1>✨ The Inspo</h1>
+<p class="tag">One small spark, every day. Quotes, ideas and photos to get you started.</p>
+<p id="today" class="small"></p>
+<p><a href="index.html">← Back to home</a></p>
+</header>
+
+<div class="card">
+<b>How to use The Inspo:</b> Tap “New inspiration” for a fresh quote, pick a mood below, tap “Give me an idea” for something to do today, or search a topic for real photos. Tap ♥ to save a quote to your list.
+</div>
+
+<div class="card">
+<div class="small">QUOTE OF THE DAY</div>
+<div class="quote" id="quote"></div>
+<p id="qcat" class="small"></p>
+<button onclick="newQuote()">✨ New inspiration</button>
+<button class="light" onclick="copyQuote()">📋 Copy quote</button>
+<button class="light" onclick="saveQuote()">♥ Save</button>
+<div style="margin-top:12px">
+<span class="chip on" data-cat="All" onclick="setCat(this)">All</span>
+<span class="chip" data-cat="Create" onclick="setCat(this)">Create</span>
+<span class="chip" data-cat="Learn" onclick="setCat(this)">Learn</span>
+<span class="chip" data-cat="Move" onclick="setCat(this)">Move</span>
+<span class="chip" data-cat="Calm" onclick="setCat(this)">Calm</span>
+<span class="chip" data-cat="Dream" onclick="setCat(this)">Dream</span>
+<span class="chip" data-cat="Work" onclick="setCat(this)">Work</span>
+</div>
+</div>
+
+<div class="card">
+<b>💡 Idea for today</b>
+<div class="idea" id="idea">Tap the button and get one small, doable idea.</div>
+<button onclick="newIdea()">Give me an idea</button>
+</div>
+
+<div class="card">
+<b>🖼️ Photo inspiration</b>
+<p class="small">Real photos, fetched live by topic. Credits are shown under each photo.</p>
+<input id="topic" placeholder="Try: sunrise, city, ocean, cooking…" value="sunrise">
+<button onclick="loadPhotos()">Search photos</button>
+<div id="photos" class="grid"></div>
+<p id="photoNote" class="small"></p>
+</div>
+
+<div class="card">
+<b>♥ Saved inspirations</b>
+<div id="saved"></div>
+</div>
+
+<script>
+const quotes=[
+["Start small. One page, one step, one minute — that is how big things begin.","Create"],
+["You do not need to feel ready to begin. Begin, and readiness will follow.","Work"],
+["Learn one new word, one new fact, one new skill today.","Learn"],
+["Move your body, even for ten minutes. Your mind will thank you.","Move"],
+["Breathe in. Breathe out. A calm mind can do hard things.","Calm"],
+["Dream it clearly, then break it into tiny steps you can do today.","Dream"],
+["Make something imperfect today. Finished is better than perfect.","Create"],
+["Read a little, every day. Small pages add up to whole books.","Learn"],
+["Walk outside and notice one beautiful thing. That is inspiration.","Calm"],
+["Your idea does not need permission. Try it, test it, improve it.","Create"],
+["Focus on the next step, not the whole staircase.","Work"],
+["Kindness is a small act with a long echo.","Dream"],
+["Write down your idea before it flies away.","Create"],
+["Ask a question today. Curiosity is the start of learning.","Learn"],
+["Stretch, drink water, rest your eyes. Small care, big energy.","Move"],
+["Slow down for five minutes. You are not behind, you are on your way.","Calm"],
+["Imagine where you want to be in a year, then do one thing for it today.","Dream"],
+["Do the hardest small task first. The rest of the day feels lighter.","Work"],
+["Draw, build, cook, sing — create for the joy of it, not for likes.","Create"],
+["Teach someone what you learned. That is how it stays with you.","Learn"],
+["Dance to one song. Joy counts as exercise too.","Move"],
+["Quiet is not empty. It is where new ideas grow.","Calm"],
+["Keep going, even slowly. Slow progress is still progress.","Work"],
+["Today is a blank page. Write one good line on it.","Dream"]
+];
+const ideas=[
+"Draw your dream room in 10 minutes.",
+"Learn 5 new English words and use them in sentences.",
+"Take a photo of something beautiful near your home.",
+"Write a 3-line poem about today.",
+"Cook a simple dish you have never tried before.",
+"Walk for 15 minutes without your phone.",
+"Make a list of 10 things you are grateful for.",
+"Build a tiny tower from books, cups or blocks.",
+"Read one chapter, or 10 pages, of any book.",
+"Plant a seed, or water a plant, and watch it grow.",
+"Design a logo for an imaginary shop.",
+"Learn a short dance, or make up your own moves.",
+"Write a kind note to someone you like.",
+"Try a new hairstyle, outfit combo, or room layout.",
+"Invent a game with only paper and a pen."
+];
+let cat="All";
+function filtered(){return cat==="All"?quotes:quotes.filter(q=>q[1]===cat)}
+function showQuote(i){const q=filtered()[i];document.getElementById('quote').textContent='“'+q[0]+'”';document.getElementById('qcat').textContent=q[1]}
+function newQuote(){const f=filtered();showQuote(Math.floor(Math.random()*f.length))}
+function setCat(el){cat=el.dataset.cat;document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));el.classList.add('on');newQuote()}
+function copyQuote(){navigator.clipboard&&navigator.clipboard.writeText(document.getElementById('quote').textContent);alert('Quote copied!')}
+function getSaved(){try{return JSON.parse(localStorage.getItem('inspo_saved')||'[]')}catch(e){return []}}
+function renderSaved(){const s=getSaved();document.getElementById('saved').innerHTML=s.length?s.map(x=>'<div>♥ '+x+'</div>').join(''):'<p class="small">Nothing saved yet. Save a quote above and it will stay on this device.</p>'}
+function saveQuote(){const q=document.getElementById('quote').textContent;const s=getSaved();if(!s.includes(q))s.push(q);localStorage.setItem('inspo_saved',JSON.stringify(s));renderSaved()}
+function newIdea(){document.getElementById('idea').textContent=ideas[Math.floor(Math.random()*ideas.length)]}
+async function loadPhotos(){
+ const topic=document.getElementById('topic').value.trim()||'sunrise';
+ const box=document.getElementById('photos');box.innerHTML='<p>Loading photos…</p>';
+ try{
+  const r=await fetch('https://api.openverse.org/v1/images/?q='+encodeURIComponent(topic)+'&page_size=12');
+  const d=await r.json();
+  if(!d.results||!d.results.length){document.getElementById('photoNote').textContent='No photos found for that topic. Try another word.';box.innerHTML='';return}
+  box.innerHTML=d.results.map(p=>'<div><img src="'+p.url+'" alt="'+(p.title||topic)+'"><div class="small">'+(p.title||topic)+' — '+(p.creator||'Unknown')+'</div></div>').join('');
+  document.getElementById('photoNote').textContent='Photos from Openverse, with creator credit. Tap a photo to see it larger in a new tab is not available here — use the search above for more topics.';
+ }catch(e){box.innerHTML='';document.getElementById('photoNote').textContent='Photos could not load right now. Check your connection and try again.'}
+}
+document.getElementById('today').textContent=new Date().toDateString();
+const day=new Date();const doy=Math.floor((day-new Date(day.getFullYear(),0,0))/86400000);
+showQuote(doy%quotes.length);
+renderSaved();loadPhotos();
+</script>
+</body>
+</html>
