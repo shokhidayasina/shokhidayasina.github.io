@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1000 Games — Play Them All, No Download</title>
+<style>body{font-family:system-ui,sans-serif;margin:0;background:#232822;color:#e5e7eb}a{color:#a3e635;text-decoration:none}header{position:sticky;top:0;z-index:20;background:#151a16;padding:12px 16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}header b{font-size:22px;color:#fff}header input{flex:1;min-width:200px;padding:11px 14px;border-radius:999px;border:0;background:#2b332c;color:#fff}header select{padding:11px;border-radius:999px;background:#2b332c;color:#fff;border:0}main{padding:16px}h2{color:#fff}#player{display:none;background:#151a16;border-radius:14px;padding:14px;margin-bottom:16px}#frame{width:100%;height:660px;border:0;border-radius:10px;background:#fff}.pbtns button{border:0;border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer;background:#a3e635;margin:4px}.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.tile{background:#151a16;border-radius:10px;overflow:hidden;cursor:pointer;border:2px solid transparent}.tile:hover{border-color:#a3e635}.thumb{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;font-size:44px;background:#2b332c}.tile h3{margin:8px 10px 2px;font-size:14px;color:#fff}.tile p{margin:0 10px 10px;color:#9ca3af;font-size:12px}@media(max-width:1100px){.grid{grid-template-columns:repeat(4,1fr)}}@media(max-width:700px){.grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:480px){.grid{grid-template-columns:repeat(2,1fr)}}</style></head><body>
+<header><b>● hopplay</b><input id="q" placeholder="Search 1000 games… e.g. Space, Snake, Hard"><select id="type"><option value="">All types</option></select><select id="diff"><option value="">All levels</option><option>Easy</option><option>Medium</option><option>Hard</option><option>Expert</option><option>Master</option></select></header>
+<main>
+<p style="color:#9ca3af">1,000 original playable games — 20 themes × 10 game types × 5 difficulty levels. Each one is a different combination, with its own speed, goal and look. No download, no login.</p>
+<div id="player"><h2 id="ptitle" style="margin-top:0">Playing</h2><iframe id="frame" title="Game player"></iframe><div class="pbtns"><button id="full">⛶ Full screen</button><button id="close" style="background:#374151;color:#fff">✕ Close player</button></div></div>
+<h2 id="count">Loading games…</h2>
+<div class="grid" id="grid"></div>
+<p style="text-align:center"><button id="more" style="border:0;border-radius:999px;padding:12px 24px;font-weight:800;background:#a3e635;cursor:pointer">Load more games</button></p>
+<p style="text-align:center"><a href="playhop.html">← Back to main games</a> · <a href="index.html">Home</a></p>
+<p style="color:#6b7280;font-size:13px;text-align:center">Original games generated for this site. Not affiliated with Playhop, and not copies of Playhop's games.</p>
+</main>
+<script>
+let ALL=[],shown=0;
+const types=["Dodge","Catcher","Popper","Blaster","Breaker","Flyer","Memory","Snake","Stacker","Color Match"];
+const tsel=document.getElementById('type');types.forEach(t=>{const o=document.createElement('option');o.textContent=t;tsel.appendChild(o);});
+function filtered(){const q=document.getElementById('q').value.toLowerCase(),ty=tsel.value,df=document.getElementById('diff').value;return ALL.filter(g=>(!ty||g.type===ty)&&(!df||g.diff===df)&&(g.title.toLowerCase().includes(q)||g.theme.toLowerCase().includes(q)));}
+function render(reset){const list=filtered();if(reset)shown=0;const grid=document.getElementById('grid');if(reset)grid.innerHTML='';const next=list.slice(shown,shown+60);next.forEach(g=>{const d=document.createElement('div');d.className='tile';d.innerHTML='<div class="thumb">'+g.emoji+'</div><h3>'+g.title+'</h3><p>'+g.type+' · '+g.theme+'</p>';d.onclick=()=>play(g);grid.appendChild(d);});shown+=next.length;document.getElementById('count').textContent='Showing '+shown+' of '+list.length+' games';document.getElementById('more').style.display=shown<list.length?'inline-block':'none';}
+function play(g){document.getElementById('player').style.display='block';document.getElementById('ptitle').textContent='▶ Playing: '+g.title;document.getElementById('frame').src=g.file;document.getElementById('player').scrollIntoView({behavior:'smooth'});history.replaceState(null,'','mega-games.html?game='+g.n);}
+document.getElementById('q').oninput=()=>render(true);tsel.onchange=()=>render(true);document.getElementById('diff').onchange=()=>render(true);
+document.getElementById('more').onclick=()=>render(false);
+document.getElementById('close').onclick=()=>{document.getElementById('player').style.display='none';document.getElementById('frame').src='about:blank';};
+document.getElementById('full').onclick=()=>{const f=document.getElementById('frame');if(f.requestFullscreen)f.requestFullscreen();};
+fetch('mega-catalog.json').then(r=>r.json()).then(data=>{ALL=data;render(true);const s=new URLSearchParams(location.search).get('game');if(s){const g=ALL.find(x=>String(x.n)===s);if(g)play(g);}}).catch(()=>{document.getElementById('count').textContent='Could not load the game list. Please refresh.';});
+</script></body></html>

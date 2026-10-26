@@ -1,0 +1,9002 @@
+[
+ {
+  "n": 1,
+  "title": "Space Dodge — Easy",
+  "type": "Dodge",
+  "theme": "Space",
+  "diff": "Easy",
+  "emoji": "🚀",
+  "file": "games/mega/game-0001.html"
+ },
+ {
+  "n": 2,
+  "title": "Space Dodge — Medium",
+  "type": "Dodge",
+  "theme": "Space",
+  "diff": "Medium",
+  "emoji": "🚀",
+  "file": "games/mega/game-0002.html"
+ },
+ {
+  "n": 3,
+  "title": "Space Dodge — Hard",
+  "type": "Dodge",
+  "theme": "Space",
+  "diff": "Hard",
+  "emoji": "🚀",
+  "file": "games/mega/game-0003.html"
+ },
+ {
+  "n": 4,
+  "title": "Space Dodge — Expert",
+  "type": "Dodge",
+  "theme": "Space",
+  "diff": "Expert",
+  "emoji": "🚀",
+  "file": "games/mega/game-0004.html"
+ },
+ {
+  "n": 5,
+  "title": "Space Dodge — Master",
+  "type": "Dodge",
+  "theme": "Space",
+  "diff": "Master",
+  "emoji": "🚀",
+  "file": "games/mega/game-0005.html"
+ },
+ {
+  "n": 6,
+  "title": "Space Catcher — Easy",
+  "type": "Catcher",
+  "theme": "Space",
+  "diff": "Easy",
+  "emoji": "🚀",
+  "file": "games/mega/game-0006.html"
+ },
+ {
+  "n": 7,
+  "title": "Space Catcher — Medium",
+  "type": "Catcher",
+  "theme": "Space",
+  "diff": "Medium",
+  "emoji": "🚀",
+  "file": "games/mega/game-0007.html"
+ },
+ {
+  "n": 8,
+  "title": "Space Catcher — Hard",
+  "type": "Catcher",
+  "theme": "Space",
+  "diff": "Hard",
+  "emoji": "🚀",
+  "file": "games/mega/game-0008.html"
+ },
+ {
+  "n": 9,
+  "title": "Space Catcher — Expert",
+  "type": "Catcher",
+  "theme": "Space",
+  "diff": "Expert",
+  "emoji": "🚀",
+  "file": "games/mega/game-0009.html"
+ },
+ {
+  "n": 10,
+  "title": "Space Catcher — Master",
+  "type": "Catcher",
+  "theme": "Space",
+  "diff": "Master",
+  "emoji": "🚀",
+  "file": "games/mega/game-0010.html"
+ },
+ {
+  "n": 11,
+  "title": "Space Popper — Easy",
+  "type": "Popper",
+  "theme": "Space",
+  "diff": "Easy",
+  "emoji": "🚀",
+  "file": "games/mega/game-0011.html"
+ },
+ {
+  "n": 12,
+  "title": "Space Popper — Medium",
+  "type": "Popper",
+  "theme": "Space",
+  "diff": "Medium",
+  "emoji": "🚀",
+  "file": "games/mega/game-0012.html"
+ },
+ {
+  "n": 13,
+  "title": "Space Popper — Hard",
+  "type": "Popper",
+  "theme": "Space",
+  "diff": "Hard",
+  "emoji": "🚀",
+  "file": "games/mega/game-0013.html"
+ },
+ {
+  "n": 14,
+  "title": "Space Popper — Expert",
+  "type": "Popper",
+  "theme": "Space",
+  "diff": "Expert",
+  "emoji": "🚀",
+  "file": "games/mega/game-0014.html"
+ },
+ {
+  "n": 15,
+  "title": "Space Popper — Master",
+  "type": "Popper",
+  "theme": "Space",
+  "diff": "Master",
+  "emoji": "🚀",
+  "file": "games/mega/game-0015.html"
+ },
+ {
+  "n": 16,
+  "title": "Space Blaster — Easy",
+  "type": "Blaster",
+  "theme": "Space",
+  "diff": "Easy",
+  "emoji": "🚀",
+  "file": "games/mega/game-0016.html"
+ },
+ {
+  "n": 17,
+  "title": "Space Blaster — Medium",
+  "type": "Blaster",
+  "theme": "Space",
+  "diff": "Medium",
+  "emoji": "🚀",
+  "file": "games/mega/game-0017.html"
+ },
+ {
+  "n": 18,
+  "title": "Space Blaster — Hard",
+  "type": "Blaster",
+  "theme": "Space",
+  "diff": "Hard",
+  "emoji": "🚀",
+  "file": "games/mega/game-0018.html"
+ },
+ {
+  "n": 19,
+  "title": "Space Blaster — Expert",
+  "type": "Blaster",
+  "theme": "Space",
+  "diff": "Expert",
+  "emoji": "🚀",
+  "file": "games/mega/game-0019.html"
+ },
+ {
+  "n": 20,
+  "title": "Space Blaster — Master",
+  "type": "Blaster",
+  "theme": "Space",
+  "diff": "Master",
+  "emoji": "🚀",
+  "file": "games/mega/game-0020.html"
+ },
+ {
+  "n": 21,
+  "title": "Space Breaker — Easy",
+  "type": "Breaker",
+  "theme": "Space",
+  "diff": "Easy",
+  "emoji": "🚀",
+  "file": "games/mega/game-0021.html"
+ },
+ {
+  "n": 22,
+  "title": "Space Breaker — Medium",
+  "type": "Breaker",
+  "theme": "Space",
+  "diff": "Medium",
+  "emoji": "🚀",
+  "file": "games/mega/game-0022.html"
+ },
+ {
+  "n": 23,
+  "title": "Space Breaker — Hard",
+  "type": "Breaker",
+  "theme": "Space",
+  "diff": "Hard",
+  "emoji": "🚀",
+  "file": "games/mega/game-0023.html"
+ },
+ {
+  "n": 24,
+  "title": "Space Breaker — Expert",
+  "type": "Breaker",
+  "theme": "Space",
+  "diff": "Expert",
+  "emoji": "🚀",
+  "file": "games/mega/game-0024.html"
+ },
+ {
+  "n": 25,
+  "title": "Space Breaker — Master",
+  "type": "Breaker",
+  "theme": "Space",
+  "diff": "Master",
+  "emoji": "🚀",
+  "file": "games/mega/game-0025.html"
+ },
+ {
+  "n": 26,
+  "title": "Space Flyer — Easy",
+  "type": "Flyer",
+  "theme": "Space",
+  "diff": "Easy",
+  "emoji": "🚀",
+  "file": "games/mega/game-0026.html"
+ },
+ {
+  "n": 27,
+  "title": "Space Flyer — Medium",
+  "type": "Flyer",
+  "theme": "Space",
+  "diff": "Medium",
+  "emoji": "🚀",
+  "file": "games/mega/game-0027.html"
+ },
+ {
+  "n": 28,
+  "title": "Space Flyer — Hard",
+  "type": "Flyer",
+  "theme": "Space",
+  "diff": "Hard",
+  "emoji": "🚀",
+  "file": "games/mega/game-0028.html"
+ },
+ {
+  "n": 29,
+  "title": "Space Flyer — Expert",
+  "type": "Flyer",
+  "theme": "Space",
+  "diff": "Expert",
+  "emoji": "🚀",
+  "file": "games/mega/game-0029.html"
+ },
+ {
+  "n": 30,
+  "title": "Space Flyer — Master",
+  "type": "Flyer",
+  "theme": "Space",
+  "diff": "Master",
+  "emoji": "🚀",
+  "file": "games/mega/game-0030.html"
+ },
+ {
+  "n": 31,
+  "title": "Space Memory — Easy",
+  "type": "Memory",
+  "theme": "Space",
+  "diff": "Easy",
+  "emoji": "🚀",
+  "file": "games/mega/game-0031.html"
+ },
+ {
+  "n": 32,
+  "title": "Space Memory — Medium",
+  "type": "Memory",
+  "theme": "Space",
+  "diff": "Medium",
+  "emoji": "🚀",
+  "file": "games/mega/game-0032.html"
+ },
+ {
+  "n": 33,
+  "title": "Space Memory — Hard",
+  "type": "Memory",
+  "theme": "Space",
+  "diff": "Hard",
+  "emoji": "🚀",
+  "file": "games/mega/game-0033.html"
+ },
+ {
+  "n": 34,
+  "title": "Space Memory — Expert",
+  "type": "Memory",
+  "theme": "Space",
+  "diff": "Expert",
+  "emoji": "🚀",
+  "file": "games/mega/game-0034.html"
+ },
+ {
+  "n": 35,
+  "title": "Space Memory — Master",
+  "type": "Memory",
+  "theme": "Space",
+  "diff": "Master",
+  "emoji": "🚀",
+  "file": "games/mega/game-0035.html"
+ },
+ {
+  "n": 36,
+  "title": "Space Snake — Easy",
+  "type": "Snake",
+  "theme": "Space",
+  "diff": "Easy",
+  "emoji": "🚀",
+  "file": "games/mega/game-0036.html"
+ },
+ {
+  "n": 37,
+  "title": "Space Snake — Medium",
+  "type": "Snake",
+  "theme": "Space",
+  "diff": "Medium",
+  "emoji": "🚀",
+  "file": "games/mega/game-0037.html"
+ },
+ {
+  "n": 38,
+  "title": "Space Snake — Hard",
+  "type": "Snake",
+  "theme": "Space",
+  "diff": "Hard",
+  "emoji": "🚀",
+  "file": "games/mega/game-0038.html"
+ },
+ {
+  "n": 39,
+  "title": "Space Snake — Expert",
+  "type": "Snake",
+  "theme": "Space",
+  "diff": "Expert",
+  "emoji": "🚀",
+  "file": "games/mega/game-0039.html"
+ },
+ {
+  "n": 40,
+  "title": "Space Snake — Master",
+  "type": "Snake",
+  "theme": "Space",
+  "diff": "Master",
+  "emoji": "🚀",
+  "file": "games/mega/game-0040.html"
+ },
+ {
+  "n": 41,
+  "title": "Space Stacker — Easy",
+  "type": "Stacker",
+  "theme": "Space",
+  "diff": "Easy",
+  "emoji": "🚀",
+  "file": "games/mega/game-0041.html"
+ },
+ {
+  "n": 42,
+  "title": "Space Stacker — Medium",
+  "type": "Stacker",
+  "theme": "Space",
+  "diff": "Medium",
+  "emoji": "🚀",
+  "file": "games/mega/game-0042.html"
+ },
+ {
+  "n": 43,
+  "title": "Space Stacker — Hard",
+  "type": "Stacker",
+  "theme": "Space",
+  "diff": "Hard",
+  "emoji": "🚀",
+  "file": "games/mega/game-0043.html"
+ },
+ {
+  "n": 44,
+  "title": "Space Stacker — Expert",
+  "type": "Stacker",
+  "theme": "Space",
+  "diff": "Expert",
+  "emoji": "🚀",
+  "file": "games/mega/game-0044.html"
+ },
+ {
+  "n": 45,
+  "title": "Space Stacker — Master",
+  "type": "Stacker",
+  "theme": "Space",
+  "diff": "Master",
+  "emoji": "🚀",
+  "file": "games/mega/game-0045.html"
+ },
+ {
+  "n": 46,
+  "title": "Space Color Match — Easy",
+  "type": "Color Match",
+  "theme": "Space",
+  "diff": "Easy",
+  "emoji": "🚀",
+  "file": "games/mega/game-0046.html"
+ },
+ {
+  "n": 47,
+  "title": "Space Color Match — Medium",
+  "type": "Color Match",
+  "theme": "Space",
+  "diff": "Medium",
+  "emoji": "🚀",
+  "file": "games/mega/game-0047.html"
+ },
+ {
+  "n": 48,
+  "title": "Space Color Match — Hard",
+  "type": "Color Match",
+  "theme": "Space",
+  "diff": "Hard",
+  "emoji": "🚀",
+  "file": "games/mega/game-0048.html"
+ },
+ {
+  "n": 49,
+  "title": "Space Color Match — Expert",
+  "type": "Color Match",
+  "theme": "Space",
+  "diff": "Expert",
+  "emoji": "🚀",
+  "file": "games/mega/game-0049.html"
+ },
+ {
+  "n": 50,
+  "title": "Space Color Match — Master",
+  "type": "Color Match",
+  "theme": "Space",
+  "diff": "Master",
+  "emoji": "🚀",
+  "file": "games/mega/game-0050.html"
+ },
+ {
+  "n": 51,
+  "title": "Jungle Dodge — Easy",
+  "type": "Dodge",
+  "theme": "Jungle",
+  "diff": "Easy",
+  "emoji": "🐒",
+  "file": "games/mega/game-0051.html"
+ },
+ {
+  "n": 52,
+  "title": "Jungle Dodge — Medium",
+  "type": "Dodge",
+  "theme": "Jungle",
+  "diff": "Medium",
+  "emoji": "🐒",
+  "file": "games/mega/game-0052.html"
+ },
+ {
+  "n": 53,
+  "title": "Jungle Dodge — Hard",
+  "type": "Dodge",
+  "theme": "Jungle",
+  "diff": "Hard",
+  "emoji": "🐒",
+  "file": "games/mega/game-0053.html"
+ },
+ {
+  "n": 54,
+  "title": "Jungle Dodge — Expert",
+  "type": "Dodge",
+  "theme": "Jungle",
+  "diff": "Expert",
+  "emoji": "🐒",
+  "file": "games/mega/game-0054.html"
+ },
+ {
+  "n": 55,
+  "title": "Jungle Dodge — Master",
+  "type": "Dodge",
+  "theme": "Jungle",
+  "diff": "Master",
+  "emoji": "🐒",
+  "file": "games/mega/game-0055.html"
+ },
+ {
+  "n": 56,
+  "title": "Jungle Catcher — Easy",
+  "type": "Catcher",
+  "theme": "Jungle",
+  "diff": "Easy",
+  "emoji": "🐒",
+  "file": "games/mega/game-0056.html"
+ },
+ {
+  "n": 57,
+  "title": "Jungle Catcher — Medium",
+  "type": "Catcher",
+  "theme": "Jungle",
+  "diff": "Medium",
+  "emoji": "🐒",
+  "file": "games/mega/game-0057.html"
+ },
+ {
+  "n": 58,
+  "title": "Jungle Catcher — Hard",
+  "type": "Catcher",
+  "theme": "Jungle",
+  "diff": "Hard",
+  "emoji": "🐒",
+  "file": "games/mega/game-0058.html"
+ },
+ {
+  "n": 59,
+  "title": "Jungle Catcher — Expert",
+  "type": "Catcher",
+  "theme": "Jungle",
+  "diff": "Expert",
+  "emoji": "🐒",
+  "file": "games/mega/game-0059.html"
+ },
+ {
+  "n": 60,
+  "title": "Jungle Catcher — Master",
+  "type": "Catcher",
+  "theme": "Jungle",
+  "diff": "Master",
+  "emoji": "🐒",
+  "file": "games/mega/game-0060.html"
+ },
+ {
+  "n": 61,
+  "title": "Jungle Popper — Easy",
+  "type": "Popper",
+  "theme": "Jungle",
+  "diff": "Easy",
+  "emoji": "🐒",
+  "file": "games/mega/game-0061.html"
+ },
+ {
+  "n": 62,
+  "title": "Jungle Popper — Medium",
+  "type": "Popper",
+  "theme": "Jungle",
+  "diff": "Medium",
+  "emoji": "🐒",
+  "file": "games/mega/game-0062.html"
+ },
+ {
+  "n": 63,
+  "title": "Jungle Popper — Hard",
+  "type": "Popper",
+  "theme": "Jungle",
+  "diff": "Hard",
+  "emoji": "🐒",
+  "file": "games/mega/game-0063.html"
+ },
+ {
+  "n": 64,
+  "title": "Jungle Popper — Expert",
+  "type": "Popper",
+  "theme": "Jungle",
+  "diff": "Expert",
+  "emoji": "🐒",
+  "file": "games/mega/game-0064.html"
+ },
+ {
+  "n": 65,
+  "title": "Jungle Popper — Master",
+  "type": "Popper",
+  "theme": "Jungle",
+  "diff": "Master",
+  "emoji": "🐒",
+  "file": "games/mega/game-0065.html"
+ },
+ {
+  "n": 66,
+  "title": "Jungle Blaster — Easy",
+  "type": "Blaster",
+  "theme": "Jungle",
+  "diff": "Easy",
+  "emoji": "🐒",
+  "file": "games/mega/game-0066.html"
+ },
+ {
+  "n": 67,
+  "title": "Jungle Blaster — Medium",
+  "type": "Blaster",
+  "theme": "Jungle",
+  "diff": "Medium",
+  "emoji": "🐒",
+  "file": "games/mega/game-0067.html"
+ },
+ {
+  "n": 68,
+  "title": "Jungle Blaster — Hard",
+  "type": "Blaster",
+  "theme": "Jungle",
+  "diff": "Hard",
+  "emoji": "🐒",
+  "file": "games/mega/game-0068.html"
+ },
+ {
+  "n": 69,
+  "title": "Jungle Blaster — Expert",
+  "type": "Blaster",
+  "theme": "Jungle",
+  "diff": "Expert",
+  "emoji": "🐒",
+  "file": "games/mega/game-0069.html"
+ },
+ {
+  "n": 70,
+  "title": "Jungle Blaster — Master",
+  "type": "Blaster",
+  "theme": "Jungle",
+  "diff": "Master",
+  "emoji": "🐒",
+  "file": "games/mega/game-0070.html"
+ },
+ {
+  "n": 71,
+  "title": "Jungle Breaker — Easy",
+  "type": "Breaker",
+  "theme": "Jungle",
+  "diff": "Easy",
+  "emoji": "🐒",
+  "file": "games/mega/game-0071.html"
+ },
+ {
+  "n": 72,
+  "title": "Jungle Breaker — Medium",
+  "type": "Breaker",
+  "theme": "Jungle",
+  "diff": "Medium",
+  "emoji": "🐒",
+  "file": "games/mega/game-0072.html"
+ },
+ {
+  "n": 73,
+  "title": "Jungle Breaker — Hard",
+  "type": "Breaker",
+  "theme": "Jungle",
+  "diff": "Hard",
+  "emoji": "🐒",
+  "file": "games/mega/game-0073.html"
+ },
+ {
+  "n": 74,
+  "title": "Jungle Breaker — Expert",
+  "type": "Breaker",
+  "theme": "Jungle",
+  "diff": "Expert",
+  "emoji": "🐒",
+  "file": "games/mega/game-0074.html"
+ },
+ {
+  "n": 75,
+  "title": "Jungle Breaker — Master",
+  "type": "Breaker",
+  "theme": "Jungle",
+  "diff": "Master",
+  "emoji": "🐒",
+  "file": "games/mega/game-0075.html"
+ },
+ {
+  "n": 76,
+  "title": "Jungle Flyer — Easy",
+  "type": "Flyer",
+  "theme": "Jungle",
+  "diff": "Easy",
+  "emoji": "🐒",
+  "file": "games/mega/game-0076.html"
+ },
+ {
+  "n": 77,
+  "title": "Jungle Flyer — Medium",
+  "type": "Flyer",
+  "theme": "Jungle",
+  "diff": "Medium",
+  "emoji": "🐒",
+  "file": "games/mega/game-0077.html"
+ },
+ {
+  "n": 78,
+  "title": "Jungle Flyer — Hard",
+  "type": "Flyer",
+  "theme": "Jungle",
+  "diff": "Hard",
+  "emoji": "🐒",
+  "file": "games/mega/game-0078.html"
+ },
+ {
+  "n": 79,
+  "title": "Jungle Flyer — Expert",
+  "type": "Flyer",
+  "theme": "Jungle",
+  "diff": "Expert",
+  "emoji": "🐒",
+  "file": "games/mega/game-0079.html"
+ },
+ {
+  "n": 80,
+  "title": "Jungle Flyer — Master",
+  "type": "Flyer",
+  "theme": "Jungle",
+  "diff": "Master",
+  "emoji": "🐒",
+  "file": "games/mega/game-0080.html"
+ },
+ {
+  "n": 81,
+  "title": "Jungle Memory — Easy",
+  "type": "Memory",
+  "theme": "Jungle",
+  "diff": "Easy",
+  "emoji": "🐒",
+  "file": "games/mega/game-0081.html"
+ },
+ {
+  "n": 82,
+  "title": "Jungle Memory — Medium",
+  "type": "Memory",
+  "theme": "Jungle",
+  "diff": "Medium",
+  "emoji": "🐒",
+  "file": "games/mega/game-0082.html"
+ },
+ {
+  "n": 83,
+  "title": "Jungle Memory — Hard",
+  "type": "Memory",
+  "theme": "Jungle",
+  "diff": "Hard",
+  "emoji": "🐒",
+  "file": "games/mega/game-0083.html"
+ },
+ {
+  "n": 84,
+  "title": "Jungle Memory — Expert",
+  "type": "Memory",
+  "theme": "Jungle",
+  "diff": "Expert",
+  "emoji": "🐒",
+  "file": "games/mega/game-0084.html"
+ },
+ {
+  "n": 85,
+  "title": "Jungle Memory — Master",
+  "type": "Memory",
+  "theme": "Jungle",
+  "diff": "Master",
+  "emoji": "🐒",
+  "file": "games/mega/game-0085.html"
+ },
+ {
+  "n": 86,
+  "title": "Jungle Snake — Easy",
+  "type": "Snake",
+  "theme": "Jungle",
+  "diff": "Easy",
+  "emoji": "🐒",
+  "file": "games/mega/game-0086.html"
+ },
+ {
+  "n": 87,
+  "title": "Jungle Snake — Medium",
+  "type": "Snake",
+  "theme": "Jungle",
+  "diff": "Medium",
+  "emoji": "🐒",
+  "file": "games/mega/game-0087.html"
+ },
+ {
+  "n": 88,
+  "title": "Jungle Snake — Hard",
+  "type": "Snake",
+  "theme": "Jungle",
+  "diff": "Hard",
+  "emoji": "🐒",
+  "file": "games/mega/game-0088.html"
+ },
+ {
+  "n": 89,
+  "title": "Jungle Snake — Expert",
+  "type": "Snake",
+  "theme": "Jungle",
+  "diff": "Expert",
+  "emoji": "🐒",
+  "file": "games/mega/game-0089.html"
+ },
+ {
+  "n": 90,
+  "title": "Jungle Snake — Master",
+  "type": "Snake",
+  "theme": "Jungle",
+  "diff": "Master",
+  "emoji": "🐒",
+  "file": "games/mega/game-0090.html"
+ },
+ {
+  "n": 91,
+  "title": "Jungle Stacker — Easy",
+  "type": "Stacker",
+  "theme": "Jungle",
+  "diff": "Easy",
+  "emoji": "🐒",
+  "file": "games/mega/game-0091.html"
+ },
+ {
+  "n": 92,
+  "title": "Jungle Stacker — Medium",
+  "type": "Stacker",
+  "theme": "Jungle",
+  "diff": "Medium",
+  "emoji": "🐒",
+  "file": "games/mega/game-0092.html"
+ },
+ {
+  "n": 93,
+  "title": "Jungle Stacker — Hard",
+  "type": "Stacker",
+  "theme": "Jungle",
+  "diff": "Hard",
+  "emoji": "🐒",
+  "file": "games/mega/game-0093.html"
+ },
+ {
+  "n": 94,
+  "title": "Jungle Stacker — Expert",
+  "type": "Stacker",
+  "theme": "Jungle",
+  "diff": "Expert",
+  "emoji": "🐒",
+  "file": "games/mega/game-0094.html"
+ },
+ {
+  "n": 95,
+  "title": "Jungle Stacker — Master",
+  "type": "Stacker",
+  "theme": "Jungle",
+  "diff": "Master",
+  "emoji": "🐒",
+  "file": "games/mega/game-0095.html"
+ },
+ {
+  "n": 96,
+  "title": "Jungle Color Match — Easy",
+  "type": "Color Match",
+  "theme": "Jungle",
+  "diff": "Easy",
+  "emoji": "🐒",
+  "file": "games/mega/game-0096.html"
+ },
+ {
+  "n": 97,
+  "title": "Jungle Color Match — Medium",
+  "type": "Color Match",
+  "theme": "Jungle",
+  "diff": "Medium",
+  "emoji": "🐒",
+  "file": "games/mega/game-0097.html"
+ },
+ {
+  "n": 98,
+  "title": "Jungle Color Match — Hard",
+  "type": "Color Match",
+  "theme": "Jungle",
+  "diff": "Hard",
+  "emoji": "🐒",
+  "file": "games/mega/game-0098.html"
+ },
+ {
+  "n": 99,
+  "title": "Jungle Color Match — Expert",
+  "type": "Color Match",
+  "theme": "Jungle",
+  "diff": "Expert",
+  "emoji": "🐒",
+  "file": "games/mega/game-0099.html"
+ },
+ {
+  "n": 100,
+  "title": "Jungle Color Match — Master",
+  "type": "Color Match",
+  "theme": "Jungle",
+  "diff": "Master",
+  "emoji": "🐒",
+  "file": "games/mega/game-0100.html"
+ },
+ {
+  "n": 101,
+  "title": "Ocean Dodge — Easy",
+  "type": "Dodge",
+  "theme": "Ocean",
+  "diff": "Easy",
+  "emoji": "🐬",
+  "file": "games/mega/game-0101.html"
+ },
+ {
+  "n": 102,
+  "title": "Ocean Dodge — Medium",
+  "type": "Dodge",
+  "theme": "Ocean",
+  "diff": "Medium",
+  "emoji": "🐬",
+  "file": "games/mega/game-0102.html"
+ },
+ {
+  "n": 103,
+  "title": "Ocean Dodge — Hard",
+  "type": "Dodge",
+  "theme": "Ocean",
+  "diff": "Hard",
+  "emoji": "🐬",
+  "file": "games/mega/game-0103.html"
+ },
+ {
+  "n": 104,
+  "title": "Ocean Dodge — Expert",
+  "type": "Dodge",
+  "theme": "Ocean",
+  "diff": "Expert",
+  "emoji": "🐬",
+  "file": "games/mega/game-0104.html"
+ },
+ {
+  "n": 105,
+  "title": "Ocean Dodge — Master",
+  "type": "Dodge",
+  "theme": "Ocean",
+  "diff": "Master",
+  "emoji": "🐬",
+  "file": "games/mega/game-0105.html"
+ },
+ {
+  "n": 106,
+  "title": "Ocean Catcher — Easy",
+  "type": "Catcher",
+  "theme": "Ocean",
+  "diff": "Easy",
+  "emoji": "🐬",
+  "file": "games/mega/game-0106.html"
+ },
+ {
+  "n": 107,
+  "title": "Ocean Catcher — Medium",
+  "type": "Catcher",
+  "theme": "Ocean",
+  "diff": "Medium",
+  "emoji": "🐬",
+  "file": "games/mega/game-0107.html"
+ },
+ {
+  "n": 108,
+  "title": "Ocean Catcher — Hard",
+  "type": "Catcher",
+  "theme": "Ocean",
+  "diff": "Hard",
+  "emoji": "🐬",
+  "file": "games/mega/game-0108.html"
+ },
+ {
+  "n": 109,
+  "title": "Ocean Catcher — Expert",
+  "type": "Catcher",
+  "theme": "Ocean",
+  "diff": "Expert",
+  "emoji": "🐬",
+  "file": "games/mega/game-0109.html"
+ },
+ {
+  "n": 110,
+  "title": "Ocean Catcher — Master",
+  "type": "Catcher",
+  "theme": "Ocean",
+  "diff": "Master",
+  "emoji": "🐬",
+  "file": "games/mega/game-0110.html"
+ },
+ {
+  "n": 111,
+  "title": "Ocean Popper — Easy",
+  "type": "Popper",
+  "theme": "Ocean",
+  "diff": "Easy",
+  "emoji": "🐬",
+  "file": "games/mega/game-0111.html"
+ },
+ {
+  "n": 112,
+  "title": "Ocean Popper — Medium",
+  "type": "Popper",
+  "theme": "Ocean",
+  "diff": "Medium",
+  "emoji": "🐬",
+  "file": "games/mega/game-0112.html"
+ },
+ {
+  "n": 113,
+  "title": "Ocean Popper — Hard",
+  "type": "Popper",
+  "theme": "Ocean",
+  "diff": "Hard",
+  "emoji": "🐬",
+  "file": "games/mega/game-0113.html"
+ },
+ {
+  "n": 114,
+  "title": "Ocean Popper — Expert",
+  "type": "Popper",
+  "theme": "Ocean",
+  "diff": "Expert",
+  "emoji": "🐬",
+  "file": "games/mega/game-0114.html"
+ },
+ {
+  "n": 115,
+  "title": "Ocean Popper — Master",
+  "type": "Popper",
+  "theme": "Ocean",
+  "diff": "Master",
+  "emoji": "🐬",
+  "file": "games/mega/game-0115.html"
+ },
+ {
+  "n": 116,
+  "title": "Ocean Blaster — Easy",
+  "type": "Blaster",
+  "theme": "Ocean",
+  "diff": "Easy",
+  "emoji": "🐬",
+  "file": "games/mega/game-0116.html"
+ },
+ {
+  "n": 117,
+  "title": "Ocean Blaster — Medium",
+  "type": "Blaster",
+  "theme": "Ocean",
+  "diff": "Medium",
+  "emoji": "🐬",
+  "file": "games/mega/game-0117.html"
+ },
+ {
+  "n": 118,
+  "title": "Ocean Blaster — Hard",
+  "type": "Blaster",
+  "theme": "Ocean",
+  "diff": "Hard",
+  "emoji": "🐬",
+  "file": "games/mega/game-0118.html"
+ },
+ {
+  "n": 119,
+  "title": "Ocean Blaster — Expert",
+  "type": "Blaster",
+  "theme": "Ocean",
+  "diff": "Expert",
+  "emoji": "🐬",
+  "file": "games/mega/game-0119.html"
+ },
+ {
+  "n": 120,
+  "title": "Ocean Blaster — Master",
+  "type": "Blaster",
+  "theme": "Ocean",
+  "diff": "Master",
+  "emoji": "🐬",
+  "file": "games/mega/game-0120.html"
+ },
+ {
+  "n": 121,
+  "title": "Ocean Breaker — Easy",
+  "type": "Breaker",
+  "theme": "Ocean",
+  "diff": "Easy",
+  "emoji": "🐬",
+  "file": "games/mega/game-0121.html"
+ },
+ {
+  "n": 122,
+  "title": "Ocean Breaker — Medium",
+  "type": "Breaker",
+  "theme": "Ocean",
+  "diff": "Medium",
+  "emoji": "🐬",
+  "file": "games/mega/game-0122.html"
+ },
+ {
+  "n": 123,
+  "title": "Ocean Breaker — Hard",
+  "type": "Breaker",
+  "theme": "Ocean",
+  "diff": "Hard",
+  "emoji": "🐬",
+  "file": "games/mega/game-0123.html"
+ },
+ {
+  "n": 124,
+  "title": "Ocean Breaker — Expert",
+  "type": "Breaker",
+  "theme": "Ocean",
+  "diff": "Expert",
+  "emoji": "🐬",
+  "file": "games/mega/game-0124.html"
+ },
+ {
+  "n": 125,
+  "title": "Ocean Breaker — Master",
+  "type": "Breaker",
+  "theme": "Ocean",
+  "diff": "Master",
+  "emoji": "🐬",
+  "file": "games/mega/game-0125.html"
+ },
+ {
+  "n": 126,
+  "title": "Ocean Flyer — Easy",
+  "type": "Flyer",
+  "theme": "Ocean",
+  "diff": "Easy",
+  "emoji": "🐬",
+  "file": "games/mega/game-0126.html"
+ },
+ {
+  "n": 127,
+  "title": "Ocean Flyer — Medium",
+  "type": "Flyer",
+  "theme": "Ocean",
+  "diff": "Medium",
+  "emoji": "🐬",
+  "file": "games/mega/game-0127.html"
+ },
+ {
+  "n": 128,
+  "title": "Ocean Flyer — Hard",
+  "type": "Flyer",
+  "theme": "Ocean",
+  "diff": "Hard",
+  "emoji": "🐬",
+  "file": "games/mega/game-0128.html"
+ },
+ {
+  "n": 129,
+  "title": "Ocean Flyer — Expert",
+  "type": "Flyer",
+  "theme": "Ocean",
+  "diff": "Expert",
+  "emoji": "🐬",
+  "file": "games/mega/game-0129.html"
+ },
+ {
+  "n": 130,
+  "title": "Ocean Flyer — Master",
+  "type": "Flyer",
+  "theme": "Ocean",
+  "diff": "Master",
+  "emoji": "🐬",
+  "file": "games/mega/game-0130.html"
+ },
+ {
+  "n": 131,
+  "title": "Ocean Memory — Easy",
+  "type": "Memory",
+  "theme": "Ocean",
+  "diff": "Easy",
+  "emoji": "🐬",
+  "file": "games/mega/game-0131.html"
+ },
+ {
+  "n": 132,
+  "title": "Ocean Memory — Medium",
+  "type": "Memory",
+  "theme": "Ocean",
+  "diff": "Medium",
+  "emoji": "🐬",
+  "file": "games/mega/game-0132.html"
+ },
+ {
+  "n": 133,
+  "title": "Ocean Memory — Hard",
+  "type": "Memory",
+  "theme": "Ocean",
+  "diff": "Hard",
+  "emoji": "🐬",
+  "file": "games/mega/game-0133.html"
+ },
+ {
+  "n": 134,
+  "title": "Ocean Memory — Expert",
+  "type": "Memory",
+  "theme": "Ocean",
+  "diff": "Expert",
+  "emoji": "🐬",
+  "file": "games/mega/game-0134.html"
+ },
+ {
+  "n": 135,
+  "title": "Ocean Memory — Master",
+  "type": "Memory",
+  "theme": "Ocean",
+  "diff": "Master",
+  "emoji": "🐬",
+  "file": "games/mega/game-0135.html"
+ },
+ {
+  "n": 136,
+  "title": "Ocean Snake — Easy",
+  "type": "Snake",
+  "theme": "Ocean",
+  "diff": "Easy",
+  "emoji": "🐬",
+  "file": "games/mega/game-0136.html"
+ },
+ {
+  "n": 137,
+  "title": "Ocean Snake — Medium",
+  "type": "Snake",
+  "theme": "Ocean",
+  "diff": "Medium",
+  "emoji": "🐬",
+  "file": "games/mega/game-0137.html"
+ },
+ {
+  "n": 138,
+  "title": "Ocean Snake — Hard",
+  "type": "Snake",
+  "theme": "Ocean",
+  "diff": "Hard",
+  "emoji": "🐬",
+  "file": "games/mega/game-0138.html"
+ },
+ {
+  "n": 139,
+  "title": "Ocean Snake — Expert",
+  "type": "Snake",
+  "theme": "Ocean",
+  "diff": "Expert",
+  "emoji": "🐬",
+  "file": "games/mega/game-0139.html"
+ },
+ {
+  "n": 140,
+  "title": "Ocean Snake — Master",
+  "type": "Snake",
+  "theme": "Ocean",
+  "diff": "Master",
+  "emoji": "🐬",
+  "file": "games/mega/game-0140.html"
+ },
+ {
+  "n": 141,
+  "title": "Ocean Stacker — Easy",
+  "type": "Stacker",
+  "theme": "Ocean",
+  "diff": "Easy",
+  "emoji": "🐬",
+  "file": "games/mega/game-0141.html"
+ },
+ {
+  "n": 142,
+  "title": "Ocean Stacker — Medium",
+  "type": "Stacker",
+  "theme": "Ocean",
+  "diff": "Medium",
+  "emoji": "🐬",
+  "file": "games/mega/game-0142.html"
+ },
+ {
+  "n": 143,
+  "title": "Ocean Stacker — Hard",
+  "type": "Stacker",
+  "theme": "Ocean",
+  "diff": "Hard",
+  "emoji": "🐬",
+  "file": "games/mega/game-0143.html"
+ },
+ {
+  "n": 144,
+  "title": "Ocean Stacker — Expert",
+  "type": "Stacker",
+  "theme": "Ocean",
+  "diff": "Expert",
+  "emoji": "🐬",
+  "file": "games/mega/game-0144.html"
+ },
+ {
+  "n": 145,
+  "title": "Ocean Stacker — Master",
+  "type": "Stacker",
+  "theme": "Ocean",
+  "diff": "Master",
+  "emoji": "🐬",
+  "file": "games/mega/game-0145.html"
+ },
+ {
+  "n": 146,
+  "title": "Ocean Color Match — Easy",
+  "type": "Color Match",
+  "theme": "Ocean",
+  "diff": "Easy",
+  "emoji": "🐬",
+  "file": "games/mega/game-0146.html"
+ },
+ {
+  "n": 147,
+  "title": "Ocean Color Match — Medium",
+  "type": "Color Match",
+  "theme": "Ocean",
+  "diff": "Medium",
+  "emoji": "🐬",
+  "file": "games/mega/game-0147.html"
+ },
+ {
+  "n": 148,
+  "title": "Ocean Color Match — Hard",
+  "type": "Color Match",
+  "theme": "Ocean",
+  "diff": "Hard",
+  "emoji": "🐬",
+  "file": "games/mega/game-0148.html"
+ },
+ {
+  "n": 149,
+  "title": "Ocean Color Match — Expert",
+  "type": "Color Match",
+  "theme": "Ocean",
+  "diff": "Expert",
+  "emoji": "🐬",
+  "file": "games/mega/game-0149.html"
+ },
+ {
+  "n": 150,
+  "title": "Ocean Color Match — Master",
+  "type": "Color Match",
+  "theme": "Ocean",
+  "diff": "Master",
+  "emoji": "🐬",
+  "file": "games/mega/game-0150.html"
+ },
+ {
+  "n": 151,
+  "title": "Desert Dodge — Easy",
+  "type": "Dodge",
+  "theme": "Desert",
+  "diff": "Easy",
+  "emoji": "🐪",
+  "file": "games/mega/game-0151.html"
+ },
+ {
+  "n": 152,
+  "title": "Desert Dodge — Medium",
+  "type": "Dodge",
+  "theme": "Desert",
+  "diff": "Medium",
+  "emoji": "🐪",
+  "file": "games/mega/game-0152.html"
+ },
+ {
+  "n": 153,
+  "title": "Desert Dodge — Hard",
+  "type": "Dodge",
+  "theme": "Desert",
+  "diff": "Hard",
+  "emoji": "🐪",
+  "file": "games/mega/game-0153.html"
+ },
+ {
+  "n": 154,
+  "title": "Desert Dodge — Expert",
+  "type": "Dodge",
+  "theme": "Desert",
+  "diff": "Expert",
+  "emoji": "🐪",
+  "file": "games/mega/game-0154.html"
+ },
+ {
+  "n": 155,
+  "title": "Desert Dodge — Master",
+  "type": "Dodge",
+  "theme": "Desert",
+  "diff": "Master",
+  "emoji": "🐪",
+  "file": "games/mega/game-0155.html"
+ },
+ {
+  "n": 156,
+  "title": "Desert Catcher — Easy",
+  "type": "Catcher",
+  "theme": "Desert",
+  "diff": "Easy",
+  "emoji": "🐪",
+  "file": "games/mega/game-0156.html"
+ },
+ {
+  "n": 157,
+  "title": "Desert Catcher — Medium",
+  "type": "Catcher",
+  "theme": "Desert",
+  "diff": "Medium",
+  "emoji": "🐪",
+  "file": "games/mega/game-0157.html"
+ },
+ {
+  "n": 158,
+  "title": "Desert Catcher — Hard",
+  "type": "Catcher",
+  "theme": "Desert",
+  "diff": "Hard",
+  "emoji": "🐪",
+  "file": "games/mega/game-0158.html"
+ },
+ {
+  "n": 159,
+  "title": "Desert Catcher — Expert",
+  "type": "Catcher",
+  "theme": "Desert",
+  "diff": "Expert",
+  "emoji": "🐪",
+  "file": "games/mega/game-0159.html"
+ },
+ {
+  "n": 160,
+  "title": "Desert Catcher — Master",
+  "type": "Catcher",
+  "theme": "Desert",
+  "diff": "Master",
+  "emoji": "🐪",
+  "file": "games/mega/game-0160.html"
+ },
+ {
+  "n": 161,
+  "title": "Desert Popper — Easy",
+  "type": "Popper",
+  "theme": "Desert",
+  "diff": "Easy",
+  "emoji": "🐪",
+  "file": "games/mega/game-0161.html"
+ },
+ {
+  "n": 162,
+  "title": "Desert Popper — Medium",
+  "type": "Popper",
+  "theme": "Desert",
+  "diff": "Medium",
+  "emoji": "🐪",
+  "file": "games/mega/game-0162.html"
+ },
+ {
+  "n": 163,
+  "title": "Desert Popper — Hard",
+  "type": "Popper",
+  "theme": "Desert",
+  "diff": "Hard",
+  "emoji": "🐪",
+  "file": "games/mega/game-0163.html"
+ },
+ {
+  "n": 164,
+  "title": "Desert Popper — Expert",
+  "type": "Popper",
+  "theme": "Desert",
+  "diff": "Expert",
+  "emoji": "🐪",
+  "file": "games/mega/game-0164.html"
+ },
+ {
+  "n": 165,
+  "title": "Desert Popper — Master",
+  "type": "Popper",
+  "theme": "Desert",
+  "diff": "Master",
+  "emoji": "🐪",
+  "file": "games/mega/game-0165.html"
+ },
+ {
+  "n": 166,
+  "title": "Desert Blaster — Easy",
+  "type": "Blaster",
+  "theme": "Desert",
+  "diff": "Easy",
+  "emoji": "🐪",
+  "file": "games/mega/game-0166.html"
+ },
+ {
+  "n": 167,
+  "title": "Desert Blaster — Medium",
+  "type": "Blaster",
+  "theme": "Desert",
+  "diff": "Medium",
+  "emoji": "🐪",
+  "file": "games/mega/game-0167.html"
+ },
+ {
+  "n": 168,
+  "title": "Desert Blaster — Hard",
+  "type": "Blaster",
+  "theme": "Desert",
+  "diff": "Hard",
+  "emoji": "🐪",
+  "file": "games/mega/game-0168.html"
+ },
+ {
+  "n": 169,
+  "title": "Desert Blaster — Expert",
+  "type": "Blaster",
+  "theme": "Desert",
+  "diff": "Expert",
+  "emoji": "🐪",
+  "file": "games/mega/game-0169.html"
+ },
+ {
+  "n": 170,
+  "title": "Desert Blaster — Master",
+  "type": "Blaster",
+  "theme": "Desert",
+  "diff": "Master",
+  "emoji": "🐪",
+  "file": "games/mega/game-0170.html"
+ },
+ {
+  "n": 171,
+  "title": "Desert Breaker — Easy",
+  "type": "Breaker",
+  "theme": "Desert",
+  "diff": "Easy",
+  "emoji": "🐪",
+  "file": "games/mega/game-0171.html"
+ },
+ {
+  "n": 172,
+  "title": "Desert Breaker — Medium",
+  "type": "Breaker",
+  "theme": "Desert",
+  "diff": "Medium",
+  "emoji": "🐪",
+  "file": "games/mega/game-0172.html"
+ },
+ {
+  "n": 173,
+  "title": "Desert Breaker — Hard",
+  "type": "Breaker",
+  "theme": "Desert",
+  "diff": "Hard",
+  "emoji": "🐪",
+  "file": "games/mega/game-0173.html"
+ },
+ {
+  "n": 174,
+  "title": "Desert Breaker — Expert",
+  "type": "Breaker",
+  "theme": "Desert",
+  "diff": "Expert",
+  "emoji": "🐪",
+  "file": "games/mega/game-0174.html"
+ },
+ {
+  "n": 175,
+  "title": "Desert Breaker — Master",
+  "type": "Breaker",
+  "theme": "Desert",
+  "diff": "Master",
+  "emoji": "🐪",
+  "file": "games/mega/game-0175.html"
+ },
+ {
+  "n": 176,
+  "title": "Desert Flyer — Easy",
+  "type": "Flyer",
+  "theme": "Desert",
+  "diff": "Easy",
+  "emoji": "🐪",
+  "file": "games/mega/game-0176.html"
+ },
+ {
+  "n": 177,
+  "title": "Desert Flyer — Medium",
+  "type": "Flyer",
+  "theme": "Desert",
+  "diff": "Medium",
+  "emoji": "🐪",
+  "file": "games/mega/game-0177.html"
+ },
+ {
+  "n": 178,
+  "title": "Desert Flyer — Hard",
+  "type": "Flyer",
+  "theme": "Desert",
+  "diff": "Hard",
+  "emoji": "🐪",
+  "file": "games/mega/game-0178.html"
+ },
+ {
+  "n": 179,
+  "title": "Desert Flyer — Expert",
+  "type": "Flyer",
+  "theme": "Desert",
+  "diff": "Expert",
+  "emoji": "🐪",
+  "file": "games/mega/game-0179.html"
+ },
+ {
+  "n": 180,
+  "title": "Desert Flyer — Master",
+  "type": "Flyer",
+  "theme": "Desert",
+  "diff": "Master",
+  "emoji": "🐪",
+  "file": "games/mega/game-0180.html"
+ },
+ {
+  "n": 181,
+  "title": "Desert Memory — Easy",
+  "type": "Memory",
+  "theme": "Desert",
+  "diff": "Easy",
+  "emoji": "🐪",
+  "file": "games/mega/game-0181.html"
+ },
+ {
+  "n": 182,
+  "title": "Desert Memory — Medium",
+  "type": "Memory",
+  "theme": "Desert",
+  "diff": "Medium",
+  "emoji": "🐪",
+  "file": "games/mega/game-0182.html"
+ },
+ {
+  "n": 183,
+  "title": "Desert Memory — Hard",
+  "type": "Memory",
+  "theme": "Desert",
+  "diff": "Hard",
+  "emoji": "🐪",
+  "file": "games/mega/game-0183.html"
+ },
+ {
+  "n": 184,
+  "title": "Desert Memory — Expert",
+  "type": "Memory",
+  "theme": "Desert",
+  "diff": "Expert",
+  "emoji": "🐪",
+  "file": "games/mega/game-0184.html"
+ },
+ {
+  "n": 185,
+  "title": "Desert Memory — Master",
+  "type": "Memory",
+  "theme": "Desert",
+  "diff": "Master",
+  "emoji": "🐪",
+  "file": "games/mega/game-0185.html"
+ },
+ {
+  "n": 186,
+  "title": "Desert Snake — Easy",
+  "type": "Snake",
+  "theme": "Desert",
+  "diff": "Easy",
+  "emoji": "🐪",
+  "file": "games/mega/game-0186.html"
+ },
+ {
+  "n": 187,
+  "title": "Desert Snake — Medium",
+  "type": "Snake",
+  "theme": "Desert",
+  "diff": "Medium",
+  "emoji": "🐪",
+  "file": "games/mega/game-0187.html"
+ },
+ {
+  "n": 188,
+  "title": "Desert Snake — Hard",
+  "type": "Snake",
+  "theme": "Desert",
+  "diff": "Hard",
+  "emoji": "🐪",
+  "file": "games/mega/game-0188.html"
+ },
+ {
+  "n": 189,
+  "title": "Desert Snake — Expert",
+  "type": "Snake",
+  "theme": "Desert",
+  "diff": "Expert",
+  "emoji": "🐪",
+  "file": "games/mega/game-0189.html"
+ },
+ {
+  "n": 190,
+  "title": "Desert Snake — Master",
+  "type": "Snake",
+  "theme": "Desert",
+  "diff": "Master",
+  "emoji": "🐪",
+  "file": "games/mega/game-0190.html"
+ },
+ {
+  "n": 191,
+  "title": "Desert Stacker — Easy",
+  "type": "Stacker",
+  "theme": "Desert",
+  "diff": "Easy",
+  "emoji": "🐪",
+  "file": "games/mega/game-0191.html"
+ },
+ {
+  "n": 192,
+  "title": "Desert Stacker — Medium",
+  "type": "Stacker",
+  "theme": "Desert",
+  "diff": "Medium",
+  "emoji": "🐪",
+  "file": "games/mega/game-0192.html"
+ },
+ {
+  "n": 193,
+  "title": "Desert Stacker — Hard",
+  "type": "Stacker",
+  "theme": "Desert",
+  "diff": "Hard",
+  "emoji": "🐪",
+  "file": "games/mega/game-0193.html"
+ },
+ {
+  "n": 194,
+  "title": "Desert Stacker — Expert",
+  "type": "Stacker",
+  "theme": "Desert",
+  "diff": "Expert",
+  "emoji": "🐪",
+  "file": "games/mega/game-0194.html"
+ },
+ {
+  "n": 195,
+  "title": "Desert Stacker — Master",
+  "type": "Stacker",
+  "theme": "Desert",
+  "diff": "Master",
+  "emoji": "🐪",
+  "file": "games/mega/game-0195.html"
+ },
+ {
+  "n": 196,
+  "title": "Desert Color Match — Easy",
+  "type": "Color Match",
+  "theme": "Desert",
+  "diff": "Easy",
+  "emoji": "🐪",
+  "file": "games/mega/game-0196.html"
+ },
+ {
+  "n": 197,
+  "title": "Desert Color Match — Medium",
+  "type": "Color Match",
+  "theme": "Desert",
+  "diff": "Medium",
+  "emoji": "🐪",
+  "file": "games/mega/game-0197.html"
+ },
+ {
+  "n": 198,
+  "title": "Desert Color Match — Hard",
+  "type": "Color Match",
+  "theme": "Desert",
+  "diff": "Hard",
+  "emoji": "🐪",
+  "file": "games/mega/game-0198.html"
+ },
+ {
+  "n": 199,
+  "title": "Desert Color Match — Expert",
+  "type": "Color Match",
+  "theme": "Desert",
+  "diff": "Expert",
+  "emoji": "🐪",
+  "file": "games/mega/game-0199.html"
+ },
+ {
+  "n": 200,
+  "title": "Desert Color Match — Master",
+  "type": "Color Match",
+  "theme": "Desert",
+  "diff": "Master",
+  "emoji": "🐪",
+  "file": "games/mega/game-0200.html"
+ },
+ {
+  "n": 201,
+  "title": "Candy Dodge — Easy",
+  "type": "Dodge",
+  "theme": "Candy",
+  "diff": "Easy",
+  "emoji": "🍬",
+  "file": "games/mega/game-0201.html"
+ },
+ {
+  "n": 202,
+  "title": "Candy Dodge — Medium",
+  "type": "Dodge",
+  "theme": "Candy",
+  "diff": "Medium",
+  "emoji": "🍬",
+  "file": "games/mega/game-0202.html"
+ },
+ {
+  "n": 203,
+  "title": "Candy Dodge — Hard",
+  "type": "Dodge",
+  "theme": "Candy",
+  "diff": "Hard",
+  "emoji": "🍬",
+  "file": "games/mega/game-0203.html"
+ },
+ {
+  "n": 204,
+  "title": "Candy Dodge — Expert",
+  "type": "Dodge",
+  "theme": "Candy",
+  "diff": "Expert",
+  "emoji": "🍬",
+  "file": "games/mega/game-0204.html"
+ },
+ {
+  "n": 205,
+  "title": "Candy Dodge — Master",
+  "type": "Dodge",
+  "theme": "Candy",
+  "diff": "Master",
+  "emoji": "🍬",
+  "file": "games/mega/game-0205.html"
+ },
+ {
+  "n": 206,
+  "title": "Candy Catcher — Easy",
+  "type": "Catcher",
+  "theme": "Candy",
+  "diff": "Easy",
+  "emoji": "🍬",
+  "file": "games/mega/game-0206.html"
+ },
+ {
+  "n": 207,
+  "title": "Candy Catcher — Medium",
+  "type": "Catcher",
+  "theme": "Candy",
+  "diff": "Medium",
+  "emoji": "🍬",
+  "file": "games/mega/game-0207.html"
+ },
+ {
+  "n": 208,
+  "title": "Candy Catcher — Hard",
+  "type": "Catcher",
+  "theme": "Candy",
+  "diff": "Hard",
+  "emoji": "🍬",
+  "file": "games/mega/game-0208.html"
+ },
+ {
+  "n": 209,
+  "title": "Candy Catcher — Expert",
+  "type": "Catcher",
+  "theme": "Candy",
+  "diff": "Expert",
+  "emoji": "🍬",
+  "file": "games/mega/game-0209.html"
+ },
+ {
+  "n": 210,
+  "title": "Candy Catcher — Master",
+  "type": "Catcher",
+  "theme": "Candy",
+  "diff": "Master",
+  "emoji": "🍬",
+  "file": "games/mega/game-0210.html"
+ },
+ {
+  "n": 211,
+  "title": "Candy Popper — Easy",
+  "type": "Popper",
+  "theme": "Candy",
+  "diff": "Easy",
+  "emoji": "🍬",
+  "file": "games/mega/game-0211.html"
+ },
+ {
+  "n": 212,
+  "title": "Candy Popper — Medium",
+  "type": "Popper",
+  "theme": "Candy",
+  "diff": "Medium",
+  "emoji": "🍬",
+  "file": "games/mega/game-0212.html"
+ },
+ {
+  "n": 213,
+  "title": "Candy Popper — Hard",
+  "type": "Popper",
+  "theme": "Candy",
+  "diff": "Hard",
+  "emoji": "🍬",
+  "file": "games/mega/game-0213.html"
+ },
+ {
+  "n": 214,
+  "title": "Candy Popper — Expert",
+  "type": "Popper",
+  "theme": "Candy",
+  "diff": "Expert",
+  "emoji": "🍬",
+  "file": "games/mega/game-0214.html"
+ },
+ {
+  "n": 215,
+  "title": "Candy Popper — Master",
+  "type": "Popper",
+  "theme": "Candy",
+  "diff": "Master",
+  "emoji": "🍬",
+  "file": "games/mega/game-0215.html"
+ },
+ {
+  "n": 216,
+  "title": "Candy Blaster — Easy",
+  "type": "Blaster",
+  "theme": "Candy",
+  "diff": "Easy",
+  "emoji": "🍬",
+  "file": "games/mega/game-0216.html"
+ },
+ {
+  "n": 217,
+  "title": "Candy Blaster — Medium",
+  "type": "Blaster",
+  "theme": "Candy",
+  "diff": "Medium",
+  "emoji": "🍬",
+  "file": "games/mega/game-0217.html"
+ },
+ {
+  "n": 218,
+  "title": "Candy Blaster — Hard",
+  "type": "Blaster",
+  "theme": "Candy",
+  "diff": "Hard",
+  "emoji": "🍬",
+  "file": "games/mega/game-0218.html"
+ },
+ {
+  "n": 219,
+  "title": "Candy Blaster — Expert",
+  "type": "Blaster",
+  "theme": "Candy",
+  "diff": "Expert",
+  "emoji": "🍬",
+  "file": "games/mega/game-0219.html"
+ },
+ {
+  "n": 220,
+  "title": "Candy Blaster — Master",
+  "type": "Blaster",
+  "theme": "Candy",
+  "diff": "Master",
+  "emoji": "🍬",
+  "file": "games/mega/game-0220.html"
+ },
+ {
+  "n": 221,
+  "title": "Candy Breaker — Easy",
+  "type": "Breaker",
+  "theme": "Candy",
+  "diff": "Easy",
+  "emoji": "🍬",
+  "file": "games/mega/game-0221.html"
+ },
+ {
+  "n": 222,
+  "title": "Candy Breaker — Medium",
+  "type": "Breaker",
+  "theme": "Candy",
+  "diff": "Medium",
+  "emoji": "🍬",
+  "file": "games/mega/game-0222.html"
+ },
+ {
+  "n": 223,
+  "title": "Candy Breaker — Hard",
+  "type": "Breaker",
+  "theme": "Candy",
+  "diff": "Hard",
+  "emoji": "🍬",
+  "file": "games/mega/game-0223.html"
+ },
+ {
+  "n": 224,
+  "title": "Candy Breaker — Expert",
+  "type": "Breaker",
+  "theme": "Candy",
+  "diff": "Expert",
+  "emoji": "🍬",
+  "file": "games/mega/game-0224.html"
+ },
+ {
+  "n": 225,
+  "title": "Candy Breaker — Master",
+  "type": "Breaker",
+  "theme": "Candy",
+  "diff": "Master",
+  "emoji": "🍬",
+  "file": "games/mega/game-0225.html"
+ },
+ {
+  "n": 226,
+  "title": "Candy Flyer — Easy",
+  "type": "Flyer",
+  "theme": "Candy",
+  "diff": "Easy",
+  "emoji": "🍬",
+  "file": "games/mega/game-0226.html"
+ },
+ {
+  "n": 227,
+  "title": "Candy Flyer — Medium",
+  "type": "Flyer",
+  "theme": "Candy",
+  "diff": "Medium",
+  "emoji": "🍬",
+  "file": "games/mega/game-0227.html"
+ },
+ {
+  "n": 228,
+  "title": "Candy Flyer — Hard",
+  "type": "Flyer",
+  "theme": "Candy",
+  "diff": "Hard",
+  "emoji": "🍬",
+  "file": "games/mega/game-0228.html"
+ },
+ {
+  "n": 229,
+  "title": "Candy Flyer — Expert",
+  "type": "Flyer",
+  "theme": "Candy",
+  "diff": "Expert",
+  "emoji": "🍬",
+  "file": "games/mega/game-0229.html"
+ },
+ {
+  "n": 230,
+  "title": "Candy Flyer — Master",
+  "type": "Flyer",
+  "theme": "Candy",
+  "diff": "Master",
+  "emoji": "🍬",
+  "file": "games/mega/game-0230.html"
+ },
+ {
+  "n": 231,
+  "title": "Candy Memory — Easy",
+  "type": "Memory",
+  "theme": "Candy",
+  "diff": "Easy",
+  "emoji": "🍬",
+  "file": "games/mega/game-0231.html"
+ },
+ {
+  "n": 232,
+  "title": "Candy Memory — Medium",
+  "type": "Memory",
+  "theme": "Candy",
+  "diff": "Medium",
+  "emoji": "🍬",
+  "file": "games/mega/game-0232.html"
+ },
+ {
+  "n": 233,
+  "title": "Candy Memory — Hard",
+  "type": "Memory",
+  "theme": "Candy",
+  "diff": "Hard",
+  "emoji": "🍬",
+  "file": "games/mega/game-0233.html"
+ },
+ {
+  "n": 234,
+  "title": "Candy Memory — Expert",
+  "type": "Memory",
+  "theme": "Candy",
+  "diff": "Expert",
+  "emoji": "🍬",
+  "file": "games/mega/game-0234.html"
+ },
+ {
+  "n": 235,
+  "title": "Candy Memory — Master",
+  "type": "Memory",
+  "theme": "Candy",
+  "diff": "Master",
+  "emoji": "🍬",
+  "file": "games/mega/game-0235.html"
+ },
+ {
+  "n": 236,
+  "title": "Candy Snake — Easy",
+  "type": "Snake",
+  "theme": "Candy",
+  "diff": "Easy",
+  "emoji": "🍬",
+  "file": "games/mega/game-0236.html"
+ },
+ {
+  "n": 237,
+  "title": "Candy Snake — Medium",
+  "type": "Snake",
+  "theme": "Candy",
+  "diff": "Medium",
+  "emoji": "🍬",
+  "file": "games/mega/game-0237.html"
+ },
+ {
+  "n": 238,
+  "title": "Candy Snake — Hard",
+  "type": "Snake",
+  "theme": "Candy",
+  "diff": "Hard",
+  "emoji": "🍬",
+  "file": "games/mega/game-0238.html"
+ },
+ {
+  "n": 239,
+  "title": "Candy Snake — Expert",
+  "type": "Snake",
+  "theme": "Candy",
+  "diff": "Expert",
+  "emoji": "🍬",
+  "file": "games/mega/game-0239.html"
+ },
+ {
+  "n": 240,
+  "title": "Candy Snake — Master",
+  "type": "Snake",
+  "theme": "Candy",
+  "diff": "Master",
+  "emoji": "🍬",
+  "file": "games/mega/game-0240.html"
+ },
+ {
+  "n": 241,
+  "title": "Candy Stacker — Easy",
+  "type": "Stacker",
+  "theme": "Candy",
+  "diff": "Easy",
+  "emoji": "🍬",
+  "file": "games/mega/game-0241.html"
+ },
+ {
+  "n": 242,
+  "title": "Candy Stacker — Medium",
+  "type": "Stacker",
+  "theme": "Candy",
+  "diff": "Medium",
+  "emoji": "🍬",
+  "file": "games/mega/game-0242.html"
+ },
+ {
+  "n": 243,
+  "title": "Candy Stacker — Hard",
+  "type": "Stacker",
+  "theme": "Candy",
+  "diff": "Hard",
+  "emoji": "🍬",
+  "file": "games/mega/game-0243.html"
+ },
+ {
+  "n": 244,
+  "title": "Candy Stacker — Expert",
+  "type": "Stacker",
+  "theme": "Candy",
+  "diff": "Expert",
+  "emoji": "🍬",
+  "file": "games/mega/game-0244.html"
+ },
+ {
+  "n": 245,
+  "title": "Candy Stacker — Master",
+  "type": "Stacker",
+  "theme": "Candy",
+  "diff": "Master",
+  "emoji": "🍬",
+  "file": "games/mega/game-0245.html"
+ },
+ {
+  "n": 246,
+  "title": "Candy Color Match — Easy",
+  "type": "Color Match",
+  "theme": "Candy",
+  "diff": "Easy",
+  "emoji": "🍬",
+  "file": "games/mega/game-0246.html"
+ },
+ {
+  "n": 247,
+  "title": "Candy Color Match — Medium",
+  "type": "Color Match",
+  "theme": "Candy",
+  "diff": "Medium",
+  "emoji": "🍬",
+  "file": "games/mega/game-0247.html"
+ },
+ {
+  "n": 248,
+  "title": "Candy Color Match — Hard",
+  "type": "Color Match",
+  "theme": "Candy",
+  "diff": "Hard",
+  "emoji": "🍬",
+  "file": "games/mega/game-0248.html"
+ },
+ {
+  "n": 249,
+  "title": "Candy Color Match — Expert",
+  "type": "Color Match",
+  "theme": "Candy",
+  "diff": "Expert",
+  "emoji": "🍬",
+  "file": "games/mega/game-0249.html"
+ },
+ {
+  "n": 250,
+  "title": "Candy Color Match — Master",
+  "type": "Color Match",
+  "theme": "Candy",
+  "diff": "Master",
+  "emoji": "🍬",
+  "file": "games/mega/game-0250.html"
+ },
+ {
+  "n": 251,
+  "title": "Farm Dodge — Easy",
+  "type": "Dodge",
+  "theme": "Farm",
+  "diff": "Easy",
+  "emoji": "🐄",
+  "file": "games/mega/game-0251.html"
+ },
+ {
+  "n": 252,
+  "title": "Farm Dodge — Medium",
+  "type": "Dodge",
+  "theme": "Farm",
+  "diff": "Medium",
+  "emoji": "🐄",
+  "file": "games/mega/game-0252.html"
+ },
+ {
+  "n": 253,
+  "title": "Farm Dodge — Hard",
+  "type": "Dodge",
+  "theme": "Farm",
+  "diff": "Hard",
+  "emoji": "🐄",
+  "file": "games/mega/game-0253.html"
+ },
+ {
+  "n": 254,
+  "title": "Farm Dodge — Expert",
+  "type": "Dodge",
+  "theme": "Farm",
+  "diff": "Expert",
+  "emoji": "🐄",
+  "file": "games/mega/game-0254.html"
+ },
+ {
+  "n": 255,
+  "title": "Farm Dodge — Master",
+  "type": "Dodge",
+  "theme": "Farm",
+  "diff": "Master",
+  "emoji": "🐄",
+  "file": "games/mega/game-0255.html"
+ },
+ {
+  "n": 256,
+  "title": "Farm Catcher — Easy",
+  "type": "Catcher",
+  "theme": "Farm",
+  "diff": "Easy",
+  "emoji": "🐄",
+  "file": "games/mega/game-0256.html"
+ },
+ {
+  "n": 257,
+  "title": "Farm Catcher — Medium",
+  "type": "Catcher",
+  "theme": "Farm",
+  "diff": "Medium",
+  "emoji": "🐄",
+  "file": "games/mega/game-0257.html"
+ },
+ {
+  "n": 258,
+  "title": "Farm Catcher — Hard",
+  "type": "Catcher",
+  "theme": "Farm",
+  "diff": "Hard",
+  "emoji": "🐄",
+  "file": "games/mega/game-0258.html"
+ },
+ {
+  "n": 259,
+  "title": "Farm Catcher — Expert",
+  "type": "Catcher",
+  "theme": "Farm",
+  "diff": "Expert",
+  "emoji": "🐄",
+  "file": "games/mega/game-0259.html"
+ },
+ {
+  "n": 260,
+  "title": "Farm Catcher — Master",
+  "type": "Catcher",
+  "theme": "Farm",
+  "diff": "Master",
+  "emoji": "🐄",
+  "file": "games/mega/game-0260.html"
+ },
+ {
+  "n": 261,
+  "title": "Farm Popper — Easy",
+  "type": "Popper",
+  "theme": "Farm",
+  "diff": "Easy",
+  "emoji": "🐄",
+  "file": "games/mega/game-0261.html"
+ },
+ {
+  "n": 262,
+  "title": "Farm Popper — Medium",
+  "type": "Popper",
+  "theme": "Farm",
+  "diff": "Medium",
+  "emoji": "🐄",
+  "file": "games/mega/game-0262.html"
+ },
+ {
+  "n": 263,
+  "title": "Farm Popper — Hard",
+  "type": "Popper",
+  "theme": "Farm",
+  "diff": "Hard",
+  "emoji": "🐄",
+  "file": "games/mega/game-0263.html"
+ },
+ {
+  "n": 264,
+  "title": "Farm Popper — Expert",
+  "type": "Popper",
+  "theme": "Farm",
+  "diff": "Expert",
+  "emoji": "🐄",
+  "file": "games/mega/game-0264.html"
+ },
+ {
+  "n": 265,
+  "title": "Farm Popper — Master",
+  "type": "Popper",
+  "theme": "Farm",
+  "diff": "Master",
+  "emoji": "🐄",
+  "file": "games/mega/game-0265.html"
+ },
+ {
+  "n": 266,
+  "title": "Farm Blaster — Easy",
+  "type": "Blaster",
+  "theme": "Farm",
+  "diff": "Easy",
+  "emoji": "🐄",
+  "file": "games/mega/game-0266.html"
+ },
+ {
+  "n": 267,
+  "title": "Farm Blaster — Medium",
+  "type": "Blaster",
+  "theme": "Farm",
+  "diff": "Medium",
+  "emoji": "🐄",
+  "file": "games/mega/game-0267.html"
+ },
+ {
+  "n": 268,
+  "title": "Farm Blaster — Hard",
+  "type": "Blaster",
+  "theme": "Farm",
+  "diff": "Hard",
+  "emoji": "🐄",
+  "file": "games/mega/game-0268.html"
+ },
+ {
+  "n": 269,
+  "title": "Farm Blaster — Expert",
+  "type": "Blaster",
+  "theme": "Farm",
+  "diff": "Expert",
+  "emoji": "🐄",
+  "file": "games/mega/game-0269.html"
+ },
+ {
+  "n": 270,
+  "title": "Farm Blaster — Master",
+  "type": "Blaster",
+  "theme": "Farm",
+  "diff": "Master",
+  "emoji": "🐄",
+  "file": "games/mega/game-0270.html"
+ },
+ {
+  "n": 271,
+  "title": "Farm Breaker — Easy",
+  "type": "Breaker",
+  "theme": "Farm",
+  "diff": "Easy",
+  "emoji": "🐄",
+  "file": "games/mega/game-0271.html"
+ },
+ {
+  "n": 272,
+  "title": "Farm Breaker — Medium",
+  "type": "Breaker",
+  "theme": "Farm",
+  "diff": "Medium",
+  "emoji": "🐄",
+  "file": "games/mega/game-0272.html"
+ },
+ {
+  "n": 273,
+  "title": "Farm Breaker — Hard",
+  "type": "Breaker",
+  "theme": "Farm",
+  "diff": "Hard",
+  "emoji": "🐄",
+  "file": "games/mega/game-0273.html"
+ },
+ {
+  "n": 274,
+  "title": "Farm Breaker — Expert",
+  "type": "Breaker",
+  "theme": "Farm",
+  "diff": "Expert",
+  "emoji": "🐄",
+  "file": "games/mega/game-0274.html"
+ },
+ {
+  "n": 275,
+  "title": "Farm Breaker — Master",
+  "type": "Breaker",
+  "theme": "Farm",
+  "diff": "Master",
+  "emoji": "🐄",
+  "file": "games/mega/game-0275.html"
+ },
+ {
+  "n": 276,
+  "title": "Farm Flyer — Easy",
+  "type": "Flyer",
+  "theme": "Farm",
+  "diff": "Easy",
+  "emoji": "🐄",
+  "file": "games/mega/game-0276.html"
+ },
+ {
+  "n": 277,
+  "title": "Farm Flyer — Medium",
+  "type": "Flyer",
+  "theme": "Farm",
+  "diff": "Medium",
+  "emoji": "🐄",
+  "file": "games/mega/game-0277.html"
+ },
+ {
+  "n": 278,
+  "title": "Farm Flyer — Hard",
+  "type": "Flyer",
+  "theme": "Farm",
+  "diff": "Hard",
+  "emoji": "🐄",
+  "file": "games/mega/game-0278.html"
+ },
+ {
+  "n": 279,
+  "title": "Farm Flyer — Expert",
+  "type": "Flyer",
+  "theme": "Farm",
+  "diff": "Expert",
+  "emoji": "🐄",
+  "file": "games/mega/game-0279.html"
+ },
+ {
+  "n": 280,
+  "title": "Farm Flyer — Master",
+  "type": "Flyer",
+  "theme": "Farm",
+  "diff": "Master",
+  "emoji": "🐄",
+  "file": "games/mega/game-0280.html"
+ },
+ {
+  "n": 281,
+  "title": "Farm Memory — Easy",
+  "type": "Memory",
+  "theme": "Farm",
+  "diff": "Easy",
+  "emoji": "🐄",
+  "file": "games/mega/game-0281.html"
+ },
+ {
+  "n": 282,
+  "title": "Farm Memory — Medium",
+  "type": "Memory",
+  "theme": "Farm",
+  "diff": "Medium",
+  "emoji": "🐄",
+  "file": "games/mega/game-0282.html"
+ },
+ {
+  "n": 283,
+  "title": "Farm Memory — Hard",
+  "type": "Memory",
+  "theme": "Farm",
+  "diff": "Hard",
+  "emoji": "🐄",
+  "file": "games/mega/game-0283.html"
+ },
+ {
+  "n": 284,
+  "title": "Farm Memory — Expert",
+  "type": "Memory",
+  "theme": "Farm",
+  "diff": "Expert",
+  "emoji": "🐄",
+  "file": "games/mega/game-0284.html"
+ },
+ {
+  "n": 285,
+  "title": "Farm Memory — Master",
+  "type": "Memory",
+  "theme": "Farm",
+  "diff": "Master",
+  "emoji": "🐄",
+  "file": "games/mega/game-0285.html"
+ },
+ {
+  "n": 286,
+  "title": "Farm Snake — Easy",
+  "type": "Snake",
+  "theme": "Farm",
+  "diff": "Easy",
+  "emoji": "🐄",
+  "file": "games/mega/game-0286.html"
+ },
+ {
+  "n": 287,
+  "title": "Farm Snake — Medium",
+  "type": "Snake",
+  "theme": "Farm",
+  "diff": "Medium",
+  "emoji": "🐄",
+  "file": "games/mega/game-0287.html"
+ },
+ {
+  "n": 288,
+  "title": "Farm Snake — Hard",
+  "type": "Snake",
+  "theme": "Farm",
+  "diff": "Hard",
+  "emoji": "🐄",
+  "file": "games/mega/game-0288.html"
+ },
+ {
+  "n": 289,
+  "title": "Farm Snake — Expert",
+  "type": "Snake",
+  "theme": "Farm",
+  "diff": "Expert",
+  "emoji": "🐄",
+  "file": "games/mega/game-0289.html"
+ },
+ {
+  "n": 290,
+  "title": "Farm Snake — Master",
+  "type": "Snake",
+  "theme": "Farm",
+  "diff": "Master",
+  "emoji": "🐄",
+  "file": "games/mega/game-0290.html"
+ },
+ {
+  "n": 291,
+  "title": "Farm Stacker — Easy",
+  "type": "Stacker",
+  "theme": "Farm",
+  "diff": "Easy",
+  "emoji": "🐄",
+  "file": "games/mega/game-0291.html"
+ },
+ {
+  "n": 292,
+  "title": "Farm Stacker — Medium",
+  "type": "Stacker",
+  "theme": "Farm",
+  "diff": "Medium",
+  "emoji": "🐄",
+  "file": "games/mega/game-0292.html"
+ },
+ {
+  "n": 293,
+  "title": "Farm Stacker — Hard",
+  "type": "Stacker",
+  "theme": "Farm",
+  "diff": "Hard",
+  "emoji": "🐄",
+  "file": "games/mega/game-0293.html"
+ },
+ {
+  "n": 294,
+  "title": "Farm Stacker — Expert",
+  "type": "Stacker",
+  "theme": "Farm",
+  "diff": "Expert",
+  "emoji": "🐄",
+  "file": "games/mega/game-0294.html"
+ },
+ {
+  "n": 295,
+  "title": "Farm Stacker — Master",
+  "type": "Stacker",
+  "theme": "Farm",
+  "diff": "Master",
+  "emoji": "🐄",
+  "file": "games/mega/game-0295.html"
+ },
+ {
+  "n": 296,
+  "title": "Farm Color Match — Easy",
+  "type": "Color Match",
+  "theme": "Farm",
+  "diff": "Easy",
+  "emoji": "🐄",
+  "file": "games/mega/game-0296.html"
+ },
+ {
+  "n": 297,
+  "title": "Farm Color Match — Medium",
+  "type": "Color Match",
+  "theme": "Farm",
+  "diff": "Medium",
+  "emoji": "🐄",
+  "file": "games/mega/game-0297.html"
+ },
+ {
+  "n": 298,
+  "title": "Farm Color Match — Hard",
+  "type": "Color Match",
+  "theme": "Farm",
+  "diff": "Hard",
+  "emoji": "🐄",
+  "file": "games/mega/game-0298.html"
+ },
+ {
+  "n": 299,
+  "title": "Farm Color Match — Expert",
+  "type": "Color Match",
+  "theme": "Farm",
+  "diff": "Expert",
+  "emoji": "🐄",
+  "file": "games/mega/game-0299.html"
+ },
+ {
+  "n": 300,
+  "title": "Farm Color Match — Master",
+  "type": "Color Match",
+  "theme": "Farm",
+  "diff": "Master",
+  "emoji": "🐄",
+  "file": "games/mega/game-0300.html"
+ },
+ {
+  "n": 301,
+  "title": "City Dodge — Easy",
+  "type": "Dodge",
+  "theme": "City",
+  "diff": "Easy",
+  "emoji": "🚕",
+  "file": "games/mega/game-0301.html"
+ },
+ {
+  "n": 302,
+  "title": "City Dodge — Medium",
+  "type": "Dodge",
+  "theme": "City",
+  "diff": "Medium",
+  "emoji": "🚕",
+  "file": "games/mega/game-0302.html"
+ },
+ {
+  "n": 303,
+  "title": "City Dodge — Hard",
+  "type": "Dodge",
+  "theme": "City",
+  "diff": "Hard",
+  "emoji": "🚕",
+  "file": "games/mega/game-0303.html"
+ },
+ {
+  "n": 304,
+  "title": "City Dodge — Expert",
+  "type": "Dodge",
+  "theme": "City",
+  "diff": "Expert",
+  "emoji": "🚕",
+  "file": "games/mega/game-0304.html"
+ },
+ {
+  "n": 305,
+  "title": "City Dodge — Master",
+  "type": "Dodge",
+  "theme": "City",
+  "diff": "Master",
+  "emoji": "🚕",
+  "file": "games/mega/game-0305.html"
+ },
+ {
+  "n": 306,
+  "title": "City Catcher — Easy",
+  "type": "Catcher",
+  "theme": "City",
+  "diff": "Easy",
+  "emoji": "🚕",
+  "file": "games/mega/game-0306.html"
+ },
+ {
+  "n": 307,
+  "title": "City Catcher — Medium",
+  "type": "Catcher",
+  "theme": "City",
+  "diff": "Medium",
+  "emoji": "🚕",
+  "file": "games/mega/game-0307.html"
+ },
+ {
+  "n": 308,
+  "title": "City Catcher — Hard",
+  "type": "Catcher",
+  "theme": "City",
+  "diff": "Hard",
+  "emoji": "🚕",
+  "file": "games/mega/game-0308.html"
+ },
+ {
+  "n": 309,
+  "title": "City Catcher — Expert",
+  "type": "Catcher",
+  "theme": "City",
+  "diff": "Expert",
+  "emoji": "🚕",
+  "file": "games/mega/game-0309.html"
+ },
+ {
+  "n": 310,
+  "title": "City Catcher — Master",
+  "type": "Catcher",
+  "theme": "City",
+  "diff": "Master",
+  "emoji": "🚕",
+  "file": "games/mega/game-0310.html"
+ },
+ {
+  "n": 311,
+  "title": "City Popper — Easy",
+  "type": "Popper",
+  "theme": "City",
+  "diff": "Easy",
+  "emoji": "🚕",
+  "file": "games/mega/game-0311.html"
+ },
+ {
+  "n": 312,
+  "title": "City Popper — Medium",
+  "type": "Popper",
+  "theme": "City",
+  "diff": "Medium",
+  "emoji": "🚕",
+  "file": "games/mega/game-0312.html"
+ },
+ {
+  "n": 313,
+  "title": "City Popper — Hard",
+  "type": "Popper",
+  "theme": "City",
+  "diff": "Hard",
+  "emoji": "🚕",
+  "file": "games/mega/game-0313.html"
+ },
+ {
+  "n": 314,
+  "title": "City Popper — Expert",
+  "type": "Popper",
+  "theme": "City",
+  "diff": "Expert",
+  "emoji": "🚕",
+  "file": "games/mega/game-0314.html"
+ },
+ {
+  "n": 315,
+  "title": "City Popper — Master",
+  "type": "Popper",
+  "theme": "City",
+  "diff": "Master",
+  "emoji": "🚕",
+  "file": "games/mega/game-0315.html"
+ },
+ {
+  "n": 316,
+  "title": "City Blaster — Easy",
+  "type": "Blaster",
+  "theme": "City",
+  "diff": "Easy",
+  "emoji": "🚕",
+  "file": "games/mega/game-0316.html"
+ },
+ {
+  "n": 317,
+  "title": "City Blaster — Medium",
+  "type": "Blaster",
+  "theme": "City",
+  "diff": "Medium",
+  "emoji": "🚕",
+  "file": "games/mega/game-0317.html"
+ },
+ {
+  "n": 318,
+  "title": "City Blaster — Hard",
+  "type": "Blaster",
+  "theme": "City",
+  "diff": "Hard",
+  "emoji": "🚕",
+  "file": "games/mega/game-0318.html"
+ },
+ {
+  "n": 319,
+  "title": "City Blaster — Expert",
+  "type": "Blaster",
+  "theme": "City",
+  "diff": "Expert",
+  "emoji": "🚕",
+  "file": "games/mega/game-0319.html"
+ },
+ {
+  "n": 320,
+  "title": "City Blaster — Master",
+  "type": "Blaster",
+  "theme": "City",
+  "diff": "Master",
+  "emoji": "🚕",
+  "file": "games/mega/game-0320.html"
+ },
+ {
+  "n": 321,
+  "title": "City Breaker — Easy",
+  "type": "Breaker",
+  "theme": "City",
+  "diff": "Easy",
+  "emoji": "🚕",
+  "file": "games/mega/game-0321.html"
+ },
+ {
+  "n": 322,
+  "title": "City Breaker — Medium",
+  "type": "Breaker",
+  "theme": "City",
+  "diff": "Medium",
+  "emoji": "🚕",
+  "file": "games/mega/game-0322.html"
+ },
+ {
+  "n": 323,
+  "title": "City Breaker — Hard",
+  "type": "Breaker",
+  "theme": "City",
+  "diff": "Hard",
+  "emoji": "🚕",
+  "file": "games/mega/game-0323.html"
+ },
+ {
+  "n": 324,
+  "title": "City Breaker — Expert",
+  "type": "Breaker",
+  "theme": "City",
+  "diff": "Expert",
+  "emoji": "🚕",
+  "file": "games/mega/game-0324.html"
+ },
+ {
+  "n": 325,
+  "title": "City Breaker — Master",
+  "type": "Breaker",
+  "theme": "City",
+  "diff": "Master",
+  "emoji": "🚕",
+  "file": "games/mega/game-0325.html"
+ },
+ {
+  "n": 326,
+  "title": "City Flyer — Easy",
+  "type": "Flyer",
+  "theme": "City",
+  "diff": "Easy",
+  "emoji": "🚕",
+  "file": "games/mega/game-0326.html"
+ },
+ {
+  "n": 327,
+  "title": "City Flyer — Medium",
+  "type": "Flyer",
+  "theme": "City",
+  "diff": "Medium",
+  "emoji": "🚕",
+  "file": "games/mega/game-0327.html"
+ },
+ {
+  "n": 328,
+  "title": "City Flyer — Hard",
+  "type": "Flyer",
+  "theme": "City",
+  "diff": "Hard",
+  "emoji": "🚕",
+  "file": "games/mega/game-0328.html"
+ },
+ {
+  "n": 329,
+  "title": "City Flyer — Expert",
+  "type": "Flyer",
+  "theme": "City",
+  "diff": "Expert",
+  "emoji": "🚕",
+  "file": "games/mega/game-0329.html"
+ },
+ {
+  "n": 330,
+  "title": "City Flyer — Master",
+  "type": "Flyer",
+  "theme": "City",
+  "diff": "Master",
+  "emoji": "🚕",
+  "file": "games/mega/game-0330.html"
+ },
+ {
+  "n": 331,
+  "title": "City Memory — Easy",
+  "type": "Memory",
+  "theme": "City",
+  "diff": "Easy",
+  "emoji": "🚕",
+  "file": "games/mega/game-0331.html"
+ },
+ {
+  "n": 332,
+  "title": "City Memory — Medium",
+  "type": "Memory",
+  "theme": "City",
+  "diff": "Medium",
+  "emoji": "🚕",
+  "file": "games/mega/game-0332.html"
+ },
+ {
+  "n": 333,
+  "title": "City Memory — Hard",
+  "type": "Memory",
+  "theme": "City",
+  "diff": "Hard",
+  "emoji": "🚕",
+  "file": "games/mega/game-0333.html"
+ },
+ {
+  "n": 334,
+  "title": "City Memory — Expert",
+  "type": "Memory",
+  "theme": "City",
+  "diff": "Expert",
+  "emoji": "🚕",
+  "file": "games/mega/game-0334.html"
+ },
+ {
+  "n": 335,
+  "title": "City Memory — Master",
+  "type": "Memory",
+  "theme": "City",
+  "diff": "Master",
+  "emoji": "🚕",
+  "file": "games/mega/game-0335.html"
+ },
+ {
+  "n": 336,
+  "title": "City Snake — Easy",
+  "type": "Snake",
+  "theme": "City",
+  "diff": "Easy",
+  "emoji": "🚕",
+  "file": "games/mega/game-0336.html"
+ },
+ {
+  "n": 337,
+  "title": "City Snake — Medium",
+  "type": "Snake",
+  "theme": "City",
+  "diff": "Medium",
+  "emoji": "🚕",
+  "file": "games/mega/game-0337.html"
+ },
+ {
+  "n": 338,
+  "title": "City Snake — Hard",
+  "type": "Snake",
+  "theme": "City",
+  "diff": "Hard",
+  "emoji": "🚕",
+  "file": "games/mega/game-0338.html"
+ },
+ {
+  "n": 339,
+  "title": "City Snake — Expert",
+  "type": "Snake",
+  "theme": "City",
+  "diff": "Expert",
+  "emoji": "🚕",
+  "file": "games/mega/game-0339.html"
+ },
+ {
+  "n": 340,
+  "title": "City Snake — Master",
+  "type": "Snake",
+  "theme": "City",
+  "diff": "Master",
+  "emoji": "🚕",
+  "file": "games/mega/game-0340.html"
+ },
+ {
+  "n": 341,
+  "title": "City Stacker — Easy",
+  "type": "Stacker",
+  "theme": "City",
+  "diff": "Easy",
+  "emoji": "🚕",
+  "file": "games/mega/game-0341.html"
+ },
+ {
+  "n": 342,
+  "title": "City Stacker — Medium",
+  "type": "Stacker",
+  "theme": "City",
+  "diff": "Medium",
+  "emoji": "🚕",
+  "file": "games/mega/game-0342.html"
+ },
+ {
+  "n": 343,
+  "title": "City Stacker — Hard",
+  "type": "Stacker",
+  "theme": "City",
+  "diff": "Hard",
+  "emoji": "🚕",
+  "file": "games/mega/game-0343.html"
+ },
+ {
+  "n": 344,
+  "title": "City Stacker — Expert",
+  "type": "Stacker",
+  "theme": "City",
+  "diff": "Expert",
+  "emoji": "🚕",
+  "file": "games/mega/game-0344.html"
+ },
+ {
+  "n": 345,
+  "title": "City Stacker — Master",
+  "type": "Stacker",
+  "theme": "City",
+  "diff": "Master",
+  "emoji": "🚕",
+  "file": "games/mega/game-0345.html"
+ },
+ {
+  "n": 346,
+  "title": "City Color Match — Easy",
+  "type": "Color Match",
+  "theme": "City",
+  "diff": "Easy",
+  "emoji": "🚕",
+  "file": "games/mega/game-0346.html"
+ },
+ {
+  "n": 347,
+  "title": "City Color Match — Medium",
+  "type": "Color Match",
+  "theme": "City",
+  "diff": "Medium",
+  "emoji": "🚕",
+  "file": "games/mega/game-0347.html"
+ },
+ {
+  "n": 348,
+  "title": "City Color Match — Hard",
+  "type": "Color Match",
+  "theme": "City",
+  "diff": "Hard",
+  "emoji": "🚕",
+  "file": "games/mega/game-0348.html"
+ },
+ {
+  "n": 349,
+  "title": "City Color Match — Expert",
+  "type": "Color Match",
+  "theme": "City",
+  "diff": "Expert",
+  "emoji": "🚕",
+  "file": "games/mega/game-0349.html"
+ },
+ {
+  "n": 350,
+  "title": "City Color Match — Master",
+  "type": "Color Match",
+  "theme": "City",
+  "diff": "Master",
+  "emoji": "🚕",
+  "file": "games/mega/game-0350.html"
+ },
+ {
+  "n": 351,
+  "title": "Winter Dodge — Easy",
+  "type": "Dodge",
+  "theme": "Winter",
+  "diff": "Easy",
+  "emoji": "⛄",
+  "file": "games/mega/game-0351.html"
+ },
+ {
+  "n": 352,
+  "title": "Winter Dodge — Medium",
+  "type": "Dodge",
+  "theme": "Winter",
+  "diff": "Medium",
+  "emoji": "⛄",
+  "file": "games/mega/game-0352.html"
+ },
+ {
+  "n": 353,
+  "title": "Winter Dodge — Hard",
+  "type": "Dodge",
+  "theme": "Winter",
+  "diff": "Hard",
+  "emoji": "⛄",
+  "file": "games/mega/game-0353.html"
+ },
+ {
+  "n": 354,
+  "title": "Winter Dodge — Expert",
+  "type": "Dodge",
+  "theme": "Winter",
+  "diff": "Expert",
+  "emoji": "⛄",
+  "file": "games/mega/game-0354.html"
+ },
+ {
+  "n": 355,
+  "title": "Winter Dodge — Master",
+  "type": "Dodge",
+  "theme": "Winter",
+  "diff": "Master",
+  "emoji": "⛄",
+  "file": "games/mega/game-0355.html"
+ },
+ {
+  "n": 356,
+  "title": "Winter Catcher — Easy",
+  "type": "Catcher",
+  "theme": "Winter",
+  "diff": "Easy",
+  "emoji": "⛄",
+  "file": "games/mega/game-0356.html"
+ },
+ {
+  "n": 357,
+  "title": "Winter Catcher — Medium",
+  "type": "Catcher",
+  "theme": "Winter",
+  "diff": "Medium",
+  "emoji": "⛄",
+  "file": "games/mega/game-0357.html"
+ },
+ {
+  "n": 358,
+  "title": "Winter Catcher — Hard",
+  "type": "Catcher",
+  "theme": "Winter",
+  "diff": "Hard",
+  "emoji": "⛄",
+  "file": "games/mega/game-0358.html"
+ },
+ {
+  "n": 359,
+  "title": "Winter Catcher — Expert",
+  "type": "Catcher",
+  "theme": "Winter",
+  "diff": "Expert",
+  "emoji": "⛄",
+  "file": "games/mega/game-0359.html"
+ },
+ {
+  "n": 360,
+  "title": "Winter Catcher — Master",
+  "type": "Catcher",
+  "theme": "Winter",
+  "diff": "Master",
+  "emoji": "⛄",
+  "file": "games/mega/game-0360.html"
+ },
+ {
+  "n": 361,
+  "title": "Winter Popper — Easy",
+  "type": "Popper",
+  "theme": "Winter",
+  "diff": "Easy",
+  "emoji": "⛄",
+  "file": "games/mega/game-0361.html"
+ },
+ {
+  "n": 362,
+  "title": "Winter Popper — Medium",
+  "type": "Popper",
+  "theme": "Winter",
+  "diff": "Medium",
+  "emoji": "⛄",
+  "file": "games/mega/game-0362.html"
+ },
+ {
+  "n": 363,
+  "title": "Winter Popper — Hard",
+  "type": "Popper",
+  "theme": "Winter",
+  "diff": "Hard",
+  "emoji": "⛄",
+  "file": "games/mega/game-0363.html"
+ },
+ {
+  "n": 364,
+  "title": "Winter Popper — Expert",
+  "type": "Popper",
+  "theme": "Winter",
+  "diff": "Expert",
+  "emoji": "⛄",
+  "file": "games/mega/game-0364.html"
+ },
+ {
+  "n": 365,
+  "title": "Winter Popper — Master",
+  "type": "Popper",
+  "theme": "Winter",
+  "diff": "Master",
+  "emoji": "⛄",
+  "file": "games/mega/game-0365.html"
+ },
+ {
+  "n": 366,
+  "title": "Winter Blaster — Easy",
+  "type": "Blaster",
+  "theme": "Winter",
+  "diff": "Easy",
+  "emoji": "⛄",
+  "file": "games/mega/game-0366.html"
+ },
+ {
+  "n": 367,
+  "title": "Winter Blaster — Medium",
+  "type": "Blaster",
+  "theme": "Winter",
+  "diff": "Medium",
+  "emoji": "⛄",
+  "file": "games/mega/game-0367.html"
+ },
+ {
+  "n": 368,
+  "title": "Winter Blaster — Hard",
+  "type": "Blaster",
+  "theme": "Winter",
+  "diff": "Hard",
+  "emoji": "⛄",
+  "file": "games/mega/game-0368.html"
+ },
+ {
+  "n": 369,
+  "title": "Winter Blaster — Expert",
+  "type": "Blaster",
+  "theme": "Winter",
+  "diff": "Expert",
+  "emoji": "⛄",
+  "file": "games/mega/game-0369.html"
+ },
+ {
+  "n": 370,
+  "title": "Winter Blaster — Master",
+  "type": "Blaster",
+  "theme": "Winter",
+  "diff": "Master",
+  "emoji": "⛄",
+  "file": "games/mega/game-0370.html"
+ },
+ {
+  "n": 371,
+  "title": "Winter Breaker — Easy",
+  "type": "Breaker",
+  "theme": "Winter",
+  "diff": "Easy",
+  "emoji": "⛄",
+  "file": "games/mega/game-0371.html"
+ },
+ {
+  "n": 372,
+  "title": "Winter Breaker — Medium",
+  "type": "Breaker",
+  "theme": "Winter",
+  "diff": "Medium",
+  "emoji": "⛄",
+  "file": "games/mega/game-0372.html"
+ },
+ {
+  "n": 373,
+  "title": "Winter Breaker — Hard",
+  "type": "Breaker",
+  "theme": "Winter",
+  "diff": "Hard",
+  "emoji": "⛄",
+  "file": "games/mega/game-0373.html"
+ },
+ {
+  "n": 374,
+  "title": "Winter Breaker — Expert",
+  "type": "Breaker",
+  "theme": "Winter",
+  "diff": "Expert",
+  "emoji": "⛄",
+  "file": "games/mega/game-0374.html"
+ },
+ {
+  "n": 375,
+  "title": "Winter Breaker — Master",
+  "type": "Breaker",
+  "theme": "Winter",
+  "diff": "Master",
+  "emoji": "⛄",
+  "file": "games/mega/game-0375.html"
+ },
+ {
+  "n": 376,
+  "title": "Winter Flyer — Easy",
+  "type": "Flyer",
+  "theme": "Winter",
+  "diff": "Easy",
+  "emoji": "⛄",
+  "file": "games/mega/game-0376.html"
+ },
+ {
+  "n": 377,
+  "title": "Winter Flyer — Medium",
+  "type": "Flyer",
+  "theme": "Winter",
+  "diff": "Medium",
+  "emoji": "⛄",
+  "file": "games/mega/game-0377.html"
+ },
+ {
+  "n": 378,
+  "title": "Winter Flyer — Hard",
+  "type": "Flyer",
+  "theme": "Winter",
+  "diff": "Hard",
+  "emoji": "⛄",
+  "file": "games/mega/game-0378.html"
+ },
+ {
+  "n": 379,
+  "title": "Winter Flyer — Expert",
+  "type": "Flyer",
+  "theme": "Winter",
+  "diff": "Expert",
+  "emoji": "⛄",
+  "file": "games/mega/game-0379.html"
+ },
+ {
+  "n": 380,
+  "title": "Winter Flyer — Master",
+  "type": "Flyer",
+  "theme": "Winter",
+  "diff": "Master",
+  "emoji": "⛄",
+  "file": "games/mega/game-0380.html"
+ },
+ {
+  "n": 381,
+  "title": "Winter Memory — Easy",
+  "type": "Memory",
+  "theme": "Winter",
+  "diff": "Easy",
+  "emoji": "⛄",
+  "file": "games/mega/game-0381.html"
+ },
+ {
+  "n": 382,
+  "title": "Winter Memory — Medium",
+  "type": "Memory",
+  "theme": "Winter",
+  "diff": "Medium",
+  "emoji": "⛄",
+  "file": "games/mega/game-0382.html"
+ },
+ {
+  "n": 383,
+  "title": "Winter Memory — Hard",
+  "type": "Memory",
+  "theme": "Winter",
+  "diff": "Hard",
+  "emoji": "⛄",
+  "file": "games/mega/game-0383.html"
+ },
+ {
+  "n": 384,
+  "title": "Winter Memory — Expert",
+  "type": "Memory",
+  "theme": "Winter",
+  "diff": "Expert",
+  "emoji": "⛄",
+  "file": "games/mega/game-0384.html"
+ },
+ {
+  "n": 385,
+  "title": "Winter Memory — Master",
+  "type": "Memory",
+  "theme": "Winter",
+  "diff": "Master",
+  "emoji": "⛄",
+  "file": "games/mega/game-0385.html"
+ },
+ {
+  "n": 386,
+  "title": "Winter Snake — Easy",
+  "type": "Snake",
+  "theme": "Winter",
+  "diff": "Easy",
+  "emoji": "⛄",
+  "file": "games/mega/game-0386.html"
+ },
+ {
+  "n": 387,
+  "title": "Winter Snake — Medium",
+  "type": "Snake",
+  "theme": "Winter",
+  "diff": "Medium",
+  "emoji": "⛄",
+  "file": "games/mega/game-0387.html"
+ },
+ {
+  "n": 388,
+  "title": "Winter Snake — Hard",
+  "type": "Snake",
+  "theme": "Winter",
+  "diff": "Hard",
+  "emoji": "⛄",
+  "file": "games/mega/game-0388.html"
+ },
+ {
+  "n": 389,
+  "title": "Winter Snake — Expert",
+  "type": "Snake",
+  "theme": "Winter",
+  "diff": "Expert",
+  "emoji": "⛄",
+  "file": "games/mega/game-0389.html"
+ },
+ {
+  "n": 390,
+  "title": "Winter Snake — Master",
+  "type": "Snake",
+  "theme": "Winter",
+  "diff": "Master",
+  "emoji": "⛄",
+  "file": "games/mega/game-0390.html"
+ },
+ {
+  "n": 391,
+  "title": "Winter Stacker — Easy",
+  "type": "Stacker",
+  "theme": "Winter",
+  "diff": "Easy",
+  "emoji": "⛄",
+  "file": "games/mega/game-0391.html"
+ },
+ {
+  "n": 392,
+  "title": "Winter Stacker — Medium",
+  "type": "Stacker",
+  "theme": "Winter",
+  "diff": "Medium",
+  "emoji": "⛄",
+  "file": "games/mega/game-0392.html"
+ },
+ {
+  "n": 393,
+  "title": "Winter Stacker — Hard",
+  "type": "Stacker",
+  "theme": "Winter",
+  "diff": "Hard",
+  "emoji": "⛄",
+  "file": "games/mega/game-0393.html"
+ },
+ {
+  "n": 394,
+  "title": "Winter Stacker — Expert",
+  "type": "Stacker",
+  "theme": "Winter",
+  "diff": "Expert",
+  "emoji": "⛄",
+  "file": "games/mega/game-0394.html"
+ },
+ {
+  "n": 395,
+  "title": "Winter Stacker — Master",
+  "type": "Stacker",
+  "theme": "Winter",
+  "diff": "Master",
+  "emoji": "⛄",
+  "file": "games/mega/game-0395.html"
+ },
+ {
+  "n": 396,
+  "title": "Winter Color Match — Easy",
+  "type": "Color Match",
+  "theme": "Winter",
+  "diff": "Easy",
+  "emoji": "⛄",
+  "file": "games/mega/game-0396.html"
+ },
+ {
+  "n": 397,
+  "title": "Winter Color Match — Medium",
+  "type": "Color Match",
+  "theme": "Winter",
+  "diff": "Medium",
+  "emoji": "⛄",
+  "file": "games/mega/game-0397.html"
+ },
+ {
+  "n": 398,
+  "title": "Winter Color Match — Hard",
+  "type": "Color Match",
+  "theme": "Winter",
+  "diff": "Hard",
+  "emoji": "⛄",
+  "file": "games/mega/game-0398.html"
+ },
+ {
+  "n": 399,
+  "title": "Winter Color Match — Expert",
+  "type": "Color Match",
+  "theme": "Winter",
+  "diff": "Expert",
+  "emoji": "⛄",
+  "file": "games/mega/game-0399.html"
+ },
+ {
+  "n": 400,
+  "title": "Winter Color Match — Master",
+  "type": "Color Match",
+  "theme": "Winter",
+  "diff": "Master",
+  "emoji": "⛄",
+  "file": "games/mega/game-0400.html"
+ },
+ {
+  "n": 401,
+  "title": "Volcano Dodge — Easy",
+  "type": "Dodge",
+  "theme": "Volcano",
+  "diff": "Easy",
+  "emoji": "🌋",
+  "file": "games/mega/game-0401.html"
+ },
+ {
+  "n": 402,
+  "title": "Volcano Dodge — Medium",
+  "type": "Dodge",
+  "theme": "Volcano",
+  "diff": "Medium",
+  "emoji": "🌋",
+  "file": "games/mega/game-0402.html"
+ },
+ {
+  "n": 403,
+  "title": "Volcano Dodge — Hard",
+  "type": "Dodge",
+  "theme": "Volcano",
+  "diff": "Hard",
+  "emoji": "🌋",
+  "file": "games/mega/game-0403.html"
+ },
+ {
+  "n": 404,
+  "title": "Volcano Dodge — Expert",
+  "type": "Dodge",
+  "theme": "Volcano",
+  "diff": "Expert",
+  "emoji": "🌋",
+  "file": "games/mega/game-0404.html"
+ },
+ {
+  "n": 405,
+  "title": "Volcano Dodge — Master",
+  "type": "Dodge",
+  "theme": "Volcano",
+  "diff": "Master",
+  "emoji": "🌋",
+  "file": "games/mega/game-0405.html"
+ },
+ {
+  "n": 406,
+  "title": "Volcano Catcher — Easy",
+  "type": "Catcher",
+  "theme": "Volcano",
+  "diff": "Easy",
+  "emoji": "🌋",
+  "file": "games/mega/game-0406.html"
+ },
+ {
+  "n": 407,
+  "title": "Volcano Catcher — Medium",
+  "type": "Catcher",
+  "theme": "Volcano",
+  "diff": "Medium",
+  "emoji": "🌋",
+  "file": "games/mega/game-0407.html"
+ },
+ {
+  "n": 408,
+  "title": "Volcano Catcher — Hard",
+  "type": "Catcher",
+  "theme": "Volcano",
+  "diff": "Hard",
+  "emoji": "🌋",
+  "file": "games/mega/game-0408.html"
+ },
+ {
+  "n": 409,
+  "title": "Volcano Catcher — Expert",
+  "type": "Catcher",
+  "theme": "Volcano",
+  "diff": "Expert",
+  "emoji": "🌋",
+  "file": "games/mega/game-0409.html"
+ },
+ {
+  "n": 410,
+  "title": "Volcano Catcher — Master",
+  "type": "Catcher",
+  "theme": "Volcano",
+  "diff": "Master",
+  "emoji": "🌋",
+  "file": "games/mega/game-0410.html"
+ },
+ {
+  "n": 411,
+  "title": "Volcano Popper — Easy",
+  "type": "Popper",
+  "theme": "Volcano",
+  "diff": "Easy",
+  "emoji": "🌋",
+  "file": "games/mega/game-0411.html"
+ },
+ {
+  "n": 412,
+  "title": "Volcano Popper — Medium",
+  "type": "Popper",
+  "theme": "Volcano",
+  "diff": "Medium",
+  "emoji": "🌋",
+  "file": "games/mega/game-0412.html"
+ },
+ {
+  "n": 413,
+  "title": "Volcano Popper — Hard",
+  "type": "Popper",
+  "theme": "Volcano",
+  "diff": "Hard",
+  "emoji": "🌋",
+  "file": "games/mega/game-0413.html"
+ },
+ {
+  "n": 414,
+  "title": "Volcano Popper — Expert",
+  "type": "Popper",
+  "theme": "Volcano",
+  "diff": "Expert",
+  "emoji": "🌋",
+  "file": "games/mega/game-0414.html"
+ },
+ {
+  "n": 415,
+  "title": "Volcano Popper — Master",
+  "type": "Popper",
+  "theme": "Volcano",
+  "diff": "Master",
+  "emoji": "🌋",
+  "file": "games/mega/game-0415.html"
+ },
+ {
+  "n": 416,
+  "title": "Volcano Blaster — Easy",
+  "type": "Blaster",
+  "theme": "Volcano",
+  "diff": "Easy",
+  "emoji": "🌋",
+  "file": "games/mega/game-0416.html"
+ },
+ {
+  "n": 417,
+  "title": "Volcano Blaster — Medium",
+  "type": "Blaster",
+  "theme": "Volcano",
+  "diff": "Medium",
+  "emoji": "🌋",
+  "file": "games/mega/game-0417.html"
+ },
+ {
+  "n": 418,
+  "title": "Volcano Blaster — Hard",
+  "type": "Blaster",
+  "theme": "Volcano",
+  "diff": "Hard",
+  "emoji": "🌋",
+  "file": "games/mega/game-0418.html"
+ },
+ {
+  "n": 419,
+  "title": "Volcano Blaster — Expert",
+  "type": "Blaster",
+  "theme": "Volcano",
+  "diff": "Expert",
+  "emoji": "🌋",
+  "file": "games/mega/game-0419.html"
+ },
+ {
+  "n": 420,
+  "title": "Volcano Blaster — Master",
+  "type": "Blaster",
+  "theme": "Volcano",
+  "diff": "Master",
+  "emoji": "🌋",
+  "file": "games/mega/game-0420.html"
+ },
+ {
+  "n": 421,
+  "title": "Volcano Breaker — Easy",
+  "type": "Breaker",
+  "theme": "Volcano",
+  "diff": "Easy",
+  "emoji": "🌋",
+  "file": "games/mega/game-0421.html"
+ },
+ {
+  "n": 422,
+  "title": "Volcano Breaker — Medium",
+  "type": "Breaker",
+  "theme": "Volcano",
+  "diff": "Medium",
+  "emoji": "🌋",
+  "file": "games/mega/game-0422.html"
+ },
+ {
+  "n": 423,
+  "title": "Volcano Breaker — Hard",
+  "type": "Breaker",
+  "theme": "Volcano",
+  "diff": "Hard",
+  "emoji": "🌋",
+  "file": "games/mega/game-0423.html"
+ },
+ {
+  "n": 424,
+  "title": "Volcano Breaker — Expert",
+  "type": "Breaker",
+  "theme": "Volcano",
+  "diff": "Expert",
+  "emoji": "🌋",
+  "file": "games/mega/game-0424.html"
+ },
+ {
+  "n": 425,
+  "title": "Volcano Breaker — Master",
+  "type": "Breaker",
+  "theme": "Volcano",
+  "diff": "Master",
+  "emoji": "🌋",
+  "file": "games/mega/game-0425.html"
+ },
+ {
+  "n": 426,
+  "title": "Volcano Flyer — Easy",
+  "type": "Flyer",
+  "theme": "Volcano",
+  "diff": "Easy",
+  "emoji": "🌋",
+  "file": "games/mega/game-0426.html"
+ },
+ {
+  "n": 427,
+  "title": "Volcano Flyer — Medium",
+  "type": "Flyer",
+  "theme": "Volcano",
+  "diff": "Medium",
+  "emoji": "🌋",
+  "file": "games/mega/game-0427.html"
+ },
+ {
+  "n": 428,
+  "title": "Volcano Flyer — Hard",
+  "type": "Flyer",
+  "theme": "Volcano",
+  "diff": "Hard",
+  "emoji": "🌋",
+  "file": "games/mega/game-0428.html"
+ },
+ {
+  "n": 429,
+  "title": "Volcano Flyer — Expert",
+  "type": "Flyer",
+  "theme": "Volcano",
+  "diff": "Expert",
+  "emoji": "🌋",
+  "file": "games/mega/game-0429.html"
+ },
+ {
+  "n": 430,
+  "title": "Volcano Flyer — Master",
+  "type": "Flyer",
+  "theme": "Volcano",
+  "diff": "Master",
+  "emoji": "🌋",
+  "file": "games/mega/game-0430.html"
+ },
+ {
+  "n": 431,
+  "title": "Volcano Memory — Easy",
+  "type": "Memory",
+  "theme": "Volcano",
+  "diff": "Easy",
+  "emoji": "🌋",
+  "file": "games/mega/game-0431.html"
+ },
+ {
+  "n": 432,
+  "title": "Volcano Memory — Medium",
+  "type": "Memory",
+  "theme": "Volcano",
+  "diff": "Medium",
+  "emoji": "🌋",
+  "file": "games/mega/game-0432.html"
+ },
+ {
+  "n": 433,
+  "title": "Volcano Memory — Hard",
+  "type": "Memory",
+  "theme": "Volcano",
+  "diff": "Hard",
+  "emoji": "🌋",
+  "file": "games/mega/game-0433.html"
+ },
+ {
+  "n": 434,
+  "title": "Volcano Memory — Expert",
+  "type": "Memory",
+  "theme": "Volcano",
+  "diff": "Expert",
+  "emoji": "🌋",
+  "file": "games/mega/game-0434.html"
+ },
+ {
+  "n": 435,
+  "title": "Volcano Memory — Master",
+  "type": "Memory",
+  "theme": "Volcano",
+  "diff": "Master",
+  "emoji": "🌋",
+  "file": "games/mega/game-0435.html"
+ },
+ {
+  "n": 436,
+  "title": "Volcano Snake — Easy",
+  "type": "Snake",
+  "theme": "Volcano",
+  "diff": "Easy",
+  "emoji": "🌋",
+  "file": "games/mega/game-0436.html"
+ },
+ {
+  "n": 437,
+  "title": "Volcano Snake — Medium",
+  "type": "Snake",
+  "theme": "Volcano",
+  "diff": "Medium",
+  "emoji": "🌋",
+  "file": "games/mega/game-0437.html"
+ },
+ {
+  "n": 438,
+  "title": "Volcano Snake — Hard",
+  "type": "Snake",
+  "theme": "Volcano",
+  "diff": "Hard",
+  "emoji": "🌋",
+  "file": "games/mega/game-0438.html"
+ },
+ {
+  "n": 439,
+  "title": "Volcano Snake — Expert",
+  "type": "Snake",
+  "theme": "Volcano",
+  "diff": "Expert",
+  "emoji": "🌋",
+  "file": "games/mega/game-0439.html"
+ },
+ {
+  "n": 440,
+  "title": "Volcano Snake — Master",
+  "type": "Snake",
+  "theme": "Volcano",
+  "diff": "Master",
+  "emoji": "🌋",
+  "file": "games/mega/game-0440.html"
+ },
+ {
+  "n": 441,
+  "title": "Volcano Stacker — Easy",
+  "type": "Stacker",
+  "theme": "Volcano",
+  "diff": "Easy",
+  "emoji": "🌋",
+  "file": "games/mega/game-0441.html"
+ },
+ {
+  "n": 442,
+  "title": "Volcano Stacker — Medium",
+  "type": "Stacker",
+  "theme": "Volcano",
+  "diff": "Medium",
+  "emoji": "🌋",
+  "file": "games/mega/game-0442.html"
+ },
+ {
+  "n": 443,
+  "title": "Volcano Stacker — Hard",
+  "type": "Stacker",
+  "theme": "Volcano",
+  "diff": "Hard",
+  "emoji": "🌋",
+  "file": "games/mega/game-0443.html"
+ },
+ {
+  "n": 444,
+  "title": "Volcano Stacker — Expert",
+  "type": "Stacker",
+  "theme": "Volcano",
+  "diff": "Expert",
+  "emoji": "🌋",
+  "file": "games/mega/game-0444.html"
+ },
+ {
+  "n": 445,
+  "title": "Volcano Stacker — Master",
+  "type": "Stacker",
+  "theme": "Volcano",
+  "diff": "Master",
+  "emoji": "🌋",
+  "file": "games/mega/game-0445.html"
+ },
+ {
+  "n": 446,
+  "title": "Volcano Color Match — Easy",
+  "type": "Color Match",
+  "theme": "Volcano",
+  "diff": "Easy",
+  "emoji": "🌋",
+  "file": "games/mega/game-0446.html"
+ },
+ {
+  "n": 447,
+  "title": "Volcano Color Match — Medium",
+  "type": "Color Match",
+  "theme": "Volcano",
+  "diff": "Medium",
+  "emoji": "🌋",
+  "file": "games/mega/game-0447.html"
+ },
+ {
+  "n": 448,
+  "title": "Volcano Color Match — Hard",
+  "type": "Color Match",
+  "theme": "Volcano",
+  "diff": "Hard",
+  "emoji": "🌋",
+  "file": "games/mega/game-0448.html"
+ },
+ {
+  "n": 449,
+  "title": "Volcano Color Match — Expert",
+  "type": "Color Match",
+  "theme": "Volcano",
+  "diff": "Expert",
+  "emoji": "🌋",
+  "file": "games/mega/game-0449.html"
+ },
+ {
+  "n": 450,
+  "title": "Volcano Color Match — Master",
+  "type": "Color Match",
+  "theme": "Volcano",
+  "diff": "Master",
+  "emoji": "🌋",
+  "file": "games/mega/game-0450.html"
+ },
+ {
+  "n": 451,
+  "title": "Magic Dodge — Easy",
+  "type": "Dodge",
+  "theme": "Magic",
+  "diff": "Easy",
+  "emoji": "🧙",
+  "file": "games/mega/game-0451.html"
+ },
+ {
+  "n": 452,
+  "title": "Magic Dodge — Medium",
+  "type": "Dodge",
+  "theme": "Magic",
+  "diff": "Medium",
+  "emoji": "🧙",
+  "file": "games/mega/game-0452.html"
+ },
+ {
+  "n": 453,
+  "title": "Magic Dodge — Hard",
+  "type": "Dodge",
+  "theme": "Magic",
+  "diff": "Hard",
+  "emoji": "🧙",
+  "file": "games/mega/game-0453.html"
+ },
+ {
+  "n": 454,
+  "title": "Magic Dodge — Expert",
+  "type": "Dodge",
+  "theme": "Magic",
+  "diff": "Expert",
+  "emoji": "🧙",
+  "file": "games/mega/game-0454.html"
+ },
+ {
+  "n": 455,
+  "title": "Magic Dodge — Master",
+  "type": "Dodge",
+  "theme": "Magic",
+  "diff": "Master",
+  "emoji": "🧙",
+  "file": "games/mega/game-0455.html"
+ },
+ {
+  "n": 456,
+  "title": "Magic Catcher — Easy",
+  "type": "Catcher",
+  "theme": "Magic",
+  "diff": "Easy",
+  "emoji": "🧙",
+  "file": "games/mega/game-0456.html"
+ },
+ {
+  "n": 457,
+  "title": "Magic Catcher — Medium",
+  "type": "Catcher",
+  "theme": "Magic",
+  "diff": "Medium",
+  "emoji": "🧙",
+  "file": "games/mega/game-0457.html"
+ },
+ {
+  "n": 458,
+  "title": "Magic Catcher — Hard",
+  "type": "Catcher",
+  "theme": "Magic",
+  "diff": "Hard",
+  "emoji": "🧙",
+  "file": "games/mega/game-0458.html"
+ },
+ {
+  "n": 459,
+  "title": "Magic Catcher — Expert",
+  "type": "Catcher",
+  "theme": "Magic",
+  "diff": "Expert",
+  "emoji": "🧙",
+  "file": "games/mega/game-0459.html"
+ },
+ {
+  "n": 460,
+  "title": "Magic Catcher — Master",
+  "type": "Catcher",
+  "theme": "Magic",
+  "diff": "Master",
+  "emoji": "🧙",
+  "file": "games/mega/game-0460.html"
+ },
+ {
+  "n": 461,
+  "title": "Magic Popper — Easy",
+  "type": "Popper",
+  "theme": "Magic",
+  "diff": "Easy",
+  "emoji": "🧙",
+  "file": "games/mega/game-0461.html"
+ },
+ {
+  "n": 462,
+  "title": "Magic Popper — Medium",
+  "type": "Popper",
+  "theme": "Magic",
+  "diff": "Medium",
+  "emoji": "🧙",
+  "file": "games/mega/game-0462.html"
+ },
+ {
+  "n": 463,
+  "title": "Magic Popper — Hard",
+  "type": "Popper",
+  "theme": "Magic",
+  "diff": "Hard",
+  "emoji": "🧙",
+  "file": "games/mega/game-0463.html"
+ },
+ {
+  "n": 464,
+  "title": "Magic Popper — Expert",
+  "type": "Popper",
+  "theme": "Magic",
+  "diff": "Expert",
+  "emoji": "🧙",
+  "file": "games/mega/game-0464.html"
+ },
+ {
+  "n": 465,
+  "title": "Magic Popper — Master",
+  "type": "Popper",
+  "theme": "Magic",
+  "diff": "Master",
+  "emoji": "🧙",
+  "file": "games/mega/game-0465.html"
+ },
+ {
+  "n": 466,
+  "title": "Magic Blaster — Easy",
+  "type": "Blaster",
+  "theme": "Magic",
+  "diff": "Easy",
+  "emoji": "🧙",
+  "file": "games/mega/game-0466.html"
+ },
+ {
+  "n": 467,
+  "title": "Magic Blaster — Medium",
+  "type": "Blaster",
+  "theme": "Magic",
+  "diff": "Medium",
+  "emoji": "🧙",
+  "file": "games/mega/game-0467.html"
+ },
+ {
+  "n": 468,
+  "title": "Magic Blaster — Hard",
+  "type": "Blaster",
+  "theme": "Magic",
+  "diff": "Hard",
+  "emoji": "🧙",
+  "file": "games/mega/game-0468.html"
+ },
+ {
+  "n": 469,
+  "title": "Magic Blaster — Expert",
+  "type": "Blaster",
+  "theme": "Magic",
+  "diff": "Expert",
+  "emoji": "🧙",
+  "file": "games/mega/game-0469.html"
+ },
+ {
+  "n": 470,
+  "title": "Magic Blaster — Master",
+  "type": "Blaster",
+  "theme": "Magic",
+  "diff": "Master",
+  "emoji": "🧙",
+  "file": "games/mega/game-0470.html"
+ },
+ {
+  "n": 471,
+  "title": "Magic Breaker — Easy",
+  "type": "Breaker",
+  "theme": "Magic",
+  "diff": "Easy",
+  "emoji": "🧙",
+  "file": "games/mega/game-0471.html"
+ },
+ {
+  "n": 472,
+  "title": "Magic Breaker — Medium",
+  "type": "Breaker",
+  "theme": "Magic",
+  "diff": "Medium",
+  "emoji": "🧙",
+  "file": "games/mega/game-0472.html"
+ },
+ {
+  "n": 473,
+  "title": "Magic Breaker — Hard",
+  "type": "Breaker",
+  "theme": "Magic",
+  "diff": "Hard",
+  "emoji": "🧙",
+  "file": "games/mega/game-0473.html"
+ },
+ {
+  "n": 474,
+  "title": "Magic Breaker — Expert",
+  "type": "Breaker",
+  "theme": "Magic",
+  "diff": "Expert",
+  "emoji": "🧙",
+  "file": "games/mega/game-0474.html"
+ },
+ {
+  "n": 475,
+  "title": "Magic Breaker — Master",
+  "type": "Breaker",
+  "theme": "Magic",
+  "diff": "Master",
+  "emoji": "🧙",
+  "file": "games/mega/game-0475.html"
+ },
+ {
+  "n": 476,
+  "title": "Magic Flyer — Easy",
+  "type": "Flyer",
+  "theme": "Magic",
+  "diff": "Easy",
+  "emoji": "🧙",
+  "file": "games/mega/game-0476.html"
+ },
+ {
+  "n": 477,
+  "title": "Magic Flyer — Medium",
+  "type": "Flyer",
+  "theme": "Magic",
+  "diff": "Medium",
+  "emoji": "🧙",
+  "file": "games/mega/game-0477.html"
+ },
+ {
+  "n": 478,
+  "title": "Magic Flyer — Hard",
+  "type": "Flyer",
+  "theme": "Magic",
+  "diff": "Hard",
+  "emoji": "🧙",
+  "file": "games/mega/game-0478.html"
+ },
+ {
+  "n": 479,
+  "title": "Magic Flyer — Expert",
+  "type": "Flyer",
+  "theme": "Magic",
+  "diff": "Expert",
+  "emoji": "🧙",
+  "file": "games/mega/game-0479.html"
+ },
+ {
+  "n": 480,
+  "title": "Magic Flyer — Master",
+  "type": "Flyer",
+  "theme": "Magic",
+  "diff": "Master",
+  "emoji": "🧙",
+  "file": "games/mega/game-0480.html"
+ },
+ {
+  "n": 481,
+  "title": "Magic Memory — Easy",
+  "type": "Memory",
+  "theme": "Magic",
+  "diff": "Easy",
+  "emoji": "🧙",
+  "file": "games/mega/game-0481.html"
+ },
+ {
+  "n": 482,
+  "title": "Magic Memory — Medium",
+  "type": "Memory",
+  "theme": "Magic",
+  "diff": "Medium",
+  "emoji": "🧙",
+  "file": "games/mega/game-0482.html"
+ },
+ {
+  "n": 483,
+  "title": "Magic Memory — Hard",
+  "type": "Memory",
+  "theme": "Magic",
+  "diff": "Hard",
+  "emoji": "🧙",
+  "file": "games/mega/game-0483.html"
+ },
+ {
+  "n": 484,
+  "title": "Magic Memory — Expert",
+  "type": "Memory",
+  "theme": "Magic",
+  "diff": "Expert",
+  "emoji": "🧙",
+  "file": "games/mega/game-0484.html"
+ },
+ {
+  "n": 485,
+  "title": "Magic Memory — Master",
+  "type": "Memory",
+  "theme": "Magic",
+  "diff": "Master",
+  "emoji": "🧙",
+  "file": "games/mega/game-0485.html"
+ },
+ {
+  "n": 486,
+  "title": "Magic Snake — Easy",
+  "type": "Snake",
+  "theme": "Magic",
+  "diff": "Easy",
+  "emoji": "🧙",
+  "file": "games/mega/game-0486.html"
+ },
+ {
+  "n": 487,
+  "title": "Magic Snake — Medium",
+  "type": "Snake",
+  "theme": "Magic",
+  "diff": "Medium",
+  "emoji": "🧙",
+  "file": "games/mega/game-0487.html"
+ },
+ {
+  "n": 488,
+  "title": "Magic Snake — Hard",
+  "type": "Snake",
+  "theme": "Magic",
+  "diff": "Hard",
+  "emoji": "🧙",
+  "file": "games/mega/game-0488.html"
+ },
+ {
+  "n": 489,
+  "title": "Magic Snake — Expert",
+  "type": "Snake",
+  "theme": "Magic",
+  "diff": "Expert",
+  "emoji": "🧙",
+  "file": "games/mega/game-0489.html"
+ },
+ {
+  "n": 490,
+  "title": "Magic Snake — Master",
+  "type": "Snake",
+  "theme": "Magic",
+  "diff": "Master",
+  "emoji": "🧙",
+  "file": "games/mega/game-0490.html"
+ },
+ {
+  "n": 491,
+  "title": "Magic Stacker — Easy",
+  "type": "Stacker",
+  "theme": "Magic",
+  "diff": "Easy",
+  "emoji": "🧙",
+  "file": "games/mega/game-0491.html"
+ },
+ {
+  "n": 492,
+  "title": "Magic Stacker — Medium",
+  "type": "Stacker",
+  "theme": "Magic",
+  "diff": "Medium",
+  "emoji": "🧙",
+  "file": "games/mega/game-0492.html"
+ },
+ {
+  "n": 493,
+  "title": "Magic Stacker — Hard",
+  "type": "Stacker",
+  "theme": "Magic",
+  "diff": "Hard",
+  "emoji": "🧙",
+  "file": "games/mega/game-0493.html"
+ },
+ {
+  "n": 494,
+  "title": "Magic Stacker — Expert",
+  "type": "Stacker",
+  "theme": "Magic",
+  "diff": "Expert",
+  "emoji": "🧙",
+  "file": "games/mega/game-0494.html"
+ },
+ {
+  "n": 495,
+  "title": "Magic Stacker — Master",
+  "type": "Stacker",
+  "theme": "Magic",
+  "diff": "Master",
+  "emoji": "🧙",
+  "file": "games/mega/game-0495.html"
+ },
+ {
+  "n": 496,
+  "title": "Magic Color Match — Easy",
+  "type": "Color Match",
+  "theme": "Magic",
+  "diff": "Easy",
+  "emoji": "🧙",
+  "file": "games/mega/game-0496.html"
+ },
+ {
+  "n": 497,
+  "title": "Magic Color Match — Medium",
+  "type": "Color Match",
+  "theme": "Magic",
+  "diff": "Medium",
+  "emoji": "🧙",
+  "file": "games/mega/game-0497.html"
+ },
+ {
+  "n": 498,
+  "title": "Magic Color Match — Hard",
+  "type": "Color Match",
+  "theme": "Magic",
+  "diff": "Hard",
+  "emoji": "🧙",
+  "file": "games/mega/game-0498.html"
+ },
+ {
+  "n": 499,
+  "title": "Magic Color Match — Expert",
+  "type": "Color Match",
+  "theme": "Magic",
+  "diff": "Expert",
+  "emoji": "🧙",
+  "file": "games/mega/game-0499.html"
+ },
+ {
+  "n": 500,
+  "title": "Magic Color Match — Master",
+  "type": "Color Match",
+  "theme": "Magic",
+  "diff": "Master",
+  "emoji": "🧙",
+  "file": "games/mega/game-0500.html"
+ },
+ {
+  "n": 501,
+  "title": "Pirate Dodge — Easy",
+  "type": "Dodge",
+  "theme": "Pirate",
+  "diff": "Easy",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0501.html"
+ },
+ {
+  "n": 502,
+  "title": "Pirate Dodge — Medium",
+  "type": "Dodge",
+  "theme": "Pirate",
+  "diff": "Medium",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0502.html"
+ },
+ {
+  "n": 503,
+  "title": "Pirate Dodge — Hard",
+  "type": "Dodge",
+  "theme": "Pirate",
+  "diff": "Hard",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0503.html"
+ },
+ {
+  "n": 504,
+  "title": "Pirate Dodge — Expert",
+  "type": "Dodge",
+  "theme": "Pirate",
+  "diff": "Expert",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0504.html"
+ },
+ {
+  "n": 505,
+  "title": "Pirate Dodge — Master",
+  "type": "Dodge",
+  "theme": "Pirate",
+  "diff": "Master",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0505.html"
+ },
+ {
+  "n": 506,
+  "title": "Pirate Catcher — Easy",
+  "type": "Catcher",
+  "theme": "Pirate",
+  "diff": "Easy",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0506.html"
+ },
+ {
+  "n": 507,
+  "title": "Pirate Catcher — Medium",
+  "type": "Catcher",
+  "theme": "Pirate",
+  "diff": "Medium",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0507.html"
+ },
+ {
+  "n": 508,
+  "title": "Pirate Catcher — Hard",
+  "type": "Catcher",
+  "theme": "Pirate",
+  "diff": "Hard",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0508.html"
+ },
+ {
+  "n": 509,
+  "title": "Pirate Catcher — Expert",
+  "type": "Catcher",
+  "theme": "Pirate",
+  "diff": "Expert",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0509.html"
+ },
+ {
+  "n": 510,
+  "title": "Pirate Catcher — Master",
+  "type": "Catcher",
+  "theme": "Pirate",
+  "diff": "Master",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0510.html"
+ },
+ {
+  "n": 511,
+  "title": "Pirate Popper — Easy",
+  "type": "Popper",
+  "theme": "Pirate",
+  "diff": "Easy",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0511.html"
+ },
+ {
+  "n": 512,
+  "title": "Pirate Popper — Medium",
+  "type": "Popper",
+  "theme": "Pirate",
+  "diff": "Medium",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0512.html"
+ },
+ {
+  "n": 513,
+  "title": "Pirate Popper — Hard",
+  "type": "Popper",
+  "theme": "Pirate",
+  "diff": "Hard",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0513.html"
+ },
+ {
+  "n": 514,
+  "title": "Pirate Popper — Expert",
+  "type": "Popper",
+  "theme": "Pirate",
+  "diff": "Expert",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0514.html"
+ },
+ {
+  "n": 515,
+  "title": "Pirate Popper — Master",
+  "type": "Popper",
+  "theme": "Pirate",
+  "diff": "Master",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0515.html"
+ },
+ {
+  "n": 516,
+  "title": "Pirate Blaster — Easy",
+  "type": "Blaster",
+  "theme": "Pirate",
+  "diff": "Easy",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0516.html"
+ },
+ {
+  "n": 517,
+  "title": "Pirate Blaster — Medium",
+  "type": "Blaster",
+  "theme": "Pirate",
+  "diff": "Medium",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0517.html"
+ },
+ {
+  "n": 518,
+  "title": "Pirate Blaster — Hard",
+  "type": "Blaster",
+  "theme": "Pirate",
+  "diff": "Hard",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0518.html"
+ },
+ {
+  "n": 519,
+  "title": "Pirate Blaster — Expert",
+  "type": "Blaster",
+  "theme": "Pirate",
+  "diff": "Expert",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0519.html"
+ },
+ {
+  "n": 520,
+  "title": "Pirate Blaster — Master",
+  "type": "Blaster",
+  "theme": "Pirate",
+  "diff": "Master",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0520.html"
+ },
+ {
+  "n": 521,
+  "title": "Pirate Breaker — Easy",
+  "type": "Breaker",
+  "theme": "Pirate",
+  "diff": "Easy",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0521.html"
+ },
+ {
+  "n": 522,
+  "title": "Pirate Breaker — Medium",
+  "type": "Breaker",
+  "theme": "Pirate",
+  "diff": "Medium",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0522.html"
+ },
+ {
+  "n": 523,
+  "title": "Pirate Breaker — Hard",
+  "type": "Breaker",
+  "theme": "Pirate",
+  "diff": "Hard",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0523.html"
+ },
+ {
+  "n": 524,
+  "title": "Pirate Breaker — Expert",
+  "type": "Breaker",
+  "theme": "Pirate",
+  "diff": "Expert",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0524.html"
+ },
+ {
+  "n": 525,
+  "title": "Pirate Breaker — Master",
+  "type": "Breaker",
+  "theme": "Pirate",
+  "diff": "Master",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0525.html"
+ },
+ {
+  "n": 526,
+  "title": "Pirate Flyer — Easy",
+  "type": "Flyer",
+  "theme": "Pirate",
+  "diff": "Easy",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0526.html"
+ },
+ {
+  "n": 527,
+  "title": "Pirate Flyer — Medium",
+  "type": "Flyer",
+  "theme": "Pirate",
+  "diff": "Medium",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0527.html"
+ },
+ {
+  "n": 528,
+  "title": "Pirate Flyer — Hard",
+  "type": "Flyer",
+  "theme": "Pirate",
+  "diff": "Hard",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0528.html"
+ },
+ {
+  "n": 529,
+  "title": "Pirate Flyer — Expert",
+  "type": "Flyer",
+  "theme": "Pirate",
+  "diff": "Expert",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0529.html"
+ },
+ {
+  "n": 530,
+  "title": "Pirate Flyer — Master",
+  "type": "Flyer",
+  "theme": "Pirate",
+  "diff": "Master",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0530.html"
+ },
+ {
+  "n": 531,
+  "title": "Pirate Memory — Easy",
+  "type": "Memory",
+  "theme": "Pirate",
+  "diff": "Easy",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0531.html"
+ },
+ {
+  "n": 532,
+  "title": "Pirate Memory — Medium",
+  "type": "Memory",
+  "theme": "Pirate",
+  "diff": "Medium",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0532.html"
+ },
+ {
+  "n": 533,
+  "title": "Pirate Memory — Hard",
+  "type": "Memory",
+  "theme": "Pirate",
+  "diff": "Hard",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0533.html"
+ },
+ {
+  "n": 534,
+  "title": "Pirate Memory — Expert",
+  "type": "Memory",
+  "theme": "Pirate",
+  "diff": "Expert",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0534.html"
+ },
+ {
+  "n": 535,
+  "title": "Pirate Memory — Master",
+  "type": "Memory",
+  "theme": "Pirate",
+  "diff": "Master",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0535.html"
+ },
+ {
+  "n": 536,
+  "title": "Pirate Snake — Easy",
+  "type": "Snake",
+  "theme": "Pirate",
+  "diff": "Easy",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0536.html"
+ },
+ {
+  "n": 537,
+  "title": "Pirate Snake — Medium",
+  "type": "Snake",
+  "theme": "Pirate",
+  "diff": "Medium",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0537.html"
+ },
+ {
+  "n": 538,
+  "title": "Pirate Snake — Hard",
+  "type": "Snake",
+  "theme": "Pirate",
+  "diff": "Hard",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0538.html"
+ },
+ {
+  "n": 539,
+  "title": "Pirate Snake — Expert",
+  "type": "Snake",
+  "theme": "Pirate",
+  "diff": "Expert",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0539.html"
+ },
+ {
+  "n": 540,
+  "title": "Pirate Snake — Master",
+  "type": "Snake",
+  "theme": "Pirate",
+  "diff": "Master",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0540.html"
+ },
+ {
+  "n": 541,
+  "title": "Pirate Stacker — Easy",
+  "type": "Stacker",
+  "theme": "Pirate",
+  "diff": "Easy",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0541.html"
+ },
+ {
+  "n": 542,
+  "title": "Pirate Stacker — Medium",
+  "type": "Stacker",
+  "theme": "Pirate",
+  "diff": "Medium",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0542.html"
+ },
+ {
+  "n": 543,
+  "title": "Pirate Stacker — Hard",
+  "type": "Stacker",
+  "theme": "Pirate",
+  "diff": "Hard",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0543.html"
+ },
+ {
+  "n": 544,
+  "title": "Pirate Stacker — Expert",
+  "type": "Stacker",
+  "theme": "Pirate",
+  "diff": "Expert",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0544.html"
+ },
+ {
+  "n": 545,
+  "title": "Pirate Stacker — Master",
+  "type": "Stacker",
+  "theme": "Pirate",
+  "diff": "Master",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0545.html"
+ },
+ {
+  "n": 546,
+  "title": "Pirate Color Match — Easy",
+  "type": "Color Match",
+  "theme": "Pirate",
+  "diff": "Easy",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0546.html"
+ },
+ {
+  "n": 547,
+  "title": "Pirate Color Match — Medium",
+  "type": "Color Match",
+  "theme": "Pirate",
+  "diff": "Medium",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0547.html"
+ },
+ {
+  "n": 548,
+  "title": "Pirate Color Match — Hard",
+  "type": "Color Match",
+  "theme": "Pirate",
+  "diff": "Hard",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0548.html"
+ },
+ {
+  "n": 549,
+  "title": "Pirate Color Match — Expert",
+  "type": "Color Match",
+  "theme": "Pirate",
+  "diff": "Expert",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0549.html"
+ },
+ {
+  "n": 550,
+  "title": "Pirate Color Match — Master",
+  "type": "Color Match",
+  "theme": "Pirate",
+  "diff": "Master",
+  "emoji": "🏴‍☠️",
+  "file": "games/mega/game-0550.html"
+ },
+ {
+  "n": 551,
+  "title": "Robot Dodge — Easy",
+  "type": "Dodge",
+  "theme": "Robot",
+  "diff": "Easy",
+  "emoji": "🤖",
+  "file": "games/mega/game-0551.html"
+ },
+ {
+  "n": 552,
+  "title": "Robot Dodge — Medium",
+  "type": "Dodge",
+  "theme": "Robot",
+  "diff": "Medium",
+  "emoji": "🤖",
+  "file": "games/mega/game-0552.html"
+ },
+ {
+  "n": 553,
+  "title": "Robot Dodge — Hard",
+  "type": "Dodge",
+  "theme": "Robot",
+  "diff": "Hard",
+  "emoji": "🤖",
+  "file": "games/mega/game-0553.html"
+ },
+ {
+  "n": 554,
+  "title": "Robot Dodge — Expert",
+  "type": "Dodge",
+  "theme": "Robot",
+  "diff": "Expert",
+  "emoji": "🤖",
+  "file": "games/mega/game-0554.html"
+ },
+ {
+  "n": 555,
+  "title": "Robot Dodge — Master",
+  "type": "Dodge",
+  "theme": "Robot",
+  "diff": "Master",
+  "emoji": "🤖",
+  "file": "games/mega/game-0555.html"
+ },
+ {
+  "n": 556,
+  "title": "Robot Catcher — Easy",
+  "type": "Catcher",
+  "theme": "Robot",
+  "diff": "Easy",
+  "emoji": "🤖",
+  "file": "games/mega/game-0556.html"
+ },
+ {
+  "n": 557,
+  "title": "Robot Catcher — Medium",
+  "type": "Catcher",
+  "theme": "Robot",
+  "diff": "Medium",
+  "emoji": "🤖",
+  "file": "games/mega/game-0557.html"
+ },
+ {
+  "n": 558,
+  "title": "Robot Catcher — Hard",
+  "type": "Catcher",
+  "theme": "Robot",
+  "diff": "Hard",
+  "emoji": "🤖",
+  "file": "games/mega/game-0558.html"
+ },
+ {
+  "n": 559,
+  "title": "Robot Catcher — Expert",
+  "type": "Catcher",
+  "theme": "Robot",
+  "diff": "Expert",
+  "emoji": "🤖",
+  "file": "games/mega/game-0559.html"
+ },
+ {
+  "n": 560,
+  "title": "Robot Catcher — Master",
+  "type": "Catcher",
+  "theme": "Robot",
+  "diff": "Master",
+  "emoji": "🤖",
+  "file": "games/mega/game-0560.html"
+ },
+ {
+  "n": 561,
+  "title": "Robot Popper — Easy",
+  "type": "Popper",
+  "theme": "Robot",
+  "diff": "Easy",
+  "emoji": "🤖",
+  "file": "games/mega/game-0561.html"
+ },
+ {
+  "n": 562,
+  "title": "Robot Popper — Medium",
+  "type": "Popper",
+  "theme": "Robot",
+  "diff": "Medium",
+  "emoji": "🤖",
+  "file": "games/mega/game-0562.html"
+ },
+ {
+  "n": 563,
+  "title": "Robot Popper — Hard",
+  "type": "Popper",
+  "theme": "Robot",
+  "diff": "Hard",
+  "emoji": "🤖",
+  "file": "games/mega/game-0563.html"
+ },
+ {
+  "n": 564,
+  "title": "Robot Popper — Expert",
+  "type": "Popper",
+  "theme": "Robot",
+  "diff": "Expert",
+  "emoji": "🤖",
+  "file": "games/mega/game-0564.html"
+ },
+ {
+  "n": 565,
+  "title": "Robot Popper — Master",
+  "type": "Popper",
+  "theme": "Robot",
+  "diff": "Master",
+  "emoji": "🤖",
+  "file": "games/mega/game-0565.html"
+ },
+ {
+  "n": 566,
+  "title": "Robot Blaster — Easy",
+  "type": "Blaster",
+  "theme": "Robot",
+  "diff": "Easy",
+  "emoji": "🤖",
+  "file": "games/mega/game-0566.html"
+ },
+ {
+  "n": 567,
+  "title": "Robot Blaster — Medium",
+  "type": "Blaster",
+  "theme": "Robot",
+  "diff": "Medium",
+  "emoji": "🤖",
+  "file": "games/mega/game-0567.html"
+ },
+ {
+  "n": 568,
+  "title": "Robot Blaster — Hard",
+  "type": "Blaster",
+  "theme": "Robot",
+  "diff": "Hard",
+  "emoji": "🤖",
+  "file": "games/mega/game-0568.html"
+ },
+ {
+  "n": 569,
+  "title": "Robot Blaster — Expert",
+  "type": "Blaster",
+  "theme": "Robot",
+  "diff": "Expert",
+  "emoji": "🤖",
+  "file": "games/mega/game-0569.html"
+ },
+ {
+  "n": 570,
+  "title": "Robot Blaster — Master",
+  "type": "Blaster",
+  "theme": "Robot",
+  "diff": "Master",
+  "emoji": "🤖",
+  "file": "games/mega/game-0570.html"
+ },
+ {
+  "n": 571,
+  "title": "Robot Breaker — Easy",
+  "type": "Breaker",
+  "theme": "Robot",
+  "diff": "Easy",
+  "emoji": "🤖",
+  "file": "games/mega/game-0571.html"
+ },
+ {
+  "n": 572,
+  "title": "Robot Breaker — Medium",
+  "type": "Breaker",
+  "theme": "Robot",
+  "diff": "Medium",
+  "emoji": "🤖",
+  "file": "games/mega/game-0572.html"
+ },
+ {
+  "n": 573,
+  "title": "Robot Breaker — Hard",
+  "type": "Breaker",
+  "theme": "Robot",
+  "diff": "Hard",
+  "emoji": "🤖",
+  "file": "games/mega/game-0573.html"
+ },
+ {
+  "n": 574,
+  "title": "Robot Breaker — Expert",
+  "type": "Breaker",
+  "theme": "Robot",
+  "diff": "Expert",
+  "emoji": "🤖",
+  "file": "games/mega/game-0574.html"
+ },
+ {
+  "n": 575,
+  "title": "Robot Breaker — Master",
+  "type": "Breaker",
+  "theme": "Robot",
+  "diff": "Master",
+  "emoji": "🤖",
+  "file": "games/mega/game-0575.html"
+ },
+ {
+  "n": 576,
+  "title": "Robot Flyer — Easy",
+  "type": "Flyer",
+  "theme": "Robot",
+  "diff": "Easy",
+  "emoji": "🤖",
+  "file": "games/mega/game-0576.html"
+ },
+ {
+  "n": 577,
+  "title": "Robot Flyer — Medium",
+  "type": "Flyer",
+  "theme": "Robot",
+  "diff": "Medium",
+  "emoji": "🤖",
+  "file": "games/mega/game-0577.html"
+ },
+ {
+  "n": 578,
+  "title": "Robot Flyer — Hard",
+  "type": "Flyer",
+  "theme": "Robot",
+  "diff": "Hard",
+  "emoji": "🤖",
+  "file": "games/mega/game-0578.html"
+ },
+ {
+  "n": 579,
+  "title": "Robot Flyer — Expert",
+  "type": "Flyer",
+  "theme": "Robot",
+  "diff": "Expert",
+  "emoji": "🤖",
+  "file": "games/mega/game-0579.html"
+ },
+ {
+  "n": 580,
+  "title": "Robot Flyer — Master",
+  "type": "Flyer",
+  "theme": "Robot",
+  "diff": "Master",
+  "emoji": "🤖",
+  "file": "games/mega/game-0580.html"
+ },
+ {
+  "n": 581,
+  "title": "Robot Memory — Easy",
+  "type": "Memory",
+  "theme": "Robot",
+  "diff": "Easy",
+  "emoji": "🤖",
+  "file": "games/mega/game-0581.html"
+ },
+ {
+  "n": 582,
+  "title": "Robot Memory — Medium",
+  "type": "Memory",
+  "theme": "Robot",
+  "diff": "Medium",
+  "emoji": "🤖",
+  "file": "games/mega/game-0582.html"
+ },
+ {
+  "n": 583,
+  "title": "Robot Memory — Hard",
+  "type": "Memory",
+  "theme": "Robot",
+  "diff": "Hard",
+  "emoji": "🤖",
+  "file": "games/mega/game-0583.html"
+ },
+ {
+  "n": 584,
+  "title": "Robot Memory — Expert",
+  "type": "Memory",
+  "theme": "Robot",
+  "diff": "Expert",
+  "emoji": "🤖",
+  "file": "games/mega/game-0584.html"
+ },
+ {
+  "n": 585,
+  "title": "Robot Memory — Master",
+  "type": "Memory",
+  "theme": "Robot",
+  "diff": "Master",
+  "emoji": "🤖",
+  "file": "games/mega/game-0585.html"
+ },
+ {
+  "n": 586,
+  "title": "Robot Snake — Easy",
+  "type": "Snake",
+  "theme": "Robot",
+  "diff": "Easy",
+  "emoji": "🤖",
+  "file": "games/mega/game-0586.html"
+ },
+ {
+  "n": 587,
+  "title": "Robot Snake — Medium",
+  "type": "Snake",
+  "theme": "Robot",
+  "diff": "Medium",
+  "emoji": "🤖",
+  "file": "games/mega/game-0587.html"
+ },
+ {
+  "n": 588,
+  "title": "Robot Snake — Hard",
+  "type": "Snake",
+  "theme": "Robot",
+  "diff": "Hard",
+  "emoji": "🤖",
+  "file": "games/mega/game-0588.html"
+ },
+ {
+  "n": 589,
+  "title": "Robot Snake — Expert",
+  "type": "Snake",
+  "theme": "Robot",
+  "diff": "Expert",
+  "emoji": "🤖",
+  "file": "games/mega/game-0589.html"
+ },
+ {
+  "n": 590,
+  "title": "Robot Snake — Master",
+  "type": "Snake",
+  "theme": "Robot",
+  "diff": "Master",
+  "emoji": "🤖",
+  "file": "games/mega/game-0590.html"
+ },
+ {
+  "n": 591,
+  "title": "Robot Stacker — Easy",
+  "type": "Stacker",
+  "theme": "Robot",
+  "diff": "Easy",
+  "emoji": "🤖",
+  "file": "games/mega/game-0591.html"
+ },
+ {
+  "n": 592,
+  "title": "Robot Stacker — Medium",
+  "type": "Stacker",
+  "theme": "Robot",
+  "diff": "Medium",
+  "emoji": "🤖",
+  "file": "games/mega/game-0592.html"
+ },
+ {
+  "n": 593,
+  "title": "Robot Stacker — Hard",
+  "type": "Stacker",
+  "theme": "Robot",
+  "diff": "Hard",
+  "emoji": "🤖",
+  "file": "games/mega/game-0593.html"
+ },
+ {
+  "n": 594,
+  "title": "Robot Stacker — Expert",
+  "type": "Stacker",
+  "theme": "Robot",
+  "diff": "Expert",
+  "emoji": "🤖",
+  "file": "games/mega/game-0594.html"
+ },
+ {
+  "n": 595,
+  "title": "Robot Stacker — Master",
+  "type": "Stacker",
+  "theme": "Robot",
+  "diff": "Master",
+  "emoji": "🤖",
+  "file": "games/mega/game-0595.html"
+ },
+ {
+  "n": 596,
+  "title": "Robot Color Match — Easy",
+  "type": "Color Match",
+  "theme": "Robot",
+  "diff": "Easy",
+  "emoji": "🤖",
+  "file": "games/mega/game-0596.html"
+ },
+ {
+  "n": 597,
+  "title": "Robot Color Match — Medium",
+  "type": "Color Match",
+  "theme": "Robot",
+  "diff": "Medium",
+  "emoji": "🤖",
+  "file": "games/mega/game-0597.html"
+ },
+ {
+  "n": 598,
+  "title": "Robot Color Match — Hard",
+  "type": "Color Match",
+  "theme": "Robot",
+  "diff": "Hard",
+  "emoji": "🤖",
+  "file": "games/mega/game-0598.html"
+ },
+ {
+  "n": 599,
+  "title": "Robot Color Match — Expert",
+  "type": "Color Match",
+  "theme": "Robot",
+  "diff": "Expert",
+  "emoji": "🤖",
+  "file": "games/mega/game-0599.html"
+ },
+ {
+  "n": 600,
+  "title": "Robot Color Match — Master",
+  "type": "Color Match",
+  "theme": "Robot",
+  "diff": "Master",
+  "emoji": "🤖",
+  "file": "games/mega/game-0600.html"
+ },
+ {
+  "n": 601,
+  "title": "Dino Dodge — Easy",
+  "type": "Dodge",
+  "theme": "Dino",
+  "diff": "Easy",
+  "emoji": "🦖",
+  "file": "games/mega/game-0601.html"
+ },
+ {
+  "n": 602,
+  "title": "Dino Dodge — Medium",
+  "type": "Dodge",
+  "theme": "Dino",
+  "diff": "Medium",
+  "emoji": "🦖",
+  "file": "games/mega/game-0602.html"
+ },
+ {
+  "n": 603,
+  "title": "Dino Dodge — Hard",
+  "type": "Dodge",
+  "theme": "Dino",
+  "diff": "Hard",
+  "emoji": "🦖",
+  "file": "games/mega/game-0603.html"
+ },
+ {
+  "n": 604,
+  "title": "Dino Dodge — Expert",
+  "type": "Dodge",
+  "theme": "Dino",
+  "diff": "Expert",
+  "emoji": "🦖",
+  "file": "games/mega/game-0604.html"
+ },
+ {
+  "n": 605,
+  "title": "Dino Dodge — Master",
+  "type": "Dodge",
+  "theme": "Dino",
+  "diff": "Master",
+  "emoji": "🦖",
+  "file": "games/mega/game-0605.html"
+ },
+ {
+  "n": 606,
+  "title": "Dino Catcher — Easy",
+  "type": "Catcher",
+  "theme": "Dino",
+  "diff": "Easy",
+  "emoji": "🦖",
+  "file": "games/mega/game-0606.html"
+ },
+ {
+  "n": 607,
+  "title": "Dino Catcher — Medium",
+  "type": "Catcher",
+  "theme": "Dino",
+  "diff": "Medium",
+  "emoji": "🦖",
+  "file": "games/mega/game-0607.html"
+ },
+ {
+  "n": 608,
+  "title": "Dino Catcher — Hard",
+  "type": "Catcher",
+  "theme": "Dino",
+  "diff": "Hard",
+  "emoji": "🦖",
+  "file": "games/mega/game-0608.html"
+ },
+ {
+  "n": 609,
+  "title": "Dino Catcher — Expert",
+  "type": "Catcher",
+  "theme": "Dino",
+  "diff": "Expert",
+  "emoji": "🦖",
+  "file": "games/mega/game-0609.html"
+ },
+ {
+  "n": 610,
+  "title": "Dino Catcher — Master",
+  "type": "Catcher",
+  "theme": "Dino",
+  "diff": "Master",
+  "emoji": "🦖",
+  "file": "games/mega/game-0610.html"
+ },
+ {
+  "n": 611,
+  "title": "Dino Popper — Easy",
+  "type": "Popper",
+  "theme": "Dino",
+  "diff": "Easy",
+  "emoji": "🦖",
+  "file": "games/mega/game-0611.html"
+ },
+ {
+  "n": 612,
+  "title": "Dino Popper — Medium",
+  "type": "Popper",
+  "theme": "Dino",
+  "diff": "Medium",
+  "emoji": "🦖",
+  "file": "games/mega/game-0612.html"
+ },
+ {
+  "n": 613,
+  "title": "Dino Popper — Hard",
+  "type": "Popper",
+  "theme": "Dino",
+  "diff": "Hard",
+  "emoji": "🦖",
+  "file": "games/mega/game-0613.html"
+ },
+ {
+  "n": 614,
+  "title": "Dino Popper — Expert",
+  "type": "Popper",
+  "theme": "Dino",
+  "diff": "Expert",
+  "emoji": "🦖",
+  "file": "games/mega/game-0614.html"
+ },
+ {
+  "n": 615,
+  "title": "Dino Popper — Master",
+  "type": "Popper",
+  "theme": "Dino",
+  "diff": "Master",
+  "emoji": "🦖",
+  "file": "games/mega/game-0615.html"
+ },
+ {
+  "n": 616,
+  "title": "Dino Blaster — Easy",
+  "type": "Blaster",
+  "theme": "Dino",
+  "diff": "Easy",
+  "emoji": "🦖",
+  "file": "games/mega/game-0616.html"
+ },
+ {
+  "n": 617,
+  "title": "Dino Blaster — Medium",
+  "type": "Blaster",
+  "theme": "Dino",
+  "diff": "Medium",
+  "emoji": "🦖",
+  "file": "games/mega/game-0617.html"
+ },
+ {
+  "n": 618,
+  "title": "Dino Blaster — Hard",
+  "type": "Blaster",
+  "theme": "Dino",
+  "diff": "Hard",
+  "emoji": "🦖",
+  "file": "games/mega/game-0618.html"
+ },
+ {
+  "n": 619,
+  "title": "Dino Blaster — Expert",
+  "type": "Blaster",
+  "theme": "Dino",
+  "diff": "Expert",
+  "emoji": "🦖",
+  "file": "games/mega/game-0619.html"
+ },
+ {
+  "n": 620,
+  "title": "Dino Blaster — Master",
+  "type": "Blaster",
+  "theme": "Dino",
+  "diff": "Master",
+  "emoji": "🦖",
+  "file": "games/mega/game-0620.html"
+ },
+ {
+  "n": 621,
+  "title": "Dino Breaker — Easy",
+  "type": "Breaker",
+  "theme": "Dino",
+  "diff": "Easy",
+  "emoji": "🦖",
+  "file": "games/mega/game-0621.html"
+ },
+ {
+  "n": 622,
+  "title": "Dino Breaker — Medium",
+  "type": "Breaker",
+  "theme": "Dino",
+  "diff": "Medium",
+  "emoji": "🦖",
+  "file": "games/mega/game-0622.html"
+ },
+ {
+  "n": 623,
+  "title": "Dino Breaker — Hard",
+  "type": "Breaker",
+  "theme": "Dino",
+  "diff": "Hard",
+  "emoji": "🦖",
+  "file": "games/mega/game-0623.html"
+ },
+ {
+  "n": 624,
+  "title": "Dino Breaker — Expert",
+  "type": "Breaker",
+  "theme": "Dino",
+  "diff": "Expert",
+  "emoji": "🦖",
+  "file": "games/mega/game-0624.html"
+ },
+ {
+  "n": 625,
+  "title": "Dino Breaker — Master",
+  "type": "Breaker",
+  "theme": "Dino",
+  "diff": "Master",
+  "emoji": "🦖",
+  "file": "games/mega/game-0625.html"
+ },
+ {
+  "n": 626,
+  "title": "Dino Flyer — Easy",
+  "type": "Flyer",
+  "theme": "Dino",
+  "diff": "Easy",
+  "emoji": "🦖",
+  "file": "games/mega/game-0626.html"
+ },
+ {
+  "n": 627,
+  "title": "Dino Flyer — Medium",
+  "type": "Flyer",
+  "theme": "Dino",
+  "diff": "Medium",
+  "emoji": "🦖",
+  "file": "games/mega/game-0627.html"
+ },
+ {
+  "n": 628,
+  "title": "Dino Flyer — Hard",
+  "type": "Flyer",
+  "theme": "Dino",
+  "diff": "Hard",
+  "emoji": "🦖",
+  "file": "games/mega/game-0628.html"
+ },
+ {
+  "n": 629,
+  "title": "Dino Flyer — Expert",
+  "type": "Flyer",
+  "theme": "Dino",
+  "diff": "Expert",
+  "emoji": "🦖",
+  "file": "games/mega/game-0629.html"
+ },
+ {
+  "n": 630,
+  "title": "Dino Flyer — Master",
+  "type": "Flyer",
+  "theme": "Dino",
+  "diff": "Master",
+  "emoji": "🦖",
+  "file": "games/mega/game-0630.html"
+ },
+ {
+  "n": 631,
+  "title": "Dino Memory — Easy",
+  "type": "Memory",
+  "theme": "Dino",
+  "diff": "Easy",
+  "emoji": "🦖",
+  "file": "games/mega/game-0631.html"
+ },
+ {
+  "n": 632,
+  "title": "Dino Memory — Medium",
+  "type": "Memory",
+  "theme": "Dino",
+  "diff": "Medium",
+  "emoji": "🦖",
+  "file": "games/mega/game-0632.html"
+ },
+ {
+  "n": 633,
+  "title": "Dino Memory — Hard",
+  "type": "Memory",
+  "theme": "Dino",
+  "diff": "Hard",
+  "emoji": "🦖",
+  "file": "games/mega/game-0633.html"
+ },
+ {
+  "n": 634,
+  "title": "Dino Memory — Expert",
+  "type": "Memory",
+  "theme": "Dino",
+  "diff": "Expert",
+  "emoji": "🦖",
+  "file": "games/mega/game-0634.html"
+ },
+ {
+  "n": 635,
+  "title": "Dino Memory — Master",
+  "type": "Memory",
+  "theme": "Dino",
+  "diff": "Master",
+  "emoji": "🦖",
+  "file": "games/mega/game-0635.html"
+ },
+ {
+  "n": 636,
+  "title": "Dino Snake — Easy",
+  "type": "Snake",
+  "theme": "Dino",
+  "diff": "Easy",
+  "emoji": "🦖",
+  "file": "games/mega/game-0636.html"
+ },
+ {
+  "n": 637,
+  "title": "Dino Snake — Medium",
+  "type": "Snake",
+  "theme": "Dino",
+  "diff": "Medium",
+  "emoji": "🦖",
+  "file": "games/mega/game-0637.html"
+ },
+ {
+  "n": 638,
+  "title": "Dino Snake — Hard",
+  "type": "Snake",
+  "theme": "Dino",
+  "diff": "Hard",
+  "emoji": "🦖",
+  "file": "games/mega/game-0638.html"
+ },
+ {
+  "n": 639,
+  "title": "Dino Snake — Expert",
+  "type": "Snake",
+  "theme": "Dino",
+  "diff": "Expert",
+  "emoji": "🦖",
+  "file": "games/mega/game-0639.html"
+ },
+ {
+  "n": 640,
+  "title": "Dino Snake — Master",
+  "type": "Snake",
+  "theme": "Dino",
+  "diff": "Master",
+  "emoji": "🦖",
+  "file": "games/mega/game-0640.html"
+ },
+ {
+  "n": 641,
+  "title": "Dino Stacker — Easy",
+  "type": "Stacker",
+  "theme": "Dino",
+  "diff": "Easy",
+  "emoji": "🦖",
+  "file": "games/mega/game-0641.html"
+ },
+ {
+  "n": 642,
+  "title": "Dino Stacker — Medium",
+  "type": "Stacker",
+  "theme": "Dino",
+  "diff": "Medium",
+  "emoji": "🦖",
+  "file": "games/mega/game-0642.html"
+ },
+ {
+  "n": 643,
+  "title": "Dino Stacker — Hard",
+  "type": "Stacker",
+  "theme": "Dino",
+  "diff": "Hard",
+  "emoji": "🦖",
+  "file": "games/mega/game-0643.html"
+ },
+ {
+  "n": 644,
+  "title": "Dino Stacker — Expert",
+  "type": "Stacker",
+  "theme": "Dino",
+  "diff": "Expert",
+  "emoji": "🦖",
+  "file": "games/mega/game-0644.html"
+ },
+ {
+  "n": 645,
+  "title": "Dino Stacker — Master",
+  "type": "Stacker",
+  "theme": "Dino",
+  "diff": "Master",
+  "emoji": "🦖",
+  "file": "games/mega/game-0645.html"
+ },
+ {
+  "n": 646,
+  "title": "Dino Color Match — Easy",
+  "type": "Color Match",
+  "theme": "Dino",
+  "diff": "Easy",
+  "emoji": "🦖",
+  "file": "games/mega/game-0646.html"
+ },
+ {
+  "n": 647,
+  "title": "Dino Color Match — Medium",
+  "type": "Color Match",
+  "theme": "Dino",
+  "diff": "Medium",
+  "emoji": "🦖",
+  "file": "games/mega/game-0647.html"
+ },
+ {
+  "n": 648,
+  "title": "Dino Color Match — Hard",
+  "type": "Color Match",
+  "theme": "Dino",
+  "diff": "Hard",
+  "emoji": "🦖",
+  "file": "games/mega/game-0648.html"
+ },
+ {
+  "n": 649,
+  "title": "Dino Color Match — Expert",
+  "type": "Color Match",
+  "theme": "Dino",
+  "diff": "Expert",
+  "emoji": "🦖",
+  "file": "games/mega/game-0649.html"
+ },
+ {
+  "n": 650,
+  "title": "Dino Color Match — Master",
+  "type": "Color Match",
+  "theme": "Dino",
+  "diff": "Master",
+  "emoji": "🦖",
+  "file": "games/mega/game-0650.html"
+ },
+ {
+  "n": 651,
+  "title": "Fruit Dodge — Easy",
+  "type": "Dodge",
+  "theme": "Fruit",
+  "diff": "Easy",
+  "emoji": "🍓",
+  "file": "games/mega/game-0651.html"
+ },
+ {
+  "n": 652,
+  "title": "Fruit Dodge — Medium",
+  "type": "Dodge",
+  "theme": "Fruit",
+  "diff": "Medium",
+  "emoji": "🍓",
+  "file": "games/mega/game-0652.html"
+ },
+ {
+  "n": 653,
+  "title": "Fruit Dodge — Hard",
+  "type": "Dodge",
+  "theme": "Fruit",
+  "diff": "Hard",
+  "emoji": "🍓",
+  "file": "games/mega/game-0653.html"
+ },
+ {
+  "n": 654,
+  "title": "Fruit Dodge — Expert",
+  "type": "Dodge",
+  "theme": "Fruit",
+  "diff": "Expert",
+  "emoji": "🍓",
+  "file": "games/mega/game-0654.html"
+ },
+ {
+  "n": 655,
+  "title": "Fruit Dodge — Master",
+  "type": "Dodge",
+  "theme": "Fruit",
+  "diff": "Master",
+  "emoji": "🍓",
+  "file": "games/mega/game-0655.html"
+ },
+ {
+  "n": 656,
+  "title": "Fruit Catcher — Easy",
+  "type": "Catcher",
+  "theme": "Fruit",
+  "diff": "Easy",
+  "emoji": "🍓",
+  "file": "games/mega/game-0656.html"
+ },
+ {
+  "n": 657,
+  "title": "Fruit Catcher — Medium",
+  "type": "Catcher",
+  "theme": "Fruit",
+  "diff": "Medium",
+  "emoji": "🍓",
+  "file": "games/mega/game-0657.html"
+ },
+ {
+  "n": 658,
+  "title": "Fruit Catcher — Hard",
+  "type": "Catcher",
+  "theme": "Fruit",
+  "diff": "Hard",
+  "emoji": "🍓",
+  "file": "games/mega/game-0658.html"
+ },
+ {
+  "n": 659,
+  "title": "Fruit Catcher — Expert",
+  "type": "Catcher",
+  "theme": "Fruit",
+  "diff": "Expert",
+  "emoji": "🍓",
+  "file": "games/mega/game-0659.html"
+ },
+ {
+  "n": 660,
+  "title": "Fruit Catcher — Master",
+  "type": "Catcher",
+  "theme": "Fruit",
+  "diff": "Master",
+  "emoji": "🍓",
+  "file": "games/mega/game-0660.html"
+ },
+ {
+  "n": 661,
+  "title": "Fruit Popper — Easy",
+  "type": "Popper",
+  "theme": "Fruit",
+  "diff": "Easy",
+  "emoji": "🍓",
+  "file": "games/mega/game-0661.html"
+ },
+ {
+  "n": 662,
+  "title": "Fruit Popper — Medium",
+  "type": "Popper",
+  "theme": "Fruit",
+  "diff": "Medium",
+  "emoji": "🍓",
+  "file": "games/mega/game-0662.html"
+ },
+ {
+  "n": 663,
+  "title": "Fruit Popper — Hard",
+  "type": "Popper",
+  "theme": "Fruit",
+  "diff": "Hard",
+  "emoji": "🍓",
+  "file": "games/mega/game-0663.html"
+ },
+ {
+  "n": 664,
+  "title": "Fruit Popper — Expert",
+  "type": "Popper",
+  "theme": "Fruit",
+  "diff": "Expert",
+  "emoji": "🍓",
+  "file": "games/mega/game-0664.html"
+ },
+ {
+  "n": 665,
+  "title": "Fruit Popper — Master",
+  "type": "Popper",
+  "theme": "Fruit",
+  "diff": "Master",
+  "emoji": "🍓",
+  "file": "games/mega/game-0665.html"
+ },
+ {
+  "n": 666,
+  "title": "Fruit Blaster — Easy",
+  "type": "Blaster",
+  "theme": "Fruit",
+  "diff": "Easy",
+  "emoji": "🍓",
+  "file": "games/mega/game-0666.html"
+ },
+ {
+  "n": 667,
+  "title": "Fruit Blaster — Medium",
+  "type": "Blaster",
+  "theme": "Fruit",
+  "diff": "Medium",
+  "emoji": "🍓",
+  "file": "games/mega/game-0667.html"
+ },
+ {
+  "n": 668,
+  "title": "Fruit Blaster — Hard",
+  "type": "Blaster",
+  "theme": "Fruit",
+  "diff": "Hard",
+  "emoji": "🍓",
+  "file": "games/mega/game-0668.html"
+ },
+ {
+  "n": 669,
+  "title": "Fruit Blaster — Expert",
+  "type": "Blaster",
+  "theme": "Fruit",
+  "diff": "Expert",
+  "emoji": "🍓",
+  "file": "games/mega/game-0669.html"
+ },
+ {
+  "n": 670,
+  "title": "Fruit Blaster — Master",
+  "type": "Blaster",
+  "theme": "Fruit",
+  "diff": "Master",
+  "emoji": "🍓",
+  "file": "games/mega/game-0670.html"
+ },
+ {
+  "n": 671,
+  "title": "Fruit Breaker — Easy",
+  "type": "Breaker",
+  "theme": "Fruit",
+  "diff": "Easy",
+  "emoji": "🍓",
+  "file": "games/mega/game-0671.html"
+ },
+ {
+  "n": 672,
+  "title": "Fruit Breaker — Medium",
+  "type": "Breaker",
+  "theme": "Fruit",
+  "diff": "Medium",
+  "emoji": "🍓",
+  "file": "games/mega/game-0672.html"
+ },
+ {
+  "n": 673,
+  "title": "Fruit Breaker — Hard",
+  "type": "Breaker",
+  "theme": "Fruit",
+  "diff": "Hard",
+  "emoji": "🍓",
+  "file": "games/mega/game-0673.html"
+ },
+ {
+  "n": 674,
+  "title": "Fruit Breaker — Expert",
+  "type": "Breaker",
+  "theme": "Fruit",
+  "diff": "Expert",
+  "emoji": "🍓",
+  "file": "games/mega/game-0674.html"
+ },
+ {
+  "n": 675,
+  "title": "Fruit Breaker — Master",
+  "type": "Breaker",
+  "theme": "Fruit",
+  "diff": "Master",
+  "emoji": "🍓",
+  "file": "games/mega/game-0675.html"
+ },
+ {
+  "n": 676,
+  "title": "Fruit Flyer — Easy",
+  "type": "Flyer",
+  "theme": "Fruit",
+  "diff": "Easy",
+  "emoji": "🍓",
+  "file": "games/mega/game-0676.html"
+ },
+ {
+  "n": 677,
+  "title": "Fruit Flyer — Medium",
+  "type": "Flyer",
+  "theme": "Fruit",
+  "diff": "Medium",
+  "emoji": "🍓",
+  "file": "games/mega/game-0677.html"
+ },
+ {
+  "n": 678,
+  "title": "Fruit Flyer — Hard",
+  "type": "Flyer",
+  "theme": "Fruit",
+  "diff": "Hard",
+  "emoji": "🍓",
+  "file": "games/mega/game-0678.html"
+ },
+ {
+  "n": 679,
+  "title": "Fruit Flyer — Expert",
+  "type": "Flyer",
+  "theme": "Fruit",
+  "diff": "Expert",
+  "emoji": "🍓",
+  "file": "games/mega/game-0679.html"
+ },
+ {
+  "n": 680,
+  "title": "Fruit Flyer — Master",
+  "type": "Flyer",
+  "theme": "Fruit",
+  "diff": "Master",
+  "emoji": "🍓",
+  "file": "games/mega/game-0680.html"
+ },
+ {
+  "n": 681,
+  "title": "Fruit Memory — Easy",
+  "type": "Memory",
+  "theme": "Fruit",
+  "diff": "Easy",
+  "emoji": "🍓",
+  "file": "games/mega/game-0681.html"
+ },
+ {
+  "n": 682,
+  "title": "Fruit Memory — Medium",
+  "type": "Memory",
+  "theme": "Fruit",
+  "diff": "Medium",
+  "emoji": "🍓",
+  "file": "games/mega/game-0682.html"
+ },
+ {
+  "n": 683,
+  "title": "Fruit Memory — Hard",
+  "type": "Memory",
+  "theme": "Fruit",
+  "diff": "Hard",
+  "emoji": "🍓",
+  "file": "games/mega/game-0683.html"
+ },
+ {
+  "n": 684,
+  "title": "Fruit Memory — Expert",
+  "type": "Memory",
+  "theme": "Fruit",
+  "diff": "Expert",
+  "emoji": "🍓",
+  "file": "games/mega/game-0684.html"
+ },
+ {
+  "n": 685,
+  "title": "Fruit Memory — Master",
+  "type": "Memory",
+  "theme": "Fruit",
+  "diff": "Master",
+  "emoji": "🍓",
+  "file": "games/mega/game-0685.html"
+ },
+ {
+  "n": 686,
+  "title": "Fruit Snake — Easy",
+  "type": "Snake",
+  "theme": "Fruit",
+  "diff": "Easy",
+  "emoji": "🍓",
+  "file": "games/mega/game-0686.html"
+ },
+ {
+  "n": 687,
+  "title": "Fruit Snake — Medium",
+  "type": "Snake",
+  "theme": "Fruit",
+  "diff": "Medium",
+  "emoji": "🍓",
+  "file": "games/mega/game-0687.html"
+ },
+ {
+  "n": 688,
+  "title": "Fruit Snake — Hard",
+  "type": "Snake",
+  "theme": "Fruit",
+  "diff": "Hard",
+  "emoji": "🍓",
+  "file": "games/mega/game-0688.html"
+ },
+ {
+  "n": 689,
+  "title": "Fruit Snake — Expert",
+  "type": "Snake",
+  "theme": "Fruit",
+  "diff": "Expert",
+  "emoji": "🍓",
+  "file": "games/mega/game-0689.html"
+ },
+ {
+  "n": 690,
+  "title": "Fruit Snake — Master",
+  "type": "Snake",
+  "theme": "Fruit",
+  "diff": "Master",
+  "emoji": "🍓",
+  "file": "games/mega/game-0690.html"
+ },
+ {
+  "n": 691,
+  "title": "Fruit Stacker — Easy",
+  "type": "Stacker",
+  "theme": "Fruit",
+  "diff": "Easy",
+  "emoji": "🍓",
+  "file": "games/mega/game-0691.html"
+ },
+ {
+  "n": 692,
+  "title": "Fruit Stacker — Medium",
+  "type": "Stacker",
+  "theme": "Fruit",
+  "diff": "Medium",
+  "emoji": "🍓",
+  "file": "games/mega/game-0692.html"
+ },
+ {
+  "n": 693,
+  "title": "Fruit Stacker — Hard",
+  "type": "Stacker",
+  "theme": "Fruit",
+  "diff": "Hard",
+  "emoji": "🍓",
+  "file": "games/mega/game-0693.html"
+ },
+ {
+  "n": 694,
+  "title": "Fruit Stacker — Expert",
+  "type": "Stacker",
+  "theme": "Fruit",
+  "diff": "Expert",
+  "emoji": "🍓",
+  "file": "games/mega/game-0694.html"
+ },
+ {
+  "n": 695,
+  "title": "Fruit Stacker — Master",
+  "type": "Stacker",
+  "theme": "Fruit",
+  "diff": "Master",
+  "emoji": "🍓",
+  "file": "games/mega/game-0695.html"
+ },
+ {
+  "n": 696,
+  "title": "Fruit Color Match — Easy",
+  "type": "Color Match",
+  "theme": "Fruit",
+  "diff": "Easy",
+  "emoji": "🍓",
+  "file": "games/mega/game-0696.html"
+ },
+ {
+  "n": 697,
+  "title": "Fruit Color Match — Medium",
+  "type": "Color Match",
+  "theme": "Fruit",
+  "diff": "Medium",
+  "emoji": "🍓",
+  "file": "games/mega/game-0697.html"
+ },
+ {
+  "n": 698,
+  "title": "Fruit Color Match — Hard",
+  "type": "Color Match",
+  "theme": "Fruit",
+  "diff": "Hard",
+  "emoji": "🍓",
+  "file": "games/mega/game-0698.html"
+ },
+ {
+  "n": 699,
+  "title": "Fruit Color Match — Expert",
+  "type": "Color Match",
+  "theme": "Fruit",
+  "diff": "Expert",
+  "emoji": "🍓",
+  "file": "games/mega/game-0699.html"
+ },
+ {
+  "n": 700,
+  "title": "Fruit Color Match — Master",
+  "type": "Color Match",
+  "theme": "Fruit",
+  "diff": "Master",
+  "emoji": "🍓",
+  "file": "games/mega/game-0700.html"
+ },
+ {
+  "n": 701,
+  "title": "Sports Dodge — Easy",
+  "type": "Dodge",
+  "theme": "Sports",
+  "diff": "Easy",
+  "emoji": "⚽",
+  "file": "games/mega/game-0701.html"
+ },
+ {
+  "n": 702,
+  "title": "Sports Dodge — Medium",
+  "type": "Dodge",
+  "theme": "Sports",
+  "diff": "Medium",
+  "emoji": "⚽",
+  "file": "games/mega/game-0702.html"
+ },
+ {
+  "n": 703,
+  "title": "Sports Dodge — Hard",
+  "type": "Dodge",
+  "theme": "Sports",
+  "diff": "Hard",
+  "emoji": "⚽",
+  "file": "games/mega/game-0703.html"
+ },
+ {
+  "n": 704,
+  "title": "Sports Dodge — Expert",
+  "type": "Dodge",
+  "theme": "Sports",
+  "diff": "Expert",
+  "emoji": "⚽",
+  "file": "games/mega/game-0704.html"
+ },
+ {
+  "n": 705,
+  "title": "Sports Dodge — Master",
+  "type": "Dodge",
+  "theme": "Sports",
+  "diff": "Master",
+  "emoji": "⚽",
+  "file": "games/mega/game-0705.html"
+ },
+ {
+  "n": 706,
+  "title": "Sports Catcher — Easy",
+  "type": "Catcher",
+  "theme": "Sports",
+  "diff": "Easy",
+  "emoji": "⚽",
+  "file": "games/mega/game-0706.html"
+ },
+ {
+  "n": 707,
+  "title": "Sports Catcher — Medium",
+  "type": "Catcher",
+  "theme": "Sports",
+  "diff": "Medium",
+  "emoji": "⚽",
+  "file": "games/mega/game-0707.html"
+ },
+ {
+  "n": 708,
+  "title": "Sports Catcher — Hard",
+  "type": "Catcher",
+  "theme": "Sports",
+  "diff": "Hard",
+  "emoji": "⚽",
+  "file": "games/mega/game-0708.html"
+ },
+ {
+  "n": 709,
+  "title": "Sports Catcher — Expert",
+  "type": "Catcher",
+  "theme": "Sports",
+  "diff": "Expert",
+  "emoji": "⚽",
+  "file": "games/mega/game-0709.html"
+ },
+ {
+  "n": 710,
+  "title": "Sports Catcher — Master",
+  "type": "Catcher",
+  "theme": "Sports",
+  "diff": "Master",
+  "emoji": "⚽",
+  "file": "games/mega/game-0710.html"
+ },
+ {
+  "n": 711,
+  "title": "Sports Popper — Easy",
+  "type": "Popper",
+  "theme": "Sports",
+  "diff": "Easy",
+  "emoji": "⚽",
+  "file": "games/mega/game-0711.html"
+ },
+ {
+  "n": 712,
+  "title": "Sports Popper — Medium",
+  "type": "Popper",
+  "theme": "Sports",
+  "diff": "Medium",
+  "emoji": "⚽",
+  "file": "games/mega/game-0712.html"
+ },
+ {
+  "n": 713,
+  "title": "Sports Popper — Hard",
+  "type": "Popper",
+  "theme": "Sports",
+  "diff": "Hard",
+  "emoji": "⚽",
+  "file": "games/mega/game-0713.html"
+ },
+ {
+  "n": 714,
+  "title": "Sports Popper — Expert",
+  "type": "Popper",
+  "theme": "Sports",
+  "diff": "Expert",
+  "emoji": "⚽",
+  "file": "games/mega/game-0714.html"
+ },
+ {
+  "n": 715,
+  "title": "Sports Popper — Master",
+  "type": "Popper",
+  "theme": "Sports",
+  "diff": "Master",
+  "emoji": "⚽",
+  "file": "games/mega/game-0715.html"
+ },
+ {
+  "n": 716,
+  "title": "Sports Blaster — Easy",
+  "type": "Blaster",
+  "theme": "Sports",
+  "diff": "Easy",
+  "emoji": "⚽",
+  "file": "games/mega/game-0716.html"
+ },
+ {
+  "n": 717,
+  "title": "Sports Blaster — Medium",
+  "type": "Blaster",
+  "theme": "Sports",
+  "diff": "Medium",
+  "emoji": "⚽",
+  "file": "games/mega/game-0717.html"
+ },
+ {
+  "n": 718,
+  "title": "Sports Blaster — Hard",
+  "type": "Blaster",
+  "theme": "Sports",
+  "diff": "Hard",
+  "emoji": "⚽",
+  "file": "games/mega/game-0718.html"
+ },
+ {
+  "n": 719,
+  "title": "Sports Blaster — Expert",
+  "type": "Blaster",
+  "theme": "Sports",
+  "diff": "Expert",
+  "emoji": "⚽",
+  "file": "games/mega/game-0719.html"
+ },
+ {
+  "n": 720,
+  "title": "Sports Blaster — Master",
+  "type": "Blaster",
+  "theme": "Sports",
+  "diff": "Master",
+  "emoji": "⚽",
+  "file": "games/mega/game-0720.html"
+ },
+ {
+  "n": 721,
+  "title": "Sports Breaker — Easy",
+  "type": "Breaker",
+  "theme": "Sports",
+  "diff": "Easy",
+  "emoji": "⚽",
+  "file": "games/mega/game-0721.html"
+ },
+ {
+  "n": 722,
+  "title": "Sports Breaker — Medium",
+  "type": "Breaker",
+  "theme": "Sports",
+  "diff": "Medium",
+  "emoji": "⚽",
+  "file": "games/mega/game-0722.html"
+ },
+ {
+  "n": 723,
+  "title": "Sports Breaker — Hard",
+  "type": "Breaker",
+  "theme": "Sports",
+  "diff": "Hard",
+  "emoji": "⚽",
+  "file": "games/mega/game-0723.html"
+ },
+ {
+  "n": 724,
+  "title": "Sports Breaker — Expert",
+  "type": "Breaker",
+  "theme": "Sports",
+  "diff": "Expert",
+  "emoji": "⚽",
+  "file": "games/mega/game-0724.html"
+ },
+ {
+  "n": 725,
+  "title": "Sports Breaker — Master",
+  "type": "Breaker",
+  "theme": "Sports",
+  "diff": "Master",
+  "emoji": "⚽",
+  "file": "games/mega/game-0725.html"
+ },
+ {
+  "n": 726,
+  "title": "Sports Flyer — Easy",
+  "type": "Flyer",
+  "theme": "Sports",
+  "diff": "Easy",
+  "emoji": "⚽",
+  "file": "games/mega/game-0726.html"
+ },
+ {
+  "n": 727,
+  "title": "Sports Flyer — Medium",
+  "type": "Flyer",
+  "theme": "Sports",
+  "diff": "Medium",
+  "emoji": "⚽",
+  "file": "games/mega/game-0727.html"
+ },
+ {
+  "n": 728,
+  "title": "Sports Flyer — Hard",
+  "type": "Flyer",
+  "theme": "Sports",
+  "diff": "Hard",
+  "emoji": "⚽",
+  "file": "games/mega/game-0728.html"
+ },
+ {
+  "n": 729,
+  "title": "Sports Flyer — Expert",
+  "type": "Flyer",
+  "theme": "Sports",
+  "diff": "Expert",
+  "emoji": "⚽",
+  "file": "games/mega/game-0729.html"
+ },
+ {
+  "n": 730,
+  "title": "Sports Flyer — Master",
+  "type": "Flyer",
+  "theme": "Sports",
+  "diff": "Master",
+  "emoji": "⚽",
+  "file": "games/mega/game-0730.html"
+ },
+ {
+  "n": 731,
+  "title": "Sports Memory — Easy",
+  "type": "Memory",
+  "theme": "Sports",
+  "diff": "Easy",
+  "emoji": "⚽",
+  "file": "games/mega/game-0731.html"
+ },
+ {
+  "n": 732,
+  "title": "Sports Memory — Medium",
+  "type": "Memory",
+  "theme": "Sports",
+  "diff": "Medium",
+  "emoji": "⚽",
+  "file": "games/mega/game-0732.html"
+ },
+ {
+  "n": 733,
+  "title": "Sports Memory — Hard",
+  "type": "Memory",
+  "theme": "Sports",
+  "diff": "Hard",
+  "emoji": "⚽",
+  "file": "games/mega/game-0733.html"
+ },
+ {
+  "n": 734,
+  "title": "Sports Memory — Expert",
+  "type": "Memory",
+  "theme": "Sports",
+  "diff": "Expert",
+  "emoji": "⚽",
+  "file": "games/mega/game-0734.html"
+ },
+ {
+  "n": 735,
+  "title": "Sports Memory — Master",
+  "type": "Memory",
+  "theme": "Sports",
+  "diff": "Master",
+  "emoji": "⚽",
+  "file": "games/mega/game-0735.html"
+ },
+ {
+  "n": 736,
+  "title": "Sports Snake — Easy",
+  "type": "Snake",
+  "theme": "Sports",
+  "diff": "Easy",
+  "emoji": "⚽",
+  "file": "games/mega/game-0736.html"
+ },
+ {
+  "n": 737,
+  "title": "Sports Snake — Medium",
+  "type": "Snake",
+  "theme": "Sports",
+  "diff": "Medium",
+  "emoji": "⚽",
+  "file": "games/mega/game-0737.html"
+ },
+ {
+  "n": 738,
+  "title": "Sports Snake — Hard",
+  "type": "Snake",
+  "theme": "Sports",
+  "diff": "Hard",
+  "emoji": "⚽",
+  "file": "games/mega/game-0738.html"
+ },
+ {
+  "n": 739,
+  "title": "Sports Snake — Expert",
+  "type": "Snake",
+  "theme": "Sports",
+  "diff": "Expert",
+  "emoji": "⚽",
+  "file": "games/mega/game-0739.html"
+ },
+ {
+  "n": 740,
+  "title": "Sports Snake — Master",
+  "type": "Snake",
+  "theme": "Sports",
+  "diff": "Master",
+  "emoji": "⚽",
+  "file": "games/mega/game-0740.html"
+ },
+ {
+  "n": 741,
+  "title": "Sports Stacker — Easy",
+  "type": "Stacker",
+  "theme": "Sports",
+  "diff": "Easy",
+  "emoji": "⚽",
+  "file": "games/mega/game-0741.html"
+ },
+ {
+  "n": 742,
+  "title": "Sports Stacker — Medium",
+  "type": "Stacker",
+  "theme": "Sports",
+  "diff": "Medium",
+  "emoji": "⚽",
+  "file": "games/mega/game-0742.html"
+ },
+ {
+  "n": 743,
+  "title": "Sports Stacker — Hard",
+  "type": "Stacker",
+  "theme": "Sports",
+  "diff": "Hard",
+  "emoji": "⚽",
+  "file": "games/mega/game-0743.html"
+ },
+ {
+  "n": 744,
+  "title": "Sports Stacker — Expert",
+  "type": "Stacker",
+  "theme": "Sports",
+  "diff": "Expert",
+  "emoji": "⚽",
+  "file": "games/mega/game-0744.html"
+ },
+ {
+  "n": 745,
+  "title": "Sports Stacker — Master",
+  "type": "Stacker",
+  "theme": "Sports",
+  "diff": "Master",
+  "emoji": "⚽",
+  "file": "games/mega/game-0745.html"
+ },
+ {
+  "n": 746,
+  "title": "Sports Color Match — Easy",
+  "type": "Color Match",
+  "theme": "Sports",
+  "diff": "Easy",
+  "emoji": "⚽",
+  "file": "games/mega/game-0746.html"
+ },
+ {
+  "n": 747,
+  "title": "Sports Color Match — Medium",
+  "type": "Color Match",
+  "theme": "Sports",
+  "diff": "Medium",
+  "emoji": "⚽",
+  "file": "games/mega/game-0747.html"
+ },
+ {
+  "n": 748,
+  "title": "Sports Color Match — Hard",
+  "type": "Color Match",
+  "theme": "Sports",
+  "diff": "Hard",
+  "emoji": "⚽",
+  "file": "games/mega/game-0748.html"
+ },
+ {
+  "n": 749,
+  "title": "Sports Color Match — Expert",
+  "type": "Color Match",
+  "theme": "Sports",
+  "diff": "Expert",
+  "emoji": "⚽",
+  "file": "games/mega/game-0749.html"
+ },
+ {
+  "n": 750,
+  "title": "Sports Color Match — Master",
+  "type": "Color Match",
+  "theme": "Sports",
+  "diff": "Master",
+  "emoji": "⚽",
+  "file": "games/mega/game-0750.html"
+ },
+ {
+  "n": 751,
+  "title": "Music Dodge — Easy",
+  "type": "Dodge",
+  "theme": "Music",
+  "diff": "Easy",
+  "emoji": "🎵",
+  "file": "games/mega/game-0751.html"
+ },
+ {
+  "n": 752,
+  "title": "Music Dodge — Medium",
+  "type": "Dodge",
+  "theme": "Music",
+  "diff": "Medium",
+  "emoji": "🎵",
+  "file": "games/mega/game-0752.html"
+ },
+ {
+  "n": 753,
+  "title": "Music Dodge — Hard",
+  "type": "Dodge",
+  "theme": "Music",
+  "diff": "Hard",
+  "emoji": "🎵",
+  "file": "games/mega/game-0753.html"
+ },
+ {
+  "n": 754,
+  "title": "Music Dodge — Expert",
+  "type": "Dodge",
+  "theme": "Music",
+  "diff": "Expert",
+  "emoji": "🎵",
+  "file": "games/mega/game-0754.html"
+ },
+ {
+  "n": 755,
+  "title": "Music Dodge — Master",
+  "type": "Dodge",
+  "theme": "Music",
+  "diff": "Master",
+  "emoji": "🎵",
+  "file": "games/mega/game-0755.html"
+ },
+ {
+  "n": 756,
+  "title": "Music Catcher — Easy",
+  "type": "Catcher",
+  "theme": "Music",
+  "diff": "Easy",
+  "emoji": "🎵",
+  "file": "games/mega/game-0756.html"
+ },
+ {
+  "n": 757,
+  "title": "Music Catcher — Medium",
+  "type": "Catcher",
+  "theme": "Music",
+  "diff": "Medium",
+  "emoji": "🎵",
+  "file": "games/mega/game-0757.html"
+ },
+ {
+  "n": 758,
+  "title": "Music Catcher — Hard",
+  "type": "Catcher",
+  "theme": "Music",
+  "diff": "Hard",
+  "emoji": "🎵",
+  "file": "games/mega/game-0758.html"
+ },
+ {
+  "n": 759,
+  "title": "Music Catcher — Expert",
+  "type": "Catcher",
+  "theme": "Music",
+  "diff": "Expert",
+  "emoji": "🎵",
+  "file": "games/mega/game-0759.html"
+ },
+ {
+  "n": 760,
+  "title": "Music Catcher — Master",
+  "type": "Catcher",
+  "theme": "Music",
+  "diff": "Master",
+  "emoji": "🎵",
+  "file": "games/mega/game-0760.html"
+ },
+ {
+  "n": 761,
+  "title": "Music Popper — Easy",
+  "type": "Popper",
+  "theme": "Music",
+  "diff": "Easy",
+  "emoji": "🎵",
+  "file": "games/mega/game-0761.html"
+ },
+ {
+  "n": 762,
+  "title": "Music Popper — Medium",
+  "type": "Popper",
+  "theme": "Music",
+  "diff": "Medium",
+  "emoji": "🎵",
+  "file": "games/mega/game-0762.html"
+ },
+ {
+  "n": 763,
+  "title": "Music Popper — Hard",
+  "type": "Popper",
+  "theme": "Music",
+  "diff": "Hard",
+  "emoji": "🎵",
+  "file": "games/mega/game-0763.html"
+ },
+ {
+  "n": 764,
+  "title": "Music Popper — Expert",
+  "type": "Popper",
+  "theme": "Music",
+  "diff": "Expert",
+  "emoji": "🎵",
+  "file": "games/mega/game-0764.html"
+ },
+ {
+  "n": 765,
+  "title": "Music Popper — Master",
+  "type": "Popper",
+  "theme": "Music",
+  "diff": "Master",
+  "emoji": "🎵",
+  "file": "games/mega/game-0765.html"
+ },
+ {
+  "n": 766,
+  "title": "Music Blaster — Easy",
+  "type": "Blaster",
+  "theme": "Music",
+  "diff": "Easy",
+  "emoji": "🎵",
+  "file": "games/mega/game-0766.html"
+ },
+ {
+  "n": 767,
+  "title": "Music Blaster — Medium",
+  "type": "Blaster",
+  "theme": "Music",
+  "diff": "Medium",
+  "emoji": "🎵",
+  "file": "games/mega/game-0767.html"
+ },
+ {
+  "n": 768,
+  "title": "Music Blaster — Hard",
+  "type": "Blaster",
+  "theme": "Music",
+  "diff": "Hard",
+  "emoji": "🎵",
+  "file": "games/mega/game-0768.html"
+ },
+ {
+  "n": 769,
+  "title": "Music Blaster — Expert",
+  "type": "Blaster",
+  "theme": "Music",
+  "diff": "Expert",
+  "emoji": "🎵",
+  "file": "games/mega/game-0769.html"
+ },
+ {
+  "n": 770,
+  "title": "Music Blaster — Master",
+  "type": "Blaster",
+  "theme": "Music",
+  "diff": "Master",
+  "emoji": "🎵",
+  "file": "games/mega/game-0770.html"
+ },
+ {
+  "n": 771,
+  "title": "Music Breaker — Easy",
+  "type": "Breaker",
+  "theme": "Music",
+  "diff": "Easy",
+  "emoji": "🎵",
+  "file": "games/mega/game-0771.html"
+ },
+ {
+  "n": 772,
+  "title": "Music Breaker — Medium",
+  "type": "Breaker",
+  "theme": "Music",
+  "diff": "Medium",
+  "emoji": "🎵",
+  "file": "games/mega/game-0772.html"
+ },
+ {
+  "n": 773,
+  "title": "Music Breaker — Hard",
+  "type": "Breaker",
+  "theme": "Music",
+  "diff": "Hard",
+  "emoji": "🎵",
+  "file": "games/mega/game-0773.html"
+ },
+ {
+  "n": 774,
+  "title": "Music Breaker — Expert",
+  "type": "Breaker",
+  "theme": "Music",
+  "diff": "Expert",
+  "emoji": "🎵",
+  "file": "games/mega/game-0774.html"
+ },
+ {
+  "n": 775,
+  "title": "Music Breaker — Master",
+  "type": "Breaker",
+  "theme": "Music",
+  "diff": "Master",
+  "emoji": "🎵",
+  "file": "games/mega/game-0775.html"
+ },
+ {
+  "n": 776,
+  "title": "Music Flyer — Easy",
+  "type": "Flyer",
+  "theme": "Music",
+  "diff": "Easy",
+  "emoji": "🎵",
+  "file": "games/mega/game-0776.html"
+ },
+ {
+  "n": 777,
+  "title": "Music Flyer — Medium",
+  "type": "Flyer",
+  "theme": "Music",
+  "diff": "Medium",
+  "emoji": "🎵",
+  "file": "games/mega/game-0777.html"
+ },
+ {
+  "n": 778,
+  "title": "Music Flyer — Hard",
+  "type": "Flyer",
+  "theme": "Music",
+  "diff": "Hard",
+  "emoji": "🎵",
+  "file": "games/mega/game-0778.html"
+ },
+ {
+  "n": 779,
+  "title": "Music Flyer — Expert",
+  "type": "Flyer",
+  "theme": "Music",
+  "diff": "Expert",
+  "emoji": "🎵",
+  "file": "games/mega/game-0779.html"
+ },
+ {
+  "n": 780,
+  "title": "Music Flyer — Master",
+  "type": "Flyer",
+  "theme": "Music",
+  "diff": "Master",
+  "emoji": "🎵",
+  "file": "games/mega/game-0780.html"
+ },
+ {
+  "n": 781,
+  "title": "Music Memory — Easy",
+  "type": "Memory",
+  "theme": "Music",
+  "diff": "Easy",
+  "emoji": "🎵",
+  "file": "games/mega/game-0781.html"
+ },
+ {
+  "n": 782,
+  "title": "Music Memory — Medium",
+  "type": "Memory",
+  "theme": "Music",
+  "diff": "Medium",
+  "emoji": "🎵",
+  "file": "games/mega/game-0782.html"
+ },
+ {
+  "n": 783,
+  "title": "Music Memory — Hard",
+  "type": "Memory",
+  "theme": "Music",
+  "diff": "Hard",
+  "emoji": "🎵",
+  "file": "games/mega/game-0783.html"
+ },
+ {
+  "n": 784,
+  "title": "Music Memory — Expert",
+  "type": "Memory",
+  "theme": "Music",
+  "diff": "Expert",
+  "emoji": "🎵",
+  "file": "games/mega/game-0784.html"
+ },
+ {
+  "n": 785,
+  "title": "Music Memory — Master",
+  "type": "Memory",
+  "theme": "Music",
+  "diff": "Master",
+  "emoji": "🎵",
+  "file": "games/mega/game-0785.html"
+ },
+ {
+  "n": 786,
+  "title": "Music Snake — Easy",
+  "type": "Snake",
+  "theme": "Music",
+  "diff": "Easy",
+  "emoji": "🎵",
+  "file": "games/mega/game-0786.html"
+ },
+ {
+  "n": 787,
+  "title": "Music Snake — Medium",
+  "type": "Snake",
+  "theme": "Music",
+  "diff": "Medium",
+  "emoji": "🎵",
+  "file": "games/mega/game-0787.html"
+ },
+ {
+  "n": 788,
+  "title": "Music Snake — Hard",
+  "type": "Snake",
+  "theme": "Music",
+  "diff": "Hard",
+  "emoji": "🎵",
+  "file": "games/mega/game-0788.html"
+ },
+ {
+  "n": 789,
+  "title": "Music Snake — Expert",
+  "type": "Snake",
+  "theme": "Music",
+  "diff": "Expert",
+  "emoji": "🎵",
+  "file": "games/mega/game-0789.html"
+ },
+ {
+  "n": 790,
+  "title": "Music Snake — Master",
+  "type": "Snake",
+  "theme": "Music",
+  "diff": "Master",
+  "emoji": "🎵",
+  "file": "games/mega/game-0790.html"
+ },
+ {
+  "n": 791,
+  "title": "Music Stacker — Easy",
+  "type": "Stacker",
+  "theme": "Music",
+  "diff": "Easy",
+  "emoji": "🎵",
+  "file": "games/mega/game-0791.html"
+ },
+ {
+  "n": 792,
+  "title": "Music Stacker — Medium",
+  "type": "Stacker",
+  "theme": "Music",
+  "diff": "Medium",
+  "emoji": "🎵",
+  "file": "games/mega/game-0792.html"
+ },
+ {
+  "n": 793,
+  "title": "Music Stacker — Hard",
+  "type": "Stacker",
+  "theme": "Music",
+  "diff": "Hard",
+  "emoji": "🎵",
+  "file": "games/mega/game-0793.html"
+ },
+ {
+  "n": 794,
+  "title": "Music Stacker — Expert",
+  "type": "Stacker",
+  "theme": "Music",
+  "diff": "Expert",
+  "emoji": "🎵",
+  "file": "games/mega/game-0794.html"
+ },
+ {
+  "n": 795,
+  "title": "Music Stacker — Master",
+  "type": "Stacker",
+  "theme": "Music",
+  "diff": "Master",
+  "emoji": "🎵",
+  "file": "games/mega/game-0795.html"
+ },
+ {
+  "n": 796,
+  "title": "Music Color Match — Easy",
+  "type": "Color Match",
+  "theme": "Music",
+  "diff": "Easy",
+  "emoji": "🎵",
+  "file": "games/mega/game-0796.html"
+ },
+ {
+  "n": 797,
+  "title": "Music Color Match — Medium",
+  "type": "Color Match",
+  "theme": "Music",
+  "diff": "Medium",
+  "emoji": "🎵",
+  "file": "games/mega/game-0797.html"
+ },
+ {
+  "n": 798,
+  "title": "Music Color Match — Hard",
+  "type": "Color Match",
+  "theme": "Music",
+  "diff": "Hard",
+  "emoji": "🎵",
+  "file": "games/mega/game-0798.html"
+ },
+ {
+  "n": 799,
+  "title": "Music Color Match — Expert",
+  "type": "Color Match",
+  "theme": "Music",
+  "diff": "Expert",
+  "emoji": "🎵",
+  "file": "games/mega/game-0799.html"
+ },
+ {
+  "n": 800,
+  "title": "Music Color Match — Master",
+  "type": "Color Match",
+  "theme": "Music",
+  "diff": "Master",
+  "emoji": "🎵",
+  "file": "games/mega/game-0800.html"
+ },
+ {
+  "n": 801,
+  "title": "Halloween Dodge — Easy",
+  "type": "Dodge",
+  "theme": "Halloween",
+  "diff": "Easy",
+  "emoji": "🎃",
+  "file": "games/mega/game-0801.html"
+ },
+ {
+  "n": 802,
+  "title": "Halloween Dodge — Medium",
+  "type": "Dodge",
+  "theme": "Halloween",
+  "diff": "Medium",
+  "emoji": "🎃",
+  "file": "games/mega/game-0802.html"
+ },
+ {
+  "n": 803,
+  "title": "Halloween Dodge — Hard",
+  "type": "Dodge",
+  "theme": "Halloween",
+  "diff": "Hard",
+  "emoji": "🎃",
+  "file": "games/mega/game-0803.html"
+ },
+ {
+  "n": 804,
+  "title": "Halloween Dodge — Expert",
+  "type": "Dodge",
+  "theme": "Halloween",
+  "diff": "Expert",
+  "emoji": "🎃",
+  "file": "games/mega/game-0804.html"
+ },
+ {
+  "n": 805,
+  "title": "Halloween Dodge — Master",
+  "type": "Dodge",
+  "theme": "Halloween",
+  "diff": "Master",
+  "emoji": "🎃",
+  "file": "games/mega/game-0805.html"
+ },
+ {
+  "n": 806,
+  "title": "Halloween Catcher — Easy",
+  "type": "Catcher",
+  "theme": "Halloween",
+  "diff": "Easy",
+  "emoji": "🎃",
+  "file": "games/mega/game-0806.html"
+ },
+ {
+  "n": 807,
+  "title": "Halloween Catcher — Medium",
+  "type": "Catcher",
+  "theme": "Halloween",
+  "diff": "Medium",
+  "emoji": "🎃",
+  "file": "games/mega/game-0807.html"
+ },
+ {
+  "n": 808,
+  "title": "Halloween Catcher — Hard",
+  "type": "Catcher",
+  "theme": "Halloween",
+  "diff": "Hard",
+  "emoji": "🎃",
+  "file": "games/mega/game-0808.html"
+ },
+ {
+  "n": 809,
+  "title": "Halloween Catcher — Expert",
+  "type": "Catcher",
+  "theme": "Halloween",
+  "diff": "Expert",
+  "emoji": "🎃",
+  "file": "games/mega/game-0809.html"
+ },
+ {
+  "n": 810,
+  "title": "Halloween Catcher — Master",
+  "type": "Catcher",
+  "theme": "Halloween",
+  "diff": "Master",
+  "emoji": "🎃",
+  "file": "games/mega/game-0810.html"
+ },
+ {
+  "n": 811,
+  "title": "Halloween Popper — Easy",
+  "type": "Popper",
+  "theme": "Halloween",
+  "diff": "Easy",
+  "emoji": "🎃",
+  "file": "games/mega/game-0811.html"
+ },
+ {
+  "n": 812,
+  "title": "Halloween Popper — Medium",
+  "type": "Popper",
+  "theme": "Halloween",
+  "diff": "Medium",
+  "emoji": "🎃",
+  "file": "games/mega/game-0812.html"
+ },
+ {
+  "n": 813,
+  "title": "Halloween Popper — Hard",
+  "type": "Popper",
+  "theme": "Halloween",
+  "diff": "Hard",
+  "emoji": "🎃",
+  "file": "games/mega/game-0813.html"
+ },
+ {
+  "n": 814,
+  "title": "Halloween Popper — Expert",
+  "type": "Popper",
+  "theme": "Halloween",
+  "diff": "Expert",
+  "emoji": "🎃",
+  "file": "games/mega/game-0814.html"
+ },
+ {
+  "n": 815,
+  "title": "Halloween Popper — Master",
+  "type": "Popper",
+  "theme": "Halloween",
+  "diff": "Master",
+  "emoji": "🎃",
+  "file": "games/mega/game-0815.html"
+ },
+ {
+  "n": 816,
+  "title": "Halloween Blaster — Easy",
+  "type": "Blaster",
+  "theme": "Halloween",
+  "diff": "Easy",
+  "emoji": "🎃",
+  "file": "games/mega/game-0816.html"
+ },
+ {
+  "n": 817,
+  "title": "Halloween Blaster — Medium",
+  "type": "Blaster",
+  "theme": "Halloween",
+  "diff": "Medium",
+  "emoji": "🎃",
+  "file": "games/mega/game-0817.html"
+ },
+ {
+  "n": 818,
+  "title": "Halloween Blaster — Hard",
+  "type": "Blaster",
+  "theme": "Halloween",
+  "diff": "Hard",
+  "emoji": "🎃",
+  "file": "games/mega/game-0818.html"
+ },
+ {
+  "n": 819,
+  "title": "Halloween Blaster — Expert",
+  "type": "Blaster",
+  "theme": "Halloween",
+  "diff": "Expert",
+  "emoji": "🎃",
+  "file": "games/mega/game-0819.html"
+ },
+ {
+  "n": 820,
+  "title": "Halloween Blaster — Master",
+  "type": "Blaster",
+  "theme": "Halloween",
+  "diff": "Master",
+  "emoji": "🎃",
+  "file": "games/mega/game-0820.html"
+ },
+ {
+  "n": 821,
+  "title": "Halloween Breaker — Easy",
+  "type": "Breaker",
+  "theme": "Halloween",
+  "diff": "Easy",
+  "emoji": "🎃",
+  "file": "games/mega/game-0821.html"
+ },
+ {
+  "n": 822,
+  "title": "Halloween Breaker — Medium",
+  "type": "Breaker",
+  "theme": "Halloween",
+  "diff": "Medium",
+  "emoji": "🎃",
+  "file": "games/mega/game-0822.html"
+ },
+ {
+  "n": 823,
+  "title": "Halloween Breaker — Hard",
+  "type": "Breaker",
+  "theme": "Halloween",
+  "diff": "Hard",
+  "emoji": "🎃",
+  "file": "games/mega/game-0823.html"
+ },
+ {
+  "n": 824,
+  "title": "Halloween Breaker — Expert",
+  "type": "Breaker",
+  "theme": "Halloween",
+  "diff": "Expert",
+  "emoji": "🎃",
+  "file": "games/mega/game-0824.html"
+ },
+ {
+  "n": 825,
+  "title": "Halloween Breaker — Master",
+  "type": "Breaker",
+  "theme": "Halloween",
+  "diff": "Master",
+  "emoji": "🎃",
+  "file": "games/mega/game-0825.html"
+ },
+ {
+  "n": 826,
+  "title": "Halloween Flyer — Easy",
+  "type": "Flyer",
+  "theme": "Halloween",
+  "diff": "Easy",
+  "emoji": "🎃",
+  "file": "games/mega/game-0826.html"
+ },
+ {
+  "n": 827,
+  "title": "Halloween Flyer — Medium",
+  "type": "Flyer",
+  "theme": "Halloween",
+  "diff": "Medium",
+  "emoji": "🎃",
+  "file": "games/mega/game-0827.html"
+ },
+ {
+  "n": 828,
+  "title": "Halloween Flyer — Hard",
+  "type": "Flyer",
+  "theme": "Halloween",
+  "diff": "Hard",
+  "emoji": "🎃",
+  "file": "games/mega/game-0828.html"
+ },
+ {
+  "n": 829,
+  "title": "Halloween Flyer — Expert",
+  "type": "Flyer",
+  "theme": "Halloween",
+  "diff": "Expert",
+  "emoji": "🎃",
+  "file": "games/mega/game-0829.html"
+ },
+ {
+  "n": 830,
+  "title": "Halloween Flyer — Master",
+  "type": "Flyer",
+  "theme": "Halloween",
+  "diff": "Master",
+  "emoji": "🎃",
+  "file": "games/mega/game-0830.html"
+ },
+ {
+  "n": 831,
+  "title": "Halloween Memory — Easy",
+  "type": "Memory",
+  "theme": "Halloween",
+  "diff": "Easy",
+  "emoji": "🎃",
+  "file": "games/mega/game-0831.html"
+ },
+ {
+  "n": 832,
+  "title": "Halloween Memory — Medium",
+  "type": "Memory",
+  "theme": "Halloween",
+  "diff": "Medium",
+  "emoji": "🎃",
+  "file": "games/mega/game-0832.html"
+ },
+ {
+  "n": 833,
+  "title": "Halloween Memory — Hard",
+  "type": "Memory",
+  "theme": "Halloween",
+  "diff": "Hard",
+  "emoji": "🎃",
+  "file": "games/mega/game-0833.html"
+ },
+ {
+  "n": 834,
+  "title": "Halloween Memory — Expert",
+  "type": "Memory",
+  "theme": "Halloween",
+  "diff": "Expert",
+  "emoji": "🎃",
+  "file": "games/mega/game-0834.html"
+ },
+ {
+  "n": 835,
+  "title": "Halloween Memory — Master",
+  "type": "Memory",
+  "theme": "Halloween",
+  "diff": "Master",
+  "emoji": "🎃",
+  "file": "games/mega/game-0835.html"
+ },
+ {
+  "n": 836,
+  "title": "Halloween Snake — Easy",
+  "type": "Snake",
+  "theme": "Halloween",
+  "diff": "Easy",
+  "emoji": "🎃",
+  "file": "games/mega/game-0836.html"
+ },
+ {
+  "n": 837,
+  "title": "Halloween Snake — Medium",
+  "type": "Snake",
+  "theme": "Halloween",
+  "diff": "Medium",
+  "emoji": "🎃",
+  "file": "games/mega/game-0837.html"
+ },
+ {
+  "n": 838,
+  "title": "Halloween Snake — Hard",
+  "type": "Snake",
+  "theme": "Halloween",
+  "diff": "Hard",
+  "emoji": "🎃",
+  "file": "games/mega/game-0838.html"
+ },
+ {
+  "n": 839,
+  "title": "Halloween Snake — Expert",
+  "type": "Snake",
+  "theme": "Halloween",
+  "diff": "Expert",
+  "emoji": "🎃",
+  "file": "games/mega/game-0839.html"
+ },
+ {
+  "n": 840,
+  "title": "Halloween Snake — Master",
+  "type": "Snake",
+  "theme": "Halloween",
+  "diff": "Master",
+  "emoji": "🎃",
+  "file": "games/mega/game-0840.html"
+ },
+ {
+  "n": 841,
+  "title": "Halloween Stacker — Easy",
+  "type": "Stacker",
+  "theme": "Halloween",
+  "diff": "Easy",
+  "emoji": "🎃",
+  "file": "games/mega/game-0841.html"
+ },
+ {
+  "n": 842,
+  "title": "Halloween Stacker — Medium",
+  "type": "Stacker",
+  "theme": "Halloween",
+  "diff": "Medium",
+  "emoji": "🎃",
+  "file": "games/mega/game-0842.html"
+ },
+ {
+  "n": 843,
+  "title": "Halloween Stacker — Hard",
+  "type": "Stacker",
+  "theme": "Halloween",
+  "diff": "Hard",
+  "emoji": "🎃",
+  "file": "games/mega/game-0843.html"
+ },
+ {
+  "n": 844,
+  "title": "Halloween Stacker — Expert",
+  "type": "Stacker",
+  "theme": "Halloween",
+  "diff": "Expert",
+  "emoji": "🎃",
+  "file": "games/mega/game-0844.html"
+ },
+ {
+  "n": 845,
+  "title": "Halloween Stacker — Master",
+  "type": "Stacker",
+  "theme": "Halloween",
+  "diff": "Master",
+  "emoji": "🎃",
+  "file": "games/mega/game-0845.html"
+ },
+ {
+  "n": 846,
+  "title": "Halloween Color Match — Easy",
+  "type": "Color Match",
+  "theme": "Halloween",
+  "diff": "Easy",
+  "emoji": "🎃",
+  "file": "games/mega/game-0846.html"
+ },
+ {
+  "n": 847,
+  "title": "Halloween Color Match — Medium",
+  "type": "Color Match",
+  "theme": "Halloween",
+  "diff": "Medium",
+  "emoji": "🎃",
+  "file": "games/mega/game-0847.html"
+ },
+ {
+  "n": 848,
+  "title": "Halloween Color Match — Hard",
+  "type": "Color Match",
+  "theme": "Halloween",
+  "diff": "Hard",
+  "emoji": "🎃",
+  "file": "games/mega/game-0848.html"
+ },
+ {
+  "n": 849,
+  "title": "Halloween Color Match — Expert",
+  "type": "Color Match",
+  "theme": "Halloween",
+  "diff": "Expert",
+  "emoji": "🎃",
+  "file": "games/mega/game-0849.html"
+ },
+ {
+  "n": 850,
+  "title": "Halloween Color Match — Master",
+  "type": "Color Match",
+  "theme": "Halloween",
+  "diff": "Master",
+  "emoji": "🎃",
+  "file": "games/mega/game-0850.html"
+ },
+ {
+  "n": 851,
+  "title": "Deep Sea Dodge — Easy",
+  "type": "Dodge",
+  "theme": "Deep Sea",
+  "diff": "Easy",
+  "emoji": "🐙",
+  "file": "games/mega/game-0851.html"
+ },
+ {
+  "n": 852,
+  "title": "Deep Sea Dodge — Medium",
+  "type": "Dodge",
+  "theme": "Deep Sea",
+  "diff": "Medium",
+  "emoji": "🐙",
+  "file": "games/mega/game-0852.html"
+ },
+ {
+  "n": 853,
+  "title": "Deep Sea Dodge — Hard",
+  "type": "Dodge",
+  "theme": "Deep Sea",
+  "diff": "Hard",
+  "emoji": "🐙",
+  "file": "games/mega/game-0853.html"
+ },
+ {
+  "n": 854,
+  "title": "Deep Sea Dodge — Expert",
+  "type": "Dodge",
+  "theme": "Deep Sea",
+  "diff": "Expert",
+  "emoji": "🐙",
+  "file": "games/mega/game-0854.html"
+ },
+ {
+  "n": 855,
+  "title": "Deep Sea Dodge — Master",
+  "type": "Dodge",
+  "theme": "Deep Sea",
+  "diff": "Master",
+  "emoji": "🐙",
+  "file": "games/mega/game-0855.html"
+ },
+ {
+  "n": 856,
+  "title": "Deep Sea Catcher — Easy",
+  "type": "Catcher",
+  "theme": "Deep Sea",
+  "diff": "Easy",
+  "emoji": "🐙",
+  "file": "games/mega/game-0856.html"
+ },
+ {
+  "n": 857,
+  "title": "Deep Sea Catcher — Medium",
+  "type": "Catcher",
+  "theme": "Deep Sea",
+  "diff": "Medium",
+  "emoji": "🐙",
+  "file": "games/mega/game-0857.html"
+ },
+ {
+  "n": 858,
+  "title": "Deep Sea Catcher — Hard",
+  "type": "Catcher",
+  "theme": "Deep Sea",
+  "diff": "Hard",
+  "emoji": "🐙",
+  "file": "games/mega/game-0858.html"
+ },
+ {
+  "n": 859,
+  "title": "Deep Sea Catcher — Expert",
+  "type": "Catcher",
+  "theme": "Deep Sea",
+  "diff": "Expert",
+  "emoji": "🐙",
+  "file": "games/mega/game-0859.html"
+ },
+ {
+  "n": 860,
+  "title": "Deep Sea Catcher — Master",
+  "type": "Catcher",
+  "theme": "Deep Sea",
+  "diff": "Master",
+  "emoji": "🐙",
+  "file": "games/mega/game-0860.html"
+ },
+ {
+  "n": 861,
+  "title": "Deep Sea Popper — Easy",
+  "type": "Popper",
+  "theme": "Deep Sea",
+  "diff": "Easy",
+  "emoji": "🐙",
+  "file": "games/mega/game-0861.html"
+ },
+ {
+  "n": 862,
+  "title": "Deep Sea Popper — Medium",
+  "type": "Popper",
+  "theme": "Deep Sea",
+  "diff": "Medium",
+  "emoji": "🐙",
+  "file": "games/mega/game-0862.html"
+ },
+ {
+  "n": 863,
+  "title": "Deep Sea Popper — Hard",
+  "type": "Popper",
+  "theme": "Deep Sea",
+  "diff": "Hard",
+  "emoji": "🐙",
+  "file": "games/mega/game-0863.html"
+ },
+ {
+  "n": 864,
+  "title": "Deep Sea Popper — Expert",
+  "type": "Popper",
+  "theme": "Deep Sea",
+  "diff": "Expert",
+  "emoji": "🐙",
+  "file": "games/mega/game-0864.html"
+ },
+ {
+  "n": 865,
+  "title": "Deep Sea Popper — Master",
+  "type": "Popper",
+  "theme": "Deep Sea",
+  "diff": "Master",
+  "emoji": "🐙",
+  "file": "games/mega/game-0865.html"
+ },
+ {
+  "n": 866,
+  "title": "Deep Sea Blaster — Easy",
+  "type": "Blaster",
+  "theme": "Deep Sea",
+  "diff": "Easy",
+  "emoji": "🐙",
+  "file": "games/mega/game-0866.html"
+ },
+ {
+  "n": 867,
+  "title": "Deep Sea Blaster — Medium",
+  "type": "Blaster",
+  "theme": "Deep Sea",
+  "diff": "Medium",
+  "emoji": "🐙",
+  "file": "games/mega/game-0867.html"
+ },
+ {
+  "n": 868,
+  "title": "Deep Sea Blaster — Hard",
+  "type": "Blaster",
+  "theme": "Deep Sea",
+  "diff": "Hard",
+  "emoji": "🐙",
+  "file": "games/mega/game-0868.html"
+ },
+ {
+  "n": 869,
+  "title": "Deep Sea Blaster — Expert",
+  "type": "Blaster",
+  "theme": "Deep Sea",
+  "diff": "Expert",
+  "emoji": "🐙",
+  "file": "games/mega/game-0869.html"
+ },
+ {
+  "n": 870,
+  "title": "Deep Sea Blaster — Master",
+  "type": "Blaster",
+  "theme": "Deep Sea",
+  "diff": "Master",
+  "emoji": "🐙",
+  "file": "games/mega/game-0870.html"
+ },
+ {
+  "n": 871,
+  "title": "Deep Sea Breaker — Easy",
+  "type": "Breaker",
+  "theme": "Deep Sea",
+  "diff": "Easy",
+  "emoji": "🐙",
+  "file": "games/mega/game-0871.html"
+ },
+ {
+  "n": 872,
+  "title": "Deep Sea Breaker — Medium",
+  "type": "Breaker",
+  "theme": "Deep Sea",
+  "diff": "Medium",
+  "emoji": "🐙",
+  "file": "games/mega/game-0872.html"
+ },
+ {
+  "n": 873,
+  "title": "Deep Sea Breaker — Hard",
+  "type": "Breaker",
+  "theme": "Deep Sea",
+  "diff": "Hard",
+  "emoji": "🐙",
+  "file": "games/mega/game-0873.html"
+ },
+ {
+  "n": 874,
+  "title": "Deep Sea Breaker — Expert",
+  "type": "Breaker",
+  "theme": "Deep Sea",
+  "diff": "Expert",
+  "emoji": "🐙",
+  "file": "games/mega/game-0874.html"
+ },
+ {
+  "n": 875,
+  "title": "Deep Sea Breaker — Master",
+  "type": "Breaker",
+  "theme": "Deep Sea",
+  "diff": "Master",
+  "emoji": "🐙",
+  "file": "games/mega/game-0875.html"
+ },
+ {
+  "n": 876,
+  "title": "Deep Sea Flyer — Easy",
+  "type": "Flyer",
+  "theme": "Deep Sea",
+  "diff": "Easy",
+  "emoji": "🐙",
+  "file": "games/mega/game-0876.html"
+ },
+ {
+  "n": 877,
+  "title": "Deep Sea Flyer — Medium",
+  "type": "Flyer",
+  "theme": "Deep Sea",
+  "diff": "Medium",
+  "emoji": "🐙",
+  "file": "games/mega/game-0877.html"
+ },
+ {
+  "n": 878,
+  "title": "Deep Sea Flyer — Hard",
+  "type": "Flyer",
+  "theme": "Deep Sea",
+  "diff": "Hard",
+  "emoji": "🐙",
+  "file": "games/mega/game-0878.html"
+ },
+ {
+  "n": 879,
+  "title": "Deep Sea Flyer — Expert",
+  "type": "Flyer",
+  "theme": "Deep Sea",
+  "diff": "Expert",
+  "emoji": "🐙",
+  "file": "games/mega/game-0879.html"
+ },
+ {
+  "n": 880,
+  "title": "Deep Sea Flyer — Master",
+  "type": "Flyer",
+  "theme": "Deep Sea",
+  "diff": "Master",
+  "emoji": "🐙",
+  "file": "games/mega/game-0880.html"
+ },
+ {
+  "n": 881,
+  "title": "Deep Sea Memory — Easy",
+  "type": "Memory",
+  "theme": "Deep Sea",
+  "diff": "Easy",
+  "emoji": "🐙",
+  "file": "games/mega/game-0881.html"
+ },
+ {
+  "n": 882,
+  "title": "Deep Sea Memory — Medium",
+  "type": "Memory",
+  "theme": "Deep Sea",
+  "diff": "Medium",
+  "emoji": "🐙",
+  "file": "games/mega/game-0882.html"
+ },
+ {
+  "n": 883,
+  "title": "Deep Sea Memory — Hard",
+  "type": "Memory",
+  "theme": "Deep Sea",
+  "diff": "Hard",
+  "emoji": "🐙",
+  "file": "games/mega/game-0883.html"
+ },
+ {
+  "n": 884,
+  "title": "Deep Sea Memory — Expert",
+  "type": "Memory",
+  "theme": "Deep Sea",
+  "diff": "Expert",
+  "emoji": "🐙",
+  "file": "games/mega/game-0884.html"
+ },
+ {
+  "n": 885,
+  "title": "Deep Sea Memory — Master",
+  "type": "Memory",
+  "theme": "Deep Sea",
+  "diff": "Master",
+  "emoji": "🐙",
+  "file": "games/mega/game-0885.html"
+ },
+ {
+  "n": 886,
+  "title": "Deep Sea Snake — Easy",
+  "type": "Snake",
+  "theme": "Deep Sea",
+  "diff": "Easy",
+  "emoji": "🐙",
+  "file": "games/mega/game-0886.html"
+ },
+ {
+  "n": 887,
+  "title": "Deep Sea Snake — Medium",
+  "type": "Snake",
+  "theme": "Deep Sea",
+  "diff": "Medium",
+  "emoji": "🐙",
+  "file": "games/mega/game-0887.html"
+ },
+ {
+  "n": 888,
+  "title": "Deep Sea Snake — Hard",
+  "type": "Snake",
+  "theme": "Deep Sea",
+  "diff": "Hard",
+  "emoji": "🐙",
+  "file": "games/mega/game-0888.html"
+ },
+ {
+  "n": 889,
+  "title": "Deep Sea Snake — Expert",
+  "type": "Snake",
+  "theme": "Deep Sea",
+  "diff": "Expert",
+  "emoji": "🐙",
+  "file": "games/mega/game-0889.html"
+ },
+ {
+  "n": 890,
+  "title": "Deep Sea Snake — Master",
+  "type": "Snake",
+  "theme": "Deep Sea",
+  "diff": "Master",
+  "emoji": "🐙",
+  "file": "games/mega/game-0890.html"
+ },
+ {
+  "n": 891,
+  "title": "Deep Sea Stacker — Easy",
+  "type": "Stacker",
+  "theme": "Deep Sea",
+  "diff": "Easy",
+  "emoji": "🐙",
+  "file": "games/mega/game-0891.html"
+ },
+ {
+  "n": 892,
+  "title": "Deep Sea Stacker — Medium",
+  "type": "Stacker",
+  "theme": "Deep Sea",
+  "diff": "Medium",
+  "emoji": "🐙",
+  "file": "games/mega/game-0892.html"
+ },
+ {
+  "n": 893,
+  "title": "Deep Sea Stacker — Hard",
+  "type": "Stacker",
+  "theme": "Deep Sea",
+  "diff": "Hard",
+  "emoji": "🐙",
+  "file": "games/mega/game-0893.html"
+ },
+ {
+  "n": 894,
+  "title": "Deep Sea Stacker — Expert",
+  "type": "Stacker",
+  "theme": "Deep Sea",
+  "diff": "Expert",
+  "emoji": "🐙",
+  "file": "games/mega/game-0894.html"
+ },
+ {
+  "n": 895,
+  "title": "Deep Sea Stacker — Master",
+  "type": "Stacker",
+  "theme": "Deep Sea",
+  "diff": "Master",
+  "emoji": "🐙",
+  "file": "games/mega/game-0895.html"
+ },
+ {
+  "n": 896,
+  "title": "Deep Sea Color Match — Easy",
+  "type": "Color Match",
+  "theme": "Deep Sea",
+  "diff": "Easy",
+  "emoji": "🐙",
+  "file": "games/mega/game-0896.html"
+ },
+ {
+  "n": 897,
+  "title": "Deep Sea Color Match — Medium",
+  "type": "Color Match",
+  "theme": "Deep Sea",
+  "diff": "Medium",
+  "emoji": "🐙",
+  "file": "games/mega/game-0897.html"
+ },
+ {
+  "n": 898,
+  "title": "Deep Sea Color Match — Hard",
+  "type": "Color Match",
+  "theme": "Deep Sea",
+  "diff": "Hard",
+  "emoji": "🐙",
+  "file": "games/mega/game-0898.html"
+ },
+ {
+  "n": 899,
+  "title": "Deep Sea Color Match — Expert",
+  "type": "Color Match",
+  "theme": "Deep Sea",
+  "diff": "Expert",
+  "emoji": "🐙",
+  "file": "games/mega/game-0899.html"
+ },
+ {
+  "n": 900,
+  "title": "Deep Sea Color Match — Master",
+  "type": "Color Match",
+  "theme": "Deep Sea",
+  "diff": "Master",
+  "emoji": "🐙",
+  "file": "games/mega/game-0900.html"
+ },
+ {
+  "n": 901,
+  "title": "Mountain Dodge — Easy",
+  "type": "Dodge",
+  "theme": "Mountain",
+  "diff": "Easy",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0901.html"
+ },
+ {
+  "n": 902,
+  "title": "Mountain Dodge — Medium",
+  "type": "Dodge",
+  "theme": "Mountain",
+  "diff": "Medium",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0902.html"
+ },
+ {
+  "n": 903,
+  "title": "Mountain Dodge — Hard",
+  "type": "Dodge",
+  "theme": "Mountain",
+  "diff": "Hard",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0903.html"
+ },
+ {
+  "n": 904,
+  "title": "Mountain Dodge — Expert",
+  "type": "Dodge",
+  "theme": "Mountain",
+  "diff": "Expert",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0904.html"
+ },
+ {
+  "n": 905,
+  "title": "Mountain Dodge — Master",
+  "type": "Dodge",
+  "theme": "Mountain",
+  "diff": "Master",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0905.html"
+ },
+ {
+  "n": 906,
+  "title": "Mountain Catcher — Easy",
+  "type": "Catcher",
+  "theme": "Mountain",
+  "diff": "Easy",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0906.html"
+ },
+ {
+  "n": 907,
+  "title": "Mountain Catcher — Medium",
+  "type": "Catcher",
+  "theme": "Mountain",
+  "diff": "Medium",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0907.html"
+ },
+ {
+  "n": 908,
+  "title": "Mountain Catcher — Hard",
+  "type": "Catcher",
+  "theme": "Mountain",
+  "diff": "Hard",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0908.html"
+ },
+ {
+  "n": 909,
+  "title": "Mountain Catcher — Expert",
+  "type": "Catcher",
+  "theme": "Mountain",
+  "diff": "Expert",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0909.html"
+ },
+ {
+  "n": 910,
+  "title": "Mountain Catcher — Master",
+  "type": "Catcher",
+  "theme": "Mountain",
+  "diff": "Master",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0910.html"
+ },
+ {
+  "n": 911,
+  "title": "Mountain Popper — Easy",
+  "type": "Popper",
+  "theme": "Mountain",
+  "diff": "Easy",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0911.html"
+ },
+ {
+  "n": 912,
+  "title": "Mountain Popper — Medium",
+  "type": "Popper",
+  "theme": "Mountain",
+  "diff": "Medium",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0912.html"
+ },
+ {
+  "n": 913,
+  "title": "Mountain Popper — Hard",
+  "type": "Popper",
+  "theme": "Mountain",
+  "diff": "Hard",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0913.html"
+ },
+ {
+  "n": 914,
+  "title": "Mountain Popper — Expert",
+  "type": "Popper",
+  "theme": "Mountain",
+  "diff": "Expert",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0914.html"
+ },
+ {
+  "n": 915,
+  "title": "Mountain Popper — Master",
+  "type": "Popper",
+  "theme": "Mountain",
+  "diff": "Master",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0915.html"
+ },
+ {
+  "n": 916,
+  "title": "Mountain Blaster — Easy",
+  "type": "Blaster",
+  "theme": "Mountain",
+  "diff": "Easy",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0916.html"
+ },
+ {
+  "n": 917,
+  "title": "Mountain Blaster — Medium",
+  "type": "Blaster",
+  "theme": "Mountain",
+  "diff": "Medium",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0917.html"
+ },
+ {
+  "n": 918,
+  "title": "Mountain Blaster — Hard",
+  "type": "Blaster",
+  "theme": "Mountain",
+  "diff": "Hard",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0918.html"
+ },
+ {
+  "n": 919,
+  "title": "Mountain Blaster — Expert",
+  "type": "Blaster",
+  "theme": "Mountain",
+  "diff": "Expert",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0919.html"
+ },
+ {
+  "n": 920,
+  "title": "Mountain Blaster — Master",
+  "type": "Blaster",
+  "theme": "Mountain",
+  "diff": "Master",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0920.html"
+ },
+ {
+  "n": 921,
+  "title": "Mountain Breaker — Easy",
+  "type": "Breaker",
+  "theme": "Mountain",
+  "diff": "Easy",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0921.html"
+ },
+ {
+  "n": 922,
+  "title": "Mountain Breaker — Medium",
+  "type": "Breaker",
+  "theme": "Mountain",
+  "diff": "Medium",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0922.html"
+ },
+ {
+  "n": 923,
+  "title": "Mountain Breaker — Hard",
+  "type": "Breaker",
+  "theme": "Mountain",
+  "diff": "Hard",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0923.html"
+ },
+ {
+  "n": 924,
+  "title": "Mountain Breaker — Expert",
+  "type": "Breaker",
+  "theme": "Mountain",
+  "diff": "Expert",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0924.html"
+ },
+ {
+  "n": 925,
+  "title": "Mountain Breaker — Master",
+  "type": "Breaker",
+  "theme": "Mountain",
+  "diff": "Master",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0925.html"
+ },
+ {
+  "n": 926,
+  "title": "Mountain Flyer — Easy",
+  "type": "Flyer",
+  "theme": "Mountain",
+  "diff": "Easy",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0926.html"
+ },
+ {
+  "n": 927,
+  "title": "Mountain Flyer — Medium",
+  "type": "Flyer",
+  "theme": "Mountain",
+  "diff": "Medium",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0927.html"
+ },
+ {
+  "n": 928,
+  "title": "Mountain Flyer — Hard",
+  "type": "Flyer",
+  "theme": "Mountain",
+  "diff": "Hard",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0928.html"
+ },
+ {
+  "n": 929,
+  "title": "Mountain Flyer — Expert",
+  "type": "Flyer",
+  "theme": "Mountain",
+  "diff": "Expert",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0929.html"
+ },
+ {
+  "n": 930,
+  "title": "Mountain Flyer — Master",
+  "type": "Flyer",
+  "theme": "Mountain",
+  "diff": "Master",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0930.html"
+ },
+ {
+  "n": 931,
+  "title": "Mountain Memory — Easy",
+  "type": "Memory",
+  "theme": "Mountain",
+  "diff": "Easy",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0931.html"
+ },
+ {
+  "n": 932,
+  "title": "Mountain Memory — Medium",
+  "type": "Memory",
+  "theme": "Mountain",
+  "diff": "Medium",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0932.html"
+ },
+ {
+  "n": 933,
+  "title": "Mountain Memory — Hard",
+  "type": "Memory",
+  "theme": "Mountain",
+  "diff": "Hard",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0933.html"
+ },
+ {
+  "n": 934,
+  "title": "Mountain Memory — Expert",
+  "type": "Memory",
+  "theme": "Mountain",
+  "diff": "Expert",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0934.html"
+ },
+ {
+  "n": 935,
+  "title": "Mountain Memory — Master",
+  "type": "Memory",
+  "theme": "Mountain",
+  "diff": "Master",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0935.html"
+ },
+ {
+  "n": 936,
+  "title": "Mountain Snake — Easy",
+  "type": "Snake",
+  "theme": "Mountain",
+  "diff": "Easy",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0936.html"
+ },
+ {
+  "n": 937,
+  "title": "Mountain Snake — Medium",
+  "type": "Snake",
+  "theme": "Mountain",
+  "diff": "Medium",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0937.html"
+ },
+ {
+  "n": 938,
+  "title": "Mountain Snake — Hard",
+  "type": "Snake",
+  "theme": "Mountain",
+  "diff": "Hard",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0938.html"
+ },
+ {
+  "n": 939,
+  "title": "Mountain Snake — Expert",
+  "type": "Snake",
+  "theme": "Mountain",
+  "diff": "Expert",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0939.html"
+ },
+ {
+  "n": 940,
+  "title": "Mountain Snake — Master",
+  "type": "Snake",
+  "theme": "Mountain",
+  "diff": "Master",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0940.html"
+ },
+ {
+  "n": 941,
+  "title": "Mountain Stacker — Easy",
+  "type": "Stacker",
+  "theme": "Mountain",
+  "diff": "Easy",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0941.html"
+ },
+ {
+  "n": 942,
+  "title": "Mountain Stacker — Medium",
+  "type": "Stacker",
+  "theme": "Mountain",
+  "diff": "Medium",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0942.html"
+ },
+ {
+  "n": 943,
+  "title": "Mountain Stacker — Hard",
+  "type": "Stacker",
+  "theme": "Mountain",
+  "diff": "Hard",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0943.html"
+ },
+ {
+  "n": 944,
+  "title": "Mountain Stacker — Expert",
+  "type": "Stacker",
+  "theme": "Mountain",
+  "diff": "Expert",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0944.html"
+ },
+ {
+  "n": 945,
+  "title": "Mountain Stacker — Master",
+  "type": "Stacker",
+  "theme": "Mountain",
+  "diff": "Master",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0945.html"
+ },
+ {
+  "n": 946,
+  "title": "Mountain Color Match — Easy",
+  "type": "Color Match",
+  "theme": "Mountain",
+  "diff": "Easy",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0946.html"
+ },
+ {
+  "n": 947,
+  "title": "Mountain Color Match — Medium",
+  "type": "Color Match",
+  "theme": "Mountain",
+  "diff": "Medium",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0947.html"
+ },
+ {
+  "n": 948,
+  "title": "Mountain Color Match — Hard",
+  "type": "Color Match",
+  "theme": "Mountain",
+  "diff": "Hard",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0948.html"
+ },
+ {
+  "n": 949,
+  "title": "Mountain Color Match — Expert",
+  "type": "Color Match",
+  "theme": "Mountain",
+  "diff": "Expert",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0949.html"
+ },
+ {
+  "n": 950,
+  "title": "Mountain Color Match — Master",
+  "type": "Color Match",
+  "theme": "Mountain",
+  "diff": "Master",
+  "emoji": "🏔️",
+  "file": "games/mega/game-0950.html"
+ },
+ {
+  "n": 951,
+  "title": "Zoo Dodge — Easy",
+  "type": "Dodge",
+  "theme": "Zoo",
+  "diff": "Easy",
+  "emoji": "🦁",
+  "file": "games/mega/game-0951.html"
+ },
+ {
+  "n": 952,
+  "title": "Zoo Dodge — Medium",
+  "type": "Dodge",
+  "theme": "Zoo",
+  "diff": "Medium",
+  "emoji": "🦁",
+  "file": "games/mega/game-0952.html"
+ },
+ {
+  "n": 953,
+  "title": "Zoo Dodge — Hard",
+  "type": "Dodge",
+  "theme": "Zoo",
+  "diff": "Hard",
+  "emoji": "🦁",
+  "file": "games/mega/game-0953.html"
+ },
+ {
+  "n": 954,
+  "title": "Zoo Dodge — Expert",
+  "type": "Dodge",
+  "theme": "Zoo",
+  "diff": "Expert",
+  "emoji": "🦁",
+  "file": "games/mega/game-0954.html"
+ },
+ {
+  "n": 955,
+  "title": "Zoo Dodge — Master",
+  "type": "Dodge",
+  "theme": "Zoo",
+  "diff": "Master",
+  "emoji": "🦁",
+  "file": "games/mega/game-0955.html"
+ },
+ {
+  "n": 956,
+  "title": "Zoo Catcher — Easy",
+  "type": "Catcher",
+  "theme": "Zoo",
+  "diff": "Easy",
+  "emoji": "🦁",
+  "file": "games/mega/game-0956.html"
+ },
+ {
+  "n": 957,
+  "title": "Zoo Catcher — Medium",
+  "type": "Catcher",
+  "theme": "Zoo",
+  "diff": "Medium",
+  "emoji": "🦁",
+  "file": "games/mega/game-0957.html"
+ },
+ {
+  "n": 958,
+  "title": "Zoo Catcher — Hard",
+  "type": "Catcher",
+  "theme": "Zoo",
+  "diff": "Hard",
+  "emoji": "🦁",
+  "file": "games/mega/game-0958.html"
+ },
+ {
+  "n": 959,
+  "title": "Zoo Catcher — Expert",
+  "type": "Catcher",
+  "theme": "Zoo",
+  "diff": "Expert",
+  "emoji": "🦁",
+  "file": "games/mega/game-0959.html"
+ },
+ {
+  "n": 960,
+  "title": "Zoo Catcher — Master",
+  "type": "Catcher",
+  "theme": "Zoo",
+  "diff": "Master",
+  "emoji": "🦁",
+  "file": "games/mega/game-0960.html"
+ },
+ {
+  "n": 961,
+  "title": "Zoo Popper — Easy",
+  "type": "Popper",
+  "theme": "Zoo",
+  "diff": "Easy",
+  "emoji": "🦁",
+  "file": "games/mega/game-0961.html"
+ },
+ {
+  "n": 962,
+  "title": "Zoo Popper — Medium",
+  "type": "Popper",
+  "theme": "Zoo",
+  "diff": "Medium",
+  "emoji": "🦁",
+  "file": "games/mega/game-0962.html"
+ },
+ {
+  "n": 963,
+  "title": "Zoo Popper — Hard",
+  "type": "Popper",
+  "theme": "Zoo",
+  "diff": "Hard",
+  "emoji": "🦁",
+  "file": "games/mega/game-0963.html"
+ },
+ {
+  "n": 964,
+  "title": "Zoo Popper — Expert",
+  "type": "Popper",
+  "theme": "Zoo",
+  "diff": "Expert",
+  "emoji": "🦁",
+  "file": "games/mega/game-0964.html"
+ },
+ {
+  "n": 965,
+  "title": "Zoo Popper — Master",
+  "type": "Popper",
+  "theme": "Zoo",
+  "diff": "Master",
+  "emoji": "🦁",
+  "file": "games/mega/game-0965.html"
+ },
+ {
+  "n": 966,
+  "title": "Zoo Blaster — Easy",
+  "type": "Blaster",
+  "theme": "Zoo",
+  "diff": "Easy",
+  "emoji": "🦁",
+  "file": "games/mega/game-0966.html"
+ },
+ {
+  "n": 967,
+  "title": "Zoo Blaster — Medium",
+  "type": "Blaster",
+  "theme": "Zoo",
+  "diff": "Medium",
+  "emoji": "🦁",
+  "file": "games/mega/game-0967.html"
+ },
+ {
+  "n": 968,
+  "title": "Zoo Blaster — Hard",
+  "type": "Blaster",
+  "theme": "Zoo",
+  "diff": "Hard",
+  "emoji": "🦁",
+  "file": "games/mega/game-0968.html"
+ },
+ {
+  "n": 969,
+  "title": "Zoo Blaster — Expert",
+  "type": "Blaster",
+  "theme": "Zoo",
+  "diff": "Expert",
+  "emoji": "🦁",
+  "file": "games/mega/game-0969.html"
+ },
+ {
+  "n": 970,
+  "title": "Zoo Blaster — Master",
+  "type": "Blaster",
+  "theme": "Zoo",
+  "diff": "Master",
+  "emoji": "🦁",
+  "file": "games/mega/game-0970.html"
+ },
+ {
+  "n": 971,
+  "title": "Zoo Breaker — Easy",
+  "type": "Breaker",
+  "theme": "Zoo",
+  "diff": "Easy",
+  "emoji": "🦁",
+  "file": "games/mega/game-0971.html"
+ },
+ {
+  "n": 972,
+  "title": "Zoo Breaker — Medium",
+  "type": "Breaker",
+  "theme": "Zoo",
+  "diff": "Medium",
+  "emoji": "🦁",
+  "file": "games/mega/game-0972.html"
+ },
+ {
+  "n": 973,
+  "title": "Zoo Breaker — Hard",
+  "type": "Breaker",
+  "theme": "Zoo",
+  "diff": "Hard",
+  "emoji": "🦁",
+  "file": "games/mega/game-0973.html"
+ },
+ {
+  "n": 974,
+  "title": "Zoo Breaker — Expert",
+  "type": "Breaker",
+  "theme": "Zoo",
+  "diff": "Expert",
+  "emoji": "🦁",
+  "file": "games/mega/game-0974.html"
+ },
+ {
+  "n": 975,
+  "title": "Zoo Breaker — Master",
+  "type": "Breaker",
+  "theme": "Zoo",
+  "diff": "Master",
+  "emoji": "🦁",
+  "file": "games/mega/game-0975.html"
+ },
+ {
+  "n": 976,
+  "title": "Zoo Flyer — Easy",
+  "type": "Flyer",
+  "theme": "Zoo",
+  "diff": "Easy",
+  "emoji": "🦁",
+  "file": "games/mega/game-0976.html"
+ },
+ {
+  "n": 977,
+  "title": "Zoo Flyer — Medium",
+  "type": "Flyer",
+  "theme": "Zoo",
+  "diff": "Medium",
+  "emoji": "🦁",
+  "file": "games/mega/game-0977.html"
+ },
+ {
+  "n": 978,
+  "title": "Zoo Flyer — Hard",
+  "type": "Flyer",
+  "theme": "Zoo",
+  "diff": "Hard",
+  "emoji": "🦁",
+  "file": "games/mega/game-0978.html"
+ },
+ {
+  "n": 979,
+  "title": "Zoo Flyer — Expert",
+  "type": "Flyer",
+  "theme": "Zoo",
+  "diff": "Expert",
+  "emoji": "🦁",
+  "file": "games/mega/game-0979.html"
+ },
+ {
+  "n": 980,
+  "title": "Zoo Flyer — Master",
+  "type": "Flyer",
+  "theme": "Zoo",
+  "diff": "Master",
+  "emoji": "🦁",
+  "file": "games/mega/game-0980.html"
+ },
+ {
+  "n": 981,
+  "title": "Zoo Memory — Easy",
+  "type": "Memory",
+  "theme": "Zoo",
+  "diff": "Easy",
+  "emoji": "🦁",
+  "file": "games/mega/game-0981.html"
+ },
+ {
+  "n": 982,
+  "title": "Zoo Memory — Medium",
+  "type": "Memory",
+  "theme": "Zoo",
+  "diff": "Medium",
+  "emoji": "🦁",
+  "file": "games/mega/game-0982.html"
+ },
+ {
+  "n": 983,
+  "title": "Zoo Memory — Hard",
+  "type": "Memory",
+  "theme": "Zoo",
+  "diff": "Hard",
+  "emoji": "🦁",
+  "file": "games/mega/game-0983.html"
+ },
+ {
+  "n": 984,
+  "title": "Zoo Memory — Expert",
+  "type": "Memory",
+  "theme": "Zoo",
+  "diff": "Expert",
+  "emoji": "🦁",
+  "file": "games/mega/game-0984.html"
+ },
+ {
+  "n": 985,
+  "title": "Zoo Memory — Master",
+  "type": "Memory",
+  "theme": "Zoo",
+  "diff": "Master",
+  "emoji": "🦁",
+  "file": "games/mega/game-0985.html"
+ },
+ {
+  "n": 986,
+  "title": "Zoo Snake — Easy",
+  "type": "Snake",
+  "theme": "Zoo",
+  "diff": "Easy",
+  "emoji": "🦁",
+  "file": "games/mega/game-0986.html"
+ },
+ {
+  "n": 987,
+  "title": "Zoo Snake — Medium",
+  "type": "Snake",
+  "theme": "Zoo",
+  "diff": "Medium",
+  "emoji": "🦁",
+  "file": "games/mega/game-0987.html"
+ },
+ {
+  "n": 988,
+  "title": "Zoo Snake — Hard",
+  "type": "Snake",
+  "theme": "Zoo",
+  "diff": "Hard",
+  "emoji": "🦁",
+  "file": "games/mega/game-0988.html"
+ },
+ {
+  "n": 989,
+  "title": "Zoo Snake — Expert",
+  "type": "Snake",
+  "theme": "Zoo",
+  "diff": "Expert",
+  "emoji": "🦁",
+  "file": "games/mega/game-0989.html"
+ },
+ {
+  "n": 990,
+  "title": "Zoo Snake — Master",
+  "type": "Snake",
+  "theme": "Zoo",
+  "diff": "Master",
+  "emoji": "🦁",
+  "file": "games/mega/game-0990.html"
+ },
+ {
+  "n": 991,
+  "title": "Zoo Stacker — Easy",
+  "type": "Stacker",
+  "theme": "Zoo",
+  "diff": "Easy",
+  "emoji": "🦁",
+  "file": "games/mega/game-0991.html"
+ },
+ {
+  "n": 992,
+  "title": "Zoo Stacker — Medium",
+  "type": "Stacker",
+  "theme": "Zoo",
+  "diff": "Medium",
+  "emoji": "🦁",
+  "file": "games/mega/game-0992.html"
+ },
+ {
+  "n": 993,
+  "title": "Zoo Stacker — Hard",
+  "type": "Stacker",
+  "theme": "Zoo",
+  "diff": "Hard",
+  "emoji": "🦁",
+  "file": "games/mega/game-0993.html"
+ },
+ {
+  "n": 994,
+  "title": "Zoo Stacker — Expert",
+  "type": "Stacker",
+  "theme": "Zoo",
+  "diff": "Expert",
+  "emoji": "🦁",
+  "file": "games/mega/game-0994.html"
+ },
+ {
+  "n": 995,
+  "title": "Zoo Stacker — Master",
+  "type": "Stacker",
+  "theme": "Zoo",
+  "diff": "Master",
+  "emoji": "🦁",
+  "file": "games/mega/game-0995.html"
+ },
+ {
+  "n": 996,
+  "title": "Zoo Color Match — Easy",
+  "type": "Color Match",
+  "theme": "Zoo",
+  "diff": "Easy",
+  "emoji": "🦁",
+  "file": "games/mega/game-0996.html"
+ },
+ {
+  "n": 997,
+  "title": "Zoo Color Match — Medium",
+  "type": "Color Match",
+  "theme": "Zoo",
+  "diff": "Medium",
+  "emoji": "🦁",
+  "file": "games/mega/game-0997.html"
+ },
+ {
+  "n": 998,
+  "title": "Zoo Color Match — Hard",
+  "type": "Color Match",
+  "theme": "Zoo",
+  "diff": "Hard",
+  "emoji": "🦁",
+  "file": "games/mega/game-0998.html"
+ },
+ {
+  "n": 999,
+  "title": "Zoo Color Match — Expert",
+  "type": "Color Match",
+  "theme": "Zoo",
+  "diff": "Expert",
+  "emoji": "🦁",
+  "file": "games/mega/game-0999.html"
+ },
+ {
+  "n": 1000,
+  "title": "Zoo Color Match — Master",
+  "type": "Color Match",
+  "theme": "Zoo",
+  "diff": "Master",
+  "emoji": "🦁",
+  "file": "games/mega/game-1000.html"
+ }
+]
