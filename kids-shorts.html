@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kids Shorts Under 5 — Blippi, Peppa Pig & Teletubbies</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#000;color:#fff;overflow:hidden}
+header{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;gap:8px;align-items:center;padding:12px 14px;background:linear-gradient(rgba(0,0,0,.75),transparent);flex-wrap:wrap}
+header b{font-size:18px}header a{color:#fff}
+.btn{border:0;border-radius:20px;padding:9px 14px;font-weight:700;cursor:pointer;background:#fff;color:#111}
+.btn.red{background:#fe2c55;color:#fff}.btn.active{background:#ffd93d;color:#111}
+#chips{position:fixed;top:58px;left:0;right:0;z-index:19;display:flex;gap:8px;overflow-x:auto;padding:6px 14px;background:rgba(0,0,0,.45)}
+.chip{white-space:nowrap;border:0;border-radius:20px;padding:7px 13px;background:rgba(255,255,255,.9);font-weight:700;cursor:pointer}
+.chip.active{background:#ffd93d}
+#feed{height:100vh;overflow-y:auto;scroll-snap-type:y mandatory;scrollbar-width:none}
+#feed::-webkit-scrollbar{display:none}
+.slide{height:100vh;scroll-snap-align:start;scroll-snap-stop:always;position:relative;display:flex;align-items:center;justify-content:center;padding:100px 16px 60px}
+.slide iframe{width:360px;height:640px;max-width:94vw;max-height:72vh;border:0;border-radius:18px;background:#111}
+.kidCard{max-width:520px;width:100%;text-align:center;background:rgba(255,255,255,.96);color:#111;border-radius:28px;padding:26px 22px}
+.kidCard p{line-height:1.5;color:#333}
+.info{position:absolute;left:16px;right:90px;bottom:24px;text-shadow:0 1px 6px rgba(0,0,0,.9)}
+.info b{display:block;font-size:17px}.info small{opacity:.9}
+.actions{position:absolute;right:14px;bottom:150px;display:flex;flex-direction:column;gap:16px;align-items:center}
+.act{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:50%;width:54px;height:54px;font-size:22px;cursor:pointer}
+.act span{display:block;font-size:11px;font-weight:700;margin-top:2px}
+.hint{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);z-index:20;background:rgba(0,0,0,.6);padding:8px 14px;border-radius:20px;font-size:13px;white-space:nowrap}
+#addBox{position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:50;display:none;place-items:center;padding:16px}
+#addBox.open{display:grid}
+.box{background:#fff;color:#111;border-radius:20px;padding:22px;max-width:480px;width:100%}
+.box input{width:100%;padding:12px;border:1px solid #ddd;border-radius:12px;margin:10px 0}
+#comments{position:fixed;left:0;right:0;bottom:0;height:62vh;background:#fff;color:#111;border-radius:22px 22px 0 0;z-index:60;display:none;flex-direction:column;padding:16px}
+#comments.open{display:flex}
+.comment{border-bottom:1px solid #eee;padding:10px 0}.comment b{font-size:14px}.comment small{color:#888;margin-left:6px}.comment p{margin:4px 0 0}
+.cInput{display:flex;gap:8px;margin-top:10px}.cInput input{flex:1;padding:12px;border:1px solid #ddd;border-radius:22px}
+.close{float:right;border:0;background:#eee;border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:18px}
+</style>
+</head>
+<body>
+<header>
+<b>🍼 Kids Shorts Under 5</b>
+<a href="tiktok.html"><button class="btn">← Kids Learning</button></a>
+<button class="btn red" onclick="document.getElementById('addBox').classList.add('open')">＋ Add a video</button>
+</header>
+<div id="chips"></div>
+<div id="feed"></div>
+<div class="hint">⬆ Swipe / scroll for the next short • For kids under 5 • Videos play in YouTube's official player</div>
+
+<div id="addBox"><div class="box">
+<button class="close" onclick="document.getElementById('addBox').classList.remove('open')">×</button>
+<h2>Add any kids video</h2>
+<p style="color:#555;line-height:1.5">Paste a YouTube link for any other part / episode — for example from the official Blippi, Peppa Pig, or Teletubbies channels. It will be added to the top of this Shorts feed using YouTube's official player. Videos are not copied or downloaded into this site.</p>
+<input id="ytUrl" placeholder="https://www.youtube.com/watch?v=...  or  https://youtu.be/...  or  .../shorts/...">
+<button class="btn red" onclick="addVideo()">Add to Shorts →</button>
+</div></div>
+
+<div id="comments">
+<div style="display:flex;justify-content:space-between;align-items:center"><h3 style="margin:0">💬 Comments</h3><button class="close" onclick="closeComments()">×</button></div>
+<div id="commentList" style="flex:1;overflow:auto"></div>
+<div class="cInput"><input id="commentInput" placeholder="Add a comment..." onkeydown="if(event.key==='Enter')postComment()"><button class="btn red" onclick="postComment()">Post</button></div>
+</div>
+
+<script>
+const cats=["All","Blippi","Peppa Pig","Teletubbies"];
+const shorts=[
+ {id:"5_lGysdHLFQ",show:"Blippi",title:"Learning Colors With Blippi At The Indoor Playground"},
+ {id:"ckVB1i7OsUY",show:"Blippi",title:"Learn Colors for Toddlers — Blippi"},
+ {id:"LfuEad93Ap0",show:"Blippi",title:"Educational Fun for Kids With Blippi"},
+ {id:"eTvrSLFWmLo",show:"Blippi",title:"Learn Machines With Blippi"},
+ {id:"astwv4c_iP0",show:"Blippi",title:"Blippi Sink Or Float"},
+ {id:"Enbvtr78mqo",show:"Blippi",title:"Blippi Learns About Bubbles"},
+ {id:"MyhheV6G4Rw",show:"Peppa Pig",title:"Halloween Buffet — Peppa Pig Full Episodes"},
+ {id:"U3kAky_IPhA",show:"Peppa Pig",title:"Peppa Pig Tales — Baby Evie Turn GIANT!"},
+ {id:"5NpNYp3cwP0",show:"Peppa Pig",title:"Peppa Pig Playground — Full Episodes"},
+ {id:"Yu4IMVtvns0",show:"Peppa Pig",title:"Peppa Pig Tales — Halloween Superheroes!"},
+ {id:"Ff4HASKsxK4",show:"Teletubbies",title:"Teletubbies — EH-OH! Teletubbies Love to Peekaboo | Full Episode"},
+ {id:"FbJSBBViIQU",show:"Teletubbies",title:"Teletubbies — Here Comes the Rain! | Full Episode"},
+ {id:"-Ojkf3BwVAg",show:"Teletubbies",title:"Teletubbies — Messy Sensory Play & Creative Exploration | Full Episodes"},
+ {id:"vbFxsCIJvCA",show:"Teletubbies",title:"Teletubbies — Close The Gate | Full Episode"},
+ {id:"j5n6vetNy-Y",show:"Teletubbies",title:"Teletubbies — Let's Learn The Number 3 | Full Episode"},
+];
+let cat="All", myVideos=[], comments={}, currentCommentId=null;
+try{myVideos=JSON.parse(localStorage.getItem("kids_shorts_my")||"[]")}catch(e){}
+try{comments=JSON.parse(localStorage.getItem("kids_shorts_comments")||"{}")}catch(e){}
+function esc(s){return String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function commentCount(id){return (comments[id]||[]).length}
+function commentHTML(id){let l=comments[id]||[];if(!l.length)return "<p style='color:#888'>No comments yet. Be the first! 💬</p>";return l.map(c=>`<div class="comment"><b>${esc(c.name)}</b><small>${esc(c.time)}</small><p>${esc(c.text)}</p></div>`).join("")}
+function renderChips(){document.getElementById("chips").innerHTML=cats.map(c=>`<button class="chip ${c===cat?'active':''}" onclick="cat='${c}';renderChips();render()">${c}</button>`).join("")}
+function render(){
+  let list=[...myVideos,...shorts].filter(v=>cat==="All"||v.show===cat);
+  let intro=`<div class="slide" style="background:linear-gradient(135deg,#ff9a9e,#667eea)"><div class="kidCard"><div style="font-size:80px">🍼</div><h2>Kids Shorts — Under 5</h2><p>Scroll up and down for short-style videos for little kids: Blippi, Peppa Pig, and Teletubbies, played in YouTube's official player. These shows belong to their creators — they are not copied into this site, and this site is not affiliated with them.</p><p><b>${shorts.length} starter videos</b> • Tap ＋ Add a video to add any other part you find on the official channels.</p></div></div>`;
+  document.getElementById("feed").innerHTML=intro+list.map(v=>`<div class="slide"><iframe src="https://www.youtube.com/embed/${v.id}" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe><div class="info"><b>${esc(v.title)}</b><small>${esc(v.show)} • Under 5 • Watch on YouTube ↗</small></div><div class="actions"><button class="act" onclick="this.style.background='#fe2c55'">❤️<span>Like</span></button><button class="act" onclick="openComments('${v.id}')">💬<span>${commentCount(v.id)}</span></button><a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener"><button class="act">↗<span>YouTube</span></button></a></div></div>`).join("");
+  document.getElementById("feed").scrollTop=0;
+}
+function openComments(id){currentCommentId=id;document.getElementById("commentList").innerHTML=commentHTML(id);document.getElementById("comments").classList.add("open")}
+function closeComments(){document.getElementById("comments").classList.remove("open");currentCommentId=null}
+function postComment(){let t=document.getElementById("commentInput").value.trim();if(!t||!currentCommentId)return;if(!comments[currentCommentId])comments[currentCommentId]=[];comments[currentCommentId].push({name:"You",text:t,time:new Date().toLocaleString()});localStorage.setItem("kids_shorts_comments",JSON.stringify(comments));document.getElementById("commentInput").value="";document.getElementById("commentList").innerHTML=commentHTML(currentCommentId)}
+function addVideo(){
+  let url=document.getElementById("ytUrl").value.trim();
+  let m=url.match(/(?:v=|youtu\.be\/|shorts\/)([A-Za-z0-9_-]{11})/);
+  if(!m){alert("That doesn't look like a YouTube link. Copy a link like https://www.youtube.com/watch?v=...");return}
+  myVideos.unshift({id:m[1],show:"My video",title:"YouTube video you added"});
+  localStorage.setItem("kids_shorts_my",JSON.stringify(myVideos));
+  document.getElementById("addBox").classList.remove("open");document.getElementById("ytUrl").value="";
+  cat="All";renderChips();render();
+}
+document.addEventListener("keydown",e=>{let f=document.getElementById("feed");if(e.key==="ArrowDown")f.scrollBy({top:window.innerHeight,behavior:"smooth"});if(e.key==="ArrowUp")f.scrollBy({top:-window.innerHeight,behavior:"smooth"})});
+renderChips();render();
+</script>
+</body>
+</html>
