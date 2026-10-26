@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Block Battle — Original Island Battle Royale</title>
+<meta name="description" content="Block Battle: an original browser battle royale. Drop on an island, loot weapons, build walls, survive the storm and be the last one standing. No download.">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,sans-serif;background:#0f172a;color:#fff;overflow:hidden;touch-action:none}
+#top{background:#111827;padding:8px 10px;font-size:13px;line-height:1.5}
+#top b{color:#facc15}#top .small{color:#cbd5e1}
+#hud{display:flex;gap:10px;flex-wrap:wrap;align-items:center;background:#1e293b;padding:7px 10px;font-size:14px;font-weight:700}
+.bar{width:130px;height:14px;background:#334155;border-radius:99px;overflow:hidden;display:inline-block;vertical-align:middle}
+.bar i{display:block;height:100%}
+#hpbar{background:#ef4444}#shbar{background:#38bdf8}
+button{border:0;border-radius:999px;padding:9px 15px;font-weight:800;cursor:pointer;background:#facc15;color:#111}
+button.alt{background:#334155;color:#fff}
+#wrap{position:relative}
+canvas#game{display:block;background:#4ade80;width:100vw;height:calc(100vh - 108px)}
+canvas#mini{position:absolute;top:10px;right:10px;border:2px solid #fff;border-radius:10px;background:rgba(15,23,42,.85)}
+#feed{position:absolute;top:10px;left:10px;color:#fff;text-shadow:0 1px 3px #000;font-size:13px;font-weight:700;line-height:1.6;pointer-events:none}
+#msg{position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);text-align:center;background:rgba(0,0,0,.78);padding:26px 30px;border-radius:16px;display:none;max-width:90vw}
+#msg h2{margin:0 0 8px;font-size:32px;color:#facc15}#msg p{color:#e2e8f0}
+#mobile{display:none;position:absolute;left:0;right:0;bottom:14px;justify-content:space-between;padding:0 14px;pointer-events:none}
+#mobile button{pointer-events:auto;width:64px;height:64px;border-radius:50%;font-size:22px;padding:0}
+#joy{width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,.18);border:2px solid rgba(255,255,255,.5);position:relative;pointer-events:auto;touch-action:none}
+#knob{width:48px;height:48px;border-radius:50%;background:#facc15;position:absolute;left:31px;top:31px}
+@media(max-width:750px){#mobile{display:flex}#top{font-size:12px}canvas#game{height:calc(100vh - 132px)}}
+</style>
+</head>
+<body>
+<div id="top"><b>🧱 BLOCK BATTLE</b> — an original island battle royale (not Roblox or Fortnite). <span class="small"><b>How to play:</b> WASD / arrows = move &nbsp;|&nbsp; Mouse = aim, Click or Space = shoot &nbsp;|&nbsp; <b>B = build a wall</b> in front of you (blocks enemy shots) &nbsp;|&nbsp; Q or 1-2-3 = switch weapon &nbsp;|&nbsp; P = pause &nbsp;|&nbsp; Grab loot: 🔫 weapons, ❤️ health, 🛡️ shield, 🧱 builds. Survive the shrinking storm ⛈️ and be the last one standing!</span></div>
+<div id="hud">
+<span>❤️ <span class="bar"><i id="hpbar"></i></span> <span id="hpTxt"></span></span>
+<span>🛡️ <span class="bar"><i id="shbar"></i></span> <span id="shTxt"></span></span>
+<span>🔫 <span id="weap"></span></span>
+<span>🧱 Builds: <span id="builds"></span></span>
+<span>🎯 Kills: <span id="kills">0</span> / 11 &nbsp;|&nbsp; Alive: <span id="alive">12</span></span>
+<span>⛈️ Zone in: <span id="zone">25s</span></span>
+<span>🏆 Best: <span id="best">0</span></span>
+<button id="pauseBtn" class="alt">⏸ Pause</button>
+<button id="restartBtn">↻ Restart</button>
+</div>
+<div id="wrap">
+<canvas id="game"></canvas>
+<canvas id="mini" width="140" height="140"></canvas>
+<div id="feed"></div>
+<div id="msg"><h2 id="msgTitle"></h2><p id="msgText"></p><button onclick="startGame()">▶ Play again</button></div>
+<div id="mobile">
+<div id="joy"><div id="knob"></div></div>
+<div style="display:flex;gap:10px">
+<button id="buildBtn" title="Build wall">🧱</button>
+<button id="shootBtn" title="Shoot" style="background:#ef4444;color:#fff">🔫</button>
+</div>
+</div>
+</div>
+<script>
+const cv=document.getElementById('game'),ctx=cv.getContext('2d');
+const mini=document.getElementById('mini'),mctx=mini.getContext('2d');
+const WORLD=2000;
+const WEAPONS={
+ pistol:{name:'Pistol',dmg:20,rate:320,speed:14,color:'#facc15',spread:0.06},
+ shotgun:{name:'Shotgun',dmg:11,rate:850,speed:12,color:'#fb923c',spread:0.22,pellets:5},
+ rifle:{name:'Rifle',dmg:34,rate:140,speed:20,color:'#38bdf8',spread:0.03}
+};
+let W,H,player,bots,bullets,pickups,walls,obstacles,feed,keys={},mouse={x:0,y:0,down:false},
+    cam={x:0,y:0},zone={cx:WORLD/2,cy:WORLD/2,r:1150,next:25,phase:0},
+    paused=false,over=false,joyVec={x:0,y:0},firing=false,lastTime=0;
+const PHASES=[900,700,500,350,220,120];
+function best(){try{return +(localStorage.getItem('blockBattleBest')||0)}catch(e){return 0}}
+function setBest(v){try{localStorage.setItem('blockBattleBest',v)}catch(e){}}
+function rnd(a,b){return a+Math.random()*(b-a)}
+function dist(a,b){return Math.hypot(a.x-b.x,a.y-b.y)}
+function addFeed(t){feed.unshift(t);if(feed.length>4)feed.pop();document.getElementById('feed').innerHTML=feed.join('<br>')}
+function makeChar(x,y,color){return{x,y,hp:100,shield:0,angle:0,fire:0,speed:3.1,color,weapon:'pistol',owned:['pistol'],builds:5,alive:true,strafe:1,strafeT:0}}
+function startGame(){
+ W=window.innerWidth;H=Math.max(320,window.innerHeight-132);cv.width=W;cv.height=H;
+ player=makeChar(WORLD/2,WORLD/2,'#facc15');player.shield=0;
+ bots=[];const names=['Bolt','Pixel','Rex','Nova','Zip','Milo','Vega','Juno','Max','Ivy','Leo'];
+ for(let i=0;i<11;i++){let b;do{b=makeChar(rnd(150,WORLD-150),rnd(150,WORLD-150),['#ef4444','#38bdf8','#a78bfa','#f472b6','#4ade80','#fb923c','#eab308','#22d3ee','#f87171','#a3e635','#c084fc'][i])}while(dist(b,player)<450);
+  b.weapon=['pistol','shotgun','rifle'][i%3];b.owned=[b.weapon];bots.push(b);b.name=names[i];}
+ bullets=[];walls=[];feed=[];over=false;paused=false;
+ document.getElementById('msg').style.display='none';document.getElementById('pauseBtn').textContent='⏸ Pause';
+ zone={cx:WORLD/2,cy:WORLD/2,r:1150,next:25,phase:0};
+ obstacles=[];for(let i=0;i<70;i++)obstacles.push({x:rnd(80,WORLD-80),y:rnd(80,WORLD-80),r:rnd(16,30),kind:Math.random()<0.6?'tree':'rock'});
+ pickups=[];const kinds=['shotgun','rifle','med','shield','build','build','med','pistol'];
+ for(let i=0;i<34;i++)pickups.push({x:rnd(100,WORLD-100),y:rnd(100,WORLD-100),type:kinds[i%kinds.length]});
+ addFeed('🪂 You dropped onto Block Island! Loot up and survive!');
+ document.getElementById('best').textContent=best();
+ lastTime=performance.now();requestAnimationFrame(loop);
+}
+function blocked(x,y,r){
+ if(x<r||y<r||x>WORLD-r||y>WORLD-r)return true;
+ for(const o of obstacles)if(Math.hypot(x-o.x,y-o.y)<o.r+r-4)return true;
+ for(const w of walls)if(Math.abs(x-w.x)<26+r&&Math.abs(y-w.y)<26+r)return true;
+ return false;
+}
+function tryMove(c,dx,dy){const nx=c.x+dx,ny=c.y+dy;if(!blocked(nx,c.y,14))c.x=nx;if(!blocked(c.x,ny,14))c.y=ny;
+ c.x=Math.max(20,Math.min(WORLD-20,c.x));c.y=Math.max(20,Math.min(WORLD-20,c.y));}
+function shoot(c){
+ const w=WEAPONS[c.weapon];if(c.fire>0)return;c.fire=w.rate;
+ const n=w.pellets||1;
+ for(let i=0;i<n;i++){const a=c.angle+rnd(-w.spread,w.spread);
+  bullets.push({x:c.x+Math.cos(c.angle)*26,y:c.y+Math.sin(c.angle)*26,vx:Math.cos(a)*w.speed,vy:Math.sin(a)*w.speed,dmg:w.dmg,from:c,life:60});}
+}
+function buildWall(){
+ if(player.builds<=0){addFeed('🧱 No builds left! Grab 🧱 loot to refill.');return;}
+ player.builds--;
+ const bx=player.x+Math.cos(player.angle)*62,by=player.y+Math.sin(player.angle)*62;
+ walls.push({x:bx,y:by,hp:60});addFeed('🧱 Wall built! It blocks enemy shots.');
+}
+function damage(target,amount,attacker){
+ if(target.shield>0){const s=Math.min(target.shield,amount);target.shield-=s;amount-=s;}
+ target.hp-=amount;
+ if(target.hp<=0&&target.alive){target.alive=false;
+  if(target===player){endGame(false);}
+  else{player.kills=(player.kills||0)+1;addFeed('💥 You knocked out '+(target.name||'a bot')+'!');}
+  if(attacker===player&&target!==player){/* kill counted above */}
+ }
+}
+function endGame(win){
+ over=true;const aliveCount=bots.filter(b=>b.alive).length+(player.alive?1:0);
+ const score=(player.kills||0)*100+(win?500:0)+Math.max(0,100-player.hp);
+ const b=Math.max(best(),score);setBest(b);document.getElementById('best').textContent=b;
+ document.getElementById('msgTitle').textContent=win?'🏆 VICTORY ROYALE!':'💀 Knocked out!';
+ document.getElementById('msgText').textContent=win?('Last one standing! Kills: '+(player.kills||0)+' · Score: '+score+' · Best: '+b):('You placed #'+(aliveCount+1)+' · Kills: '+(player.kills||0)+' · Score: '+score+' · Best: '+b+' — try again!');
+ document.getElementById('msg').style.display='block';
+}
+function update(dt){
+ if(paused||over)return;
+ // zone timer
+ zone.next-=dt/1000;
+ if(zone.next<=0){zone.phase++;zone.next=25;
+  if(zone.phase<=PHASES.length){zone.r=PHASES[zone.phase-1];addFeed('⛈️ Storm shrinking! Get inside the white circle!');}}
+ // player aim: mouse world position
+ player.angle=Math.atan2((mouse.y+cam.y)-player.y,(mouse.x+cam.x)-player.x);
+ if(firing&&mouse.x===0&&mouse.y===0){/* mobile: aim nearest bot */ const t=bots.filter(b=>b.alive).sort((a,b)=>dist(a,player)-dist(b,player))[0]; if(t)player.angle=Math.atan2(t.y-player.y,t.x-player.x);}
+ let dx=0,dy=0;
+ if(keys['w']||keys['arrowup'])dy-=1; if(keys['s']||keys['arrowdown'])dy+=1;
+ if(keys['a']||keys['arrowleft'])dx-=1; if(keys['d']||keys['arrowright'])dx+=1;
+ dx+=joyVec.x;dy+=joyVec.y;const m=Math.hypot(dx,dy);if(m>1){dx/=m;dy/=m;}
+ tryMove(player,dx*player.speed,dy*player.speed);
+ if((mouse.down||keys[' ']||firing)&&player.alive)shoot(player);
+ if(player.fire>0)player.fire-=dt;
+ // pickups
+ for(let i=pickups.length-1;i>=0;i--){const p=pickups[i];
+  if(dist(p,player)<34){pickups.splice(i,1);
+   if(p.type==='med'){player.hp=Math.min(100,player.hp+40);addFeed('❤️ +40 health!');}
+   else if(p.type==='shield'){player.shield=Math.min(100,player.shield+50);addFeed('🛡️ +50 shield!');}
+   else if(p.type==='build'){player.builds+=5;addFeed('🧱 +5 builds!');}
+   else{player.weapon=p.type;if(!player.owned.includes(p.type))player.owned.push(p.type);addFeed('🔫 Picked up '+WEAPONS[p.type].name+'!');}
+  }}
+ // bots
+ for(const b of bots){if(!b.alive)continue;if(b.fire>0)b.fire-=dt;
+  const d=dist(b,player);const inZone=Math.hypot(b.x-zone.cx,b.y-zone.cy)<zone.r;
+  if(!inZone){b.angle=Math.atan2(zone.cy-b.y,zone.cx-b.x);tryMove(b,Math.cos(b.angle)*b.speed,Math.sin(b.angle)*b.speed);}
+  else if(d<560){b.angle=Math.atan2(player.y-b.y,player.x-b.x);
+   b.strafeT-=dt;if(b.strafeT<=0){b.strafe=Math.random()<0.5?-1:1;b.strafeT=rnd(500,1400);}
+   if(d>380)tryMove(b,Math.cos(b.angle)*b.speed*0.9,Math.sin(b.angle)*b.speed*0.9);
+   else tryMove(b,Math.cos(b.angle+b.strafe*1.2)*b.speed*0.6,Math.sin(b.angle+b.strafe*1.2)*b.speed*0.6);
+   if(d<460&&player.alive){const old=b.angle;b.angle+=rnd(-0.18,0.18);shoot(b);b.angle=old;}
+  } else {b.angle+=0.01;tryMove(b,Math.cos(b.angle)*1.2,Math.sin(b.angle)*1.2);}
+  // bot storm damage + bot loot chance handled by damage below
+  if(Math.hypot(b.x-zone.cx,b.y-zone.cy)>zone.r)b.hp-= (5+zone.phase*2)*dt/1000;
+  if(b.hp<=0&&b.alive){b.alive=false;addFeed('☠️ '+(b.name||'A bot')+' was caught by the storm.');}
+ }
+ if(Math.hypot(player.x-zone.cx,player.y-zone.cy)>zone.r){player.hp-=(5+zone.phase*2)*dt/1000;if(player.hp<=0&&player.alive){player.alive=false;endGame(false);}}
+ // bullets
+ for(let i=bullets.length-1;i>=0;i--){const bl=bullets[i];bl.x+=bl.vx;bl.y+=bl.vy;bl.life--;
+  let hit=false;
+  for(const o of obstacles)if(Math.hypot(bl.x-o.x,bl.y-o.y)<o.r){hit=true;break;}
+  if(!hit)for(const w of walls)if(Math.abs(bl.x-w.x)<24&&Math.abs(bl.y-w.y)<24){w.hp-=bl.dmg;hit=true;break;}
+  if(!hit){const targets=bl.from===player?bots.filter(b=>b.alive):[player];
+   for(const t of targets){if(Math.hypot(bl.x-t.x,bl.y-t.y)<22){damage(t,bl.dmg,bl.from);hit=true;break;}}}
+  if(hit||bl.life<=0||bl.x<0||bl.y<0||bl.x>WORLD||bl.y>WORLD)bullets.splice(i,1);}
+ for(let i=walls.length-1;i>=0;i--)if(walls[i].hp<=0)walls.splice(i,1);
+ const aliveBots=bots.filter(b=>b.alive).length;
+ if(player.alive&&aliveBots===0)endGame(true);
+ // camera
+ cam.x=Math.max(0,Math.min(WORLD-W,player.x-W/2));cam.y=Math.max(0,Math.min(WORLD-H,player.y-H/2));
+ document.getElementById('hpbar').style.width=Math.max(0,player.hp)+'%';
+ document.getElementById('shbar').style.width=Math.max(0,player.shield)+'%';
+ document.getElementById('hpTxt').textContent=Math.max(0,Math.ceil(player.hp));
+ document.getElementById('shTxt').textContent=Math.ceil(player.shield);
+ document.getElementById('weap').textContent=WEAPONS[player.weapon].name;
+ document.getElementById('builds').textContent=player.builds;
+ document.getElementById('kills').textContent=player.kills||0;
+ document.getElementById('alive').textContent=aliveBots+(player.alive?1:0);
+ document.getElementById('zone').textContent=Math.max(0,Math.ceil(zone.next))+'s · r'+zone.r;
+}
+function drawChar(c){
+ ctx.save();ctx.translate(c.x-cam.x,c.y-cam.y);
+ // shadow
+ ctx.fillStyle='rgba(0,0,0,.25)';ctx.beginPath();ctx.ellipse(0,16,20,7,0,0,7);ctx.fill();
+ // legs
+ ctx.fillStyle='#1e3a8a';ctx.fillRect(-13,6,11,18);ctx.fillRect(2,6,11,18);
+ // torso
+ ctx.fillStyle=c.color;ctx.fillRect(-15,-10,30,20);
+ // arms + gun toward angle
+ ctx.save();ctx.rotate(c.angle);
+ ctx.fillStyle=c.color;ctx.fillRect(8,-14,14,8);ctx.fillRect(8,6,14,8);
+ ctx.fillStyle='#111827';ctx.fillRect(14,-3,24,6);ctx.fillStyle='#facc15';ctx.fillRect(34,-2,6,4);
+ ctx.restore();
+ // head
+ ctx.fillStyle='#fde68a';ctx.fillRect(-12,-28,24,20);
+ ctx.fillStyle='#111827';ctx.fillRect(-7,-22,4,4);ctx.fillRect(3,-22,4,4);
+ ctx.fillStyle='#ef4444';ctx.fillRect(-12,-28,24,5);
+ // health bar
+ ctx.fillStyle='#111827';ctx.fillRect(-20,-40,40,7);ctx.fillStyle='#22c55e';ctx.fillRect(-20,-40,40*Math.max(0,c.hp)/100,7);
+ if(c.shield>0){ctx.fillStyle='#38bdf8';ctx.fillRect(-20,-47,40*Math.min(100,c.shield)/100,4);}
+ ctx.restore();
+}
+function draw(){
+ ctx.clearRect(0,0,W,H);
+ // island: grass + sand edge + water outside is background; draw ground
+ ctx.fillStyle='#4ade80';ctx.fillRect(-cam.x,-cam.y,WORLD,WORLD);
+ ctx.fillStyle='#fde68a';ctx.beginPath();ctx.ellipse(WORLD/2-cam.x,WORLD/2-cam.y,WORLD/2,WORLD/2,0,0,7);ctx.fill();
+ ctx.fillStyle='#4ade80';ctx.beginPath();ctx.ellipse(WORLD/2-cam.x,WORLD/2-cam.y,WORLD/2-70,WORLD/2-70,0,0,7);ctx.fill();
+ // storm zone circle
+ ctx.strokeStyle='rgba(255,255,255,.95)';ctx.lineWidth=3;ctx.beginPath();ctx.arc(zone.cx-cam.x,zone.cy-cam.y,zone.r,0,7);ctx.stroke();
+ ctx.fillStyle='rgba(124,58,237,.22)';ctx.fillRect(0,0,W,H);
+ ctx.save();ctx.beginPath();ctx.arc(zone.cx-cam.x,zone.cy-cam.y,zone.r,0,7);ctx.clip();ctx.clearRect(0,0,W,H);ctx.restore();
+ // obstacles
+ for(const o of obstacles){const x=o.x-cam.x,y=o.y-cam.y;if(x<-40||y<-40||x>W+40||y>H+40)continue;
+  if(o.kind==='tree'){ctx.fillStyle='#166534';ctx.beginPath();ctx.arc(x,y,o.r,0,7);ctx.fill();ctx.fillStyle='#15803d';ctx.beginPath();ctx.arc(x-5,y-5,o.r*0.6,0,7);ctx.fill();ctx.fillStyle='#78350f';ctx.fillRect(x-3,y+o.r-4,6,10);}
+  else{ctx.fillStyle='#94a3b8';ctx.beginPath();ctx.arc(x,y,o.r,0,7);ctx.fill();ctx.fillStyle='#cbd5e1';ctx.beginPath();ctx.arc(x-5,y-6,o.r*0.5,0,7);ctx.fill();}}
+ // pickups
+ for(const p of pickups){const x=p.x-cam.x,y=p.y-cam.y;ctx.font='26px system-ui';ctx.textAlign='center';
+  ctx.fillText(p.type==='med'?'❤️':p.type==='shield'?'🛡️':p.type==='build'?'🧱':'🔫',x,y);
+  ctx.font='11px system-ui';ctx.fillStyle='#111827';ctx.fillText(p.type==='med'?'Health':p.type==='shield'?'Shield':p.type==='build'?'Builds':WEAPONS[p.type].name,x,y+18);}
+ // walls
+ for(const w of walls){ctx.fillStyle='#d97706';ctx.fillRect(w.x-cam.x-24,w.y-cam.y-24,48,48);ctx.fillStyle='#f59e0b';ctx.fillRect(w.x-cam.x-24,w.y-cam.y-24,48,10);ctx.fillStyle='#92400e';ctx.fillRect(w.x-cam.x-24,w.y-cam.y+14,48,10);}
+ // bullets
+ for(const b of bullets){ctx.fillStyle=WEAPONS[b.from.weapon]? '#fde047':'#fff';ctx.beginPath();ctx.arc(b.x-cam.x,b.y-cam.y,5,0,7);ctx.fill();}
+ for(const b of bots)if(b.alive)drawChar(b);
+ if(player.alive)drawChar(player);
+ // minimap
+ mctx.clearRect(0,0,140,140);mctx.fillStyle='#4ade80';mctx.fillRect(0,0,140,140);
+ mctx.strokeStyle='#fff';mctx.beginPath();mctx.arc(zone.cx/WORLD*140,zone.cy/WORLD*140,zone.r/WORLD*140,0,7);mctx.stroke();
+ mctx.fillStyle='#ef4444';for(const b of bots)if(b.alive)mctx.fillRect(b.x/WORLD*140-2,b.y/WORLD*140-2,4,4);
+ mctx.fillStyle='#facc15';mctx.beginPath();mctx.arc(player.x/WORLD*140,player.y/WORLD*140,5,0,7);mctx.fill();
+}
+function loop(t){const dt=Math.min(50,t-lastTime);lastTime=t;if(!over||true){update(dt);draw();}if(!over)requestAnimationFrame(loop);}
+window.addEventListener('keydown',e=>{const k=e.key.toLowerCase();keys[k]=true;
+ if(k==='b')buildWall(); if(k==='p')togglePause(); if(k==='q'){const i=player.owned.indexOf(player.weapon);player.weapon=player.owned[(i+1)%player.owned.length];}
+ if(k==='1'&&player.owned[0])player.weapon=player.owned[0]; if(k==='2'&&player.owned[1])player.weapon=player.owned[1]; if(k==='3'&&player.owned[2])player.weapon=player.owned[2];
+ if(k===' ')e.preventDefault();});
+window.addEventListener('keyup',e=>{keys[e.key.toLowerCase()]=false;});
+cv.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;});
+cv.addEventListener('mousedown',()=>{mouse.down=true;});window.addEventListener('mouseup',()=>{mouse.down=false;});
+cv.addEventListener('touchstart',e=>{const t=e.touches[0];const r=cv.getBoundingClientRect();mouse.x=t.clientX-r.left;mouse.y=t.clientY-r.top;},{passive:true});
+function togglePause(){if(over)return;paused=!paused;document.getElementById('pauseBtn').textContent=paused?'▶ Resume':'⏸ Pause';if(!paused){lastTime=performance.now();requestAnimationFrame(loop);}}
+document.getElementById('pauseBtn').onclick=togglePause;
+document.getElementById('restartBtn').onclick=startGame;
+document.getElementById('buildBtn').onclick=buildWall;
+const shootBtn=document.getElementById('shootBtn');
+shootBtn.addEventListener('touchstart',e=>{e.preventDefault();firing=true;},{passive:false});
+shootBtn.addEventListener('touchend',()=>{firing=false;});
+shootBtn.addEventListener('mousedown',()=>{firing=true;});shootBtn.addEventListener('mouseup',()=>{firing=false;});
+// joystick
+const joy=document.getElementById('joy'),knob=document.getElementById('knob');let joyId=null;
+joy.addEventListener('touchstart',e=>{joyId=e.touches[0].identifier;moveJoy(e.touches[0]);},{passive:true});
+joy.addEventListener('touchmove',e=>{for(const t of e.touches)if(t.identifier===joyId)moveJoy(t);},{passive:true});
+function moveJoy(t){const r=joy.getBoundingClientRect();const cx=r.left+r.width/2,cy=r.top+r.height/2;
+ let dx=(t.clientX-cx)/45,dy=(t.clientY-cy)/45;const m=Math.hypot(dx,dy);if(m>1){dx/=m;dy/=m;}
+ joyVec={x:dx,y:dy};knob.style.left=(31+dx*28)+'px';knob.style.top=(31+dy*28)+'px';}
+joy.addEventListener('touchend',()=>{joyId=null;joyVec={x:0,y:0};knob.style.left='31px';knob.style.top='31px';});
+window.addEventListener('resize',()=>{W=window.innerWidth;H=Math.max(320,window.innerHeight-132);cv.width=W;cv.height=H;});
+startGame();
+</script>
+</body>
+</html>
