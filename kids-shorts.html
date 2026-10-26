@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kids Shorts Under 5 — Blippi, Peppa Pig & Teletubbies</title>
+<title>Kids Shorts — Classics, 90s, Modern & Preschool Cartoons</title>
 <style>
 *{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#000;color:#fff;overflow:hidden}
 header{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;gap:8px;align-items:center;padding:12px 14px;background:linear-gradient(rgba(0,0,0,.75),transparent);flex-wrap:wrap}
@@ -38,13 +38,13 @@ header b{font-size:18px}header a{color:#fff}
 </head>
 <body>
 <header>
-<b>🍼 Kids Shorts Under 5</b>
+<b>🎬 Kids Shorts</b>
 <a href="tiktok.html"><button class="btn">← Kids Learning</button></a>
 <button class="btn red" onclick="document.getElementById('addBox').classList.add('open')">＋ Add a video</button>
 </header>
 <div id="chips"></div>
 <div id="feed"></div>
-<div class="hint">⬆ Swipe / scroll for the next short • For kids under 5 • Videos play in YouTube's official player</div>
+<div class="hint">⬆ Swipe / scroll for the next short • Tap a group at the top • Videos play in YouTube's official player</div>
 
 <div id="addBox"><div class="box">
 <button class="close" onclick="document.getElementById('addBox').classList.remove('open')">×</button>
@@ -61,23 +61,58 @@ header b{font-size:18px}header a{color:#fff}
 </div>
 
 <script>
-const cats=["All","Blippi","Peppa Pig","Teletubbies"];
+const cats=["All","Classics","90s & 2000s","Modern","Preschool"];
 const shorts=[
- {id:"5_lGysdHLFQ",show:"Blippi",title:"Learning Colors With Blippi At The Indoor Playground"},
- {id:"ckVB1i7OsUY",show:"Blippi",title:"Learn Colors for Toddlers — Blippi"},
- {id:"LfuEad93Ap0",show:"Blippi",title:"Educational Fun for Kids With Blippi"},
- {id:"eTvrSLFWmLo",show:"Blippi",title:"Learn Machines With Blippi"},
- {id:"astwv4c_iP0",show:"Blippi",title:"Blippi Sink Or Float"},
- {id:"Enbvtr78mqo",show:"Blippi",title:"Blippi Learns About Bubbles"},
- {id:"MyhheV6G4Rw",show:"Peppa Pig",title:"Halloween Buffet — Peppa Pig Full Episodes"},
- {id:"U3kAky_IPhA",show:"Peppa Pig",title:"Peppa Pig Tales — Baby Evie Turn GIANT!"},
- {id:"5NpNYp3cwP0",show:"Peppa Pig",title:"Peppa Pig Playground — Full Episodes"},
- {id:"Yu4IMVtvns0",show:"Peppa Pig",title:"Peppa Pig Tales — Halloween Superheroes!"},
- {id:"Ff4HASKsxK4",show:"Teletubbies",title:"Teletubbies — EH-OH! Teletubbies Love to Peekaboo | Full Episode"},
- {id:"FbJSBBViIQU",show:"Teletubbies",title:"Teletubbies — Here Comes the Rain! | Full Episode"},
- {id:"-Ojkf3BwVAg",show:"Teletubbies",title:"Teletubbies — Messy Sensory Play & Creative Exploration | Full Episodes"},
- {id:"vbFxsCIJvCA",show:"Teletubbies",title:"Teletubbies — Close The Gate | Full Episode"},
- {id:"j5n6vetNy-Y",show:"Teletubbies",title:"Teletubbies — Let's Learn The Number 3 | Full Episode"},
+ {id:"rbIXuhcbm90",show:"Tom and Jerry",group:"Classics",title:"FULL EPISODE: Colorful Chase | Tom and Jerry"},
+ {id:"mXhj7pVJjcU",show:"Tom and Jerry",group:"Classics",title:"Tom and Jerry | Mega Episode: Golden Era Vol. 7"},
+ {id:"equDXjlJZd0",show:"Looney Tunes",group:"Classics",title:"Looney Tunes | Bugs Bunny Full Episode Compilation"},
+ {id:"bxLBpHcWwIY",show:"Scooby-Doo, Where Are You!",group:"Classics",title:"Scooby Doo, Where Are You? | The Secret Elevator"},
+ {id:"XPrF8zuLodw",show:"What's New, Scooby-Doo?",group:"Classics",title:"What's New, Scooby-Doo? MARATHON Vol.2"},
+ {id:"ag_JIiTgcNA",show:"The Pink Panther Show",group:"Classics",title:"The Inspector All Episodes | 3-Hour MEGA Compilation"},
+ {id:"EQtO5xXc5Zw",show:"Popeye the Sailor",group:"Classics",title:"Spinach, Speedboats & a Bedtime Story Battle! | Popeye And Friends"},
+ {id:"E8tVeo0y0Bw",show:"SpongeBob SquarePants",group:"90s & 2000s",title:"Brand New SpongeBob Episode: The Lady in the Lighthouse"},
+ {id:"nWNIDC9eRP0",show:"Rugrats",group:"90s & 2000s",title:"Tommy's Boo Boo | Rugrats"},
+ {id:"lLI75agf2Hs",show:"Dexter's Laboratory",group:"90s & 2000s",title:"FULL EPISODE: Dee Deemensional | Dexter's Laboratory"},
+ {id:"O9Nw51J1r8E",show:"The Powerpuff Girls",group:"90s & 2000s",title:"FULL EPISODE: Moral Decay / Meet the Beat Alls | Powerpuff Girls"},
+ {id:"NhHbzUO6VbQ",show:"Courage the Cowardly Dog",group:"90s & 2000s",title:"FULL EPISODE: Cajun Granny Stew | Courage the Cowardly Dog"},
+ {id:"cRSebjCsYio",show:"Ed, Edd n Eddy",group:"90s & 2000s",title:"Pop Goes the Ed: FULL EPISODE | Ed, Edd n Eddy"},
+ {id:"TJzhosHITVE",show:"Johnny Bravo",group:"90s & 2000s",title:"Johnny Bravo - Super Duped (Full Episode)"},
+ {id:"zjd1gIdDoZY",show:"Hey Arnold!",group:"90s & 2000s",title:"Breaking Out Lockjaw | Hey Arnold!"},
+ {id:"Oeok3KDgIZM",show:"The Fairly OddParents",group:"90s & 2000s",title:"FULL EPISODE: Can Timmy Escape A Video Game World?! | Fairly OddParents"},
+ {id:"1RbjbyZaWKc",show:"Avatar: The Last Airbender",group:"90s & 2000s",title:"Avatar: Chibi Minis - Aang's Fiery Escape!"},
+ {id:"W9LNtKaWCbw",show:"Ben 10",group:"90s & 2000s",title:"The 11th Alien, Part 1 | Full Episode | Ben 10"},
+ {id:"gW4_9tVFf5Q",show:"Bluey",group:"Modern",title:"Muffin Comes for a Sleepover! | 40 MINUTES of FULL EPISODES | Bluey"},
+ {id:"uMMoWbnYEIo",show:"Phineas and Ferb",group:"Modern",title:"Boyfriend From 27,000 B.C. | S1 E19 | Full Episode | Phineas and Ferb"},
+ {id:"aCPs71F7wvM",show:"Adventure Time",group:"Modern",title:"Adventure Time FULL EPISODES: S8E1 Broke His Crown + S8E27 The Light Cloud"},
+ {id:"sLLS4xUaoP8",show:"The Amazing World of Gumball",group:"Modern",title:"The Disaster: FULL EPISODE | The Amazing World of Gumball"},
+ {id:"DEjQK3vU0Hw",show:"Gravity Falls",group:"Modern",title:"Gravity Falls Full Episode | Irrational Treasure | S1 E8"},
+ {id:"2xMujowSDSY",show:"Miraculous: Tales of Ladybug & Cat Noir",group:"Modern",title:"MIRACULOUS WORLD | PARIS | Tales of Shadybug and Claw Noir | Full Episode"},
+ {id:"IUYKFDDqmMQ",show:"The Loud House",group:"Modern",title:"30 Minutes of Every Loud Doing What They Do BEST! | The Loud House"},
+ {id:"dRfTRN1F5Ys",show:"The Owl House",group:"Modern",title:"The Owl House Season 3 Episode 1 | Thanks to Them | Full Episode"},
+ {id:"5_lGysdHLFQ",show:"Blippi",group:"Preschool",title:"Learning Colors With Blippi At The Indoor Playground"},
+ {id:"ckVB1i7OsUY",show:"Blippi",group:"Preschool",title:"Learn Colors for Toddlers \u2014 Blippi"},
+ {id:"LfuEad93Ap0",show:"Blippi",group:"Preschool",title:"Educational Fun for Kids With Blippi"},
+ {id:"eTvrSLFWmLo",show:"Blippi",group:"Preschool",title:"Learn Machines With Blippi"},
+ {id:"astwv4c_iP0",show:"Blippi",group:"Preschool",title:"Blippi Sink Or Float"},
+ {id:"Enbvtr78mqo",show:"Blippi",group:"Preschool",title:"Blippi Learns About Bubbles"},
+ {id:"MyhheV6G4Rw",show:"Peppa Pig",group:"Preschool",title:"Halloween Buffet \u2014 Peppa Pig Full Episodes"},
+ {id:"U3kAky_IPhA",show:"Peppa Pig",group:"Preschool",title:"Peppa Pig Tales \u2014 Baby Evie Turn GIANT!"},
+ {id:"5NpNYp3cwP0",show:"Peppa Pig",group:"Preschool",title:"Peppa Pig Playground \u2014 Full Episodes"},
+ {id:"Yu4IMVtvns0",show:"Peppa Pig",group:"Preschool",title:"Peppa Pig Tales \u2014 Halloween Superheroes!"},
+ {id:"Ff4HASKsxK4",show:"Teletubbies",group:"Preschool",title:"Teletubbies \u2014 EH-OH! Teletubbies Love to Peekaboo | Full Episode"},
+ {id:"FbJSBBViIQU",show:"Teletubbies",group:"Preschool",title:"Teletubbies \u2014 Here Comes the Rain! | Full Episode"},
+ {id:"-Ojkf3BwVAg",show:"Teletubbies",group:"Preschool",title:"Teletubbies \u2014 Messy Sensory Play & Creative Exploration | Full Episodes"},
+ {id:"vbFxsCIJvCA",show:"Teletubbies",group:"Preschool",title:"Teletubbies \u2014 Close The Gate | Full Episode"},
+ {id:"j5n6vetNy-Y",show:"Teletubbies",group:"Preschool",title:"Teletubbies \u2014 Let's Learn The Number 3 | Full Episode"},
+ {id:"vmXm7rVXYjk",show:"Dora the Explorer",group:"Preschool",title:"FULL EPISODE: Dora & Boots Wear Halloween Costumes! The Halloween Parade"},
+ {id:"tqqhZ8Fsseg",show:"Masha and the Bear",group:"Preschool",title:"Masha and The Bear - How they met (Episode 1)"},
+ {id:"rwmBsgGQc6Y",show:"Curious George",group:"Preschool",title:"George And Allie Are DOUBLE TROUBLE! | Curious George"},
+ {id:"O3or6OsGAuw",show:"Pocoyo",group:"Preschool",title:"POCOYO in ENGLISH - Toy Cars [95 minutes] | Full Episodes"},
+ {id:"rqSE6Ozq0Ig",show:"Bubble Guppies",group:"Preschool",title:"Oona & Zooli's Adventures with Aliens & Ninjas! | Bubble Guppies"},
+ {id:"e0ty9bU4xvY",show:"Hey Duggee",group:"Preschool",title:"Hey Duggee FULL EPISODES MEGA MARATHON"},
+ {id:"h0JjaVXxG8c",show:"Thomas & Friends",group:"Preschool",title:"Missing Gator | Thomas & Friends | S18 E13 | Full Episode"},
+ {id:"-MXd3dwEJUI",show:"PAW Patrol",group:"Preschool",title:"Alex Joins the PAW Patrol! - 101A - Full Episode"},
+ {id:"UIHiHuTFqNw",show:"Bob the Builder",group:"Preschool",title:"Every Episode Of Classic Bob The Builder (Compilation)"},
 ];
 let cat="All", myVideos=[], comments={}, currentCommentId=null;
 try{myVideos=JSON.parse(localStorage.getItem("kids_shorts_my")||"[]")}catch(e){}
@@ -87,9 +122,9 @@ function commentCount(id){return (comments[id]||[]).length}
 function commentHTML(id){let l=comments[id]||[];if(!l.length)return "<p style='color:#888'>No comments yet. Be the first! 💬</p>";return l.map(c=>`<div class="comment"><b>${esc(c.name)}</b><small>${esc(c.time)}</small><p>${esc(c.text)}</p></div>`).join("")}
 function renderChips(){document.getElementById("chips").innerHTML=cats.map(c=>`<button class="chip ${c===cat?'active':''}" onclick="cat='${c}';renderChips();render()">${c}</button>`).join("")}
 function render(){
-  let list=[...myVideos,...shorts].filter(v=>cat==="All"||v.show===cat);
-  let intro=`<div class="slide" style="background:linear-gradient(135deg,#ff9a9e,#667eea)"><div class="kidCard"><div style="font-size:80px">🍼</div><h2>Kids Shorts — Under 5</h2><p>Scroll up and down for short-style videos for little kids: Blippi, Peppa Pig, and Teletubbies, played in YouTube's official player. These shows belong to their creators — they are not copied into this site, and this site is not affiliated with them.</p><p><b>${shorts.length} starter videos</b> • Tap ＋ Add a video to add any other part you find on the official channels.</p></div></div>`;
-  document.getElementById("feed").innerHTML=intro+list.map(v=>`<div class="slide"><iframe src="https://www.youtube.com/embed/${v.id}" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe><div class="info"><b>${esc(v.title)}</b><small>${esc(v.show)} • Under 5 • Watch on YouTube ↗</small></div><div class="actions"><button class="act" onclick="this.style.background='#fe2c55'">❤️<span>Like</span></button><button class="act" onclick="openComments('${v.id}')">💬<span>${commentCount(v.id)}</span></button><a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener"><button class="act">↗<span>YouTube</span></button></a></div></div>`).join("");
+  let list=[...myVideos,...shorts].filter(v=>cat==="All"||v.group===cat);
+  let intro=`<div class="slide" style="background:linear-gradient(135deg,#ff9a9e,#667eea)"><div class="kidCard"><div style="font-size:80px">🍼</div><h2>Kids Shorts</h2><p>Scroll up and down for short-style videos: Classics, 90s & 2000s, Modern, and Preschool cartoons, played in YouTube's official player. These shows belong to their creators — they are not copied into this site, and this site is not affiliated with them.</p><p style="font-size:14px">Note: The Flintstones, The Jetsons, and Codename: Kids Next Door are not in the starter list — no clearly official YouTube video was found for them, so no guessed link was added. Tap Add a video if you find an official one.</p><p><b>${shorts.length} starter videos</b> • Tap ＋ Add a video to add any other part you find on the official channels.</p></div></div>`;
+  document.getElementById("feed").innerHTML=intro+list.map(v=>`<div class="slide"><iframe src="https://www.youtube.com/embed/${v.id}" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe><div class="info"><b>${esc(v.title)}</b><small>${esc(v.show)} • ${esc(v.group||"")} • Watch on YouTube ↗</small></div><div class="actions"><button class="act" onclick="this.style.background='#fe2c55'">❤️<span>Like</span></button><button class="act" onclick="openComments('${v.id}')">💬<span>${commentCount(v.id)}</span></button><a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener"><button class="act">↗<span>YouTube</span></button></a></div></div>`).join("");
   document.getElementById("feed").scrollTop=0;
 }
 function openComments(id){currentCommentId=id;document.getElementById("commentList").innerHTML=commentHTML(id);document.getElementById("comments").classList.add("open")}
