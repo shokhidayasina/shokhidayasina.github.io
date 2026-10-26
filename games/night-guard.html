@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Night Guard — Survive Until 6 AM</title>
+<style>body{font-family:system-ui,sans-serif;margin:0;text-align:center;background:#111;color:#fff} .wrap{max-width:640px;margin:0 auto;padding:14px} .office{background:#1f2937;border-radius:16px;padding:16px} .track{height:26px;background:#374151;border-radius:999px;position:relative;margin:14px 0} #monster{position:absolute;top:-8px;left:90%;font-size:36px;transition:left 1s} .stats{display:flex;justify-content:space-between;font-weight:700;flex-wrap:wrap;gap:8px} button{border:0;border-radius:999px;padding:12px 18px;font-weight:800;cursor:pointer;margin:4px} .on{background:#a3e635} .off{background:#4b5563;color:#fff} a{color:#a3e635}</style></head><body>
+<div class="wrap"><h1>👻 Night Guard</h1>
+<p>Survive until 6 AM. The Shadow watches you. Close a door when it reaches it, check the cameras to slow it down — but doors and lights drain your power. If power hits 0, the doors open!</p>
+<div class="office">
+<div class="stats"><span id="time">12 AM</span><span id="power">Power: 100%</span><span id="night">Night 1</span></div>
+<div class="track"><div id="monster">👻</div></div>
+<p id="status">The Shadow is far away. Stay calm.</p>
+<p>Camera: <span id="cam">OFF</span> · Left door: <span id="ld">OPEN</span> · Right door: <span id="rd">OPEN</span></p>
+<button id="leftBtn" class="off">🚪 Left Door</button>
+<button id="rightBtn" class="off">🚪 Right Door</button>
+<button id="camBtn" class="off">📷 Camera</button>
+<button id="lightBtn" class="off">🔦 Light</button>
+<p><button id="start" class="on">▶ Start Night</button></p>
+</div><p><a href="../playhop.html">← Back to games</a></p></div>
+<script>
+let t,power,dist,night,leftDoor,rightDoor,cam,light,running,timer,monsterSide;
+function reset(n){
+  night=n||1;t=0;power=100;dist=5;leftDoor=false;rightDoor=false;cam=false;light=false;running=true;monsterSide=Math.random()<.5?'left':'right';
+  update();document.getElementById('status').textContent='Night '+night+' begins. The Shadow is far away.';
+}
+function update(){
+  document.getElementById('time').textContent=['12 AM','1 AM','2 AM','3 AM','4 AM','5 AM','6 AM'][Math.min(6,Math.floor(t/15))];
+  document.getElementById('power').textContent='Power: '+Math.max(0,Math.floor(power))+'%';
+  document.getElementById('night').textContent='Night '+night;
+  document.getElementById('cam').textContent=cam?'ON':'OFF';
+  document.getElementById('ld').textContent=leftDoor?'CLOSED':'OPEN';
+  document.getElementById('rd').textContent=rightDoor?'CLOSED':'OPEN';
+  document.getElementById('monster').style.left=(90-dist*16)+'%';
+  [['leftBtn',leftDoor],['rightBtn',rightDoor],['camBtn',cam],['lightBtn',light]].forEach(([id,on])=>document.getElementById(id).className=on?'on':'off');
+}
+function tick(){
+  if(!running)return;
+  t++; power-=0.7+(leftDoor?0.9:0)+(rightDoor?0.9:0)+(cam?0.6:0)+(light?0.5:0);
+  if(!cam && Math.random()<0.35+night*0.08) dist--;
+  if(light && dist===1) dist++;
+  if(power<=0){power=0;leftDoor=false;rightDoor=false;document.getElementById('status').textContent='POWER OUT! Doors are open!';}
+  if(dist<=0){
+    if((monsterSide==='left'&&leftDoor)||(monsterSide==='right'&&rightDoor)){dist=3;document.getElementById('status').textContent='BANG! The door held — the Shadow backed away to the '+monsterSide+' side.';monsterSide=monsterSide==='left'?'right':'left';}
+    else{running=false;document.getElementById('status').textContent='💀 JUMPSCARE! The Shadow got you on Night '+night+'. Press Start Night to try again.';clearInterval(timer);update();return;}
+  } else {
+    document.getElementById('status').textContent=dist>3?'The Shadow is far away.':dist>1?'It is getting close — on the '+monsterSide+' side!':'IT IS AT THE '+monsterSide.toUpperCase()+' DOOR!';
+  }
+  if(t>=90){running=false;clearInterval(timer);document.getElementById('status').textContent='🎉 6 AM! You survived Night '+night+'! Press Start Night for Night '+(night+1)+'.';night++; }
+  update();
+}
+document.getElementById('start').onclick=()=>{clearInterval(timer);reset(night);timer=setInterval(tick,1000);};
+document.getElementById('leftBtn').onclick=()=>{leftDoor=!leftDoor;update();};
+document.getElementById('rightBtn').onclick=()=>{rightDoor=!rightDoor;update();};
+document.getElementById('camBtn').onclick=()=>{cam=!cam;update();};
+document.getElementById('lightBtn').onclick=()=>{light=!light;update();};
+reset(1);
+</script></body></html>

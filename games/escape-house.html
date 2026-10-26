@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Escape House — 5 Days to Get Out</title>
+<style>body{font-family:system-ui,sans-serif;margin:0;text-align:center;background:#1a1210;color:#fff}canvas{display:block;width:100%;max-width:620px;height:460px;margin:12px auto;background:#2d1f16;border-radius:16px}button{border:0;border-radius:999px;padding:12px 20px;font-weight:800;background:#f59e0b;cursor:pointer}a{color:#fbbf24}.bar{display:flex;justify-content:space-between;max-width:620px;margin:0 auto;padding:0 12px;font-weight:700;flex-wrap:wrap}</style></head><body>
+<h1>🏚️ Escape House</h1><p>Move with WASD / arrows. Find <b>3 keys</b> 🔑, then reach the front door 🚪. The Keeper 👵 patrols and hears you if you sprint (Shift). Press <b>H</b> near a wardrobe 🗄️ to hide. You have 5 days — getting caught costs a day.</p>
+<div class="bar"><span id="keys">Keys: 0 / 3</span><span id="days">Days left: 5</span><span id="msg">Find the keys!</span></div>
+<canvas id="c" width="620" height="460"></canvas>
+<p><button id="start">▶ Restart</button> · On phone: use the buttons below</p>
+<p><button onclick="keys.ArrowUp=true;setTimeout(()=>keys.ArrowUp=false,150)">↑</button> <button onclick="keys.ArrowDown=true;setTimeout(()=>keys.ArrowDown=false,150)">↓</button> <button onclick="keys.ArrowLeft=true;setTimeout(()=>keys.ArrowLeft=false,150)">←</button> <button onclick="keys.ArrowRight=true;setTimeout(()=>keys.ArrowRight=false,150)">→</button> <button onclick="tryHide()">Hide (H)</button></p>
+<p><a href="../playhop.html">← Back to games</a></p>
+<script>
+const cv=document.getElementById('c'),x=cv.getContext('2d');
+let px,py,kx,ky,keysFound,days,hidden,over,win,noise;
+let keys={}; const keySpots=[{x:90,y:90},{x:520,y:90},{x:520,y:370}];
+const closets=[{x:180,y:220},{x:430,y:220}];
+function reset(){px=60;py=380;kx=310;ky=100;keysFound=0;days=5;hidden=false;over=false;win=false;noise=0;keySpots.forEach(k=>k.taken=false);update();}
+function update(){document.getElementById('keys').textContent='Keys: '+keysFound+' / 3';document.getElementById('days').textContent='Days left: '+days;}
+function tryHide(){for(const c of closets) if(Math.abs(px-c.x)<45&&Math.abs(py-c.y)<45){hidden=!hidden;document.getElementById('msg').textContent=hidden?'You are hiding… stay still!':'You stepped out.';}}
+addEventListener('keydown',e=>{keys[e.key]=true;if(e.key==='h'||e.key==='H')tryHide();});
+addEventListener('keyup',e=>keys[e.key]=false);
+function loop(){
+  if(!over&&!win){
+    let sp=(keys.Shift?3.2:2.1); noise=keys.Shift?1:0;
+    if(keys.ArrowUp||keys.w)py-=sp; if(keys.ArrowDown||keys.s)py+=sp; if(keys.ArrowLeft||keys.a)px-=sp; if(keys.ArrowRight||keys.d)px+=sp;
+    px=Math.max(20,Math.min(600,px));py=Math.max(20,Math.min(440,py));
+    if(hidden){/* stay still */} else {
+      const d=Math.hypot(px-kx,py-ky);
+      if(d<180||noise){let s=1.5; kx+=(px-kx)/d*s; ky+=(py-ky)/d*s;}
+      else{kx+=Math.sin(Date.now()/900)*0.6;ky+=Math.cos(Date.now()/900)*0.6;}
+    }
+    for(const k of keySpots) if(!k.taken&&Math.abs(px-k.x)<26&&Math.abs(py-k.y)<26){k.taken=true;keysFound++;document.getElementById('msg').textContent='You found a key! '+keysFound+'/3';update();}
+    if(!hidden&&Math.hypot(px-kx,py-ky)<24){
+      days--;update();document.getElementById('msg').textContent=days>0?'CAUGHT! A day is lost. Run!':'CAUGHT! No days left.';
+      px=60;py=380;kx=310;ky=100;if(days<=0)over=true;
+    }
+    if(keysFound>=3&&px>570&&py<70){win=true;document.getElementById('msg').textContent='🎉 YOU ESCAPED!';}
+  }
+  x.clearRect(0,0,620,460);x.fillStyle='#3f2a1a';x.fillRect(0,0,620,460);
+  x.fillStyle='#92400e';x.fillRect(560,0,60,60);x.font='30px system-ui';x.fillText('🚪',568,42);
+  x.font='28px system-ui';for(const c of closets)x.fillText('🗄️',c.x-14,c.y+10);
+  for(const k of keySpots) if(!k.taken)x.fillText('🔑',k.x-14,k.y+10);
+  x.font='32px system-ui';x.fillText('😀',px-16,py+12);if(!hidden)x.fillText('👵',kx-16,ky+12);
+  if(hidden){x.fillStyle='rgba(0,0,0,.5)';x.fillRect(0,200,620,50);x.fillStyle='#fff';x.font='20px system-ui';x.fillText('Hiding…',270,232);}
+  if(over){x.fillStyle='rgba(0,0,0,.65)';x.fillRect(0,180,620,90);x.fillStyle='#fff';x.font='bold 26px system-ui';x.fillText('The Keeper caught you for good.',120,230);}
+  if(win){x.fillStyle='rgba(0,0,0,.65)';x.fillRect(0,180,620,90);x.fillStyle='#fff';x.font='bold 26px system-ui';x.fillText('🎉 YOU ESCAPED THE HOUSE!',110,230);}
+  requestAnimationFrame(loop);
+}
+document.getElementById('start').onclick=reset;reset();loop();
+</script></body></html>

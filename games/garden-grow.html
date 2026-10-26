@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Garden Grow — Plant, Water, Harvest</title>
+<style>body{font-family:system-ui,sans-serif;margin:0;text-align:center;background:#dcfce7;color:#14532d} .wrap{max-width:640px;margin:0 auto;padding:14px} .bar{display:flex;justify-content:space-between;font-weight:800;flex-wrap:wrap;gap:8px} .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0} .plot{background:#fef3c7;border:3px solid #a16207;border-radius:14px;padding:10px;min-height:110px} .plot .em{font-size:38px} button{border:0;border-radius:999px;padding:8px 12px;font-weight:700;cursor:pointer;margin:2px} .shop button{background:#16a34a;color:#fff} a{color:#15803d}</style></head><body>
+<div class="wrap"><h1>🌻 Garden Grow</h1><p>Plant seeds, water them to grow faster, harvest for coins, then buy bigger crops. Watch your garden bloom!</p>
+<div class="bar"><span id="coins">🪙 Coins: 20</span><span id="level">⭐ Level: 1</span><span id="xp">XP: 0</span></div>
+<div class="shop"><p>Seeds: <button onclick="selectSeed('carrot')">🥕 Carrot — 5</button> <button onclick="selectSeed('pumpkin')">🎃 Pumpkin — 15</button> <button onclick="selectSeed('flower')">🌸 Flower — 10</button> · Selected: <b id="sel">Carrot</b></p></div>
+<div class="grid" id="grid"></div>
+<p id="msg">Tap a plot to plant a Carrot.</p>
+<p><a href="../playhop.html">← Back to games</a></p></div>
+<script>
+const SEEDS={carrot:{em:'🥕',cost:5,sell:14,time:12,name:'Carrot'},pumpkin:{em:'🎃',cost:15,sell:38,time:25,name:'Pumpkin'},flower:{em:'🌸',cost:10,sell:26,time:18,name:'Flower'}};
+let coins=+(localStorage.getItem('garden_coins')||20),xp=+(localStorage.getItem('garden_xp')||0),sel='carrot';
+let plots=Array.from({length:8},()=>({seed:null,age:0,watered:false}));
+function selectSeed(s){sel=s;document.getElementById('sel').textContent=SEEDS[s].name;}
+function render(){
+  document.getElementById('coins').textContent='🪙 Coins: '+coins;
+  document.getElementById('level').textContent='⭐ Level: '+(1+Math.floor(xp/50));
+  document.getElementById('xp').textContent='XP: '+xp;
+  const g=document.getElementById('grid');g.innerHTML='';
+  plots.forEach((p,i)=>{
+    const d=document.createElement('div');d.className='plot';
+    if(!p.seed){d.innerHTML='<div class="em">🟫</div><button onclick="plant('+i+')">Plant</button>';}
+    else{
+      const s=SEEDS[p.seed],done=p.age>=s.time,em=done?s.em:(p.age>s.time/2?'🌿':'🌱');
+      d.innerHTML='<div class="em">'+em+'</div><div>'+s.name+(done?' — READY!':(' — '+Math.ceil(s.time-p.age)+'s'))+'</div>'
+      +(done?'<button onclick="harvest('+i+')">Harvest +'+s.sell+'</button>':'<button onclick="water('+i+')">'+(p.watered?'💧 Watered':'💦 Water')+'</button>');
+    }
+    g.appendChild(d);
+  });
+  localStorage.setItem('garden_coins',coins);localStorage.setItem('garden_xp',xp);
+}
+function plant(i){const s=SEEDS[sel];if(coins<s.cost){document.getElementById('msg').textContent='Not enough coins for '+s.name+'! Harvest something first.';return;}coins-=s.cost;plots[i]={seed:sel,age:0,watered:false};render();}
+function water(i){plots[i].watered=true;render();}
+function harvest(i){const s=SEEDS[plots[i].seed];coins+=s.sell;xp+=10;plots[i]={seed:null,age:0,watered:false};document.getElementById('msg').textContent='Harvested '+s.name+' for '+s.sell+' coins!';render();}
+setInterval(()=>{plots.forEach(p=>{if(p.seed&&p.age<SEEDS[p.seed].time)p.age+=p.watered?2:1;});render();},1000);
+render();
+</script></body></html>

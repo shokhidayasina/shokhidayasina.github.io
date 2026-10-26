@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wave Dash — Neon Wave Runner</title>
+<style>body{font-family:system-ui,sans-serif;margin:0;text-align:center;background:#0f0a1e;color:#fff}canvas{display:block;width:100%;max-width:820px;height:420px;margin:12px auto;background:#12082b;border-radius:16px;border:2px solid #a3e635}button{border:0;border-radius:999px;padding:12px 22px;font-weight:800;background:#a3e635;cursor:pointer}a{color:#a3e635}.bar{display:flex;justify-content:space-between;max-width:820px;margin:0 auto;padding:0 12px;font-weight:700}</style></head><body>
+<h1>🌊 Wave Dash</h1><p><b>Hold</b> Space, mouse, or your finger to fly up — <b>let go</b> to dive down. Dodge the neon blocks, grab coins, survive as speed grows!</p>
+<div class="bar"><span id="score">Distance: 0</span><span id="best">Best: 0</span></div>
+<canvas id="c" width="820" height="420"></canvas>
+<p><button id="start">▶ Start / Restart</button></p>
+<p><a href="../playhop.html">← Back to games</a></p>
+<script>
+const cv=document.getElementById('c'),x=cv.getContext('2d');
+let y,vy,hold,obs,coins,dist,over,speed,trail,best=+(localStorage.getItem('wavedash_best')||0);
+document.getElementById('best').textContent='Best: '+best;
+function reset(){y=210;vy=0;hold=false;obs=[];coins=[];dist=0;over=false;speed=5;trail=[];
+  for(let i=0;i<6;i++) addObs(500+i*260);
+}
+function addObs(px){
+  const gapY=60+Math.random()*280, gap=150;
+  obs.push({x:px,top:gapY-gap/2,bot:gapY+gap/2});
+  if(Math.random()<.7) coins.push({x:px+20,y:gapY,taken:false});
+}
+function loop(){
+  if(!over){
+    speed=Math.min(9,5+dist/3000); dist+=speed;
+    vy=hold?-4.2:4.2; y+=vy; trail.push({x:120,y}); if(trail.length>30) trail.shift();
+    for(const o of obs) o.x-=speed;
+    for(const c of coins) c.x-=speed;
+    if(obs.length&&obs[0].x<-60){obs.shift();addObs(obs.length?obs[obs.length-1].x+260:820);}
+    for(const o of obs){
+      if(120+16>o.x&&120-16<o.x+55&&(y-14<o.top||y+14>o.bot)) die();
+    }
+    for(const c of coins) if(!c.taken&&Math.abs(120-c.x)<24&&Math.abs(y-c.y)<24){c.taken=true;dist+=100;}
+    if(y<14||y>406) die();
+    document.getElementById('score').textContent='Distance: '+Math.floor(dist);
+  }
+  x.clearRect(0,0,820,420);
+  x.strokeStyle='#a3e635';x.lineWidth=3;x.beginPath();trail.forEach((p,i)=>{i?x.lineTo(p.x,p.y):x.moveTo(p.x,p.y);});x.stroke();
+  x.fillStyle='#facc15';for(const c of coins) if(!c.taken){x.beginPath();x.arc(c.x,c.y,10,0,7);x.fill();}
+  x.fillStyle='#22d3ee';for(const o of obs){x.fillRect(o.x,0,55,o.top);x.fillRect(o.x,o.bot,55,420-o.bot);}
+  x.fillStyle='#f472b6';x.beginPath();x.moveTo(120, y-16);x.lineTo(138,y+14);x.lineTo(102,y+14);x.closePath();x.fill();
+  if(over){x.fillStyle='rgba(0,0,0,.6)';x.fillRect(0,150,820,110);x.fillStyle='#fff';x.font='bold 30px system-ui';x.fillText('Crashed! Distance: '+Math.floor(dist),190,205);x.font='18px system-ui';x.fillText('Press Start / Restart to try again',250,240);}
+  requestAnimationFrame(loop);
+}
+function die(){if(over)return;over=true;if(Math.floor(dist)>best){best=Math.floor(dist);localStorage.setItem('wavedash_best',best);document.getElementById('best').textContent='Best: '+best;}}
+addEventListener('keydown',e=>{if(e.code==='Space'){hold=true;e.preventDefault();}});
+addEventListener('keyup',e=>{if(e.code==='Space')hold=false;});
+cv.addEventListener('mousedown',()=>hold=true);addEventListener('mouseup',()=>hold=false);
+cv.addEventListener('touchstart',e=>{hold=true;e.preventDefault();},{passive:false});cv.addEventListener('touchend',()=>hold=false);
+document.getElementById('start').onclick=reset;reset();loop();
+</script></body></html>
