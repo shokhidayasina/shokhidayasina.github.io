@@ -2,59 +2,66 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Free Online Games — No Download Browser Games</title>
-<meta name="description" content="Play free browser games instantly — no login, no popups, no download. Original games that work on phone, tablet and computer.">
+<meta name="description" content="Play free browser games instantly in your browser. No download, no login required. Original games for phone, tablet and computer.">
 <style>
-*{box-sizing:border-box} body{font-family:system-ui,sans-serif;margin:0;background:#f1f5f9;color:#0f172a}
-a{color:#16a34a;text-decoration:none}
-.top{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid #e2e8f0}
-.topin{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-.logo{font-size:24px;font-weight:900;color:#16a34a} .logo span{color:#f59e0b}
-.topin input{flex:1;min-width:220px;padding:11px 14px;border-radius:999px;border:1px solid #cbd5e1;font-size:15px}
-.topin button{border:0;border-radius:999px;padding:11px 16px;background:#16a34a;color:#fff;font-weight:700;cursor:pointer}
-.wrap{max-width:1100px;margin:0 auto;padding:0 16px 30px}
-.hero{background:linear-gradient(135deg,#16a34a,#0ea5e9);color:#fff;border-radius:20px;padding:28px 24px;margin:18px 0}
-.hero h1{margin:0;font-size:34px;line-height:1.15} .hero p{font-size:17px;opacity:.95;max-width:700px}
-.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-.stats span{background:rgba(255,255,255,.22);border-radius:999px;padding:7px 13px;font-weight:700}
-h2{margin:28px 0 12px;font-size:24px}
-.pills{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
-.pills button{border:1px solid #cbd5e1;background:#fff;border-radius:999px;padding:8px 14px;cursor:pointer}
-.pills button.on{background:#16a34a;color:#fff;border-color:#16a34a;font-weight:700}
-#player{display:none;background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:14px;margin:18px 0}
-#frame{width:100%;height:660px;border:0;border-radius:12px;background:#fff}
+*{box-sizing:border-box} body{font-family:system-ui,-apple-system,sans-serif;margin:0;background:#232822;color:#e5e7eb}
+a{color:#a3e635;text-decoration:none}
+header{position:sticky;top:0;z-index:20;background:#151a16;border-bottom:1px solid #000;display:flex;align-items:center;gap:14px;padding:10px 14px}
+.logo{font-size:24px;font-weight:800;color:#fff;white-space:nowrap;letter-spacing:-.5px}
+.logo b{color:#a3e635}
+.search{flex:1;display:flex;align-items:center;gap:8px;background:#2b332c;border-radius:999px;padding:10px 16px;max-width:900px}
+.search input{flex:1;background:transparent;border:0;outline:0;color:#fff;font-size:15px}
+.search input::placeholder{color:#9ca3af}
+.iconbtn{width:38px;height:38px;border:0;border-radius:10px;background:#2b332c;color:#e5e7eb;font-size:17px;cursor:pointer;flex-shrink:0}
+.login{background:#a3e635;color:#111;border:0;border-radius:999px;padding:10px 18px;font-weight:800;cursor:pointer;flex-shrink:0}
+.rail{position:fixed;left:0;top:58px;bottom:0;width:56px;background:#151a16;z-index:15;overflow:hidden;transition:width .2s;border-right:1px solid #000}
+.rail:hover{width:205px}
+.rail button{display:flex;align-items:center;gap:12px;width:205px;background:none;border:0;color:#d1d5db;padding:11px 14px;cursor:pointer;text-align:left;font-size:15px;white-space:nowrap}
+.rail button:hover,.rail button.on{background:#2b332c;color:#fff}
+.rail .ic{width:28px;text-align:center;flex-shrink:0}
+.rail .lbl{opacity:0;transition:opacity .15s} .rail:hover .lbl{opacity:1}
+.rail .grp{color:#9ca3af;font-size:12px;padding:14px 14px 4px;text-transform:uppercase;letter-spacing:.5px}
+.rail .foot{color:#6b7280;font-size:12px;padding:14px;line-height:1.8}
+main{margin-left:56px;padding:16px 18px 40px}
+#player{display:none;background:#151a16;border:1px solid #000;border-radius:14px;padding:14px;margin-bottom:18px}
+#frame{width:100%;height:660px;border:0;border-radius:10px;background:#fff}
 .pbtns{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-.pbtns button{border:0;border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer;background:#0ea5e9;color:#fff}
-.pbtns button.close{background:#475569}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px}
-.tile{background:#fff;border-radius:16px;overflow:hidden;cursor:pointer;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-.tile:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.12)}
-.thumb{height:120px;display:flex;align-items:center;justify-content:center;font-size:56px}
-.tile h3{margin:10px 12px 2px;font-size:16px} .tile p{margin:0 12px 12px;color:#64748b;font-size:13px}
-.favbtn{float:right;margin:8px 8px 0 0;border:0;background:#fff;border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:16px;color:#f59e0b}
-.feat{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
-.feat .thumb{height:150px;font-size:64px}
-.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
-.cat{background:#fff;border-radius:16px;padding:16px;border:1px solid #e2e8f0;cursor:pointer}
-.cat h3{margin:0 0 6px} .cat p{margin:0;color:#64748b;font-size:14px}
-.benefits{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
-.ben{background:#fff;border-radius:16px;padding:18px;border:1px solid #e2e8f0}
-.ben h3{margin:6px 0}
-.recent{color:#64748b;font-size:14px} .recent b{color:#16a34a;cursor:pointer;text-decoration:underline}
-.note{color:#64748b;font-size:13px;text-align:center;margin:28px 0}
+.pbtns button{border:0;border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer;background:#a3e635;color:#111}
+.pbtns button.close{background:#374151;color:#fff}
+h2{font-size:19px;font-weight:600;margin:22px 0 12px;color:#fff}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.tile{position:relative;aspect-ratio:16/9;border-radius:10px;overflow:hidden;cursor:pointer;border:2px solid transparent;background:#333}
+.tile:hover{border-color:#a3e635}
+.thumb{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:52px}
+.badge{position:absolute;top:8px;left:8px;border-radius:999px;padding:3px 9px;font-size:12px;font-weight:800;color:#111;z-index:2}
+.badge.new{background:#a3e635} .badge.top{background:#facc15}
+.rate{position:absolute;left:8px;bottom:8px;border-radius:999px;padding:3px 8px;font-size:12px;font-weight:700;z-index:2;background:#4b5563;color:#fff}
+.rate.high{background:#65a30d}
+.overlay{position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(0,0,0,.85));opacity:0;transition:opacity .2s;display:flex;align-items:flex-end;padding:10px}
+.tile:hover .overlay{opacity:1}
+.overlay span{color:#fff;font-size:14px;font-weight:600}
+.infobtn{position:absolute;top:8px;right:8px;width:26px;height:26px;border-radius:50%;border:0;background:rgba(0,0,0,.7);color:#fff;cursor:pointer;opacity:0;z-index:2}
+.tile:hover .infobtn{opacity:1}
+.banner{background:#151a16;border:1px solid #000;border-radius:12px;padding:18px;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:24px 0}
+.banner button{background:#a3e635;border:0;border-radius:999px;padding:11px 18px;font-weight:800;cursor:pointer}
+.seo{max-width:820px;color:#9ca3af;line-height:1.6} .seo h1,.seo h2{color:#fff}
+.note{color:#6b7280;font-size:13px}
+@media(max-width:1100px){.grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:750px){.grid{grid-template-columns:repeat(3,1fr)} .rail{display:none} main{margin-left:0} .login{display:none}}
+@media(max-width:480px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(hover:none){.overlay{opacity:1} .infobtn{opacity:1}}
 </style></head><body>
-<div class="top"><div class="topin">
-<div class="logo">▶ Hop<span>Play</span></div>
-<input id="q" placeholder="Search games… e.g. snake, puzzle, racing">
-<button id="favFilter">♥ Favorites</button>
-</div></div>
-<div class="wrap">
-<div class="hero">
-<h1>Free Online Games — No Download Browser Games</h1>
-<p>Looking to play games without downloading anything? Pick a game below and play instantly in your browser — no login required, no popups. Works on laptops, tablets, Chromebooks, iPhones and Android.</p>
-<div class="stats"><span>🎮 17 games</span><span>🗂️ 6 genres</span><span>📱 Phone + computer</span><span>🚫 No download</span></div>
-</div>
-<div class="pills" id="pills"></div>
-<div class="recent" id="recent"></div>
+<header>
+<div class="logo">● <b>hop</b>play</div>
+<div class="search"><span>🔍</span><input id="q" placeholder="Find a game or genre"></div>
+<button class="iconbtn" title="Coins">🪙 0 +</button>
+<button class="iconbtn" title="Notifications">🔔</button>
+<button class="iconbtn" title="Profile" id="profileBtn">👤</button>
+<button class="login" id="loginBtn">Log in</button>
+</header>
+<nav class="rail" id="rail"></nav>
+<main>
+<p id="loginNote" style="display:none;color:#a3e635"></p>
 <div id="player">
 <h2 id="ptitle" style="margin-top:0">Playing</h2>
 <iframe id="frame" title="Game player" allow="autoplay"></iframe>
@@ -64,83 +71,102 @@ h2{margin:28px 0 12px;font-size:24px}
 <button id="favBtn">♥ Save to favorites</button>
 <button class="close" id="close">✕ Close player</button>
 </div>
-<p id="shareMsg" style="color:#16a34a"></p>
+<p id="shareMsg" style="color:#a3e635"></p>
 </div>
-<h2>⭐ Play the best free games online!</h2>
-<p style="color:#64748b;margin-top:-6px">Here are some of our carefully selected picks:</p>
-<div class="feat" id="feat"></div>
-<h2>🎮 All games</h2>
-<div class="grid" id="grid"></div>
-<h2>🗂️ Explore our game categories</h2>
-<div class="catgrid" id="cats"></div>
-<h2>✨ Why play here?</h2>
-<div class="benefits">
-<div class="ben"><div style="font-size:30px">⬇️🚫</div><h3>No downloads</h3><p>Every game runs directly in your browser. Nothing to install, nothing taking up storage.</p></div>
-<div class="ben"><div style="font-size:30px">🔓</div><h3>No login</h3><p>Just choose a game and start playing. Your favorites stay in your own browser.</p></div>
-<div class="ben"><div style="font-size:30px">📱💻</div><h3>Any device</h3><p>Play on a phone, tablet, laptop or Chromebook — with keyboard, mouse or touch.</p></div>
+<p id="infobar" style="color:#d1d5db"></p>
+<p id="recent" style="color:#9ca3af"></p>
+<h2 id="h1">Recommended games</h2>
+<div class="grid" id="grid1"></div>
+<div class="banner" id="banner"><div><b style="color:#fff;font-size:18px">🆕 New this week — Hop Dash</b><br><span style="color:#9ca3af">Bounce higher, grab stars, do not fall.</span></div><button id="bannerPlay">Play now</button></div>
+<h2 id="h2">Recommended games</h2>
+<div class="grid" id="grid2"></div>
+<div class="seo" id="about">
+<h1>Free Online Games</h1>
+<p>Play free games right in your browser. There is nothing to install and no account to create first — choose a tile and start playing.</p>
+<h2>Online Games at HopPlay</h2>
+<p>This is a small, original collection that works on laptops, tablets, Chromebooks, phones and Android devices. Each game loads in this page, so you can switch games without leaving the site.</p>
+<h2>Play the best free games online!</h2>
+<p>Start with Hop Dash, Space Shooter, Tetris, Snake or Road Racer, then try a puzzle when you want something slower.</p>
+<h2>Our game selection</h2>
+<p>New original games are added over time. The collection covers action, puzzles, racing, arcade and casual play, all in short sessions.</p>
+<h2>Explore our game categories</h2>
+<p>Use the left rail to filter by category, use search to find a title, or save a game to favorites in your own browser.</p>
+<h2>The benefits of playing games online</h2>
+<p>Browser games are quick to start, easy to pause, and do not use up device storage. Puzzles exercise problem solving, while action games test reflexes.</p>
+<h2>Is it safe to play free online games?</h2>
+<p>Yes, here: games run in your browser with no downloads and no hidden installs. Favorites and recently played games are stored only in your own browser.</p>
+<p class="note">Original mini-games inspired by popular games. Not affiliated with Playhop, and this page does not use Playhop's games, artwork or logo. The layout follows the same grid-first pattern: dark background, sticky header, left icon rail, and image-style tiles with hover titles.</p>
+<p><a href="index.html">← Back to My first App</a> · <a href="games.html">All games list</a></p>
 </div>
-<p class="note">Original mini-games inspired by popular games — not copies of Playhop or its games, and not affiliated with Playhop. This is a small, growing collection, not a catalog of thousands of games.</p>
-<p style="text-align:center"><a href="index.html">← Back to My first App</a> · <a href="games.html">All games list</a></p>
-</div>
+</main>
 <script>
 const GAMES=[
-{id:'hop-dash',t:'Hop Dash',e:'🐰',c:'Arcade',d:'Bounce higher, grab stars, do not fall!',f:'games/hop-dash.html',g:'linear-gradient(135deg,#a5f3fc,#fef9c3)',isNew:true},
-{id:'hole-io',t:'Hole.io-style',e:'🕳️',c:'Action',d:'Swallow the city and grow!',f:'games/hole-io.html',g:'linear-gradient(135deg,#ddd6fe,#fecdd3)'},
-{id:'blockcraft',t:'BlockCraft',e:'🧱',c:'Casual',d:'Minecraft-style building',f:'games/blockcraft.html',g:'linear-gradient(135deg,#bbf7d0,#fef08a)'},
-{id:'obby',t:'Obby Jump',e:'🏃',c:'Action',d:'Roblox-style obstacle course',f:'games/obby.html',g:'linear-gradient(135deg,#fed7aa,#fecaca)'},
-{id:'snake',t:'Snake',e:'🐍',c:'Arcade',d:'Classic snake',f:'games/snake.html',g:'linear-gradient(135deg,#a7f3d0,#d9f99d)'},
-{id:'flappy',t:'Flappy',e:'🐤',c:'Arcade',d:'Tap to fly through pipes',f:'games/flappy.html',g:'linear-gradient(135deg,#bae6fd,#fef9c3)'},
-{id:'2048',t:'2048',e:'🔢',c:'Puzzle',d:'Slide and merge numbers',f:'games/2048.html',g:'linear-gradient(135deg,#fde68a,#fed7aa)'},
-{id:'racer',t:'Road Racer',e:'🏎️',c:'Racing',d:'Dodge traffic',f:'games/racer.html',g:'linear-gradient(135deg,#fecaca,#e0e7ff)'},
-{id:'memory',t:'Memory Match',e:'🃏',c:'Puzzle',d:'Find all the pairs',f:'games/memory.html',g:'linear-gradient(135deg,#fbcfe8,#ddd6fe)'},
-{id:'tetris',t:'Tetris',e:'🧩',c:'Puzzle',d:'Stack blocks, clear lines',f:'games/tetris.html',g:'linear-gradient(135deg,#c7d2fe,#a5f3fc)'},
-{id:'wordle',t:'Wordle',e:'🔤',c:'Puzzle',d:'Guess the 5-letter word',f:'games/wordle.html',g:'linear-gradient(135deg,#d9f99d,#fef08a)'},
-{id:'breakout',t:'Breakout',e:'🧱',c:'Arcade',d:'Bounce the ball, smash bricks',f:'games/breakout.html',g:'linear-gradient(135deg,#fecdd3,#fed7aa)'},
-{id:'dino',t:'Dino Run',e:'🦖',c:'Racing',d:'Jump the cacti, run forever',f:'games/dino.html',g:'linear-gradient(135deg,#fef08a,#bbf7d0)'},
-{id:'shooter',t:'Space Shooter',e:'🚀',c:'Action',d:'Blast aliens, dodge bullets',f:'games/shooter.html',g:'linear-gradient(135deg,#312e81,#7c3aed)'},
-{id:'match3',t:'Match-3 Candy',e:'🍬',c:'Puzzle',d:'Swap and match 3 in a row',f:'games/match3.html',g:'linear-gradient(135deg,#fbcfe8,#fef9c3)'},
-{id:'minesweeper',t:'Minesweeper',e:'💣',c:'Puzzle',d:'Find the mines, do not boom',f:'games/minesweeper.html',g:'linear-gradient(135deg,#e2e8f0,#cbd5e1)'},
-{id:'tiles',t:'Piano Tiles',e:'🎹',c:'Arcade',d:'Tap only the black tiles',f:'games/tiles.html',g:'linear-gradient(135deg,#111827,#475569)'}
+{id:'hop-dash',t:'Hop Dash',e:'🐰',c:'Arcade',d:'Bounce higher, grab stars, do not fall!',f:'games/hop-dash.html',g:'linear-gradient(135deg,#0ea5e9,#facc15)',rate:'4.9',badge:'new'},
+{id:'shooter',t:'Space Shooter',e:'🚀',c:'Action',d:'Blast aliens, dodge bullets',f:'games/shooter.html',g:'linear-gradient(135deg,#312e81,#7c3aed)',rate:'4.8',badge:'top'},
+{id:'tetris',t:'Tetris',e:'🧩',c:'Puzzle',d:'Stack blocks, clear lines',f:'games/tetris.html',g:'linear-gradient(135deg,#4338ca,#06b6d4)',rate:'4.9',badge:'top'},
+{id:'hole-io',t:'Hole.io-style',e:'🕳️',c:'Action',d:'Swallow the city and grow!',f:'games/hole-io.html',g:'linear-gradient(135deg,#7c3aed,#f43f5e)',rate:'4.7'},
+{id:'racer',t:'Road Racer',e:'🏎️',c:'Racing',d:'Dodge traffic',f:'games/racer.html',g:'linear-gradient(135deg,#dc2626,#1e40af)',rate:'4.7'},
+{id:'snake',t:'Snake',e:'🐍',c:'Arcade',d:'Classic snake',f:'games/snake.html',g:'linear-gradient(135deg,#16a34a,#84cc16)',rate:'4.8',badge:'top'},
+{id:'flappy',t:'Flappy',e:'🐤',c:'Arcade',d:'Tap to fly through pipes',f:'games/flappy.html',g:'linear-gradient(135deg,#0284c7,#facc15)',rate:'4.6'},
+{id:'2048',t:'2048',e:'🔢',c:'Puzzle',d:'Slide and merge numbers',f:'games/2048.html',g:'linear-gradient(135deg,#f59e0b,#fb923c)',rate:'4.8'},
+{id:'obby',t:'Obby Jump',e:'🏃',c:'Action',d:'Roblox-style obstacle course',f:'games/obby.html',g:'linear-gradient(135deg,#ea580c,#ef4444)',rate:'4.6'},
+{id:'blockcraft',t:'BlockCraft',e:'🧱',c:'Casual',d:'Minecraft-style building',f:'games/blockcraft.html',g:'linear-gradient(135deg,#15803d,#facc15)',rate:'4.7'},
+{id:'memory',t:'Memory Match',e:'🃏',c:'Puzzle',d:'Find all the pairs',f:'games/memory.html',g:'linear-gradient(135deg,#db2777,#7c3aed)',rate:'4.6'},
+{id:'wordle',t:'Wordle',e:'🔤',c:'Puzzle',d:'Guess the 5-letter word',f:'games/wordle.html',g:'linear-gradient(135deg,#65a30d,#facc15)',rate:'4.7'},
+{id:'breakout',t:'Breakout',e:'🧱',c:'Arcade',d:'Bounce the ball, smash bricks',f:'games/breakout.html',g:'linear-gradient(135deg,#e11d48,#f59e0b)',rate:'4.6'},
+{id:'dino',t:'Dino Run',e:'🦖',c:'Racing',d:'Jump the cacti, run forever',f:'games/dino.html',g:'linear-gradient(135deg,#facc15,#16a34a)',rate:'4.7'},
+{id:'match3',t:'Match-3 Candy',e:'🍬',c:'Puzzle',d:'Swap and match 3 in a row',f:'games/match3.html',g:'linear-gradient(135deg,#ec4899,#facc15)',rate:'4.6'},
+{id:'minesweeper',t:'Minesweeper',e:'💣',c:'Puzzle',d:'Find the mines, do not boom',f:'games/minesweeper.html',g:'linear-gradient(135deg,#475569,#94a3b8)',rate:'4.5'},
+{id:'tiles',t:'Piano Tiles',e:'🎹',c:'Arcade',d:'Tap only the black tiles',f:'games/tiles.html',g:'linear-gradient(135deg,#111827,#475569)',rate:'4.6'}
 ];
-const CATS=[
-{n:'Action',d:'Fast combat, shooting, and reflex-driven challenges for adrenaline seekers.'},
-{n:'Puzzle',d:'Brain teasers, match-3, and logic games to train your brain.'},
-{n:'Racing',d:'Hit the road, dodge traffic, and run as far as you can.'},
-{n:'Arcade',d:'Quick pick-up-and-play games perfect for any device.'},
-{n:'Casual',d:'Relaxed building and play at your own pace.'}
-];
-const CATNAMES=['All','Action','Puzzle','Racing','Arcade','Casual'];
 let cat='All',favOnly=false,current=null;
 const favs=new Set(JSON.parse(localStorage.getItem('instant_favs')||'[]'));
 let recent=JSON.parse(localStorage.getItem('instant_recent')||'[]');
-const pills=document.getElementById('pills'),grid=document.getElementById('grid');
-CATNAMES.forEach(c=>{const b=document.createElement('button');b.textContent=c;b.className=c==='All'?'on':'';b.onclick=()=>{cat=c;document.querySelectorAll('#pills button').forEach(x=>x.classList.remove('on'));b.classList.add('on');render();};pills.appendChild(b);});
-function card(g){
-  const d=document.createElement('div');d.className='tile';
-  d.innerHTML='<button class="favbtn" title="Favorite">'+(favs.has(g.id)?'♥':'♡')+'</button><div class="thumb" style="background:'+g.g+'">'+g.e+'</div><h3>'+g.t+(g.isNew?' 🆕':'')+'</h3><p>'+g.d+' · '+g.c+'</p>';
-  d.querySelector('.favbtn').onclick=e=>{e.stopPropagation();if(favs.has(g.id))favs.delete(g.id);else favs.add(g.id);localStorage.setItem('instant_favs',JSON.stringify([...favs]));render();};
+const NAV=[{ic:'🏠',label:'All games',cat:'All'},{ic:'🆕',label:'New',cat:'New'},{ic:'🔥',label:'Popular',cat:'Popular'},{ic:'♥',label:'Favorites',cat:'Favorites'}];
+const CATS=[{ic:'⚔️',label:'Action'},{ic:'🧩',label:'Puzzles'},{ic:'🏎️',label:'Racing'},{ic:'🕹️',label:'Arcade'},{ic:'🌿',label:'Casual'}];
+const CATMAP={Puzzles:'Puzzle'};
+const rail=document.getElementById('rail');
+function navBtn(item){
+  const b=document.createElement('button');b.innerHTML='<span class="ic">'+item.ic+'</span><span class="lbl">'+item.label+'</span>';
+  b.onclick=()=>{setFilter(item.cat||item.label);document.querySelectorAll('.rail button').forEach(x=>x.classList.remove('on'));b.classList.add('on');};
+  rail.appendChild(b);return b;
+}
+NAV.forEach(navBtn);
+const grp=document.createElement('div');grp.className='grp';grp.innerHTML='<span class="lbl">Categories</span>';rail.appendChild(grp);
+CATS.forEach(c=>navBtn({ic:c.ic,label:c.label,cat:CATMAP[c.label]||c.label}));
+const foot=document.createElement('div');foot.className='foot';foot.innerHTML='<span class="lbl">About · FAQ · Privacy<br>HopPlay — original games<br>© 2026</span>';rail.appendChild(foot);
+function setFilter(f){
+  if(f==='New'){cat='New';favOnly=false;}
+  else if(f==='Popular'){cat='Popular';favOnly=false;}
+  else if(f==='Favorites'){favOnly=true;cat='All';}
+  else {cat=f;favOnly=false;}
+  render();
+}
+function tile(g){
+  const d=document.createElement('div');d.className='tile';d.title=g.t;
+  d.innerHTML='<div class="thumb" style="background:'+g.g+'">'+g.e+'</div>'
+    +(g.badge?'<span class="badge '+g.badge+'">'+(g.badge==='new'?'New game':'Top')+'</span>':'')
+    +'<span class="rate '+(parseFloat(g.rate)>=4.7?'high':'')+'">★ '+g.rate+'</span>'
+    +'<button class="infobtn" title="About this game">i</button>'
+    +'<div class="overlay"><span>'+g.t+'</span></div>';
+  d.querySelector('.infobtn').onclick=e=>{e.stopPropagation();document.getElementById('infobar').textContent=g.t+' — '+g.d+' ('+g.c+')';};
   d.onclick=()=>play(g);return d;
 }
 function render(){
   const q=(document.getElementById('q').value||'').toLowerCase();
-  grid.innerHTML='';
-  const list=GAMES.filter(g=>(cat==='All'||g.c===cat)&&(!favOnly||favs.has(g.id))&&(g.t.toLowerCase().includes(q)||g.d.toLowerCase().includes(q)||g.c.toLowerCase().includes(q)));
-  if(!list.length) grid.innerHTML='<p>No games match that search yet. Try another word.</p>';
-  list.forEach(g=>grid.appendChild(card(g)));
+  let list=GAMES.filter(g=>(cat==='All'||(cat==='New'&&g.badge==='new')||(cat==='Popular'&&parseFloat(g.rate)>=4.8)||g.c===cat)&&(!favOnly||favs.has(g.id))&&(g.t.toLowerCase().includes(q)||g.d.toLowerCase().includes(q)||g.c.toLowerCase().includes(q)));
+  const filtering=cat!=='All'||favOnly||q;
+  document.getElementById('banner').style.display=filtering?'none':'flex';
+  document.getElementById('h2').style.display=filtering?'none':'block';
+  document.getElementById('h1').textContent=filtering?('Games'+(cat!=='All'?' — '+cat:'')):'Recommended games';
+  const g1=document.getElementById('grid1'),g2=document.getElementById('grid2');g1.innerHTML='';g2.innerHTML='';
+  if(!list.length) g1.innerHTML='<p>No games match that search yet.</p>';
+  if(filtering){list.forEach(g=>g1.appendChild(tile(g)));}
+  else{list.slice(0,12).forEach(g=>g1.appendChild(tile(g)));list.slice(12).forEach(g=>g2.appendChild(tile(g)));}
   const r=document.getElementById('recent');
-  r.innerHTML=recent.length?('Recently played: '+recent.map(id=>{const g=GAMES.find(x=>x.id===id);return g?'<b data-id="'+id+'">'+g.t+'</b>':'';}).filter(Boolean).join(' · ')):'';
+  r.innerHTML=recent.length?('Recently played: '+recent.map(id=>{const g=GAMES.find(x=>x.id===id);return g?'<b style="cursor:pointer;color:#a3e635" data-id="'+id+'">'+g.t+'</b>':'';}).filter(Boolean).join(' · ')):'';
   r.querySelectorAll('b').forEach(b=>b.onclick=()=>{const g=GAMES.find(x=>x.id===b.dataset.id);if(g)play(g);});
 }
-const feat=document.getElementById('feat');
-['hop-dash','shooter','tetris','hole-io','racer','snake'].forEach(id=>{const g=GAMES.find(x=>x.id===id);if(g)feat.appendChild(card(g));});
-const catsEl=document.getElementById('cats');
-CATS.forEach(c=>{
-  const n=GAMES.filter(g=>g.c===c.n).length;
-  const d=document.createElement('div');d.className='cat';
-  d.innerHTML='<h3>'+c.n+' ('+n+')</h3><p>'+c.d+'</p>';
-  d.onclick=()=>{cat=c.n;document.querySelectorAll('#pills button').forEach(x=>x.classList.toggle('on',x.textContent===c.n));render();document.getElementById('grid').scrollIntoView({behavior:'smooth'});};
-  catsEl.appendChild(d);
-});
 function play(g){
   current=g;
   document.getElementById('player').style.display='block';
@@ -155,7 +181,9 @@ function play(g){
   history.replaceState(null,'','playhop.html?game='+g.id);
 }
 document.getElementById('q').oninput=render;
-document.getElementById('favFilter').onclick=e=>{favOnly=!favOnly;e.target.style.background=favOnly?'#f59e0b':'#16a34a';render();};
+document.getElementById('bannerPlay').onclick=()=>play(GAMES[0]);
+document.getElementById('loginBtn').onclick=()=>{const n=document.getElementById('loginNote');n.style.display='block';n.textContent='No login needed here — just pick a game below and play.';};
+document.getElementById('profileBtn').onclick=()=>{const n=document.getElementById('loginNote');n.style.display='block';n.textContent='No account needed here. Your favorites are saved only in your own browser.';};
 document.getElementById('close').onclick=()=>{document.getElementById('player').style.display='none';document.getElementById('frame').src='about:blank';history.replaceState(null,'','playhop.html');};
 document.getElementById('full').onclick=()=>{const f=document.getElementById('frame');if(f.requestFullscreen)f.requestFullscreen();};
 document.getElementById('favBtn').onclick=()=>{if(!current)return;if(favs.has(current.id))favs.delete(current.id);else favs.add(current.id);localStorage.setItem('instant_favs',JSON.stringify([...favs]));document.getElementById('favBtn').textContent=(favs.has(current.id)?'♥ Saved':'♡ Save to favorites');render();};
