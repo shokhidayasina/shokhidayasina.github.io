@@ -6,7 +6,28 @@
 <title>Fresh Page</title>
 </head>
 <body>
+<p id="motivation" style="font-size:22px;font-weight:700"></p>
 <h1>Fresh Page</h1>
 <p><a href="index.html">Back to home</a></p>
+<script>
+const phrases=[
+"You can do this. Start now, one step at a time.",
+"Today is a new chance to try again.",
+"Keep going — small steps still move you forward.",
+"You are stronger than yesterday.",
+"Believe in yourself, and begin.",
+"One good day starts with one good thought.",
+"Do not give up. You are closer than you think.",
+"Make today count.",
+"Your effort today builds your tomorrow.",
+"Dream big, start small, keep going."
+];
+let last=-1;
+try{last=parseInt(localStorage.getItem('fresh_motivation_last')||'-1',10)}catch(e){}
+let i=Math.floor(Math.random()*phrases.length);
+if(phrases.length>1&&i===last){i=(i+1)%phrases.length}
+try{localStorage.setItem('fresh_motivation_last',String(i))}catch(e){}
+document.getElementById('motivation').textContent=phrases[i];
+</script>
 </body>
 </html>
