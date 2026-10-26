@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TikTok Videos — Real TikTok Scroll</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#000;color:#fff;overflow:hidden}
+header{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;gap:8px;align-items:center;padding:12px 14px;background:linear-gradient(rgba(0,0,0,.7),transparent)}
+header b{font-size:18px}header a{color:#fff}
+.btn{border:0;border-radius:20px;padding:9px 14px;font-weight:700;cursor:pointer;background:#fff;color:#111}
+.btn.red{background:#fe2c55;color:#fff}
+#feed{height:100vh;overflow-y:auto;scroll-snap-type:y mandatory;scrollbar-width:none}
+#feed::-webkit-scrollbar{display:none}
+.slide{height:100vh;scroll-snap-align:start;scroll-snap-stop:always;position:relative;display:flex;align-items:center;justify-content:center;padding-top:50px}
+.slide iframe{width:325px;height:580px;max-width:92vw;max-height:78vh;border:0;border-radius:16px;background:#111}
+.info{position:absolute;left:16px;right:90px;bottom:24px;text-shadow:0 1px 6px rgba(0,0,0,.9)}
+.info b{display:block;font-size:17px}.info small{opacity:.9}
+.actions{position:absolute;right:14px;bottom:150px;display:flex;flex-direction:column;gap:16px;align-items:center}
+.act{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:50%;width:54px;height:54px;font-size:22px;cursor:pointer}
+.act span{display:block;font-size:11px;font-weight:700;margin-top:2px}
+.hint{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);z-index:20;background:rgba(0,0,0,.6);padding:8px 14px;border-radius:20px;font-size:13px;white-space:nowrap}
+#addBox{position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:50;display:none;place-items:center;padding:16px}
+#addBox.open{display:grid}
+.box{background:#fff;color:#111;border-radius:20px;padding:22px;max-width:480px;width:100%}
+.box input{width:100%;padding:12px;border:1px solid #ddd;border-radius:12px;margin:10px 0}
+#comments{position:fixed;left:0;right:0;bottom:0;height:62vh;background:#fff;color:#111;border-radius:22px 22px 0 0;z-index:60;display:none;flex-direction:column;padding:16px}
+#comments.open{display:flex}
+.comment{border-bottom:1px solid #eee;padding:10px 0}.comment b{font-size:14px}.comment small{color:#888;margin-left:6px}.comment p{margin:4px 0 0}
+.cInput{display:flex;gap:8px;margin-top:10px}.cInput input{flex:1;padding:12px;border:1px solid #ddd;border-radius:22px}
+.close{float:right;border:0;background:#eee;border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:18px}
+@media(max-width:500px){.slide iframe{width:300px;height:540px}}
+</style>
+</head>
+<body>
+<header>
+<b>🎵 TikTok Videos</b>
+<a href="pins.html"><button class="btn">← PinBoard</button></a>
+<a href="https://www.tiktok.com/@brookemonk_" target="_blank" rel="noopener"><button class="btn">@brookemonk_ on TikTok ↗</button></a>
+<button class="btn red" onclick="document.getElementById('addBox').classList.add('open')">＋ Add a TikTok video</button>
+</header>
+
+<div id="feed"></div>
+<div class="hint">⬆ Swipe / scroll up &amp; down • Tap 💬 to comment • Videos play in TikTok's own player</div>
+
+<div id="addBox"><div class="box">
+<button class="close" onclick="document.getElementById('addBox').classList.remove('open')">×</button>
+<h2>Add any TikTok video</h2>
+<p style="color:#555;line-height:1.5">Paste a TikTok video link here — for example a Brooke Monk video, or any creator you like. It will be added to your scroll feed using TikTok's official player, with credit to the creator.</p>
+<input id="ttUrl" placeholder="https://www.tiktok.com/@someone/video/123456789...">
+<button class="btn red" onclick="addVideo()">Add to feed →</button>
+<p style="color:#888;font-size:13px">Tip: on TikTok, tap Share → Copy link, then paste it here.</p>
+</div></div>
+
+<div id="comments">
+<div style="display:flex;justify-content:space-between;align-items:center"><h3 style="margin:0">💬 Comments</h3><button class="close" onclick="closeComments()">×</button></div>
+<div id="commentList" style="flex:1;overflow:auto"></div>
+<div class="cInput"><input id="commentInput" placeholder="Add a comment..." onkeydown="if(event.key==='Enter')postComment()"><button class="btn red" onclick="postComment()">Post</button></div>
+</div>
+
+<script>
+const baseVideos=[
+ {id:"7627972781547719967",creator:"@brookemonk_",title:"#DONEpartner — These drinks taste too good to be true!"},
+ {id:"7612778449853254943",creator:"@brookemonk_",title:"Brooke Monk — TikTok video"},
+ {id:"7604973257627897118",creator:"@brookemonk_",title:"Brooke Monk — TikTok video"},
+ {id:"7614250295350005022",creator:"@brookemonk_",title:"Brooke Monk — TikTok video"},
+ {id:"6797116138070248709",creator:"@brookemonk_",title:"Pretty sure I'm not the only one #foryou #mood"},
+ {id:"6792726866529766661",creator:"@brookemonk_",title:"You guys really did that #foryou"},
+ {id:"6944600097544064261",creator:"@brookemonk_",title:"I feel so special when moms say that…"},
+];
+let myVideos=[], saved=[], comments={}, currentCommentId=null;
+try{myVideos=JSON.parse(localStorage.getItem("tiktok_my_videos")||"[]")}catch(e){}
+try{saved=JSON.parse(localStorage.getItem("tiktok_saved")||"[]")}catch(e){}
+try{comments=JSON.parse(localStorage.getItem("tiktok_comments")||"{}")}catch(e){}
+function esc(s){return String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function allVideos(){return [...myVideos,...baseVideos]}
+function commentCount(id){return (comments[id]||[]).length}
+function commentHTML(id){let l=comments[id]||[];if(!l.length)return "<p style='color:#888'>No comments yet. Be the first! 💬</p>";return l.map(c=>`<div class="comment"><b>${esc(c.name)}</b><small>${esc(c.time)}</small><p>${esc(c.text)}</p></div>`).join("")}
+function render(){
+  document.getElementById("feed").innerHTML=allVideos().map(v=>`<div class="slide"><iframe src="https://www.tiktok.com/embed/v2/${v.id}" allowfullscreen scrolling="no" allow="encrypted-media; picture-in-picture"></iframe><div class="info"><b>${esc(v.title)}</b><small>${esc(v.creator)} • Watch on TikTok ↗</small><br><small>Scroll for the next video ⬆⬇</small></div><div class="actions"><button class="act" onclick="this.style.background='#fe2c55';this.style.transform='scale(1.15)';setTimeout(()=>this.style.transform='',200)">❤️<span>Like</span></button><button class="act" onclick="openComments('${v.id}')">💬<span>${commentCount(v.id)}</span></button><button class="act" onclick="toggleSave('${v.id}')">🔖<span>${saved.includes(v.id)?"Saved":"Save"}</span></button><a href="https://www.tiktok.com/${v.creator}/video/${v.id}" target="_blank" rel="noopener"><button class="act">↗<span>TikTok</span></button></a></div></div>`).join("");
+}
+function toggleSave(id){if(saved.includes(id))saved=saved.filter(x=>x!==id);else saved.push(id);localStorage.setItem("tiktok_saved",JSON.stringify(saved));render()}
+function openComments(id){currentCommentId=id;document.getElementById("commentList").innerHTML=commentHTML(id);document.getElementById("comments").classList.add("open")}
+function closeComments(){document.getElementById("comments").classList.remove("open");currentCommentId=null}
+function postComment(){let t=document.getElementById("commentInput").value.trim();if(!t||!currentCommentId)return;if(!comments[currentCommentId])comments[currentCommentId]=[];comments[currentCommentId].push({name:"You",text:t,time:new Date().toLocaleString()});localStorage.setItem("tiktok_comments",JSON.stringify(comments));document.getElementById("commentInput").value="";document.getElementById("commentList").innerHTML=commentHTML(currentCommentId);render()}
+function addVideo(){
+  let url=document.getElementById("ttUrl").value.trim();
+  let full=url.match(/@([^\/\?]+)\/video\/(\d+)/);
+  let bare=url.match(/video\/(\d+)/);
+  if(!bare){alert("That doesn't look like a TikTok video link. Copy a link like https://www.tiktok.com/@someone/video/123...");return}
+  let id=bare[1];let creator=full?"@"+full[1]:"@tiktok";
+  myVideos.unshift({id:id,creator:creator,title:"TikTok video by "+creator});
+  localStorage.setItem("tiktok_my_videos",JSON.stringify(myVideos));
+  document.getElementById("addBox").classList.remove("open");document.getElementById("ttUrl").value="";
+  render();document.getElementById("feed").scrollTop=0;
+}
+document.addEventListener("keydown",e=>{let f=document.getElementById("feed");if(e.key==="ArrowDown")f.scrollBy({top:window.innerHeight,behavior:"smooth"});if(e.key==="ArrowUp")f.scrollBy({top:-window.innerHeight,behavior:"smooth"})});
+render();
+</script>
+</body>
+</html>
