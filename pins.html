@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PinBoard — Ideas to Save</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#fff;color:#111}
+header{position:sticky;top:0;z-index:20;background:#fff;display:flex;align-items:center;gap:10px;padding:10px 14px;box-shadow:0 1px 8px rgba(0,0,0,.08)}
+.logo{width:40px;height:40px;border-radius:50%;background:#e60023;color:#fff;display:grid;place-items:center;font-weight:900;font-size:22px;flex-shrink:0}
+h1{font-size:20px;margin:0;letter-spacing:-.5px}h1 span{color:#e60023}
+.btn{border:0;border-radius:24px;padding:10px 16px;font-weight:700;cursor:pointer;background:#efefef}
+.btn.active{background:#111;color:#fff}.btn.red{background:#e60023;color:#fff}
+.search{flex:1;display:flex;align-items:center;gap:8px;background:#efefef;border-radius:24px;padding:0 14px}
+.search input{flex:1;border:0;background:transparent;outline:none;padding:12px 0;font-size:15px}
+.badge{background:#e60023;color:#fff;border-radius:12px;padding:2px 7px;font-size:12px;margin-left:4px}
+.info{background:#fff3f3;border:1px solid #ffd1d1;margin:14px;border-radius:14px;padding:12px 16px;font-size:14px;line-height:1.5}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:2px 14px 12px;scrollbar-width:none}
+.chip{white-space:nowrap;border:0;border-radius:20px;padding:8px 14px;background:#efefef;font-weight:600;cursor:pointer}
+.chip.active{background:#111;color:#fff}
+.masonry{columns:2 220px;column-gap:16px;padding:0 14px 30px}
+.pin{break-inside:avoid;margin:0 0 16px;border-radius:16px;overflow:hidden;cursor:pointer;position:relative;background:#f5f5f5}
+.pin img{width:100%;display:block}
+.pin:hover img{filter:brightness(.85)}
+.pin-body{padding:10px 8px 12px}
+.pin-body b{font-size:14px;line-height:1.3;display:block}
+.pin-body small{color:#666}
+.savebtn{position:absolute;top:10px;right:10px;background:#e60023;color:#fff;border:0;border-radius:20px;padding:8px 14px;font-weight:800;cursor:pointer;display:none}
+.pin:hover .savebtn{display:block}
+.heart{position:absolute;top:10px;left:10px;background:rgba(255,255,255,.9);border:0;border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:16px}
+.modalbg{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;place-items:center;z-index:50;padding:16px}
+.modalbg.open{display:grid}
+.modal{background:#fff;border-radius:24px;max-width:860px;width:100%;max-height:90vh;overflow:auto;display:grid;grid-template-columns:1.1fr 1fr}
+.modal img{width:100%;height:100%;object-fit:cover}
+.modal>div{padding:22px}
+.modal input,.modal select,.modal textarea{width:100%;padding:11px;border:1px solid #ddd;border-radius:12px;margin:6px 0 12px;font-size:15px}
+.close{float:right;border:0;background:#efefef;border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:18px}
+.empty{text-align:center;padding:60px 20px;color:#666}
+@media(max-width:700px){.modal{grid-template-columns:1fr}h1{display:none}.search input{font-size:14px}}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">P</div><h1>Pin<span>Board</span></h1>
+<button class="btn active" id="homeBtn" onclick="showView('home')">Home</button>
+<button class="btn" onclick="openCreate()">＋ Create</button>
+<div class="search">🔍 <input id="q" placeholder="Search ideas: home, food, travel, art..." oninput="render()"></div>
+<button class="btn" id="savedBtn" onclick="showView('saved')">Saved <span class="badge" id="savedCount">0</span></button>
+<button class="btn" onclick="shufflePins()" title="Shuffle feed">🔀</button>
+</header>
+
+<div class="info">📌 <b>PinBoard — an original Pinterest-style idea board.</b> Browse ideas, tap a pin to open it, save what you love to your own board, and create your own pins. Not affiliated with Pinterest, and no Pinterest images are used.<br><span style="color:#555">G'oyalarni ko'ring, yoqqanini saqlang va o'z pinlaringizni yarating.</span></div>
+
+<div class="chips" id="chips"></div>
+<div class="masonry" id="grid"></div>
+<div class="empty" id="empty" style="display:none"><h2>Nothing saved yet 💾</h2><p>Tap <b>Save</b> on any pin, and it will appear here.</p><button class="btn red" onclick="showView('home')">Browse ideas</button></div>
+
+<div class="modalbg" id="pinModal"><div class="modal"><div style="padding:0"><img id="mImg" src="" alt=""></div><div>
+<button class="close" onclick="closeModal()">×</button>
+<h2 id="mTitle" style="margin-top:8px"></h2>
+<p id="mDesc" style="color:#444;line-height:1.6"></p>
+<p><small id="mMeta" style="color:#777"></small></p>
+<button class="btn red" id="mSave" onclick="toggleSave(currentId)">Save</button>
+<button class="btn" onclick="likePin(currentId)">❤️ <span id="mLikes"></span></button>
+<button class="btn" onclick="copyLink()">🔗 Copy link</button>
+<h3 style="margin-top:22px">More like this</h3><div id="similar" style="display:grid;grid-template-columns:1fr 1fr;gap:10px"></div>
+</div></div></div>
+
+<div class="modalbg" id="createModal"><div class="modal" style="max-width:520px;display:block"><div>
+<button class="close" onclick="closeCreate()">×</button>
+<h2>Create your own pin</h2>
+<label>Title</label><input id="cTitle" placeholder="e.g. My dream reading corner">
+<label>Category</label><select id="cCat"></select>
+<label>Photo (pick one or paste an image URL)</label>
+<div id="cPics" style="display:flex;gap:8px;flex-wrap:wrap;margin:6px 0"></div>
+<input id="cUrl" placeholder="https://... (optional)">
+<label>Description</label><textarea id="cDesc" rows="3" placeholder="Why do you love this idea?"></textarea>
+<button class="btn red" onclick="addPin()">Publish pin →</button>
+</div></div></div>
+
+<script>
+const cats=["All","Home Decor","Food","Travel","Fashion","Nature","Art","DIY","Quotes","Animals","Tech","Fitness"];
+let currentCat="All", view="home", currentId=null, pickedSeed="pin-new1";
+const base=[
+["Cozy reading corner by the window","Home Decor","Aylin","corner",520,"A soft chair, warm light and a stack of books — the perfect slow morning spot."],
+["Easy avocado toast breakfast","Food","Marco","food1",380,"Crunchy bread, ripe avocado, lemon and chili flakes. Ready in 5 minutes."],
+["Santorini sunset streets","Travel","Sofia","travel1",620,"White houses, blue domes and golden light over the sea."],
+["Minimal autumn outfit idea","Fashion","Lena","fashion1",560,"Beige coat, white sneakers and a simple bag — clean and timeless."],
+["Forest path after rain","Nature","Noah","nature1",600,"Fresh air, green leaves and a quiet path to clear your mind."],
+["Watercolor painting for beginners","Art","Mia","art1",480,"Soft colors, simple shapes — start with one flower and let it flow."],
+["DIY wooden shelf in a weekend","DIY","Omar","diy1",420,"Three boards, brackets and paint. A shelf that changes the whole room."],
+["You can do hard things","Quotes","Emma","quote1",340,"A small reminder for a big day. Save it for when you need it."],
+["Golden retriever puppy smile","Animals","Liam","dog1",440,"Pure happiness in one photo. Instant mood boost."],
+["Clean desk setup for focus","Tech","Ava","tech1",400,"A tidy desk, good light and one plant. Work feels lighter."],
+["Morning stretch routine","Fitness","Kai","fit1",540,"10 minutes of stretching to wake up your body and mind."],
+["Homemade pasta night","Food","Giulia","food2",500,"Fresh pasta, tomato sauce and basil — simple, warm and delicious."],
+["Mountain lake at sunrise","Travel","Ethan","travel2",640,"Calm water, pink sky and mountains waking up slowly."],
+["Small balcony garden","Home Decor","Nina","garden1",460,"Herbs, flowers and fairy lights — a tiny garden with big joy."],
+["Street style in Tokyo","Fashion","Yuki","fashion2",580,"Bold layers, sneakers and confidence on every street."],
+["Ocean waves from above","Nature","Lucas","nature2",360,"Blue patterns made by nature itself."],
+["Sketchbook pages inspiration","Art","Zoe","art2",520,"Daily sketches, messy lines and ideas that grow into art."],
+["Upcycled jar lanterns","DIY","Sara","diy2",430,"Old jars + candles = magical evening light for almost free."],
+["Dream big, start small","Quotes","Adam","quote2",320,"Big dreams need only one small first step today."],
+["Cat sleeping in sunlight","Animals","Mila","cat1",450,"A warm sunbeam and a very happy cat."],
+["Cozy bedroom in warm tones","Home Decor","Elif","room1",560,"Cream bedding, wooden furniture and soft evening light."],
+["Berry pancake stack","Food","Hugo","food3",470,"Fluffy pancakes, fresh berries and a drizzle of honey."],
+["Road trip through the desert","Travel","Rosa","travel3",600,"Open road, golden sand and a playlist for miles."],
+["Vintage denim jacket styling","Fashion","Ivy","fashion3",540,"One jacket, five outfits — denim never goes out of style."],
+["Cherry blossom season","Nature","Hana","nature3",580,"Pink petals falling like snow in spring."],
+["Clay pottery you can make","Art","Felix","art3",420,"Hands, clay and patience — beautiful things take shape slowly."],
+["Paint an old chair new","DIY","Tara","diy3",400,"A brush, bold color and one afternoon can save old furniture."],
+["Be kind, always","Quotes","Noor","quote3",340,"Kindness costs nothing and changes everything."],
+["Puppy first snow day","Animals","Ben","dog2",480,"Tiny paws, big excitement — winter through new eyes."],
+["Minimal phone wallpaper ideas","Tech","Jin","tech2",620,"Calm gradients and simple shapes for a calmer screen."],
+["Yoga at sunrise on the beach","Fitness","Ana","fit2",560,"Sand, sea breeze and slow breathing to start the day right."],
+["Chocolate cake slice heaven","Food","Clara","food4",440,"Rich, soft and just sweet enough. Save for baking day."],
+["Hidden beach in Greece","Travel","Dario","travel4",500,"Turquoise water and quiet sand far from the crowds."],
+["Scandinavian living room","Home Decor","Freya","room2",520,"Light wood, white walls and cozy textiles."],
+["Autumn leaves in the park","Nature","Owen","nature4",460,"Orange, red and gold — autumn's own art show."],
+["Cute fox in the forest","Animals","Ella","fox1",420,"A curious fox caught in a quiet forest moment."],
+];
+let pins=base.map((p,i)=>({id:i+1,title:p[0],cat:p[1],author:p[2],seed:p[3],h:p[4],desc:p[5],likes:120+((i*37)%480)}));
+let saved=JSON.parse(localStorage.getItem("pinboard_saved")||"[]");
+let custom=JSON.parse(localStorage.getItem("pinboard_custom")||"[]");
+custom.forEach(c=>pins.unshift(c));
+let likesExtra=JSON.parse(localStorage.getItem("pinboard_likes")||"{}");
+function img(p,w){return `https://picsum.photos/seed/${p.seed}/${w||400}/${p.h}`}
+function saveState(){localStorage.setItem("pinboard_saved",JSON.stringify(saved));localStorage.setItem("pinboard_custom",JSON.stringify(custom));localStorage.setItem("pinboard_likes",JSON.stringify(likesExtra));document.getElementById("savedCount").textContent=saved.length}
+function renderChips(){document.getElementById("chips").innerHTML=cats.map(c=>`<button class="chip ${c===currentCat?'active':''}" onclick="setCat('${c}')">${c}</button>`).join("")}
+function setCat(c){currentCat=c;renderChips();render()}
+function showView(v){view=v;document.getElementById("homeBtn").classList.toggle("active",v==="home");document.getElementById("savedBtn").classList.toggle("active",v==="saved");render()}
+function filtered(){let q=document.getElementById("q").value.toLowerCase();let list=pins.filter(p=>(currentCat==="All"||p.cat===currentCat)&&(p.title.toLowerCase().includes(q)||p.cat.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q)));if(view==="saved")list=list.filter(p=>saved.includes(p.id));return list}
+function render(){let list=filtered();document.getElementById("empty").style.display=(view==="saved"&&list.length===0)?"block":"none";document.getElementById("grid").innerHTML=list.map(p=>`<div class="pin" onclick="openPin(${p.id})"><button class="heart" onclick="event.stopPropagation();likePin(${p.id})">❤️</button><button class="savebtn" onclick="event.stopPropagation();toggleSave(${p.id});render()">${saved.includes(p.id)?"Saved ✓":"Save"}</button><img src="${img(p)}" alt="${p.title}" loading="lazy"><div class="pin-body"><b>${p.title}</b><small>${p.cat} • by ${p.author} • ❤️ ${(p.likes+(likesExtra[p.id]||0))}</small></div></div>`).join("")||(view==="home"?"<p style='text-align:center;color:#777'>No pins found. Try another search.</p>:"")}
+function openPin(id){let p=pins.find(x=>x.id===id);if(!p)return;currentId=id;document.getElementById("mImg").src=img(p,700);document.getElementById("mTitle").textContent=p.title;document.getElementById("mDesc").textContent=p.desc;document.getElementById("mMeta").textContent=`${p.cat} • by ${p.author} • ❤️ ${p.likes+(likesExtra[id]||0)}`;document.getElementById("mSave").textContent=saved.includes(id)?"Saved ✓":"Save";document.getElementById("mLikes").textContent=p.likes+(likesExtra[id]||0);let sim=pins.filter(x=>x.cat===p.cat&&x.id!==id).slice(0,4);document.getElementById("similar").innerHTML=sim.map(s=>`<div style="cursor:pointer" onclick="openPin(${s.id})"><img src="${img(s,300)}" style="width:100%;border-radius:12px"><small>${s.title}</small></div>`).join("");document.getElementById("pinModal").classList.add("open")}
+function closeModal(){document.getElementById("pinModal").classList.remove("open")}
+function toggleSave(id){if(saved.includes(id))saved=saved.filter(x=>x!==id);else saved.push(id);saveState();if(currentId===id)document.getElementById("mSave").textContent=saved.includes(id)?"Saved ✓":"Save";render()}
+function likePin(id){likesExtra[id]=(likesExtra[id]||0)+1;saveState();render();if(currentId===id)openPin(id)}
+function copyLink(){navigator.clipboard.writeText(location.href.split('#')[0]+"#pin-"+currentId);alert("Link copied!")}
+function shufflePins(){pins.sort(()=>Math.random()-.5);render();window.scrollTo({top:0,behavior:"smooth"})}
+function openCreate(){document.getElementById("cCat").innerHTML=cats.filter(c=>c!=="All").map(c=>`<option>${c}</option>`).join("");document.getElementById("cPics").innerHTML=["pin-new1","pin-new2","pin-new3","pin-new4","pin-new5","pin-new6"].map(s=>`<img src="https://picsum.photos/seed/${s}/80/80" style="width:64px;height:64px;object-fit:cover;border-radius:12px;cursor:pointer;border:${s===pickedSeed?'3px solid #e60023':'2px solid #ddd'}" onclick="pickedSeed='${s}';openCreate()">`).join("");document.getElementById("createModal").classList.add("open")}
+function closeCreate(){document.getElementById("createModal").classList.remove("open")}
+function addPin(){let t=document.getElementById("cTitle").value.trim();if(!t){alert("Please add a title");return}let url=document.getElementById("cUrl").value.trim();let p={id:Date.now(),title:t,cat:document.getElementById("cCat").value,author:"You",seed:pickedSeed,h:480,desc:document.getElementById("cDesc").value||"A pin created by you.",likes:0,customUrl:url||""};if(url)p.seed="custom";pins.unshift(p);custom.unshift(p);saveState();closeCreate();showView("home");render();openPin(p.id)}
+// custom url handling: override img for custom pins
+const origImg=img;img=function(p,w){if(p.customUrl)return p.customUrl;return origImg(p,w)};
+renderChips();saveState();render();
+document.getElementById("pinModal").addEventListener("click",e=>{if(e.target.id==="pinModal")closeModal()});
+document.getElementById("createModal").addEventListener("click",e=>{if(e.target.id==="createModal")closeCreate()});
+</script>
+</body>
+</html>
