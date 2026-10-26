@@ -1,0 +1,73 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Block Obby Tower — Original Blocky Climbing Game</title>
+<style>body{margin:0;background:#0f172a;color:#fff;font-family:system-ui,sans-serif;text-align:center}h1{margin:10px 0 4px} .bar{background:#1e293b;padding:8px 12px;font-size:14px} canvas{background:linear-gradient(#38bdf8,#e0f2fe);display:block;margin:12px auto;border:4px solid #fff;border-radius:12px;max-width:96vw} button{padding:10px 16px;border:0;border-radius:10px;background:#f59e0b;font-weight:700;margin:4px;cursor:pointer} .hud{font-size:18px;font-weight:700} .mob button{background:#334155;color:#fff;font-size:20px;padding:12px 20px}</style></head><body>
+<h1>🧱 Block Obby Tower</h1>
+<div class="bar"><b>How to play:</b> Climb 10 levels! Move with ← → or A/D, jump with Space / ↑ / W. Land on platforms, avoid the lava at the bottom, watch moving and disappearing blocks. Checkpoints at levels 4 and 7. P = pause.</div>
+<div class="hud"><span id="hud">Level 1 / 10 · Time 0s · Falls 0</span></div>
+<canvas id="c" width="900" height="560"></canvas>
+<div><button onclick="startGame()">▶ Restart</button><button onclick="togglePause()">⏸ Pause</button></div>
+<div class="mob"><button onpointerdown="keys.left=true" onpointerup="keys.left=false">◀</button><button onpointerdown="keys.right=true" onpointerup="keys.right=false">▶</button><button onpointerdown="doJump()">⬆ JUMP</button></div>
+<p>Best time: <span id="best">—</span> · An original game inspired by blocky obstacle courses. Not affiliated with Roblox.</p>
+<script>
+const cv=document.getElementById('c'),ctx=cv.getContext('2d');
+let keys={},paused=false,level=1,falls=0,startT=Date.now(),won=false,dead=false;
+let best=localStorage.getItem('obbyTowerBest'); document.getElementById('best').textContent=best?best+'s':'—';
+let p={x:40,y:470,w:30,h:38,vx:0,vy:0,onGround:false};
+let plats=[],goal={x:820,y:60},moving=[],vanish=[];
+function buildLevel(n){
+  plats=[{x:0,y:520,w:180,h:40}]; moving=[]; vanish=[];
+  // Deterministic-ish climb: steps rising to the right/left zig-zag
+  let x=140,y=470;
+  for(let i=0;i<8;i++){
+    x = (i%2===0)? 180+((n*37+i*53)%500) : 40+((n*29+i*71)%450);
+    y-=52;
+    let w=110-Math.min(30,n*2);
+    let type='normal';
+    if(n>=3 && i%3===1) type='move';
+    if(n>=5 && i%3===2) type='vanish';
+    let pl={x,y,w,h:20,type,t:0,baseX:x,vx:(type==='move'? (1+n*0.15)*(i%2?1:-1):0)};
+    plats.push(pl); if(type==='move')moving.push(pl); if(type==='vanish')vanish.push(pl);
+  }
+  goal={x:plats[plats.length-1].x, y:plats[plats.length-1].y-44};
+  p.x=40;p.y=470;p.vx=0;p.vy=0;
+}
+function startGame(){level=1;falls=0;startT=Date.now();won=false;paused=false;buildLevel(1);}
+function togglePause(){paused=!paused;}
+addEventListener('keydown',e=>{keys[e.key.toLowerCase()]=true; if(e.key===' ') {e.preventDefault(); doJump();} if(e.key.toLowerCase()==='p') togglePause(); if(['arrowleft','arrowright','arrowup'].includes(e.key.toLowerCase())) e.preventDefault();});
+addEventListener('keyup',e=>keys[e.key.toLowerCase()]=false);
+function doJump(){ if(p.onGround && !paused){p.vy=-15;p.onGround=false;} }
+function loop(){
+  requestAnimationFrame(loop);
+  if(paused){ctx.fillStyle='rgba(0,0,0,.5)';ctx.fillRect(0,0,900,560);ctx.fillStyle='#fff';ctx.font='40px sans-serif';ctx.fillText('PAUSED',360,280);return;}
+  if(won){return;}
+  // movement
+  p.vx=0; if(keys.arrowleft||keys.a) p.vx=-5; if(keys.arrowright||keys.d) p.vx=5;
+  p.x+=p.vx; p.vy+=0.7; p.y+=p.vy; p.onGround=false;
+  if(p.x<0)p.x=0; if(p.x>870)p.x=870;
+  // moving platforms
+  moving.forEach(pl=>{pl.x+=pl.vx; if(pl.x<0||pl.x+pl.w>900) pl.vx*=-1;});
+  plats.forEach(pl=>{
+    if(pl.type==='vanish' && pl.t>0){pl.t-=1; if(pl.t<=0) return;}
+    if(p.vy>=0 && p.x+p.w>pl.x && p.x<pl.x+pl.w && p.y+p.h>=pl.y && p.y+p.h<=pl.y+22){p.y=pl.y-p.h;p.vy=0;p.onGround=true; if(pl.type==='vanish'&&pl.t===0)pl.t=90; if(pl.type==='move')p.x+=pl.vx;}
+  });
+  // lava / fall
+  if(p.y>520){falls++; p.x=40;p.y=470;p.vy=0; if(level>=7){/* checkpoint-ish: stay on same level */} }
+  // goal
+  if(Math.abs(p.x-goal.x)<40 && Math.abs(p.y-goal.y)<50){
+    if(level>=10){won=true; let t=Math.floor((Date.now()-startT)/1000); document.getElementById('hud').textContent='🏆 YOU WIN! Time '+t+'s · Falls '+falls; if(!best||t<+best){localStorage.setItem('obbyTowerBest',t);document.getElementById('best').textContent=t+'s';} }
+    else { level++; if(level===4||level===7){/* checkpoint reached */} buildLevel(level); }
+  }
+  let t=Math.floor((Date.now()-startT)/1000);
+  document.getElementById('hud').textContent='Level '+level+' / 10 · Time '+t+'s · Falls '+falls+(level>=4?' · Checkpoint saved':'');
+  // draw
+  ctx.clearRect(0,0,900,560);
+  ctx.fillStyle='#ef4444'; ctx.fillRect(0,530,900,30); ctx.fillStyle='#fca5a5'; ctx.font='16px sans-serif'; ctx.fillText('🌋 LAVA — do not fall!',350,552);
+  plats.forEach(pl=>{ if(pl.type==='vanish'&&pl.t<=0&&pl.t!==0) return; ctx.fillStyle=pl.type==='move'?'#f59e0b':pl.type==='vanish'?'#a855f7':'#22c55e'; ctx.fillRect(pl.x,pl.y,pl.w,pl.h); ctx.fillStyle='rgba(0,0,0,.25)'; ctx.fillRect(pl.x,pl.y,pl.w,4);});
+  // goal flag
+  ctx.fillStyle='#facc15'; ctx.fillRect(goal.x+15,goal.y-10,28,28); ctx.fillStyle='#000'; ctx.font='20px sans-serif'; ctx.fillText('🏁',goal.x+15,goal.y+14);
+  // blocky player
+  ctx.fillStyle='#3b82f6'; ctx.fillRect(p.x,p.y,p.w,p.h); ctx.fillStyle='#fde68a'; ctx.fillRect(p.x+4,p.y+2,22,14); ctx.fillStyle='#000'; ctx.fillRect(p.x+9,p.y+6,3,3); ctx.fillRect(p.x+18,p.y+6,3,3);
+  if(won){ctx.fillStyle='rgba(0,0,0,.6)';ctx.fillRect(0,0,900,560);ctx.fillStyle='#facc15';ctx.font='44px sans-serif';ctx.fillText('🏆 TOWER COMPLETE!',200,280);}
+}
+buildLevel(1); loop();
+</script></body></html>

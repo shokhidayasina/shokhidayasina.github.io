@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Storm Survival — Original Island Survival Game</title>
+<style>body{margin:0;background:#0f172a;color:#fff;font-family:system-ui,sans-serif;text-align:center}h1{margin:10px 0 4px}.bar{background:#1e293b;padding:8px;font-size:14px}canvas{background:#86c06c;display:block;margin:12px auto;border:4px solid #fff;border-radius:12px;max-width:96vw}button{padding:10px 16px;border:0;border-radius:10px;background:#22c55e;font-weight:700;margin:4px;cursor:pointer}.mob button{background:#334155;color:#fff;font-size:18px}</style></head><body>
+<h1>⛈️ Storm Survival</h1>
+<div class="bar"><b>How to play:</b> WASD / arrows to move, mouse to aim, click / Space to shoot. Grab loot crates for better weapons, health and shield. Enemies come in waves and the storm circle shrinks — stay inside it! P = pause.</div>
+<div id="hud" style="font-weight:700;font-size:18px">Wave 1 · Kills 0 · Time 0s</div>
+<canvas id="c" width="900" height="560"></canvas>
+<div><button onclick="startGame()">▶ Restart</button><button onclick="paused=!paused">⏸ Pause</button></div>
+<div class="mob"><button onpointerdown="keys.a=true" onpointerup="keys.a=false">◀</button><button onpointerdown="keys.d=true" onpointerup="keys.d=false">▶</button><button onpointerdown="keys.w=true" onpointerup="keys.w=false">▲</button><button onpointerdown="keys.s=true" onpointerup="keys.s=false">▼</button><button onclick="shoot()">🔫 SHOOT</button></div>
+<p>Best waves survived: <span id="best">—</span> · An original game inspired by battle-royale survival. Not affiliated with Fortnite.</p>
+<script>
+const cv=document.getElementById('c'),ctx=cv.getContext('2d');
+let keys={},paused=false,mouse={x:450,y:280};
+let p,bullets,enemies,crates,wave,kills,startT,over,stormR,stormX,stormY,weapon;
+let best=localStorage.getItem('stormBest'); document.getElementById('best').textContent=best||'—';
+function startGame(){p={x:450,y:280,hp:100,shield:0,speed:4};bullets=[];enemies=[];crates=[];wave=1;kills=0;startT=Date.now();over=false;stormR=420;stormX=450;stormY=280;weapon={name:'Pistol',dmg:25,rate:300,last:0};spawnWave();for(let i=0;i<5;i++)crates.push({x:100+Math.random()*700,y:80+Math.random()*400,kind:['Rifle','Shotgun','Health','Shield'][i%4]});}
+function spawnWave(){for(let i=0;i<2+wave;i++){let a=Math.random()*Math.PI*2;enemies.push({x:450+Math.cos(a)*420,y:280+Math.sin(a)*260,hp:40+wave*10,speed:1+wave*0.15});}}
+addEventListener('keydown',e=>{keys[e.key.toLowerCase()]=true;if(e.key===' ')shoot();if(e.key.toLowerCase()==='p')paused=!paused;});
+addEventListener('keyup',e=>keys[e.key.toLowerCase()]=false);
+cv.addEventListener('mousemove',e=>{let r=cv.getBoundingClientRect();mouse.x=(e.clientX-r.left)*900/r.width;mouse.y=(e.clientY-r.top)*560/r.height;});
+cv.addEventListener('click',shoot);
+function shoot(){if(paused||over)return;let now=Date.now();if(now-weapon.last<weapon.rate)return;weapon.last=now;let a=Math.atan2(mouse.y-p.y,mouse.x-p.x);let n=weapon.name==='Shotgun'?5:1;for(let i=0;i<n;i++){let aa=a+(i-(n-1)/2)*0.12;bullets.push({x:p.x,y:p.y,vx:Math.cos(aa)*9,vy:Math.sin(aa)*9,dmg:weapon.dmg});}}
+function loop(){requestAnimationFrame(loop);if(paused){return;}if(over)return;
+ let dx=(keys.d||keys.arrowright?1:0)-(keys.a||keys.arrowleft?1:0),dy=(keys.s||keys.arrowdown?1:0)-(keys.w||keys.arrowup?1:0);
+ p.x=Math.max(20,Math.min(880,p.x+dx*p.speed));p.y=Math.max(20,Math.min(540,p.y+dy*p.speed));
+ stormR=Math.max(90,stormR-0.06);
+ // storm damage
+ let d=Math.hypot(p.x-stormX,p.y-stormY); if(d>stormR){if(p.shield>0)p.shield-=0.2;else p.hp-=0.2;}
+ // loot
+ crates=crates.filter(cr=>{if(Math.hypot(p.x-cr.x,p.y-cr.y)<30){if(cr.kind==='Health')p.hp=Math.min(100,p.hp+40);else if(cr.kind==='Shield')p.shield=Math.min(100,p.shield+50);else weapon={name:cr.kind,dmg:cr.kind==='Rifle'?35:18,rate:cr.kind==='Rifle'?180:500,last:0};return false;}return true;});
+ if(Math.random()<0.002)crates.push({x:80+Math.random()*740,y:60+Math.random()*440,kind:['Health','Shield','Rifle','Shotgun'][Math.floor(Math.random()*4)]});
+ // enemies
+ enemies.forEach(e=>{let a=Math.atan2(p.y-e.y,p.x-e.x);e.x+=Math.cos(a)*e.speed;e.y+=Math.sin(a)*e.speed;if(Math.hypot(p.x-e.x,p.y-e.y)<28){if(p.shield>0)p.shield-=0.5;else p.hp-=0.5;}});
+ bullets.forEach(b=>{b.x+=b.vx;b.y+=b.vy;});
+ enemies=enemies.filter(e=>{let hit=false;bullets.forEach(b=>{if(Math.hypot(b.x-e.x,b.y-e.y)<22){e.hp-=b.dmg;b.x=-999;hit=true;}});if(e.hp<=0){kills++;return false;}return true;});
+ bullets=bullets.filter(b=>b.x>0&&b.x<900&&b.y>0&&b.y<560);
+ if(enemies.length===0){wave++;spawnWave();}
+ if(p.hp<=0){over=true;let t=Math.floor((Date.now()-startT)/1000);document.getElementById('hud').textContent='💀 Survived '+t+'s · Wave '+wave+' · Kills '+kills;if(!best||wave>+best){localStorage.setItem('stormBest',wave);document.getElementById('best').textContent=wave;}}
+ else{let t=Math.floor((Date.now()-startT)/1000);document.getElementById('hud').textContent='Wave '+wave+' · Kills '+kills+' · Time '+t+'s · HP '+Math.ceil(p.hp)+' · Shield '+Math.ceil(p.shield)+' · Weapon: '+weapon.name+' · Storm shrinking!';}
+ // draw
+ ctx.clearRect(0,0,900,560);ctx.fillStyle='#86c06c';ctx.fillRect(0,0,900,560);
+ ctx.fillStyle='rgba(148,163,184,.35)';ctx.fillRect(0,0,900,560);ctx.save();ctx.beginPath();ctx.arc(stormX,stormY,stormR,0,7);ctx.clip();ctx.fillStyle='#86c06c';ctx.fillRect(0,0,900,560);ctx.restore();ctx.strokeStyle='#a855f7';ctx.lineWidth=4;ctx.beginPath();ctx.arc(stormX,stormY,stormR,0,7);ctx.stroke();
+ crates.forEach(cr=>{ctx.fillStyle='#f59e0b';ctx.fillRect(cr.x-14,cr.y-14,28,28);ctx.fillStyle='#000';ctx.font='14px sans-serif';ctx.fillText(cr.kind[0],cr.x-5,cr.y+5);});
+ enemies.forEach(e=>{ctx.fillStyle='#dc2626';ctx.fillRect(e.x-14,e.y-16,28,32);ctx.fillStyle='#fde68a';ctx.fillRect(e.x-10,e.y-16,20,10);});
+ bullets.forEach(b=>{ctx.fillStyle='#facc15';ctx.beginPath();ctx.arc(b.x,b.y,4,0,7);ctx.fill();});
+ // player blocky
+ ctx.fillStyle='#3b82f6';ctx.fillRect(p.x-15,p.y-18,30,36);ctx.fillStyle='#fde68a';ctx.fillRect(p.x-11,p.y-18,22,13);
+ ctx.fillStyle='#000';ctx.fillRect(p.x-14,p.y+20,28,4);ctx.fillStyle='#22c55e';ctx.fillRect(p.x-14,p.y+20,28*(p.hp/100),4);
+ if(over){ctx.fillStyle='rgba(0,0,0,.6)';ctx.fillRect(0,0,900,560);ctx.fillStyle='#fff';ctx.font='40px sans-serif';ctx.fillText('STORM GOT YOU!',280,280);}
+}
+startGame();loop();
+</script></body></html>
