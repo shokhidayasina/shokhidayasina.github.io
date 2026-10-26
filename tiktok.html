@@ -74,15 +74,7 @@ header b{font-size:18px}header a{color:#fff}
 </div>
 
 <script>
-const baseVideos=[
- {id:"7627972781547719967",creator:"@brookemonk_",title:"#DONEpartner — These drinks taste too good to be true!"},
- {id:"7612778449853254943",creator:"@brookemonk_",title:"Brooke Monk — TikTok video"},
- {id:"7604973257627897118",creator:"@brookemonk_",title:"Brooke Monk — TikTok video"},
- {id:"7614250295350005022",creator:"@brookemonk_",title:"Brooke Monk — TikTok video"},
- {id:"6797116138070248709",creator:"@brookemonk_",title:"Pretty sure I'm not the only one #foryou #mood"},
- {id:"6792726866529766661",creator:"@brookemonk_",title:"You guys really did that #foryou"},
- {id:"6944600097544064261",creator:"@brookemonk_",title:"I feel so special when moms say that…"},
-];
+const baseVideos=[];
 const kidCats=["All","ABC","Numbers","Animals","Colors","Shapes","Science","Words"];
 const kids=[
  {id:"kid-A",cat:"ABC",emoji:"🍎",en:"A — Apple",uz:"Olma",photo:"red apple fruit",fact:"Apples grow on trees. An apple a day keeps you healthy!",q:"What letter does Apple start with?",a:"A!"},
@@ -135,7 +127,9 @@ function renderKidChips(){document.getElementById("kidChips").innerHTML=kidCats.
 function filteredKids(){return kidCat==="All"?kids:kids.filter(k=>k.cat===kidCat)}
 function render(){
   if(mode==="videos"){
-    document.getElementById("feed").innerHTML=[...myVideos,...baseVideos].map(v=>`<div class="slide"><iframe src="https://www.tiktok.com/embed/v2/${v.id}" allowfullscreen scrolling="no" allow="encrypted-media; picture-in-picture"></iframe><div class="info"><b>${esc(v.title)}</b><small>${esc(v.creator)} • Watch on TikTok ↗</small><br><small>Scroll for the next video ⬆⬇</small></div><div class="actions"><button class="act" onclick="this.style.background='#fe2c55'">❤️<span>Like</span></button><button class="act" onclick="openComments('${v.id}')">💬<span>${commentCount(v.id)}</span></button><button class="act" onclick="toggleSave('${v.id}')">🔖<span>${saved.includes(v.id)?"Saved":"Save"}</span></button><a href="https://www.tiktok.com/${v.creator}/video/${v.id}" target="_blank" rel="noopener"><button class="act">↗<span>TikTok</span></button></a></div></div>`).join("");
+    let vids=[...myVideos,...baseVideos];
+    if(!vids.length){document.getElementById("feed").innerHTML=`<div class="slide" style="background:linear-gradient(135deg,#111,#333)"><div class="kidCard"><div class="emoji">🎵</div><h2>No videos here yet</h2><p>Tap “＋ Add a TikTok video” at the top to add a video you choose, or go back to 🧒 Kids Learning for lessons.</p></div></div>`;return}
+    document.getElementById("feed").innerHTML=vids.map(v=>`<div class="slide"><iframe src="https://www.tiktok.com/embed/v2/${v.id}" allowfullscreen scrolling="no" allow="encrypted-media; picture-in-picture"></iframe><div class="info"><b>${esc(v.title)}</b><small>${esc(v.creator)} • Watch on TikTok ↗</small><br><small>Scroll for the next video ⬆⬇</small></div><div class="actions"><button class="act" onclick="this.style.background='#fe2c55'">❤️<span>Like</span></button><button class="act" onclick="openComments('${v.id}')">💬<span>${commentCount(v.id)}</span></button><button class="act" onclick="toggleSave('${v.id}')">🔖<span>${saved.includes(v.id)?"Saved":"Save"}</span></button><a href="https://www.tiktok.com/${v.creator}/video/${v.id}" target="_blank" rel="noopener"><button class="act">↗<span>TikTok</span></button></a></div></div>`).join("");
   } else {
     let list=filteredKids();
     let intro=`<div class="slide" style="background:linear-gradient(135deg,#667eea,#764ba2)"><div class="kidCard"><div class="emoji">🎓</div><h2>Welcome, little learner!</h2><h3>Salom, kichik o'quvchi!</h3><p>Scroll up and down to learn ABC, numbers, animals, colors, shapes, science, and English–Uzbek words. Tap 🔊 to hear the word, answer the quiz, and tap ⭐ when you learned it!</p><p><b>${kids.length} fun lessons</b> • Safe, no ads, just learning 🌟</p></div></div>`;
