@@ -7,6 +7,26 @@
 </head>
 <body>
 <p id="motivation" style="font-size:22px;font-weight:700">You can do this. Start now, one step at a time.</p>
+<p><label>Choose an event type: <select id="eventType" onchange="document.getElementById('selectedEvent').textContent='You selected: '+this.value">
+<option value="">-- Select --</option>
+<option>Christmas</option>
+<option>Halloween</option>
+<option>Ramadan</option>
+<option>Eid</option>
+<option>New Year</option>
+<option>Birthday</option>
+<option>Wedding</option>
+<option>Graduation</option>
+<option>Library</option>
+<option>Beach</option>
+<option>Concert</option>
+<option>Festival</option>
+<option>Sports</option>
+<option>School</option>
+<option>Work</option>
+<option>Other</option>
+</select></label></p>
+<p id="selectedEvent"></p>
 <h1>Fresh Page</h1>
 <p><a href="index.html">Back to home</a></p>
 <script>
