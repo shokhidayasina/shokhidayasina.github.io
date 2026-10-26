@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PinBoard — Real Photos to Save</title>
+<title>PinBoard — Real Photos, Scroll & Comments</title>
 <style>
 *{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#fff;color:#111}
 header{position:sticky;top:0;z-index:20;background:#fff;display:flex;align-items:center;gap:10px;padding:10px 14px;box-shadow:0 1px 8px rgba(0,0,0,.08);flex-wrap:wrap}
@@ -40,6 +40,26 @@ h1{font-size:20px;margin:0;letter-spacing:-.5px}h1 span{color:#e60023}
 .pickgrid img.sel{border-color:#e60023}
 .empty{text-align:center;padding:60px 20px;color:#666}
 a{color:#e60023}
+#ttView{position:fixed;inset:0;background:#000;z-index:100;display:none}
+#ttView.open{display:block}
+#ttFeed{height:100vh;overflow-y:auto;scroll-snap-type:y mandatory;scrollbar-width:none}
+#ttFeed::-webkit-scrollbar{display:none}
+.ttSlide{height:100vh;scroll-snap-align:start;scroll-snap-stop:always;position:relative;display:flex;align-items:center;justify-content:center;background:#000}
+.ttSlide img{max-width:100%;max-height:100vh;object-fit:contain}
+.ttInfo{position:absolute;left:16px;right:86px;bottom:26px;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.8)}
+.ttInfo b{font-size:18px;display:block}.ttInfo small{opacity:.9}
+.ttActions{position:absolute;right:14px;bottom:110px;display:flex;flex-direction:column;gap:16px;align-items:center}
+.ttAct{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:50%;width:54px;height:54px;font-size:22px;cursor:pointer;backdrop-filter:blur(4px)}
+.ttAct span{display:block;font-size:12px;font-weight:700;margin-top:2px}
+.ttClose{position:absolute;top:14px;right:14px;z-index:5;background:#fff;border:0;border-radius:50%;width:40px;height:40px;font-size:20px;cursor:pointer}
+.ttHint{position:absolute;top:14px;left:14px;z-index:5;color:#fff;background:rgba(0,0,0,.5);padding:8px 12px;border-radius:20px;font-size:13px}
+#ttComments{position:absolute;left:0;right:0;bottom:0;height:65vh;background:#fff;border-radius:22px 22px 0 0;z-index:6;display:none;flex-direction:column;padding:16px}
+#ttComments.open{display:flex}
+.comment{border-bottom:1px solid #eee;padding:10px 0}
+.comment b{font-size:14px}.comment small{color:#888;margin-left:6px}
+.comment p{margin:4px 0 0}
+.cInput{display:flex;gap:8px;margin-top:10px}
+.cInput input{flex:1;padding:12px;border:1px solid #ddd;border-radius:22px}
 @media(max-width:700px){.modal{grid-template-columns:1fr}h1{display:none}}
 </style>
 </head>
@@ -50,9 +70,10 @@ a{color:#e60023}
 <button class="btn" onclick="openCreate()">＋ Create</button>
 <div class="search">🔍 <input id="q" placeholder="Search real photos: cats, pasta, mountains..." onkeydown="if(event.key==='Enter')doSearch()"><button class="btn red" onclick="doSearch()" style="margin:4px">Search</button></div>
 <button class="btn" id="savedBtn" onclick="showView('saved')">Saved <span class="badge" id="savedCount">0</span></button>
+<button class="btn red" onclick="openTikTok()">▶ Scroll</button>
 </header>
 
-<div class="info">📌 <b>PinBoard — now with real photos, like Pinterest.</b> Type anything in search — cats, food, travel, rooms — and it fetches real photos for that topic from the web (Openverse / Wikimedia Commons, free photos with credit). Tap a photo to open it, save it to your board, or open the original.<br><span style="color:#555">Endi haqiqiy rasmlar: qidiruvga yozing — masalan, mushuk, ovqat, tog'lar — va shu mavzudagi haqiqiy fotolar chiqadi.</span></div>
+<div class="info">📌 <b>PinBoard — real photos, TikTok-style scroll, and comments.</b> Search for real photos like Pinterest, tap <b>▶ Scroll</b> to swipe/scroll up and down through full-screen photos like TikTok, and tap 💬 on any photo to comment. Comments are saved in your browser.<br><span style="color:#555">▶ Scroll tugmasini bosing — TikTok'dek yuqoriga-pastga aylantirib ko'ring, 💬 bilan izoh qoldiring.</span></div>
 
 <div class="chips" id="chips"></div>
 <h2 id="feedTitle" style="padding:0 14px">Trending photos</h2>
@@ -68,6 +89,10 @@ a{color:#e60023}
 <button class="btn red" id="mSave" onclick="toggleSave(currentId)">Save</button>
 <a id="mOrig" href="#" target="_blank" rel="noopener"><button class="btn" style="margin-top:8px">↗ View original</button></a>
 <button class="btn" onclick="searchSimilar()" style="margin-top:8px">🔍 More like this</button>
+<button class="btn red" onclick="openTikTokFromModal()" style="margin-top:8px">▶ Scroll like TikTok</button>
+<h3>💬 Comments <span id="mCommentCount"></span></h3>
+<div id="mComments"></div>
+<div class="cInput"><input id="mCommentInput" placeholder="Add a comment..." onkeydown="if(event.key==='Enter')postModalComment()"><button class="btn red" onclick="postModalComment()">Post</button></div>
 </div></div></div>
 
 <div class="modalbg" id="createModal"><div class="modal" style="max-width:560px;display:block"><div>
@@ -80,6 +105,17 @@ a{color:#e60023}
 <label>Category</label><select id="cCat"></select>
 <button class="btn red" onclick="addPin()">Publish pin →</button>
 </div></div></div>
+
+<div id="ttView">
+<button class="ttClose" onclick="closeTikTok()">×</button>
+<div class="ttHint">⬆ Swipe / scroll up &amp; down • Tap 💬 to comment</div>
+<div id="ttFeed"></div>
+<div id="ttComments">
+<div style="display:flex;justify-content:space-between;align-items:center"><h3 style="margin:0">💬 Comments</h3><button class="close" onclick="closeTTComments()">×</button></div>
+<div id="ttCommentList" style="flex:1;overflow:auto"></div>
+<div class="cInput"><input id="ttCommentInput" placeholder="Add a comment..." onkeydown="if(event.key==='Enter')postTTComment()"><button class="btn red" onclick="postTTComment()">Post</button></div>
+</div>
+</div>
 
 <script>
 const cats=[
@@ -96,9 +132,15 @@ const cats=[
  ["Tech","modern technology workspace"]
 ];
 const homeQueries=["cozy home interior","delicious pasta food","mountain travel landscape","street fashion style","forest nature","cute dog puppy","art painting","beautiful beach sunset"];
-let currentCat="All", view="home", currentId=null, pins=[], myPins=[], savedPins=[], pickedCreate=null;
+let currentCat="All", view="home", currentId=null, pins=[], myPins=[], savedPins=[], pickedCreate=null, comments={}, ttCommentId=null, ttIndex=0;
 try{myPins=JSON.parse(localStorage.getItem("pinboard_my_pins_v2")||"[]")}catch(e){myPins=[]}
 try{savedPins=JSON.parse(localStorage.getItem("pinboard_saved_pins_v2")||"[]")}catch(e){savedPins=[]}
+try{comments=JSON.parse(localStorage.getItem("pinboard_comments_v3")||"{}")}catch(e){comments={}}
+function commentCount(id){return (comments[id]||[]).length}
+function getComments(id){return comments[id]||[]}
+function saveComments(){localStorage.setItem("pinboard_comments_v3",JSON.stringify(comments))}
+function addComment(id,text){if(!comments[id])comments[id]=[];comments[id].push({name:"You",text:text,time:new Date().toLocaleString()});saveComments()}
+function commentHTML(id){let list=getComments(id);if(!list.length)return "<p style='color:#888'>No comments yet. Be the first! 💬</p>";return list.map(c=>`<div class="comment"><b>${esc(c.name)}</b><small>${esc(c.time)}</small><p>${esc(c.text)}</p></div>`).join("")}
 function esc(s){return String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 function cleanTitle(t){let x=(t||"Untitled photo").replace(/\.[a-z]{3,4}$/i,"").replace(/_/g," ").replace(/^File:/i,"");return x.length>90?x.slice(0,90)+"…":x}
 async function fetchOpenverse(q,n){
@@ -124,7 +166,7 @@ function showView(v){view=v;document.getElementById("homeBtn").classList.toggle(
 function setStatus(t){document.getElementById("status").style.display=t?"block":"none";document.getElementById("status").innerHTML=t||""}
 function render(){
   document.getElementById("empty").style.display=(view==="saved"&&pins.length===0)?"block":"none";
-  document.getElementById("grid").innerHTML=pins.map(p=>`<div class="pin" onclick="openPin('${p.id}')"><button class="savebtn" onclick="event.stopPropagation();toggleSave('${p.id}');render()">${savedPins.some(s=>s.id===p.id)?"Saved ✓":"Save"}</button><img src="${esc(p.img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'"><div class="pin-body"><b>${esc(p.title)}</b><small>${esc(p.cat)} • ${esc(p.author)}</small></div></div>`).join("");
+  document.getElementById("grid").innerHTML=pins.map(p=>`<div class="pin" onclick="openPin('${p.id}')"><button class="savebtn" onclick="event.stopPropagation();toggleSave('${p.id}');render()">${savedPins.some(s=>s.id===p.id)?"Saved ✓":"Save"}</button><img src="${esc(p.img)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'"><div class="pin-body"><b>${esc(p.title)}</b><small>${esc(p.cat)} • ${esc(p.author)} • 💬 ${commentCount(p.id)}</small></div></div>`).join("");
   document.getElementById("savedCount").textContent=savedPins.length;
 }
 async function loadHome(){
@@ -141,7 +183,8 @@ async function loadQuery(q,title){
   render();
 }
 function doSearch(){let q=document.getElementById("q").value.trim();if(!q)return;currentCat="All";renderChips();loadQuery(q,`Photos: ${q}`)}
-function openPin(id){let p=pins.find(x=>x.id===id)||savedPins.find(x=>x.id===id);if(!p)return;currentId=id;document.getElementById("mImg").src=p.full;document.getElementById("mTitle").textContent=p.title;document.getElementById("mDesc").textContent="A real photo from the web. Credit: "+p.author+(p.license?" • License: "+p.license:"");document.getElementById("mMeta").textContent=p.cat+" • "+p.author;document.getElementById("mSave").textContent=savedPins.some(s=>s.id===id)?"Saved ✓":"Save";document.getElementById("mOrig").href=p.source;document.getElementById("pinModal").classList.add("open")}
+function openPin(id){let p=pins.find(x=>x.id===id)||savedPins.find(x=>x.id===id);if(!p)return;currentId=id;document.getElementById("mImg").src=p.full;document.getElementById("mTitle").textContent=p.title;document.getElementById("mDesc").textContent="A real photo from the web. Credit: "+p.author+(p.license?" • License: "+p.license:"");document.getElementById("mMeta").textContent=p.cat+" • "+p.author;document.getElementById("mSave").textContent=savedPins.some(s=>s.id===id)?"Saved ✓":"Save";document.getElementById("mOrig").href=p.source;document.getElementById("mCommentCount").textContent="("+commentCount(id)+")";document.getElementById("mComments").innerHTML=commentHTML(id);document.getElementById("mCommentInput").value="";document.getElementById("pinModal").classList.add("open")}
+function postModalComment(){let t=document.getElementById("mCommentInput").value.trim();if(!t||!currentId)return;addComment(currentId,t);document.getElementById("mCommentInput").value="";document.getElementById("mCommentCount").textContent="("+commentCount(currentId)+")";document.getElementById("mComments").innerHTML=commentHTML(currentId);render()}
 function closeModal(){document.getElementById("pinModal").classList.remove("open")}
 function toggleSave(id){let p=pins.find(x=>x.id===id)||savedPins.find(x=>x.id===id)||myPins.find(x=>x.id===id);if(!p)return;if(savedPins.some(s=>s.id===id))savedPins=savedPins.filter(s=>s.id!==id);else savedPins.unshift(p);localStorage.setItem("pinboard_saved_pins_v2",JSON.stringify(savedPins));if(currentId===id)document.getElementById("mSave").textContent=savedPins.some(s=>s.id===id)?"Saved ✓":"Save";if(view==="saved"){pins=savedPins}render()}
 function searchSimilar(){let p=pins.find(x=>x.id===currentId);if(!p)return;closeModal();loadQuery(p.query||p.title,"More like this")}
@@ -150,6 +193,19 @@ function closeCreate(){document.getElementById("createModal").classList.remove("
 async function findCreatePhotos(){let q=document.getElementById("cSearch").value.trim();if(!q){alert("Type a photo topic first, e.g. beach sunset");return}document.getElementById("cPics").innerHTML="<p>Searching…</p>";let r=await fetchPhotos(q,12);if(!r.length){document.getElementById("cPics").innerHTML="<p>No photos found. Try another word.</p>";return}document.getElementById("cPics").innerHTML=r.map((p,i)=>`<img src="${esc(p.img)}" data-i="${i}" onclick="pickCreate(${i})" referrerpolicy="no-referrer">`).join("");window._createResults=r}
 function pickCreate(i){pickedCreate=window._createResults[i];document.querySelectorAll("#cPics img").forEach((im,j)=>im.classList.toggle("sel",j===i));if(!document.getElementById("cTitle").value)document.getElementById("cTitle").value=pickedCreate.title}
 function addPin(){if(!pickedCreate){alert("First find a photo and tap one to pick it");return}let t=document.getElementById("cTitle").value.trim()||pickedCreate.title;let p={...pickedCreate,id:"mine-"+Date.now(),title:t,cat:document.getElementById("cCat").value};myPins.unshift(p);localStorage.setItem("pinboard_my_pins_v2",JSON.stringify(myPins));pins.unshift(p);closeCreate();showView("home");render();openPin(p.id)}
+function openTikTok(){if(!pins.length){alert("Photos are still loading — wait a second, then try again");return}document.getElementById("ttView").classList.add("open");document.body.style.overflow="hidden";renderTikTok()}
+function openTikTokFromModal(){closeModal();openTikTok()}
+function closeTikTok(){document.getElementById("ttView").classList.remove("open");document.body.style.overflow="";closeTTComments();render()}
+function renderTikTok(keep){
+  let feed=document.getElementById("ttFeed");let st=keep?feed.scrollTop:0;
+  feed.innerHTML=pins.map(p=>`<div class="ttSlide"><img src="${esc(p.full)}" alt="" referrerpolicy="no-referrer"><div class="ttInfo"><b>${esc(p.title)}</b><small>${esc(p.cat)} • ${esc(p.author)}</small><br><small>Scroll up / down for the next photo ⬆⬇</small></div><div class="ttActions"><button class="ttAct" onclick="likeTT('${p.id}',this)">❤️<span>Like</span></button><button class="ttAct" onclick="openTTComments('${p.id}')">💬<span>${commentCount(p.id)}</span></button><button class="ttAct" onclick="toggleSave('${p.id}');renderTikTok(true)">🔖<span>${savedPins.some(s=>s.id===p.id)?"Saved":"Save"}</span></button><a href="${esc(p.source)}" target="_blank" rel="noopener"><button class="ttAct">↗<span>Original</span></button></a></div></div>`).join("");
+  feed.scrollTop=st;
+}
+function likeTT(id,btn){btn.style.background="#e60023";btn.style.transform="scale(1.15)";setTimeout(()=>btn.style.transform="",200)}
+function openTTComments(id){ttCommentId=id;document.getElementById("ttCommentList").innerHTML=commentHTML(id);document.getElementById("ttComments").classList.add("open")}
+function closeTTComments(){document.getElementById("ttComments").classList.remove("open");ttCommentId=null}
+function postTTComment(){let t=document.getElementById("ttCommentInput").value.trim();if(!t||!ttCommentId)return;addComment(ttCommentId,t);document.getElementById("ttCommentInput").value="";document.getElementById("ttCommentList").innerHTML=commentHTML(ttCommentId);renderTikTok(true)}
+document.addEventListener("keydown",e=>{let f=document.getElementById("ttFeed");if(!document.getElementById("ttView").classList.contains("open"))return;if(e.key==="ArrowDown")f.scrollBy({top:window.innerHeight,behavior:"smooth"});if(e.key==="ArrowUp")f.scrollBy({top:-window.innerHeight,behavior:"smooth"});if(e.key==="Escape")closeTikTok()});
 renderChips();document.getElementById("savedCount").textContent=savedPins.length;loadHome();
 document.getElementById("pinModal").addEventListener("click",e=>{if(e.target.id==="pinModal")closeModal()});
 document.getElementById("createModal").addEventListener("click",e=>{if(e.target.id==="createModal")closeCreate()});
