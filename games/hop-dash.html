@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hop Dash — Bounce Higher!</title>
+<style>
+body{font-family:system-ui,sans-serif;margin:0;text-align:center;background:linear-gradient(135deg,#7c3aed,#06b6d4);color:#fff;min-height:100vh}
+h1{margin:16px 0 4px} p{margin:6px 14px}
+#wrap{max-width:460px;margin:0 auto;padding:0 12px 20px}
+canvas{display:block;width:100%;max-width:420px;height:600px;margin:10px auto;background:linear-gradient(#a5f3fc,#fef9c3);border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+button{border:0;border-radius:999px;padding:12px 22px;font-size:16px;font-weight:700;background:#facc15;cursor:pointer}
+a{color:#fff}
+.bar{display:flex;justify-content:space-between;max-width:420px;margin:0 auto;font-weight:700}
+</style></head><body>
+<div id="wrap">
+<h1>🐰 Hop Dash</h1>
+<p>Move with ← → keys or drag your finger. You bounce automatically — just don't fall!</p>
+<div class="bar"><span id="score">Score: 0</span><span id="best">Best: 0</span></div>
+<canvas id="c" width="420" height="600"></canvas>
+<p><button id="start">▶ Play again</button></p>
+<p><a href="../playhop.html">← Back to Instant Games</a></p>
+</div>
+<script>
+const cv=document.getElementById('c'),ctx=cv.getContext('2d');
+let px,py,vx,vy,plats,stars,score,over,keys={},touchX=null;
+const BEST_KEY='hopdash_best';
+let best=+(localStorage.getItem(BEST_KEY)||0);
+document.getElementById('best').textContent='Best: '+best;
+function reset(){
+  px=210;py=520;vx=0;vy=-14;score=0;over=false;plats=[];stars=[];
+  for(let i=0;i<14;i++){
+    plats.push({x:Math.random()*340,y:560-i*42,w:80});
+    if(i>1&&Math.random()<.4) stars.push({x:Math.random()*380+20,y:560-i*42-22,taken:false});
+  }
+  document.getElementById('score').textContent='Score: 0';
+}
+function loop(){
+  if(!over){
+    if(keys.ArrowLeft||keys.a) vx=-5;
+    else if(keys.ArrowRight||keys.d) vx=5;
+    else if(touchX!==null) vx=(touchX-px)>0?5:-5;
+    else vx*=0.9;
+    px+=vx; if(px<15)px=405; if(px>405)px=15;
+    vy+=0.45; py+=vy;
+    if(py<220){
+      const d=220-py; score+=Math.floor(d/10);
+      for(const p of plats) p.y+=d;
+      for(const s of stars) s.y+=d;
+      py=220;
+      plats=plats.filter(p=>p.y<620);
+      stars=stars.filter(s=>s.y<620);
+      let top=Math.min(...plats.map(p=>p.y));
+      while(top>0){
+        top-=42;
+        plats.push({x:Math.random()*340,y:top,w:Math.max(55,80-score/20)});
+        if(Math.random()<.4) stars.push({x:Math.random()*380+20,y:top-22,taken:false});
+      }
+    }
+    for(const p of plats){
+      if(vy>0&&py+18>=p.y&&py+18<=p.y+18&&px>p.x-10&&px<p.x+p.w+10){vy=-14.5;py=p.y-18;}
+    }
+    for(const s of stars){
+      if(!s.taken&&Math.abs(px-s.x)<28&&Math.abs(py-s.y)<28){s.taken=true;score+=50;}
+    }
+    if(py>620){over=true;if(score>best){best=score;localStorage.setItem(BEST_KEY,best);document.getElementById('best').textContent='Best: '+best;}}
+    document.getElementById('score').textContent='Score: '+score;
+  }
+  ctx.clearRect(0,0,420,600);
+  ctx.fillStyle='#16a34a';
+  for(const p of plats) ctx.fillRect(p.x,p.y,p.w,14);
+  ctx.font='22px system-ui';
+  for(const s of stars) if(!s.taken) ctx.fillText('⭐',s.x-11,s.y);
+  ctx.font='38px system-ui';ctx.fillText('🐰',px-19,py+8);
+  if(over){ctx.fillStyle='rgba(0,0,0,.55)';ctx.fillRect(0,220,420,120);ctx.fillStyle='#fff';ctx.font='bold 28px system-ui';ctx.fillText('Game over!',120,270);ctx.font='20px system-ui';ctx.fillText('Score: '+score+' — press Play again',55,305);}
+  requestAnimationFrame(loop);
+}
+addEventListener('keydown',e=>{keys[e.key]=true;if(e.key===' ')e.preventDefault();});
+addEventListener('keyup',e=>keys[e.key]=false);
+cv.addEventListener('touchstart',e=>{touchX=e.touches[0].clientX-cv.getBoundingClientRect().left;},{passive:true});
+cv.addEventListener('touchmove',e=>{touchX=e.touches[0].clientX-cv.getBoundingClientRect().left;},{passive:true});
+cv.addEventListener('touchend',()=>touchX=null);
+cv.addEventListener('mousemove',e=>{if(e.buttons)touchX=e.clientX-cv.getBoundingClientRect().left;});
+document.getElementById('start').onclick=reset;
+reset();loop();
+</script></body></html>

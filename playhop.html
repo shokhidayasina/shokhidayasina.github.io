@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Instant Games — Playhop-style, no download</title>
+<style>
+body{font-family:system-ui,sans-serif;margin:0;background:#0f172a;color:#e2e8f0}
+header{background:linear-gradient(90deg,#7c3aed,#db2777,#f59e0b);padding:22px 16px;text-align:center;color:#fff}
+header h1{margin:0;font-size:32px} header p{margin:6px 0 0;opacity:.95}
+.wrap{max-width:980px;margin:0 auto;padding:16px}
+.search{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}
+.search input{flex:1;min-width:220px;padding:12px 14px;border-radius:999px;border:1px solid #334155;background:#1e293b;color:#fff;font-size:16px}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.pills button{border:1px solid #334155;background:#1e293b;color:#e2e8f0;border-radius:999px;padding:8px 14px;cursor:pointer}
+.pills button.on{background:#facc15;color:#111;border-color:#facc15;font-weight:700}
+#player{display:none;background:#1e293b;border-radius:18px;padding:14px;margin:16px 0}
+#player h2{margin:0 0 8px}
+#frame{width:100%;height:660px;border:0;border-radius:12px;background:#fff}
+.pbtns{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.pbtns button{border:0;border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer;background:#38bdf8}
+.pbtns button.close{background:#475569;color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.card{background:#1e293b;border-radius:16px;padding:16px;text-align:center;cursor:pointer;border:1px solid #334155}
+.card:hover{transform:translateY(-2px);border-color:#facc15}
+.card .em{font-size:44px}.card h3{margin:8px 0 4px;color:#fff}.card p{margin:0;color:#94a3b8;font-size:14px}
+.tag{display:inline-block;background:#334155;border-radius:999px;padding:3px 10px;font-size:12px;margin-top:8px}
+.new{background:#facc15;color:#111;font-weight:700}
+.fav{float:right;font-size:22px;background:none;border:0;cursor:pointer;color:#facc15}
+.recent{margin:6px 0 14px;color:#94a3b8;font-size:14px}
+.recent b{color:#fff;cursor:pointer;text-decoration:underline}
+a{color:#facc15}
+.note{color:#94a3b8;font-size:13px;text-align:center;margin:24px 0}
+</style></head><body>
+<header><h1>🎮 Instant Games</h1><p>Playhop-style: pick a game, play instantly in this page. No download, no account.</p></header>
+<div class="wrap">
+<div class="search"><input id="q" placeholder="Search games… e.g. snake, puzzle, racing"><button id="favFilter" style="border-radius:999px;padding:12px 16px;border:0;background:#1e293b;color:#fff;cursor:pointer">♥ Favorites</button></div>
+<div class="pills" id="pills"></div>
+<div class="recent" id="recent"></div>
+
+<div id="player">
+<h2 id="ptitle">Playing</h2>
+<iframe id="frame" title="Game player" allow="autoplay"></iframe>
+<div class="pbtns">
+<button id="full">⛶ Full screen</button>
+<button id="share">🔗 Copy link to this game</button>
+<button id="favBtn">♥ Save to favorites</button>
+<button class="close" id="close">✕ Close player</button>
+</div>
+<p id="shareMsg" style="color:#86efac"></p>
+</div>
+
+<div class="grid" id="grid"></div>
+<p class="note">Original mini-games inspired by popular games — not copies, and not affiliated with Playhop. Your favorites and recently played games are saved only in your own browser.</p>
+<p style="text-align:center"><a href="index.html">← Back to My first App</a> · <a href="games.html">All games list</a></p>
+</div>
+<script>
+const GAMES=[
+{id:'hop-dash',t:'Hop Dash',e:'🐰',c:'Arcade',d:'Bounce higher, grab stars, don\'t fall!',f:'games/hop-dash.html',isNew:true},
+{id:'hole-io',t:'Hole.io-style',e:'🕳️',c:'Action',d:'Swallow the city and grow!',f:'games/hole-io.html'},
+{id:'blockcraft',t:'BlockCraft',e:'🧱',c:'Casual',d:'Minecraft-style building',f:'games/blockcraft.html'},
+{id:'obby',t:'Obby Jump',e:'🏃',c:'Action',d:'Roblox-style obstacle course',f:'games/obby.html'},
+{id:'snake',t:'Snake',e:'🐍',c:'Arcade',d:'Classic snake',f:'games/snake.html'},
+{id:'flappy',t:'Flappy',e:'🐤',c:'Arcade',d:'Tap to fly through pipes',f:'games/flappy.html'},
+{id:'2048',t:'2048',e:'🔢',c:'Puzzle',d:'Slide and merge numbers',f:'games/2048.html'},
+{id:'racer',t:'Road Racer',e:'🏎️',c:'Racing',d:'Dodge traffic',f:'games/racer.html'},
+{id:'memory',t:'Memory Match',e:'🃏',c:'Puzzle',d:'Find all the pairs',f:'games/memory.html'},
+{id:'tetris',t:'Tetris',e:'🧩',c:'Puzzle',d:'Stack blocks, clear lines',f:'games/tetris.html'},
+{id:'wordle',t:'Wordle',e:'🔤',c:'Puzzle',d:'Guess the 5-letter word',f:'games/wordle.html'},
+{id:'breakout',t:'Breakout',e:'🧱',c:'Arcade',d:'Bounce the ball, smash bricks',f:'games/breakout.html'},
+{id:'dino',t:'Dino Run',e:'🦖',c:'Racing',d:'Jump the cacti, run forever',f:'games/dino.html'},
+{id:'shooter',t:'Space Shooter',e:'🚀',c:'Action',d:'Blast aliens, dodge bullets',f:'games/shooter.html'},
+{id:'match3',t:'Match-3 Candy',e:'🍬',c:'Puzzle',d:'Swap and match 3 in a row',f:'games/match3.html'},
+{id:'minesweeper',t:'Minesweeper',e:'💣',c:'Puzzle',d:'Find the mines, don\'t boom',f:'games/minesweeper.html'},
+{id:'tiles',t:'Piano Tiles',e:'🎹',c:'Arcade',d:'Tap only the black tiles',f:'games/tiles.html'}
+];
+const CATS=['All','Action','Puzzle','Racing','Arcade','Casual'];
+let cat='All',favOnly=false,current=null;
+const favs=new Set(JSON.parse(localStorage.getItem('instant_favs')||'[]'));
+let recent=JSON.parse(localStorage.getItem('instant_recent')||'[]');
+const pills=document.getElementById('pills'),grid=document.getElementById('grid');
+CATS.forEach(c=>{const b=document.createElement('button');b.textContent=c;b.className=c==='All'?'on':'';b.onclick=()=>{cat=c;document.querySelectorAll('#pills button').forEach(x=>x.classList.remove('on'));b.classList.add('on');render();};pills.appendChild(b);});
+function render(){
+  const q=(document.getElementById('q').value||'').toLowerCase();
+  grid.innerHTML='';
+  const list=GAMES.filter(g=>(cat==='All'||g.c===cat)&&(!favOnly||favs.has(g.id))&&(g.t.toLowerCase().includes(q)||g.d.toLowerCase().includes(q)||g.c.toLowerCase().includes(q)));
+  if(!list.length) grid.innerHTML='<p>No games match that search yet. Try another word.</p>';
+  list.forEach(g=>{
+    const d=document.createElement('div');d.className='card';
+    d.innerHTML='<button class="fav" title="Favorite">'+(favs.has(g.id)?'♥':'♡')+'</button><div class="em">'+g.e+'</div><h3>'+g.t+'</h3><p>'+g.d+'</p><span class="tag">'+g.c+'</span>'+(g.isNew?' <span class="tag new">NEW</span>':'');
+    d.querySelector('.fav').onclick=e=>{e.stopPropagation();if(favs.has(g.id))favs.delete(g.id);else favs.add(g.id);localStorage.setItem('instant_favs',JSON.stringify([...favs]));render();};
+    d.onclick=()=>play(g);
+    grid.appendChild(d);
+  });
+  const r=document.getElementById('recent');
+  r.innerHTML=recent.length?('Recently played: '+recent.map(id=>{const g=GAMES.find(x=>x.id===id);return g?'<b data-id="'+id+'">'+g.t+'</b>':'';}).filter(Boolean).join(' · ')):'';
+  r.querySelectorAll('b').forEach(b=>b.onclick=()=>{const g=GAMES.find(x=>x.id===b.dataset.id);if(g)play(g);});
+}
+function play(g){
+  current=g;
+  document.getElementById('player').style.display='block';
+  document.getElementById('ptitle').textContent='▶ Playing: '+g.t;
+  document.getElementById('frame').src=g.f;
+  document.getElementById('favBtn').textContent=(favs.has(g.id)?'♥ Saved':'♡ Save to favorites');
+  document.getElementById('shareMsg').textContent='';
+  recent=[g.id,...recent.filter(x=>x!==g.id)].slice(0,5);
+  localStorage.setItem('instant_recent',JSON.stringify(recent));
+  render();
+  document.getElementById('player').scrollIntoView({behavior:'smooth'});
+  history.replaceState(null,'','playhop.html?game='+g.id);
+}
+document.getElementById('q').oninput=render;
+document.getElementById('favFilter').onclick=e=>{favOnly=!favOnly;e.target.style.background=favOnly?'#facc15':'#1e293b';e.target.style.color=favOnly?'#111':'#fff';render();};
+document.getElementById('close').onclick=()=>{document.getElementById('player').style.display='none';document.getElementById('frame').src='about:blank';history.replaceState(null,'','playhop.html');};
+document.getElementById('full').onclick=()=>{const f=document.getElementById('frame');if(f.requestFullscreen)f.requestFullscreen();};
+document.getElementById('favBtn').onclick=()=>{if(!current)return;if(favs.has(current.id))favs.delete(current.id);else favs.add(current.id);localStorage.setItem('instant_favs',JSON.stringify([...favs]));document.getElementById('favBtn').textContent=(favs.has(current.id)?'♥ Saved':'♡ Save to favorites');render();};
+document.getElementById('share').onclick=async()=>{
+  const url=location.origin+location.pathname+'?game='+(current?current.id:'');
+  try{await navigator.clipboard.writeText(url);document.getElementById('shareMsg').textContent='Link copied! Share it with a friend.';}
+  catch(e){document.getElementById('shareMsg').textContent=url;}
+};
+render();
+const start=new URLSearchParams(location.search).get('game');
+if(start){const g=GAMES.find(x=>x.id===start);if(g)play(g);}
+</script></body></html>
