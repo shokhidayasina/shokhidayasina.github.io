@@ -3,17 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TikTok Videos — Real TikTok Scroll</title>
+<title>Kids Learning Scroll — ABC, Numbers, Animals & Words</title>
 <style>
 *{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#000;color:#fff;overflow:hidden}
-header{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;gap:8px;align-items:center;padding:12px 14px;background:linear-gradient(rgba(0,0,0,.7),transparent)}
+header{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;gap:8px;align-items:center;padding:12px 14px;background:linear-gradient(rgba(0,0,0,.75),transparent);flex-wrap:wrap}
 header b{font-size:18px}header a{color:#fff}
 .btn{border:0;border-radius:20px;padding:9px 14px;font-weight:700;cursor:pointer;background:#fff;color:#111}
-.btn.red{background:#fe2c55;color:#fff}
+.btn.red{background:#fe2c55;color:#fff}.btn.green{background:#22c55e;color:#fff}.btn.active{background:#ffd93d;color:#111}
+#kidChips{position:fixed;top:58px;left:0;right:0;z-index:19;display:flex;gap:8px;overflow-x:auto;padding:6px 14px;background:rgba(0,0,0,.45)}
+.chip{white-space:nowrap;border:0;border-radius:20px;padding:7px 13px;background:rgba(255,255,255,.9);font-weight:700;cursor:pointer}
+.chip.active{background:#ffd93d}
 #feed{height:100vh;overflow-y:auto;scroll-snap-type:y mandatory;scrollbar-width:none}
 #feed::-webkit-scrollbar{display:none}
-.slide{height:100vh;scroll-snap-align:start;scroll-snap-stop:always;position:relative;display:flex;align-items:center;justify-content:center;padding-top:50px}
+.slide{height:100vh;scroll-snap-align:start;scroll-snap-stop:always;position:relative;display:flex;align-items:center;justify-content:center;padding:90px 16px 60px}
 .slide iframe{width:325px;height:580px;max-width:92vw;max-height:78vh;border:0;border-radius:16px;background:#111}
+.kidCard{max-width:520px;width:100%;text-align:center;background:rgba(255,255,255,.96);color:#111;border-radius:28px;padding:26px 22px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.kidCard .emoji{font-size:90px;line-height:1}
+.kidCard img{width:100%;max-height:220px;object-fit:cover;border-radius:18px;margin:12px 0;display:none}
+.kidCard h2{font-size:34px;margin:8px 0 2px}.kidCard h3{font-size:24px;margin:2px 0;color:#e60023}
+.kidCard p{font-size:16px;line-height:1.5;color:#333}
+.quiz{background:#fff7cc;border-radius:14px;padding:12px;margin:12px 0}
+.quiz b{font-size:16px}
+.ans{display:none;margin-top:8px;font-size:18px;font-weight:800;color:#16a34a}
+.ans.show{display:block}
+.smallBtn{border:0;border-radius:20px;padding:10px 16px;font-weight:800;cursor:pointer;background:#111;color:#fff;margin:4px}
 .info{position:absolute;left:16px;right:90px;bottom:24px;text-shadow:0 1px 6px rgba(0,0,0,.9)}
 .info b{display:block;font-size:17px}.info small{opacity:.9}
 .actions{position:absolute;right:14px;bottom:150px;display:flex;flex-direction:column;gap:16px;align-items:center}
@@ -29,27 +42,29 @@ header b{font-size:18px}header a{color:#fff}
 .comment{border-bottom:1px solid #eee;padding:10px 0}.comment b{font-size:14px}.comment small{color:#888;margin-left:6px}.comment p{margin:4px 0 0}
 .cInput{display:flex;gap:8px;margin-top:10px}.cInput input{flex:1;padding:12px;border:1px solid #ddd;border-radius:22px}
 .close{float:right;border:0;background:#eee;border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:18px}
-@media(max-width:500px){.slide iframe{width:300px;height:540px}}
+@media(max-width:500px){.slide iframe{width:300px;height:540px}.kidCard .emoji{font-size:70px}}
 </style>
 </head>
 <body>
 <header>
-<b>🎵 TikTok Videos</b>
+<b id="pageTitle">🧒 Kids Learning</b>
+<button class="btn green active" id="kidsBtn" onclick="setMode('kids')">🧒 Kids Learning</button>
+<button class="btn" id="vidBtn" onclick="setMode('videos')">🎵 Creator Videos</button>
 <a href="pins.html"><button class="btn">← PinBoard</button></a>
-<a href="https://www.tiktok.com/@brookemonk_" target="_blank" rel="noopener"><button class="btn">@brookemonk_ on TikTok ↗</button></a>
-<button class="btn red" onclick="document.getElementById('addBox').classList.add('open')">＋ Add a TikTok video</button>
+<button class="btn red" id="addBtn" style="display:none" onclick="document.getElementById('addBox').classList.add('open')">＋ Add a TikTok video</button>
+<span id="learnedBadge" style="background:#ffd93d;color:#111;border-radius:20px;padding:8px 12px;font-weight:800">⭐ Learned: 0</span>
 </header>
+<div id="kidChips"></div>
 
 <div id="feed"></div>
-<div class="hint">⬆ Swipe / scroll up &amp; down • Tap 💬 to comment • Videos play in TikTok's own player</div>
+<div class="hint" id="hint">⬆ Scroll to learn! Tap 🔊 to hear it • Tap ⭐ when you learned it</div>
 
 <div id="addBox"><div class="box">
 <button class="close" onclick="document.getElementById('addBox').classList.remove('open')">×</button>
 <h2>Add any TikTok video</h2>
-<p style="color:#555;line-height:1.5">Paste a TikTok video link here — for example a Brooke Monk video, or any creator you like. It will be added to your scroll feed using TikTok's official player, with credit to the creator.</p>
+<p style="color:#555;line-height:1.5">Paste a TikTok video link here. It will be added to the Creator Videos feed using TikTok's official player, with credit to the creator.</p>
 <input id="ttUrl" placeholder="https://www.tiktok.com/@someone/video/123456789...">
 <button class="btn red" onclick="addVideo()">Add to feed →</button>
-<p style="color:#888;font-size:13px">Tip: on TikTok, tap Share → Copy link, then paste it here.</p>
 </div></div>
 
 <div id="comments">
@@ -68,34 +83,93 @@ const baseVideos=[
  {id:"6792726866529766661",creator:"@brookemonk_",title:"You guys really did that #foryou"},
  {id:"6944600097544064261",creator:"@brookemonk_",title:"I feel so special when moms say that…"},
 ];
-let myVideos=[], saved=[], comments={}, currentCommentId=null;
+const kidCats=["All","ABC","Numbers","Animals","Colors","Shapes","Science","Words"];
+const kids=[
+ {id:"kid-A",cat:"ABC",emoji:"🍎",en:"A — Apple",uz:"Olma",photo:"red apple fruit",fact:"Apples grow on trees. An apple a day keeps you healthy!",q:"What letter does Apple start with?",a:"A!"},
+ {id:"kid-B",cat:"ABC",emoji:"🍌",en:"B — Banana",uz:"Banan",photo:"banana fruit",fact:"Bananas are yellow, sweet, and give you energy!",q:"What color is a banana?",a:"Yellow! Sariq!"},
+ {id:"kid-C",cat:"ABC",emoji:"🐱",en:"C — Cat",uz:"Mushuk",photo:"cute cat kitten",fact:"Cats purr when they are happy. Cats can see in the dark!",q:"How do you say Cat in Uzbek?",a:"Mushuk!"},
+ {id:"kid-D",cat:"ABC",emoji:"🐶",en:"D — Dog",uz:"It",photo:"cute dog puppy",fact:"Dogs are loyal friends. A dog can learn many tricks!",q:"What letter does Dog start with?",a:"D!"},
+ {id:"kid-E",cat:"ABC",emoji:"🐘",en:"E — Elephant",uz:"Fil",photo:"elephant",fact:"Elephants are the biggest land animals. They never forget!",q:"What is the biggest land animal?",a:"Elephant! Fil!"},
+ {id:"kid-F",cat:"ABC",emoji:"🐟",en:"F — Fish",uz:"Baliq",photo:"colorful fish",fact:"Fish live in water and breathe with gills. Fish swim with fins!",q:"Where do fish live?",a:"In water! Suvda!"},
+ {id:"kid-1",cat:"Numbers",emoji:"1️⃣",en:"1 — One",uz:"Bir",photo:"one apple",fact:"One sun, one moon, one you! Count: 1!",q:"How many suns are in the sky?",a:"One! Bir!"},
+ {id:"kid-2",cat:"Numbers",emoji:"2️⃣",en:"2 — Two",uz:"Ikki",photo:"two cats",fact:"You have two eyes, two ears, and two hands!",q:"How many eyes do you have?",a:"Two! Ikki!"},
+ {id:"kid-3",cat:"Numbers",emoji:"3️⃣",en:"3 — Three",uz:"Uch",photo:"three puppies",fact:"Three is a magic number: 1, 2, 3!",q:"What comes after 2?",a:"Three! Uch!"},
+ {id:"kid-4",cat:"Numbers",emoji:"4️⃣",en:"4 — Four",uz:"To'rt",photo:"four seasons",fact:"A square has four sides. A year has four seasons!",q:"How many sides does a square have?",a:"Four! To'rt!"},
+ {id:"kid-5",cat:"Numbers",emoji:"5️⃣",en:"5 — Five",uz:"Besh",photo:"five fingers hand",fact:"You have five fingers on each hand. Count them: 1, 2, 3, 4, 5!",q:"How many fingers on one hand?",a:"Five! Besh!"},
+ {id:"kid-lion",cat:"Animals",emoji:"🦁",en:"Lion",uz:"Sher",photo:"lion animal",fact:"A lion is called the king of animals. Lions live in Africa!",q:"Who is called the king of animals?",a:"Lion! Sher!"},
+ {id:"kid-panda",cat:"Animals",emoji:"🐼",en:"Panda",uz:"Panda",photo:"giant panda",fact:"Pandas love bamboo. They eat bamboo almost all day!",q:"What do pandas love to eat?",a:"Bamboo!"},
+ {id:"kid-penguin",cat:"Animals",emoji:"🐧",en:"Penguin",uz:"Pingvin",photo:"penguin",fact:"Penguins cannot fly, but they swim very well in cold water!",q:"Can penguins fly?",a:"No — but they swim very well!"},
+ {id:"kid-tiger",cat:"Animals",emoji:"🐯",en:"Tiger",uz:"Yo'lbars",photo:"tiger",fact:"Tigers have orange fur with black stripes. Every tiger's stripes are different!",q:"What color is a tiger?",a:"Orange with black stripes!"},
+ {id:"kid-rabbit",cat:"Animals",emoji:"🐰",en:"Rabbit",uz:"Quyon",photo:"cute rabbit bunny",fact:"Rabbits have long ears and love carrots. They hop, hop, hop!",q:"What do rabbits love to eat?",a:"Carrots! Sabzi!"},
+ {id:"kid-red",cat:"Colors",emoji:"🔴",en:"Red",uz:"Qizil",photo:"red strawberry",fact:"Red like a strawberry, an apple, and a fire truck!",q:"Name one red fruit.",a:"Strawberry or apple!"},
+ {id:"kid-blue",cat:"Colors",emoji:"🔵",en:"Blue",uz:"Ko'k",photo:"blue sky ocean",fact:"Blue like the sky and the ocean. Look up — the sky is blue!",q:"What color is the sky?",a:"Blue! Ko'k!"},
+ {id:"kid-yellow",cat:"Colors",emoji:"🟡",en:"Yellow",uz:"Sariq",photo:"yellow sun flower",fact:"Yellow like the sun and a banana. Yellow is bright and happy!",q:"What color is the sun?",a:"Yellow! Sariq!"},
+ {id:"kid-green",cat:"Colors",emoji:"🟢",en:"Green",uz:"Yashil",photo:"green leaves forest",fact:"Green like leaves, grass, and trees. Plants are green!",q:"What color are leaves?",a:"Green! Yashil!"},
+ {id:"kid-circle",cat:"Shapes",emoji:"⭕",en:"Circle",uz:"Doira",photo:"circle wheel",fact:"A circle is round, like a wheel, a ball, and the sun!",q:"What shape is a ball?",a:"Circle! Doira!"},
+ {id:"kid-triangle",cat:"Shapes",emoji:"🔺",en:"Triangle",uz:"Uchburchak",photo:"triangle pyramid",fact:"A triangle has three sides. A pyramid looks like a triangle!",q:"How many sides does a triangle have?",a:"Three! Uchta!"},
+ {id:"kid-square",cat:"Shapes",emoji:"🟦",en:"Square",uz:"Kvadrat",photo:"square window",fact:"A square has four equal sides. A window can be a square!",q:"How many equal sides does a square have?",a:"Four!"},
+ {id:"kid-star",cat:"Shapes",emoji:"⭐",en:"Star",uz:"Yulduz",photo:"stars night sky",fact:"Stars shine at night. You can see stars in a dark sky!",q:"When do stars shine?",a:"At night! Kechasi!"},
+ {id:"kid-sun",cat:"Science",emoji:"☀️",en:"Sun",uz:"Quyosh",photo:"sun sunrise",fact:"The Sun gives us light and warmth. Without the Sun, plants could not grow!",q:"What gives us light in the day?",a:"The Sun! Quyosh!"},
+ {id:"kid-moon",cat:"Science",emoji:"🌙",en:"Moon",uz:"Oy",photo:"moon night",fact:"The Moon shines at night. It goes around the Earth!",q:"What shines at night in the sky?",a:"The Moon! Oy!"},
+ {id:"kid-earth",cat:"Science",emoji:"🌍",en:"Earth",uz:"Yer",photo:"planet earth space",fact:"Earth is our home planet. It is mostly covered by water!",q:"What planet do we live on?",a:"Earth! Yer!"},
+ {id:"kid-rainbow",cat:"Science",emoji:"🌈",en:"Rainbow",uz:"Kamalak",photo:"rainbow sky",fact:"A rainbow appears after rain when the sun shines. It has many colors!",q:"When does a rainbow appear?",a:"After rain, in sunshine!"},
+ {id:"kid-hello",cat:"Words",emoji:"👋",en:"Hello",uz:"Salom",photo:"children waving hello",fact:"Say Hello when you meet a friend. In Uzbek: Salom!",q:"How do you say Hello in Uzbek?",a:"Salom!"},
+ {id:"kid-thanks",cat:"Words",emoji:"🙏",en:"Thank you",uz:"Rahmat",photo:"thank you flowers",fact:"Say Thank you when someone helps you. In Uzbek: Rahmat!",q:"How do you say Thank you in Uzbek?",a:"Rahmat!"},
+ {id:"kid-morning",cat:"Words",emoji:"🌅",en:"Good morning",uz:"Xayrli tong",photo:"morning sunrise",fact:"Good morning means a good start to the day!",q:"How do you say Good morning in Uzbek?",a:"Xayrli tong!"},
+ {id:"kid-friend",cat:"Words",emoji:"🤝",en:"Friend",uz:"Do'st",photo:"children friends playing",fact:"A friend is someone who plays with you and helps you!",q:"How do you say Friend in Uzbek?",a:"Do'st!"},
+];
+const gradients={ABC:"linear-gradient(135deg,#ff9a9e,#fecfef)",Numbers:"linear-gradient(135deg,#a1c4fd,#c2e9fb)",Animals:"linear-gradient(135deg,#ffecd2,#fcb69f)",Colors:"linear-gradient(135deg,#fbc2eb,#a6c1ee)",Shapes:"linear-gradient(135deg,#f6d365,#fda085)",Science:"linear-gradient(135deg,#a8edea,#fed6e3)",Words:"linear-gradient(135deg,#d4fc79,#96e6a1)"};
+let mode="kids", kidCat="All", myVideos=[], saved=[], comments={}, currentCommentId=null, learned=new Set();
 try{myVideos=JSON.parse(localStorage.getItem("tiktok_my_videos")||"[]")}catch(e){}
 try{saved=JSON.parse(localStorage.getItem("tiktok_saved")||"[]")}catch(e){}
 try{comments=JSON.parse(localStorage.getItem("tiktok_comments")||"{}")}catch(e){}
+try{learned=new Set(JSON.parse(localStorage.getItem("kids_learned")||"[]"))}catch(e){}
 function esc(s){return String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-function allVideos(){return [...myVideos,...baseVideos]}
 function commentCount(id){return (comments[id]||[]).length}
 function commentHTML(id){let l=comments[id]||[];if(!l.length)return "<p style='color:#888'>No comments yet. Be the first! 💬</p>";return l.map(c=>`<div class="comment"><b>${esc(c.name)}</b><small>${esc(c.time)}</small><p>${esc(c.text)}</p></div>`).join("")}
+function updateLearnedBadge(){document.getElementById("learnedBadge").textContent="⭐ Learned: "+learned.size+" / "+kids.length}
+function speak(text){try{let u=new SpeechSynthesisUtterance(text);u.lang="en-US";speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
+function setMode(m){mode=m;document.getElementById("kidsBtn").classList.toggle("active",m==="kids");document.getElementById("vidBtn").classList.toggle("active",m==="videos");document.getElementById("pageTitle").textContent=m==="kids"?"🧒 Kids Learning":"🎵 Creator Videos";document.getElementById("kidChips").style.display=m==="kids"?"flex":"none";document.getElementById("addBtn").style.display=m==="videos"?"inline-block":"none";document.getElementById("hint").textContent=m==="kids"?"⬆ Scroll to learn! Tap 🔊 to hear it • Tap ⭐ when you learned it":"⬆ Swipe / scroll up & down • Tap 💬 to comment • Videos play in TikTok's own player";render()}
+function setKidCat(c){kidCat=c;renderKidChips();render()}
+function renderKidChips(){document.getElementById("kidChips").innerHTML=kidCats.map(c=>`<button class="chip ${c===kidCat?'active':''}" onclick="setKidCat('${c}')">${c}</button>`).join("")}
+function filteredKids(){return kidCat==="All"?kids:kids.filter(k=>k.cat===kidCat)}
 function render(){
-  document.getElementById("feed").innerHTML=allVideos().map(v=>`<div class="slide"><iframe src="https://www.tiktok.com/embed/v2/${v.id}" allowfullscreen scrolling="no" allow="encrypted-media; picture-in-picture"></iframe><div class="info"><b>${esc(v.title)}</b><small>${esc(v.creator)} • Watch on TikTok ↗</small><br><small>Scroll for the next video ⬆⬇</small></div><div class="actions"><button class="act" onclick="this.style.background='#fe2c55';this.style.transform='scale(1.15)';setTimeout(()=>this.style.transform='',200)">❤️<span>Like</span></button><button class="act" onclick="openComments('${v.id}')">💬<span>${commentCount(v.id)}</span></button><button class="act" onclick="toggleSave('${v.id}')">🔖<span>${saved.includes(v.id)?"Saved":"Save"}</span></button><a href="https://www.tiktok.com/${v.creator}/video/${v.id}" target="_blank" rel="noopener"><button class="act">↗<span>TikTok</span></button></a></div></div>`).join("");
+  if(mode==="videos"){
+    document.getElementById("feed").innerHTML=[...myVideos,...baseVideos].map(v=>`<div class="slide"><iframe src="https://www.tiktok.com/embed/v2/${v.id}" allowfullscreen scrolling="no" allow="encrypted-media; picture-in-picture"></iframe><div class="info"><b>${esc(v.title)}</b><small>${esc(v.creator)} • Watch on TikTok ↗</small><br><small>Scroll for the next video ⬆⬇</small></div><div class="actions"><button class="act" onclick="this.style.background='#fe2c55'">❤️<span>Like</span></button><button class="act" onclick="openComments('${v.id}')">💬<span>${commentCount(v.id)}</span></button><button class="act" onclick="toggleSave('${v.id}')">🔖<span>${saved.includes(v.id)?"Saved":"Save"}</span></button><a href="https://www.tiktok.com/${v.creator}/video/${v.id}" target="_blank" rel="noopener"><button class="act">↗<span>TikTok</span></button></a></div></div>`).join("");
+  } else {
+    let list=filteredKids();
+    let intro=`<div class="slide" style="background:linear-gradient(135deg,#667eea,#764ba2)"><div class="kidCard"><div class="emoji">🎓</div><h2>Welcome, little learner!</h2><h3>Salom, kichik o'quvchi!</h3><p>Scroll up and down to learn ABC, numbers, animals, colors, shapes, science, and English–Uzbek words. Tap 🔊 to hear the word, answer the quiz, and tap ⭐ when you learned it!</p><p><b>${kids.length} fun lessons</b> • Safe, no ads, just learning 🌟</p></div></div>`;
+    document.getElementById("feed").innerHTML=intro+list.map(k=>`<div class="slide" style="background:${gradients[k.cat]||'#667eea'}"><div class="kidCard"><div class="emoji">${k.emoji}</div><img data-kid="${k.id}" alt=""><h2>${esc(k.en)}</h2><h3>${esc(k.uz)}</h3><p>${esc(k.fact)}</p><div class="quiz"><b>❓ ${esc(k.q)}</b><div class="ans" id="ans-${k.id}">${esc(k.a)}</div><br><button class="smallBtn" onclick="document.getElementById('ans-${k.id}').classList.toggle('show')">Show answer</button></div><button class="smallBtn" onclick="speak('${esc(k.en)}')">🔊 Hear it</button><button class="smallBtn" style="background:${learned.has(k.id)?'#22c55e':'#111'}" onclick="markLearned('${k.id}',this)">${learned.has(k.id)?'⭐ Learned!':'⭐ I learned it!'}</button><button class="smallBtn" onclick="openComments('${k.id}')">💬 ${commentCount(k.id)}</button></div><div class="actions"><button class="act" onclick="openComments('${k.id}')">💬<span>${commentCount(k.id)}</span></button></div></div>`).join("");
+    document.getElementById("feed").scrollTop=0;
+    loadKidPhotos(list);
+  }
+  updateLearnedBadge();
 }
-function toggleSave(id){if(saved.includes(id))saved=saved.filter(x=>x!==id);else saved.push(id);localStorage.setItem("tiktok_saved",JSON.stringify(saved));render()}
+function markLearned(id,btn){learned.add(id);localStorage.setItem("kids_learned",JSON.stringify([...learned]));btn.textContent="⭐ Learned!";btn.style.background="#22c55e";updateLearnedBadge()}
+async function loadKidPhotos(list){
+  for(let k of list){
+    try{
+      let r=await fetch(`https://api.openverse.org/v1/images/?q=${encodeURIComponent(k.photo)}&page_size=1`);
+      if(!r.ok) continue; let j=await r.json(); if(!j.results||!j.results[0]) continue;
+      let img=document.querySelector(`img[data-kid="${k.id}"]`); if(img){img.src=j.results[0].url; img.style.display="block"; img.referrerPolicy="no-referrer"}
+    }catch(e){}
+  }
+}
+function toggleSave(id){if(saved.includes(id))saved=saved.filter(x=>x!==id);else saved.push(id);localStorage.setItem("tiktok_saved",JSON.stringify(saved));if(mode==="videos")render()}
 function openComments(id){currentCommentId=id;document.getElementById("commentList").innerHTML=commentHTML(id);document.getElementById("comments").classList.add("open")}
 function closeComments(){document.getElementById("comments").classList.remove("open");currentCommentId=null}
-function postComment(){let t=document.getElementById("commentInput").value.trim();if(!t||!currentCommentId)return;if(!comments[currentCommentId])comments[currentCommentId]=[];comments[currentCommentId].push({name:"You",text:t,time:new Date().toLocaleString()});localStorage.setItem("tiktok_comments",JSON.stringify(comments));document.getElementById("commentInput").value="";document.getElementById("commentList").innerHTML=commentHTML(currentCommentId);render()}
+function postComment(){let t=document.getElementById("commentInput").value.trim();if(!t||!currentCommentId)return;if(!comments[currentCommentId])comments[currentCommentId]=[];comments[currentCommentId].push({name:"You",text:t,time:new Date().toLocaleString()});localStorage.setItem("tiktok_comments",JSON.stringify(comments));document.getElementById("commentInput").value="";document.getElementById("commentList").innerHTML=commentHTML(currentCommentId)}
 function addVideo(){
   let url=document.getElementById("ttUrl").value.trim();
-  let full=url.match(/@([^\/\?]+)\/video\/(\d+)/);
-  let bare=url.match(/video\/(\d+)/);
-  if(!bare){alert("That doesn't look like a TikTok video link. Copy a link like https://www.tiktok.com/@someone/video/123...");return}
+  let full=url.match(/@([^\/\?]+)\/video\/(\d+)/); let bare=url.match(/video\/(\d+)/);
+  if(!bare){alert("That doesn't look like a TikTok video link.");return}
   let id=bare[1];let creator=full?"@"+full[1]:"@tiktok";
   myVideos.unshift({id:id,creator:creator,title:"TikTok video by "+creator});
   localStorage.setItem("tiktok_my_videos",JSON.stringify(myVideos));
-  document.getElementById("addBox").classList.remove("open");document.getElementById("ttUrl").value="";
-  render();document.getElementById("feed").scrollTop=0;
+  document.getElementById("addBox").classList.remove("open");document.getElementById("ttUrl").value="";render();document.getElementById("feed").scrollTop=0;
 }
 document.addEventListener("keydown",e=>{let f=document.getElementById("feed");if(e.key==="ArrowDown")f.scrollBy({top:window.innerHeight,behavior:"smooth"});if(e.key==="ArrowUp")f.scrollBy({top:-window.innerHeight,behavior:"smooth"})});
-render();
+renderKidChips();setMode("kids");
 </script>
 </body>
 </html>
